@@ -5,8 +5,36 @@ sites/*/files
 sites/*/private
 files/*
 sites/*/settings.local.php
-html
-html/*
+
+# Root folders.
+core
+core/*
+drush
+drush/*
+modules
+modules/*
+profiles
+profiles/*
+sites
+sites/*
+themes
+themes/*
+vendor
+vendor/*
+
+# Root files.
+web.config
+update.php
+robots.txt
+README.txt
+pantheon.yml
+pantheon.upstream.yml
+INSTALL.txt
+index.php
+example.gitignore
+composer.lock
+composer.json
+autoload.php
 
 # Avoid accidental modification of pantheon.upstream.yml in sites
 # created from this upstream
