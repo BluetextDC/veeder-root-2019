@@ -115,7 +115,7 @@
 }
 
 /* ----- 3. Medium devices ≤767 ----- */
-@media (max-width:767px) {    
+@media (max-device-width:812px) and (max-device-height: 896px){    
     .hamburger:not(.close){display: block; position: relative;}
     .h1, h1{font-size: 35px;}
     .h2, h2{font-size: 32px;}
@@ -164,7 +164,7 @@
     .product-list{padding: 0;}
     .inp-box.half-box{width: 100%;}
     .small-container{max-width: calc(460px + 100px);}
-    
+
 }
 /* ----- 5. X-Small devices ≤480 ----- */
 @media (max-width:480px) {
@@ -197,3 +197,20 @@
     #mobilenav .is-open > .caret{top: 3px;}
     #mobilenav li li li a{padding-left: 40px; font-size: 14px;}
 }
+
+/* iPhone X ----------- */
+@media (min-device-width: 375px)
+    and (max-device-height: 812px)
+    and (orientation : landscape)
+    and (-webkit-device-pixel-ratio: 3){
+        .large-heading h2{font-size: 60px;}
+}
+
+/* iPhone XS Max, XR ----------- */
+@media (min-device-width: 414px)
+    and (max-device-height: 896px)
+    and (orientation : landscape)
+    and (-webkit-device-pixel-ratio: 3){
+
+}
+
