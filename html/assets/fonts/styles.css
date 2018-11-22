@@ -53,15 +53,12 @@
 .ic-play-icon:before {
   content: "\65";
 }
-.ic-spoon:before {
-  content: "\67";
-}
-.ic-map-marker:before {
+.ic-twitter:before {
   content: "\66";
 }
-.ic-adjust:before {
-  content: "\68";
+.ic-facebook:before {
+  content: "\67";
 }
-.ic-arrow-circle-o-right:before {
-  content: "\69";
+.ic-linkedin:before {
+  content: "\68";
 }

@@ -15,7 +15,7 @@ $(document).ready(function(){
         if (evt.keyCode == 27) {
             $('.hamburger.is-active').removeClass('is-active');
             $('#mobilenav.is-show').removeClass('is-show');
-            $('.main-header').find('.search-bar').slideUp(); 
+            $('.main-header').find('.search-bar').slideUp().removeClass('open'); 
         }
     });
 
@@ -59,7 +59,7 @@ $(document).ready(function(){
             $(this).addClass('active');       
         }      
     });     
-    $('.language-dropdown .select-list span').on('click', function()                                              {          
+    $('.language-dropdown .select-list span').on('click', function(){          
         var dd_text = $(this).text();  
         var dd_img = $(this).css('background-image'); 
         var dd_val = $(this).attr('value');   
@@ -69,19 +69,26 @@ $(document).ready(function(){
         $('.language-dropdown select[name=options]').val( dd_val ); 
         $('.language-dropdown .select-list').slideUp();     
     });       
-    $('.language-dropdown .dropdown-button').on('click','a.select-list-link', function()                                    {      
+    $('.language-dropdown .dropdown-button').on('click','a.select-list-link', function(){      
         $('.language-dropdown .select-list').slideToggle();  
     });     
-    var cal_tooltip_tpl =  $('.language-dropdown .dropdown-button,.search-part');
-    $(document).on('click touchstart','body , html',function(e){
+    var div_tooltip_tpl =  $('.language-dropdown .dropdown-button,.search-part');
+    $(document).on('click','body , html',function(e){
         if (
-            (cal_tooltip_tpl[0] != e.target) &&
-            (!cal_tooltip_tpl.has(e.target).length)
+            (div_tooltip_tpl[0] != e.target) &&
+            (!div_tooltip_tpl.has(e.target).length)
         )
         { $('.language-dropdown .select-list').slideUp(); 
-        $('.main-header').find('.search-bar').slideUp(); }
+         $('.main-header').find('.search-bar').slideUp().removeClass('open'); }
     });
-    /* End */ 
+    //    $(document).on('click','body , html',function(e){
+    //        /*console.log('out')*/
+    //    });
+    $(".search-bar").click(function(event) {
+        /*console.log('in')*/
+        event.stopPropagation();
+    });
+    /* End */     
 
     /* side bar */
     var hh = $('.main-header').outerHeight();    
@@ -100,9 +107,20 @@ $(document).ready(function(){
     $('#mobilenav').css('max-height', $(window).height() - hs);
     /* open search bar */
     $('.search-part i').click(function(){
-       $(this).parents('.main-header').find('.search-bar').slideToggle(); 
+        $(this).parents('.main-header').find('.search-bar').stop().slideToggle().toggleClass('open'); 
     });
-
+    /* load more */
+    $('.product-list .item').slice(4,$('.product-list .item').length).addClass('hide');
+    $('.product-list .loadmore').click(function(e){
+        e.preventDefault();
+        var that =$(this),
+            hideCardI = that.parents('.product-list').find('.hide').index();
+        that.parents('.product-list').find('.item').slice(hideCardI,hideCardI+2).removeClass('hide');
+    });
+    
+    /*$(".testimonial-section .slick-dots").wrap("<div class=\"custom-dots-wrap\"></div>");
+    $('.testimonial-section .slick-next').appendTo('.custom-dots-wrap');
+    $('.testimonial-section .slick-prev').prependTo('.custom-dots-wrap');*/
 });
 
 /* Script on load
@@ -123,7 +141,7 @@ $(window).scroll(function() {
     }else{        
         $('.hero-section .side-bar').css('padding-right',0);
     }*/
-    
+
     if ($(this).scrollTop() >= 10) {
         $("header.main-header").addClass("header-sticky");    
 
@@ -141,14 +159,13 @@ $(window).resize(function() {
         var hs = $('header.main-header').outerHeight();
         $('.header-space').css('height',hs);      
         $('#mobilenav').css('max-height', $(window).height() - hs);              
-    },0);
-    
+    },250);
+
     if($(window).width() >= 768){          
         $('.hamburger').removeClass('open');
         $('#mobilenav').slideUp();
         $('#mobilenav').removeClass('is-open');
     }else{
-
     }
 });
 
