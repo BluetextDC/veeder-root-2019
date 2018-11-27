@@ -5,16 +5,24 @@ package: Custom
 version: VERSION
 core: 8.x
 
+libraries:
+  - veender/fonts
+  - veender/global_style
+  - veender/theme_js
+  - veender/fancybox
+
 regions:
-  header: Header
+  header_logo: 'Header Logo'
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'
+  search_bar: 'Search Bar'
   page_top: 'Page top'
   page_bottom: 'Page bottom'
   highlighted: Highlighted
-  featured_top: 'Featured top'
   breadcrumb: Breadcrumb
   content: Content
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
   footer: Footer

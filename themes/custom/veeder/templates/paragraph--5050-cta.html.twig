@@ -1,0 +1,105 @@
+
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   - id: The paragraph ID.
+ *   - bundle: The type of the paragraph, for example, "image" or "text".
+ *   - authorid: The user ID of the paragraph author.
+ *   - createdtime: Formatted creation date. Preprocess functions can
+ *     reformat it by calling format_date() with the desired parameters on
+ *     $variables['paragraph']->getCreatedTime().
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set classes = [
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
+  ]
+%}
+{% if content.field_5050_cta_vimeo_player.0["#markup"] == 1 %}
+  {% set classes = classes|merge(['text-video-sec', 'space-medium']) %}
+{% else %}
+  {% set classes = classes|merge(['text-img-sec', 'space-medium']) %} 
+{% endif %}
+  
+{% block paragraph %}
+  <section{{ attributes.addClass(classes) }}>
+  {% block content %}
+    <div class="container">
+      <div class="row align-items-center">
+        {% if content.field_5050_cta_text_first.0["#markup"] == 1 %}
+          <div class="featured-info col-md-6">
+            <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_cta_callout.0 }}</div>
+            <h3>{{ content.field_5050_cta_heading.0 }}</h3>
+            <p>{{ content.field_5050_cta_description.0 }}</p>
+            {% if paragraph.field_5050_cta.0.title is not null %}
+              <a href="{{ paragraph.field_5050_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_cta.0.title }}</a>
+            {% endif %}
+          </div>
+          <div class="img-and-title col-md-6">
+            <!-- <div class="large-heading">
+              <h2>{{ content.field_5050_cta_callout.0 }}</h2>
+            </div> -->
+            <figure>
+              {{ content.field_5050_image.0 }}
+            </figure>
+          </div>
+        {% else %}
+          <div class="{% if content.field_5050_cta_vimeo_player.0['#markup'] == 1 %}video-part {% else %}img-and-title  {% endif %}col-md-6">
+            {% if content.field_5050_cta_vimeo_player.0["#markup"] == 1 %}
+              <div class="inner-wrap">
+                <a href="{{ paragraph.field_5050_vimeo_url.0.value }}" data-fancybox class="c-video" style="background: url({{ file_url(paragraph.field_5050_image.entity.uri.value) }}) no-repeat center / cover">
+                  <span class="play-icon ic-play-icon"></span>
+                </a>
+              </div>
+            {% else %}
+              <!-- <div class="large-heading">
+                <h2>{{ content.field_5050_cta_callout.0 }}</h2>
+              </div> -->
+              <figure>
+                {{ content.field_5050_image.0 }}
+              </figure>
+            {% endif %}
+          </div>
+          <div class="featured-info col-md-6">
+            <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_cta_callout.0 }}</div>
+            <h3>{{ content.field_5050_cta_heading.0 }}</h3>
+            <p>{{ content.field_5050_cta_description.0 }}</p>
+            {% if paragraph.field_5050_cta.0.title is not null %}
+              <a href="{{ paragraph.field_5050_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_cta.0.title }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endblock %}
+  </section>
+{% endblock paragraph %}
