@@ -5,36 +5,8 @@ sites/*/files
 sites/*/private
 files/*
 sites/*/settings.local.php
-
-# Root folders.
-core
-core/*
-drush
-drush/*
-modules
-modules/*
-profiles
-profiles/*
-sites
-sites/*
-themes
-themes/*
-vendor
-vendor/*
-
-# Root files.
-web.config
-update.php
-robots.txt
-README.txt
-pantheon.yml
-pantheon.upstream.yml
-INSTALL.txt
-index.php
-example.gitignore
-composer.lock
-composer.json
-autoload.php
+sites/*/services.yml
+sites/*/development.services.yml
 
 # Avoid accidental modification of pantheon.upstream.yml in sites
 # created from this upstream
@@ -93,4 +65,3 @@ Thumbs.db
 
 # Things in the core directory that Drupal 8 commits in the repository.
 !core/**/*.gz
-

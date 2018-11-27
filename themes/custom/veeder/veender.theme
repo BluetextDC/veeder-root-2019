@@ -136,7 +136,6 @@ function veender_preprocess_block(&$variables) {
   if ($variables['plugin_id'] == 'system_menu_block:footer') {
     $variables['attributes']['class'][] = 'footer-link';
   }
-  //system_menu_block:footer-menu , block_content:33ea16c5-2831-4144-ba5e-8c3324227404 , system_menu_block:footer
 }
 
 
