@@ -1,3 +1,11 @@
+# basic password protection
+<Directory /srv/bindings/2bf028ab8a0948a7a7ca9626d1882dbc/code>
+  AuthType Basic
+  AuthName "Veeder Root Password Protected Area"
+  AuthUserFile /srv/bindings/2bf028ab8a0948a7a7ca9626d1882dbc/code/.htpasswd
+  Require valid-user
+</Directory>
+
 #
 # Apache/PHP/Drupal settings:
 #
