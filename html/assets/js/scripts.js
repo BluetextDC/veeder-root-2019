@@ -3,11 +3,12 @@ var $ = jQuery.noConflict();
 /* Script on ready
 ------------------------------------------------------------------------------*/
 $(document).ready(function(){
-    /* Responsive Jquery Navigation */
+    /* Responsive Jquery Navigation */    
     $('.hamburger').click(function(event){        
         $(this).toggleClass('open');
         $('#mobilenav').slideToggle();
         $('#mobilenav').toggleClass('is-open');
+        $('.overlay').toggleClass('open');
     });
     $('body').on('keyup',function(evt) {
         if (evt.keyCode == 27) {
@@ -16,7 +17,14 @@ $(document).ready(function(){
             $('.main-header').find('.search-bar').slideUp().removeClass('open'); 
             $('.sidebar-wrap').removeClass('is-open'); 
             $('body').removeClass('scroll-hidden');
+            $('.overlay').removeClass('open');
         }
+    });
+    $('.overlay').click(function(){
+        $('.hamburger').removeClass ('open');
+        $('#mobilenav').slideUp();
+        $('#mobilenav').removeClass('is-open');
+        $('.overlay').removeClass('open');
     });
 
     var clickable = $('#menu').attr('link-clickable');
@@ -45,30 +53,9 @@ $(document).ready(function(){
             element.siblings('li').find('ul').slideUp(200);
         }
     });    
+    $('.navigation .main-nav nav > ul:first-of-type > li > a').contents().wrap('<span/>');
 
-    /* Custom select design */    
-    $('.language-dropdown').append('<div class="dropdown-button"></div>');  
-    $('.language-dropdown').append('<ul class="select-list"></ul>');    
-    $('.language-dropdown select option').each(function() {  
-        var bg = $(this).css('background-image');    
-        $('.select-list').append('<li class="clsAnchor"><span value="' + $(this).val() + '" class="' + $(this).attr('class') + '" style=background-image:' + bg + '></span>' + $(this).text() + '</li>');   
-    });    
-    $('.language-dropdown .dropdown-button').html('<span style=background-image:' + $('.language-dropdown select').find(':selected').css('background-image') + '></span>' + '<a href="javascript:void(0);" class="icon ic-chevron-down select-list-link"></a>');   
-    $('.language-dropdown ul li').each(function() {   
-        if ($(this).find('span').text() == $('.language-dropdown select').find(':selected').text()) {  
-            $(this).addClass('active');       
-        }      
-    });     
-    $('.language-dropdown .select-list li').on('click', function(){          
-        var dd_text = $(this).text();  
-        var dd_img = $(this).find('span').css('background-image'); 
-        var dd_val = $(this).find('span').attr('value');   
-        $('.language-dropdown .dropdown-button').html('<span style=background-image:' + dd_img + '></span>' + dd_text + '<a href="javascript:void(0);" class="select-list-link icon ic-chevron-down"></a>');      
-        $('.language-dropdown .select-list span').parent().removeClass('active');    
-        $(this).addClass('active');     
-        $('.language-dropdown select[name=options]').val( dd_val ); 
-        $('.language-dropdown .select-list').slideUp();     
-    });       
+    /* location click */ 
     $('.language-dropdown .dropdown-button').on('click', function(){      
         $('.main-header').find('.search-part').removeClass('open');
         $('.main-header').find('.search-bar').slideUp().removeClass('open');
@@ -105,7 +92,7 @@ $(document).ready(function(){
         $(this).parents('.sidebar-wrap').stop().toggleClass('is-open');
         $('body').stop().toggleClass('scroll-hidden');
     });
-    
+
     /* header-space */
     var hs = $('header.main-header').outerHeight();
     $('.header-space').css('height',hs);
@@ -132,7 +119,7 @@ $(document).ready(function(){
 /* Script on load
 ------------------------------------------------------------------------------*/
 $(window).load(function() {
-     /* header-space */
+    /* header-space */
     var hs = $('header.main-header').outerHeight();
     $('.header-space').css('height',hs);
     $('#mobilenav').css('max-height', $(window).height() - hs);
@@ -178,8 +165,8 @@ $(window).resize(function() {
     }
 });
 
-/* Script all functions
-------------------------------------------------------------------------------*/
+    /* Script all functions
+    ------------------------------------------------------------------------------*/
 $(function() {
     $('.about-sec .about-block-wrap p,.product-list figure').matchHeight({
         byRow: true,

@@ -26,6 +26,7 @@ slick:
 theme_js:
   js:
     js/jquery.matchHeight.js: {}
+    js/html5shiv.js: {}
     js/scripts.js: {}
   dependencies:
     - core/jquery
@@ -34,9 +35,9 @@ theme_js:
 fancybox:
   css:
     theme:
-      css/jquery.fancybox.min: {}
+      css/jquery.fancybox.min.css: {}
   js:
-    js/jquery.fancybox.min: {}
+    js/jquery.fancybox.min.js: {}
   dependencies:
     - core/jquery
     - core/jquery

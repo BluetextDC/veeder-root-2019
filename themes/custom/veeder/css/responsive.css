@@ -14,7 +14,7 @@
     .side-bar a{font-size: 16px;}
     .navigation .main-nav nav ul{margin-left: 0;}
     .navigation .main-nav nav > ul > li{margin-right: 10px;}
-    .navigation .main-nav .search-part{margin-left: 20px;}
+    .navigation .main-nav .search-part{}
     .main-footer .footer-right{padding-left: 3%;padding-right: 10px;}
     .footer-right .single-link{padding-right: 30px;}
     .page-sub-nav ul li{font-size: 12px;margin: 0 1%;}
@@ -25,6 +25,8 @@
     .inner-banner .banner-caption.img-title-cap .cap-img img{max-height: 100%;}
     .small-inner-banner .banner-caption{padding-left: 50px;}
     .full-img-text-sec .text-part{padding-right: 50px;}
+    .dist-locat-sec .heading-txt{margin-bottom: 20px;}
+    .dist-locat-sec textarea{height: 130px;}
     
 }
 
@@ -39,7 +41,8 @@
     .language-dropdown .dropdown-button .icon{margin: 0 0 0 10px;}
     .language-dropdown .dropdown-button > span{font-size: 23px;}
     .navigation .main-nav .selection-link{padding-top: 12px;}
-    .navigation .main-nav .search-part{margin-left: 10px;}
+    .navigation .main-nav .search-part{width: 50px;}
+    .language-dropdown{width: 50px;}
     nav .drop-down .list-wrapper{padding: 30px 25px;}
     nav .drop-down{max-width: 600px;}
     nav .drop-down h6{font-size: 14px;}
@@ -74,6 +77,10 @@
     .full-video-sec .title-desc{padding: 30px 40px;}
     .banner-caption h1{font-size: 31px;}
     .featured-blog .text-part{padding: 0 0 0 40px;}
+    .dist-locat-sec .heading-txt h3{font-size: 20px;}
+    .dist-locat-sec .find-near-u{padding-left: 3%;}
+    .dist-locat-sec .get-quote-form{padding-right: 3%;}
+    .get-quote-form .inp-box{margin-bottom: 20px;}
 }
 
 /* ----- 2. Tablet ≥768 and ≤1023 ----- */
@@ -87,10 +94,11 @@
     .container{padding-left: 40px;padding-right: 40px;}
     .about-sec > .container{padding-left: 40px;padding-right: 40px;}
     .main-header .container{padding-left: 20px;padding-right: 20px;}
-    .main-header .brand{width: 170px;}
+    .main-header .brand{width: 130px;}
     .navigation .main-nav nav > ul > li{margin-right: 0;font-size: 12px;}
     .navigation .main-nav nav > ul > li > a{padding: 12px 12px 26px;}
-    .navigation .main-nav .search-part{margin-left: 5px;}
+    .navigation .main-nav .search-part{margin-left: 0px;width: 45px;}
+    .language-dropdown{width: 45px;}
     .main-header .language-dropdown .dropdown-button .icon{margin: 0 0 0 10px;}
     .main-header .language-dropdown .dropdown-button > span{font-size: 20px;}
     .navigation .main-nav .selection-link{padding-top: 10px;}
@@ -177,6 +185,7 @@
     .featured-blog .img-part{width: 100%;}
     .featured-blog .text-part{width: 100%; padding: 20px 0 0 0;}
     .blog-list .item .inner-item .desc{padding: 20px 15px;}
+    .navigation .main-nav .search-part i{font-size: 17px;}
 }
 
 /* ----- 3. Medium devices ≤767 ----- */
@@ -194,7 +203,7 @@
     .navigation{display: none; }
     .main-header .brand{width: 245px;}
     .main-header{padding: 18px 0;}
-    .side-bar{display: none;}
+    .sidebar-wrap{display: none;}
     .hero-section .home-banner .banner-heading{padding: 4% 6%;}
     .hero-section .home-banner .banner-caption{padding-top: 65px; padding-bottom: 65px;}
     .sec-top{margin-top: 0;}
@@ -225,7 +234,7 @@
     .footer-right .single-link{display: none;}
     .footer-right .footer-link{width: 100%;}
     .footer-link ul{-webkit-column-count:2;-moz-column-count:2;-o-column-count:2;column-count:2;}
-    .main-footer .Privacy-part{margin-top: 0;}
+    .main-footer .privacy-part{margin-top: 0;}
     .footer-link li{margin-bottom: 10px;}
     .inner-banner .banner-caption{max-width: 56vw;padding: 30px 40px 30px 50px;}
     .text-img-sec .text-part,

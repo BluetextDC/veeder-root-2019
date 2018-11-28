@@ -15,7 +15,6 @@ regions:
   header_logo: 'Header Logo'
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'
-  search_bar: 'Search Bar'
   page_top: 'Page top'
   page_bottom: 'Page bottom'
   highlighted: Highlighted
@@ -25,4 +24,5 @@ regions:
   sidebar_second: 'Sidebar second'
   footer_first: 'Footer first'
   footer_second: 'Footer second'
+  footer_third: 'Footer third'
   footer: Footer

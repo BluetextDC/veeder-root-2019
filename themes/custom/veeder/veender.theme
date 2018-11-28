@@ -112,7 +112,10 @@ function veender_preprocess_region(&$variables) {
     $variables['attributes']['class'][] = 'footer-left';
   }
   if ($region == 'footer_second') {
-    $variables['attributes']['class'][] = 'footer-right';
+    $variables['attributes']['class'][] = 'single-link';
+  }
+  if ($region == 'footer_third') {
+    $variables['attributes']['class'][] = 'footer-link';
   }
 }
 
@@ -121,21 +124,27 @@ function veender_preprocess_region(&$variables) {
  */
 function veender_preprocess_block(&$variables) {
   // Add a clearfix class to system branding blocks.
+  if ($variables['plugin_id'] == 'system_menu_block:language-switcher') {
+    $variables['attributes']['class'][] = 'language-dropdown';
+  }
+
   if ($variables['plugin_id'] == 'search_form_block') {
-    $variables['attributes']['class'][] = 'search-wrap d-flex';
+    $variables['attributes']['class'][] = 'search-part';
   }
   // Trending block view.
-  if ($variables['plugin_id'] == 'views_block:trending_blogs-block_2') {
-    $variables['attributes']['class'][] = 'single-link';
-  }
+  // if ($variables['plugin_id'] == 'views_block:trending_blogs-block_2') {
+  //   $variables['attributes']['class'][] = 'single-link';
+  // }
 
-  if ($variables['plugin_id'] == 'system_menu_block:footer-menu') {
-    $variables['attributes']['class'][] = 'footer-link';
-  }
+  // if ($variables['plugin_id'] == 'system_menu_block:footer-menu') {
+  //   $variables['attributes']['class'][] = 'single-link';
+  // }
 
-  if ($variables['plugin_id'] == 'system_menu_block:footer') {
-    $variables['attributes']['class'][] = 'footer-link';
-  }
+  // if ($variables['plugin_id'] == 'system_menu_block:footer') {
+  //   $variables['attributes']['class'][] = 'footer-link';
+  // }
+  //system_menu_block:main, system_menu_block:language-switcher, search_form_block
+  //var_dump($variables['plugin_id']);
 }
 
 
@@ -173,6 +182,12 @@ function veender_preprocess_menu(&$variables) {
   if ($variables['menu_name'] == 'header-top-menu') {
     $variables['attributes']['class'][] = 'secondary-menu';
   }
+  if ($variables['menu_name'] == 'language-switcher') {
+    $variables['attributes']['class'][] = 'select-list';
+  }
+  if ($variables['menu_name'] == 'footer') {
+    $variables['attributes']['class'][] = 'privacy-part';
+  }
 }
 
 /**
@@ -188,13 +203,14 @@ function veender_theme_suggestions_form_alter(array &$suggestions, array $variab
  * Implements hook_form_alter() to add classes to the search form.
  */
 function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // if (in_array($form_id, ['search_block_form', 'search_form'])) {
-  //   $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
-  //   if (!isset($form[$key]['submit']['#attributes'])) {
-  //     $form[$key]['submit']['#attributes'] = new Attribute();
-  //   }
-  //   $form[$key]['submit']['#attributes']->addClass('search-form__submit');
-  // }
+  if (in_array($form_id, ['search_block_form', 'search_form'])) {
+    $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
+    if (!isset($form[$key]['submit']['#attributes'])) {
+      $form[$key]['submit']['#attributes'] = new Attribute();
+    }
+    $form[$key]['submit']['#attributes']->addClass('searchButton');
+    $form['keys']['#attributes']['placeholder'][] = t('Search..');
+  }
 }
 
 /**

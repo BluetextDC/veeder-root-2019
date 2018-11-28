@@ -12,15 +12,7 @@
  * @ingroup themeable
  */
 #}
-<section class="contact-sec bg-gray space-large">
-  <div class="small-container">
-    <div class="heading-txt text-center">
-      <h2>{{ 'Contact Us'|trans }}</h2>
-    </div>
-    <div role="form" > 
-      <form{{ attributes }}>
-          {{ children }}
-      </form>
-    </div>
-  </div>
-</section>
+<form{{ attributes }}>
+  {{ children }}
+</form>
+    

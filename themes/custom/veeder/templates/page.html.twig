@@ -52,56 +52,15 @@
       </div>
       <div id="mobilenav" class="hidden-md-up">                    
           <div id="menu">                        
-              <div class="menu-outer">
-                 <!--  <ul class="sidebar-links">
-                      <li><a href="#">Find a Distributor</a><em class="caret"></em></li>
-                      <li><a href="#">Get a Quote</a><em class="caret"></em></li>
-                  </ul> -->
-                  {{ page.primary_menu }}
-                  <!-- <ul role="menu" class="m-nav">
-                      <li><a href="#"><span>Fueling Solutions</span></a></li>
-                      <li><a href="#"><span>Products</span></a>
-                          <ul>
-                              <li><a href="#">TLS Automatic Fuel Tank Gauge Systems</a>
-                                  <ul>
-                                      <li><a href="#">TLS-450PLUS Automatic TankGauge</a></li>
-                                      <li><a href="#">TLS-450PLUS Automatic TankGauge</a></li>
-                                      <li><a href="#">Probes & Float Kits</a></li>
-                                      <li><a href="#">Leak DetectionSensors</a></li>
-                                      <li><a href="#">Vapor Recovery Solution</a></li>
-                                      <li><a href="#">Tank Monitoring Accessories</a></li>
-                                      <li><a href="#">TLS-350 Automatic Tank Gauge</a></li>
-                                  </ul>                                    
-                              </li>
-                              <li><a href="#">Red Jacket Fueling Systems</a>
-                                  <ul>
-                                      <li><a href="#">The Red Jacket Submersible Turbine Pumps</a></li>
-                                      <li><a href="#">Diesel Exhaust Fluid Pumps</a></li>
-                                      <li><a href="#">Maxxum Submersible Turbine Pump</a></li>
-                                      <li><a href="#">The Red Jacket LPG Pump</a></li>
-                                      <li><a href="#">Red Jacket Pump Control Boxes</a></li>
-                                      <li><a href="#">Sump-Dri Desiccant System </a></li>
-                                  </ul>
-                              </li>
-                              <li><a href="#">Meter Registers</a>
-                                  <ul>
-                                      <li><a href="#">Electronic Meter Registers</a></li>
-                                      <li><a href="#">Mechanical Dispenser Computer</a></li>
-                                      <li><a href="#">Mechanical Meter Registers</a></li>                                                
-                                  </ul>                                           
-                              </li>
-                          </ul>
-                      </li>
-                      <li><a href="#"><span>Insite360 Fuel Services</span></a></li>
-                      <li><a href="#"><span>Support</span></a></li>
-                      <li><a href="#"><span>About</span></a></li>                            
-                  </ul> -->
-              </div>
+            <div class="menu-outer">
+              <ul class="sidebar-links">
+                  <li><a href="#">Find a Distributor</a><em class="caret"></em></li>
+                  <li><a href="#">Get a Quote</a><em class="caret"></em></li>
+              </ul>
+              {{ page.primary_menu }}
+            </div>
           </div>
-      </div>
-      <div class="search-bar space-small bg-gray " style="display: none;">
-        {{ page.search_bar }}
-      </div>    
+      </div>   
     </header>
     <div class="header-space"></div>
 
@@ -135,7 +94,10 @@
     <footer class="main-footer space-medium">
         <div class="container">
             {{ page.footer_first }}
+          <div class="footer-right">
             {{ page.footer_second }}
+            {{ page.footer_third }}
+          </div>
           {{ page.footer }}
         </div>
     </footer>
