@@ -292,6 +292,8 @@
     .blog-list .item .inner-item .desc p{font-size: 14px;}
     .NoHero-sec .inner-banner .simple-banner{max-width: 100%;padding: 40px 50px 20px;}
     .inner-banner .banner-caption.simple-banner .caption-wrap{max-width: 100%;}
+    .language-dropdown { display: none; }
+    .search-part {display: none;}
 }
 
 /* ----- 4. Small devices ≤640 ----- */
@@ -313,6 +315,9 @@
     .text-video-sec .video-part{margin-bottom: 30px;}
     .inline-promo .img-part{width: 100%;}
     .inline-promo .text-part{width: 100%;}
+    .language-dropdown { display: none; }
+    .search-part {display: none;}
+    .navigation {display: none;}
 
 }
 /* ----- 5. X-Small devices ≤480 ----- */
@@ -384,6 +389,9 @@
     .NoHero-sec .banner-caption .heading:after{width: 38px;}
     .category-by{font-size: 14px;}
     .NoHero-sec .inner-banner .simple-banner{padding: 30px 20px 10px;}
+    .language-dropdown { display: none; }
+    .search-part {display: none;}
+    .navigation {display: none;
 }
 
 /* iPhone X ----------- */
