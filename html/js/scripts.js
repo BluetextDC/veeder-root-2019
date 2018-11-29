@@ -112,8 +112,7 @@ $(document).ready(function(){
         var that =$(this),
             hideCardI = that.parents('.product-list').find('.hide').index();
         that.parents('.product-list').find('.item').slice(hideCardI,hideCardI+2).removeClass('hide');
-    });    
-
+    });          
 });
 
 /* Script on load
@@ -165,7 +164,7 @@ $(window).resize(function() {
     }
 });
 
-    /* Script all functions
+/* Script all functions
     ------------------------------------------------------------------------------*/
 $(function() {
     $('.about-sec .about-block-wrap p,.product-list figure').matchHeight({
@@ -174,4 +173,15 @@ $(function() {
         target: null,
         remove: false
     });
+});
+
+window.addEventListener('scroll', function(){
+    var scrollPosition = window.pageYOffset;
+    var bgParallax = document.getElementById('parallax');
+    var limit = bgParallax.offsetTop + bgParallax.offsetHeight;  
+    if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit){
+        bgParallax.style.backgroundPositionY = (50 + 100 * scrollPosition/limit) + '%';    
+    }else{
+        bgParallax.style.backgroundPositionY = '50%';    
+    }
 });

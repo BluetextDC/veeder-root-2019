@@ -165,13 +165,13 @@ function veender_preprocess_field(&$variables, $hook) {
     if ($element['#field_name'] == 'field_add_starting_point') {
       $variables['attributes']['class'][] = 'banner-point-part d-flex justify-content-center';
     }
-    // if ($element['#field_name'] == 'field_components') {
-    //   $delta = 0;
-    //   while (!empty($element[$delta])) {
-    //     $variables['items'][$delta ]['attributes']['class'] = 'item col-md-3 col-6';
-    //     $delta++;
-    //   }
-    // }
+    if ($element['#field_name'] == 'field_add_starting_point') {
+      $delta = 0;
+      while (!empty($element[$delta])) {
+        $variables['items'][$delta ]['attributes']['class'] = 'item';
+        $delta++;
+      }
+    }
   }
 }
 
@@ -220,6 +220,7 @@ function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
  */
 function veender_form_contact_message_feedback_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['#attributes']['class'][] = 'form-grp';
+  unset($form['langcode']);
   // First Name.
   $form['name']['#prefix'] = '<div class="inp-box half-box">';
   $form['name']['#suffix'] = '</div>';

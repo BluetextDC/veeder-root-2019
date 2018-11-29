@@ -234,7 +234,7 @@
     .footer-right .single-link{display: none;}
     .footer-right .footer-link{width: 100%;}
     .footer-link ul{-webkit-column-count:2;-moz-column-count:2;-o-column-count:2;column-count:2;}
-    .main-footer .privacy-part{margin-top: 0;}
+    .main-footer .privacy-part{margin-top: 10px;}
     .footer-link li{margin-bottom: 10px;}
     .inner-banner .banner-caption{max-width: 56vw;padding: 30px 40px 30px 50px;}
     .text-img-sec .text-part,
@@ -294,6 +294,7 @@
     .inner-banner .banner-caption.simple-banner .caption-wrap{max-width: 100%;}
     .language-dropdown { display: none; }
     .search-part {display: none;}
+    .img-and-title{margin-bottom: 20px;}
 }
 
 /* ----- 4. Small devices ≤640 ----- */
@@ -391,7 +392,8 @@
     .NoHero-sec .inner-banner .simple-banner{padding: 30px 20px 10px;}
     .language-dropdown { display: none; }
     .search-part {display: none;}
-    .navigation {display: none;
+    .navigation {display: none;}
+    .footer-logo{width: 230px;}
 }
 
 /* iPhone X ----------- */
