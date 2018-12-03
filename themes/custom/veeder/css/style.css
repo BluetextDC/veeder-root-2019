@@ -377,7 +377,9 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 /* banner part */
 .hero-section{position: relative;}
 .hero-section .home-banner{min-height: 1288px; width: 100%;}
-.hero-section .home-banner .bg-img{ position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
+.hero-section .home-banner .bg-img{ position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; }
+#parallax{background-attachment: fixed !important;	}
+
 .hero-section .home-banner .bg-img:before{content: ""; width: 100%; height: 50%; position: absolute; top: 0; left: 0; background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 50%, transparent); pointer-events: none;}
 .hero-section .home-banner .bg-img:after{content: ""; width: 100%; height: 50%; position: absolute; bottom: 0; left: 0; background-image: linear-gradient(to top, rgba(0,0,0,.6) 65%, transparent); pointer-events: none;}
 .hero-section .home-banner .banner-caption{position: relative;z-index: 1; padding-top: 115px;padding-bottom: 300px;display: flex; flex-wrap: wrap; min-height: inherit;z-index: 0;}
@@ -549,7 +551,8 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .text-img-sec .img-part{/*padding-top: 10px;padding-bottom: 10px;*/}
 .text-img-sec .img-part + .text-part .inner-wrap{padding-left: 20px;}
 .text-img-sec .text-part:first-of-type .inner-wrap{padding-right: 20px;}
-.text-img-sec .img-part .bg-img{padding-top: calc(68 / 135 * 100%); display: block;width: 100%;}
+.text-img-sec .img-part .bg-img{padding-top: calc(68 / 135 * 100%); display: block;width: 100%; position: relative; overflow: hidden;}
+.text-img-sec .img-part .bg-img img{/*position: absolute; top: 0; left: 0; right: 0; bottom: 0;*/}
 .text-img-sec.sec60-40 .img-part .bg-img{padding-top: calc(85 / 169 * 100%);}
 .text-video-sec .video-part .c-video{padding-top: calc(85 / 169 * 100%); display: block;width: 100%; position: relative;}
 .play-icon{position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);transform: translate(-50%,-50%); font-size: 80px; display: inline-flex; cursor: pointer; color: #fff;}
@@ -593,9 +596,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .related-list .bg-img{padding-top:calc(34 / 77 * 100%); position: relative;width: 100%;}
 .related-list .desc{padding: 34px 50px;}
 .line-top{position: relative;}
-.line-top:before{content: ""; width: 38px; height: 1px; background-color:#c10230;display: block; -webkit-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease; margin-bottom: 14px;}
+.line-top:before{content: ""; width: 38px; height: 1px; background-color:#c10230;display: block; -webkit-transition: all 0.4s ease;-o-transition: all 0.4s ease;transition: all 0.4s ease; margin-bottom: 14px;}
 .related-list .desc p{margin-bottom: 10px;}
 .related-list .item{margin: 20px 0;}
 .related-list .item-wrap{cursor: pointer; width: 100%;}
@@ -648,9 +649,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .blog-list .item .inner-item .desc h6{margin-bottom: 5px;}
 .blog-list .item .inner-item .desc .cat{font-weight: 700;margin-bottom: 5px;display: block;}
 .date-show{display: block;margin-bottom: 2px;}
-.blog-list .item .inner-item .desc *{-webkit-transition: color 0.4s ease;
-    -o-transition: color 0.4s ease;
-    transition: color 0.4s ease;}
+.blog-list .item .inner-item .desc *{-webkit-transition: color 0.4s ease;-o-transition: color 0.4s ease;transition: color 0.4s ease;}
 .blog-list .item .inner-item:hover{background-color: #c10230;}
 .blog-list .item .inner-item:hover .desc *{color: #fff;}
 .blog-list .item .inner-item:hover .line-top:before{background-color: #fff;}
@@ -665,3 +664,6 @@ font-family: 'Roboto', sans-serif;*/
 .dialog-off-canvas-main-canvas{width: 100%;}
 .overlay{position: fixed; top: 0; left: 0; bottom: 0; right: 0; background-color: rgba(255,255,255,0.7);z-index: 9; opacity: 0; visibility: hidden; pointer-events: none;}
 .overlay.open{opacity: 1; visibility: visible; pointer-events: auto;}
+
+.parallax-img {position: absolute;top: 0;left: 0;right: 0;bottom: 0;z-index: 0;overflow: hidden;}
+.parallax-img img {max-width: 100%;/*display: none;*/position: absolute;left: 50%;bottom: 0;min-width: 100%;min-height: calc(100% + 100px);max-width: none; pointer-events: none;-webkit-transform: translate3d(-50%, 0, 0);transform: translate3d(-50%, 0, 0);}

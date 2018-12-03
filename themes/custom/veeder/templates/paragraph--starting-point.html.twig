@@ -38,9 +38,10 @@
  */
 #}
 {%
-set classes = [
+  set classes = [
     'paragraph',
     'item',
+    'paragraph-' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
   ]
@@ -49,9 +50,11 @@ set classes = [
 {% block paragraph %}
   {% block content %}
     <a href="{{ paragraph.field_starting_point_url.0.value }}"{{ attributes.addClass(classes) }}>
-      <figure>
+      {% if content.field_starting_point_icon|render is not empty %}
+        <figure>
           {{ content.field_starting_point_icon }}
-      </figure>
+        </figure>
+      {% endif %}
       <p>{{ paragraph.field_starting_point_text.value|raw }}</p>
     </a>
   {% endblock %}

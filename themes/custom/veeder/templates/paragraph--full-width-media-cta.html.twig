@@ -55,14 +55,21 @@ set classes = [
             <span class="play-icon ic-play-icon"></span>
           </a>
         </div> 
-        <div class="title-desc d-flex bg-red">
+        <div class="title-desc d-flex" style="background-color: {{ paragraph.field_fullwd_media_cta_bar_color.0.color }}">
           <div class="heading-text">
-            <h3>{{ content.field_fullwd_media_cta_heading.0 }}</h3>
+            <h3 style="color: {{ paragraph.field_fullwd_media_cta_color.0.color }};">{{ content.field_fullwd_media_cta_heading.0 }}</h3>
           </div>
-          <div class="desc">
-            <p>{{ content.field_fullwd_media_cta_descrptin.0 }}</p>
-          </div>
-          <a href="{{ paragraph.field_fullwd_media_cta_cta.0.url }}" class="btn">{{ paragraph.field_fullwd_media_cta_cta.0.title }}</a>
+          {% if content.field_fullwd_media_cta_descrptin|render is not empty %}
+            <div class="desc">
+              <p style="color: {{ paragraph.field_fullwd_media_cta_color.0.color }};">{{ content.field_fullwd_media_cta_descrptin.0 }}</p>
+            </div>
+          {% endif %}
+          
+          {% if paragraph.field_fullwd_media_cta_cta.0.title|render is not empty %}
+            <a href="{{ paragraph.field_fullwd_media_cta_cta.0.url }}" class="btn" style="color: {{ paragraph.field_fullwd_media_cta_color.0.color }};">
+              {{ paragraph.field_fullwd_media_cta_cta.0.title }}
+            </a>
+          {% endif %}
         </div>
       </div>
     </div>

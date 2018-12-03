@@ -50,13 +50,17 @@ set classes = [
   <div{{ attributes.addClass(classes) }}>
   {% block content %}
     <div class="container">
-      <div class="content-wrap space-medium text-center" style="background-color: {{ paragraph.field_full_width_cta_background.0.color }}; opacity: {{ paragraph.field_full_width_cta_background.0.opacity }}">
+      <div class="content-wrap space-medium text-center"{% if paragraph.field_full_width_cta_background.0.color|render is not empty %} style="background-color: {{ paragraph.field_full_width_cta_background.0.color }}; opacity: {{ paragraph.field_full_width_cta_background.0.opacity }};"{% endif %}{% if paragraph.field_full_width_cta_bg_image.entity.uri.value|render is not empty %} style="background: url({{ file_url(paragraph.field_full_width_cta_bg_image.entity.uri.value) }}) no-repeat center / cover;"{% endif %}>
         <div class="small-desc">
-          <h2 style="color: {{ paragraph.field_full_width_cta_color.0.color }}; opacity: {{ paragraph.field_full_width_cta_color.0.opacity }}">{{ content.field_full_width_cta_heading.0 }}</h2>
-          <p style="color: {{ paragraph.field_full_width_cta_color.0.color }}; opacity: {{ paragraph.field_full_width_cta_color.0.opacity }}">{{ content.field_full_width_cta_description.0 }}</p>
-          <a href="{{ paragraph.field_full_width_cta_cta.0.url }}" class="btn">{{ paragraph.field_full_width_cta_cta.0.title }}</a>
+          <h2 style="color: {{ paragraph.field_full_width_cta_color.0.color }};">{{ content.field_full_width_cta_heading.0 }}</h2>
+          <p style="color: {{ paragraph.field_full_width_cta_color.0.color }};">{{ content.field_full_width_cta_description.0 }}</p>
+          {% if paragraph.field_full_width_cta_cta.0.title|render is not empty %}
+            <a href="{{ paragraph.field_full_width_cta_cta.0.url }}" class="btn" style="color: {{ paragraph.field_full_width_cta_color.0.color }};">{{ paragraph.field_full_width_cta_cta.0.title }}</a>
+          {% endif %}
         </div>
-        <span class="tri-color large"></span>
+        {% if content.field_full_width_cta_color_foote.0["#markup"] == 1 %}
+          <span class="tri-color large"></span>
+        {% endif %}
       </div>
     </div>
   {% endblock %}
