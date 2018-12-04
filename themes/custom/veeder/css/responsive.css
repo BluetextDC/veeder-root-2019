@@ -233,8 +233,8 @@
     .main-footer .footer-right{width: 100%; max-width: 450px; margin: 0 auto;}
     .footer-right .single-link{display: none;}
     .footer-right .footer-link{width: 100%;}
-    .footer-link ul{-webkit-column-count:2;-moz-column-count:2;-o-column-count:2;column-count:2;}
-    .main-footer .privacy-part{margin-top: 10px;}
+    .footer-link ul:not(.privacy-part){-webkit-column-count:2;-moz-column-count:2;-o-column-count:2;column-count:2;}
+    .main-footer .privacy-part{margin-top: 10px;text-align: center;}
     .footer-link li{margin-bottom: 10px;}
     .inner-banner .banner-caption{max-width: 56vw;padding: 30px 40px 30px 50px;}
     .text-img-sec .text-part,
@@ -292,9 +292,6 @@
     .blog-list .item .inner-item .desc p{font-size: 14px;}
     .NoHero-sec .inner-banner .simple-banner{max-width: 100%;padding: 40px 50px 20px;}
     .inner-banner .banner-caption.simple-banner .caption-wrap{max-width: 100%;}
-    .language-dropdown { display: none; }
-    .search-part {display: none;}
-    .img-and-title{margin-bottom: 20px;}
 }
 
 /* ----- 4. Small devices ≤640 ----- */
@@ -316,9 +313,6 @@
     .text-video-sec .video-part{margin-bottom: 30px;}
     .inline-promo .img-part{width: 100%;}
     .inline-promo .text-part{width: 100%;}
-    .language-dropdown { display: none; }
-    .search-part {display: none;}
-    .navigation {display: none;}
 
 }
 /* ----- 5. X-Small devices ≤480 ----- */
@@ -348,7 +342,7 @@
     .product-desc .img-and-title figure img{margin: 0 auto;max-width: 75%;}
     .product-desc .img-and-title figure:before{height: 50px;}
     .about-sec .about-block-wrap row{margin-left: -15px;margin-right: -15px;}
-    .footer-link ul{-webkit-column-count:1;-moz-column-count:1;-o-column-count:1;column-count:1;text-align: center;}
+    .footer-link ul:not(.privacy-part){-webkit-column-count:1;-moz-column-count:1;-o-column-count:1;column-count:1;text-align: center;}
     #mobilenav ul a{padding: 10px 20px;font-size: 18px;}
     #mobilenav .has-sub a{padding-right: 55px;}
     #mobilenav .caret{top: 3px; right: 15px;}
@@ -390,10 +384,6 @@
     .NoHero-sec .banner-caption .heading:after{width: 38px;}
     .category-by{font-size: 14px;}
     .NoHero-sec .inner-banner .simple-banner{padding: 30px 20px 10px;}
-    .language-dropdown { display: none; }
-    .search-part {display: none;}
-    .navigation {display: none;}
-    .footer-logo{width: 230px;}
 }
 
 /* iPhone X ----------- */
