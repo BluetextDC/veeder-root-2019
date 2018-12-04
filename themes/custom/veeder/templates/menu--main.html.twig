@@ -45,23 +45,23 @@
           <div class="list-wrapper">
             <div class="list-part">
         {% endif %}
-          <li class="menu-title">
-            {% set link_title = '<span>'~item.title~'</span>' %}
-            {% set link_text %}
-              {{ link_title|raw }}
-            {% endset %}
+              <li class="menu-title">
+                {% set link_title = '<span>'~item.title~'</span>' %}
+                {% set link_text %}
+                  {{ link_title|raw }}
+                {% endset %}
 
-            {{ link(link_text, item.url) }}
-            {% if item.below %}
-              {% if menu_level == 0 %}
-                <div class="drop-down">
-                  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                </div>
-              {% else %}
-                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-              {% endif %}
-            {% endif %}
-          </li>
+                {{ link(link_text, item.url) }}
+                {% if item.below %}
+                  {% if menu_level == 0 %}
+                    <div class="drop-down">
+                      {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                    </div>
+                  {% else %}
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                  {% endif %}
+                {% endif %}
+              </li>
         {% if count % 2 == 1 %}
             </div>
           </div>

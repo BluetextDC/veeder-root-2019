@@ -69,18 +69,22 @@
   <section{{ attributes.addClass(classes) }} >
   {% block content %}
     <div class="container">
-      <div class="four-block-sec space-large sec-top" style="background-color: {{ content.field_4_column_cta_block_color.0 }}">
-        <div class="heading text-center">
-          <h2 style="color: {{ content.field_4_column_cta_block_head_co.0 }}">{{ content.field_4_column_cta_block_heading.0 }}</h2>
+      <div class="four-block-sec space-large sec-top" style="background-color: {{ content.field_4_column_cta_block_color.0 }};">
+        <div class="heading text-center" style="color: {{ content.field_4_column_cta_block_head_co.0 }};">
+          <h2>{{ content.field_4_column_cta_block_heading.0 }}</h2>
         </div>
         <div class="block-list row">
           {% for items in column_cta %}
             <div class="item col-md-3 col-6">
               <div class="cd-wrap">
-                <h6 style="color: {{ content.field_4_column_cta_block_head_co.0 }}">{{ items.title }}</h6>
-                <p style="color: {{ content.field_4_column_cta_block_head_co.0 }}">{{ items.description }}</p>
+                <h6 style="color: {{ content.field_4_column_cta_block_head_co.0 }};">{{ items.title }}</h6>
+                <p style="color: {{ content.field_4_column_cta_block_head_co.0 }};">{{ items.description }}</p>
               </div>
-              <a href="{{ items.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn" {% else %} class="btn-link"{% endif %}>{{ items.link_title }}</a>
+              {% if items.link_title|render is not empty %}
+                <a href="{{ items.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn" {% else %} class="btn-link"{% endif %}>
+                  {{ items.link_title }}
+                </a>
+              {% endif %}
             </div>
           {% endfor %}
         </div>

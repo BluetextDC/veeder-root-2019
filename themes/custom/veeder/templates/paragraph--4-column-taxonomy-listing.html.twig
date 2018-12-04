@@ -52,15 +52,17 @@
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }}>
+  <section{{ attributes.addClass(classes) }} style="background-color: {{ paragraph.field_4_column_taxonomy_bg_color.0.color }};">
     <div class="container">
       {% block content %}
-        <div class="heading text-center">
-          <h2 style="color: {{ paragraph.field_4_column_taxonomy_head_col.0.color }}">
-            {{ content.field_4_column_taxonomy_heading.0 }}
-          </h2>
-        </div>
-             
+        {% if content.field_4_column_taxonomy_heading|render %}
+          <div class="heading text-center">
+            <h2 style="color: {{ paragraph.field_4_column_taxonomy_head_col.0.color }}">
+              {{ content.field_4_column_taxonomy_heading.0 }}
+            </h2>
+          </div>
+        {% endif %}
+            
         {{ content.field_4_column_taxonomy_view }}
 
         {# content.field_4_column_taxonomy_bg_color #}

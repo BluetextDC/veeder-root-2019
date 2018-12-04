@@ -91,9 +91,9 @@
       </div>
       <div class="banner-caption">
         <div class="container">
-          <div class="banner-heading text-center" style="background-color: {{ node.field_homepage_hero_plate_color.0.color }}; opacity: {{ node.field_homepage_hero_plate_color.0.opacity }}">
-            <div class="heading">
-              <h1 style="color: {{ content.field_homepage_hero_text_color.0 }}">{{ content.field_homepage_hero_heading.0 }}</h1>
+          <div class="banner-heading text-center" style="background-color: {{ content.field_homepage_hero_plate_color.0 }};">
+            <div class="heading" style="color: {{ content.field_homepage_hero_text_color.0 }};">
+              <h1 style="color: {{ content.field_homepage_hero_text_color.0 }};">{{ content.field_homepage_hero_heading.0 }}</h1>
             </div>
             {% if content.field_homepage_hero_subheading|render is not empty %}
               <p style="color: {{ content.field_homepage_hero_text_color.0 }}">
@@ -101,7 +101,7 @@
               </p>
             {% endif %}
             {% if node.field_homepage_hero_cta_cta.0.title is not empty %}
-              <a href="{{ node.field_homepage_hero_cta_cta.0.url }}" class="btn" style="color: {{ content.field_homepage_hero_text_color.0 }}">
+              <a href="{{ node.field_homepage_hero_cta_cta.0.url }}" class="btn" style="color: {{ content.field_homepage_hero_text_color.0 }}; border-color: {{ content.field_homepage_hero_text_color.0 }};">
                 {{ node.field_homepage_hero_cta_cta.0.title }}
               </a>
             {% endif %}
