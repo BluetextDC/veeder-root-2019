@@ -1,3 +1,53 @@
+window.addEventListener('scroll', function(){
+    if(jQuery('#parallax').length){
+        var scrollPosition = window.pageYOffset;
+        var bgParallax = document.getElementById('parallax');
+        var limit = bgParallax.offsetTop + bgParallax.offsetHeight;  
+        if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit){
+            bgParallax.style.backgroundPositionY = (50 + 100 * scrollPosition/limit) + '%';    
+        }else{
+            bgParallax.style.backgroundPositionY = '50%';    
+        }
+    }
+});
+
+window.Velocity = window.Velocity || (window.jQuery || window.Zepto || window).Velocity;
+/* parallax img */
+var Vel;
+Vel = $ ? $.Velocity : Velocity,
+    function (a) {
+    a.fn.parallax = function () {
+        var b = a(window).width();
+        return this.each(function () {
+            function c(c) {
+                var e;
+                e = 601 > b ? d.height() > 0 ? d.height() : d.children("img").height() : d.height() > 0 ? d.height() : 500;
+                var f = d.children("img").first(),
+                    g = f.height(),
+                    h = g - e,
+                    i = d.offset().top + e,
+                    j = d.offset().top,
+                    k = a(window).scrollTop(),
+                    l = window.innerHeight,
+                    m = k + l,
+                    n = (m - j) / (e + l),
+                    o = Math.round(h * n);
+                c && f.css("display", "block"), i > k && k + l > j && f.css("transform", "translate3D(-50%," + o + "px, 0)")
+            }
+            var d = a(this);
+            d.addClass("parallax-img"), d.children("img").one("load", function () {
+                c(!0)
+            }).each(function () {
+                this.complete && a(this).load()
+            }), a(window).scroll(function () {
+                b = a(window).width(), c(!1)
+            }), a(window).resize(function () {
+                b = a(window).width(), c(!1)
+            })
+        })
+    }
+};
+
 /* Script on ready
 ------------------------------------------------------------------------------*/
 (function ($, Drupal) {
@@ -55,8 +105,6 @@
                     element.siblings('li').find('ul').slideUp(200);
                 }
             });
-
-            $('.navigation .main-nav nav > ul:first-of-type > li > a').contents().wrap('<span/>');
 
             /* location click */ 
             $('.language-dropdown .dropdown-button').on('click', function(){      
@@ -163,53 +211,3 @@
         }
     }
 })(jQuery, Drupal);
-
-
-window.addEventListener('scroll', function(){
-    if(jQuery('#parallax').length){
-        var scrollPosition = window.pageYOffset;
-        var bgParallax = document.getElementById('parallax');
-        var limit = bgParallax.offsetTop + bgParallax.offsetHeight;  
-        if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit){
-            bgParallax.style.backgroundPositionY = (50 + 100 * scrollPosition/limit) + '%';    
-        }else{
-            bgParallax.style.backgroundPositionY = '50%';    
-        }
-    }
-});
-
-/* parallax img */
-var Vel;
-Vel = $ ? $.Velocity : Velocity,
-    function (a) {
-    a.fn.parallax = function () {
-        var b = a(window).width();
-        return this.each(function () {
-            function c(c) {
-                var e;
-                e = 601 > b ? d.height() > 0 ? d.height() : d.children("img").height() : d.height() > 0 ? d.height() : 500;
-                var f = d.children("img").first(),
-                    g = f.height(),
-                    h = g - e,
-                    i = d.offset().top + e,
-                    j = d.offset().top,
-                    k = a(window).scrollTop(),
-                    l = window.innerHeight,
-                    m = k + l,
-                    n = (m - j) / (e + l),
-                    o = Math.round(h * n);
-                c && f.css("display", "block"), i > k && k + l > j && f.css("transform", "translate3D(-50%," + o + "px, 0)")
-            }
-            var d = a(this);
-            d.addClass("parallax-img"), d.children("img").one("load", function () {
-                c(!0)
-            }).each(function () {
-                this.complete && a(this).load()
-            }), a(window).scroll(function () {
-                b = a(window).width(), c(!1)
-            }), a(window).resize(function () {
-                b = a(window).width(), c(!1)
-            })
-        })
-    }
-};

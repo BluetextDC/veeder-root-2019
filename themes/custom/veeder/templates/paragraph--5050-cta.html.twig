@@ -46,6 +46,8 @@ set classes = [
 %}
 {% if content.field_5050_cta_vimeo_player.0["#markup"] == 1 %}
   {% set classes = classes|merge(['text-video-sec', 'space-medium']) %}
+{% elseif paragraph.id() == 19 %}
+  {% set classes = classes|merge(['product-sec', 'space-large']) %} 
 {% else %}
   {% set classes = classes|merge(['text-img-sec', 'space-medium']) %} 
 {% endif %}
@@ -69,16 +71,23 @@ set classes = [
               <a href="{{ paragraph.field_5050_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_cta.0.title }}</a>
             {% endif %}
           </div>
-          <div class="img-and-title col-md-6">
-            <!-- <div class="large-heading">
-              <h2>{{ content.field_5050_cta_callout.0 }}</h2>
-            </div> -->
-            <figure>
-              {{ content.field_5050_image.0 }}
-            </figure>
+          <div class="{% if content.field_5050_cta_vimeo_player.0['#markup'] == 1 %}video-part {% else %}img-and-title img-part {% endif %}col-md-6">
+            {% if content.field_5050_image_parallax.0["#markup"] == 1 %}
+              <div class="inner-wrap">
+                <div class="bg-img">
+                  <div class="parallax-img">
+                    {{ content.field_5050_image.0 }}
+                  </div>
+                </div>
+              </div>
+            {% else %}
+              <figure>
+                {{ content.field_5050_image.0 }}
+              </figure>
+            {% endif %}
           </div>
         {% else %}
-          <div class="{% if content.field_5050_cta_vimeo_player.0['#markup'] == 1 %}video-part {% else %}img-and-title  {% endif %}col-md-6">
+          <div class="{% if content.field_5050_cta_vimeo_player.0['#markup'] == 1 %}video-part {% else %}img-and-title img-part {% endif %}col-md-6">
             {% if content.field_5050_cta_vimeo_player.0["#markup"] == 1 %}
               <div class="inner-wrap">
                 <a href="{{ paragraph.field_5050_vimeo_url.0.value }}" data-fancybox class="c-video" style="background: url({{ file_url(paragraph.field_5050_image.entity.uri.value) }}) no-repeat center / cover">
@@ -86,15 +95,19 @@ set classes = [
                 </a>
               </div>
             {% else %}
-              <!-- <div class="large-heading">
-                <h2>{{ content.field_5050_cta_callout.0 }}</h2>
-              </div> -->
-              <figure>
-                {{ content.field_5050_image.0 }}
-              </figure>
-             <!--  <figure{% if content.field_5050_image_parallax.0["#markup"] == 1 %} id="parallax" {% endif %} style="background: url({{ file_url(content.field_5050_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
-                {# content.field_5050_image.0 #}
-              </figure> -->
+              {% if content.field_5050_image_parallax.0["#markup"] == 1 %}
+                <div class="inner-wrap">
+                  <div class="bg-img">
+                    <div class="parallax-img">
+                      {{ content.field_5050_image.0 }}
+                    </div>
+                  </div>
+                </div>
+              {% else %}
+                <figure>
+                  {{ content.field_5050_image.0 }}
+                </figure>
+              {% endif %}
             {% endif %}
           </div>
           <div class="featured-info col-md-6">
@@ -103,7 +116,7 @@ set classes = [
               <h3>{{ content.field_5050_cta_callout.0 }}</h3>
             {% endif %}
             {% if content.field_5050_cta_description|render is not empty %}
-              <p>{{ content.field_5050_cta_description.0 }}</p>
+              <p>{{ content.field_5050_cta_description.0|raw }}</p>
             {% endif %}
             {% if paragraph.field_5050_cta.0.title is not null %}
               <a href="{{ paragraph.field_5050_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_cta.0.title }}</a>

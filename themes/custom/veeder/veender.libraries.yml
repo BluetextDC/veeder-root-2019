@@ -27,7 +27,6 @@ theme_js:
   js:
     js/jquery.matchHeight.js: {}
     js/html5shiv.js: {}
-    js/velocity.min.js: {}
     js/scripts.js: {}
   dependencies:
     - core/jquery
