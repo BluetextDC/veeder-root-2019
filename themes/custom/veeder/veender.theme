@@ -209,6 +209,17 @@ function veender_preprocess_breadcrumb(&$variables) {
         unset($variables['breadcrumb']);
       }
     }
+    // Get current page title.
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    
+    if (!empty($page_title)) {
+      $variables['breadcrumb'][] = [
+        'text' => $page_title,
+        'attributes' => new Attribute(['class' => ['active']])
+      ];
+    }
   }
 }
 /**

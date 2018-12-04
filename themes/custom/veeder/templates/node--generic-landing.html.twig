@@ -104,24 +104,21 @@
   <section{{ content_attributes.addClass('hero-section') }}>
 
     <div class="inner-banner video-banner">
-      <!--<div class="bg-img" style="background: url(assets/images/banner-5.jpg) no-repeat center / cover;">-->
       {% if (content.field_generic_hero_vimeo|render is not empty) or (content.field_generic_hero_image.0|render) is not empty %}
         <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
             <span class="play-icon ic-play-icon"></span>
         </a>
       {% endif %}
-      <div class="banner-caption" style="background-color: {{ node.field_generic_hero_plate_color.0.color }}">
+      <div class="banner-caption" style="background-color: {{ node.field_generic_hero_plate_color.0.color }};">
         <div class="caption-wrap">
           <div class="heading">
-            <h1>{{ content.field_generic_hero_heading.0 }}</h1>
+            <h1 style="color: #ffffff">{{ content.field_generic_hero_heading.0 }}</h1>
           </div>
           {% if content.field_generic_hero_description|render is not empty %}
-            <p>{{ content.field_generic_hero_description.0 }}</p>
+            <p style="color: #ffffff">{{ content.field_generic_hero_description.0|raw }}</p>
           {% endif %}
           {% if node.field_generic_hero_cta.0.title is not empty %}
-            <a href="{{ node.field_generic_hero_cta.0.url }}" class="btn">
-              {{ node.field_generic_hero_cta.0.title }}
-            </a>
+            <a href="{{ node.field_generic_hero_cta.0.url }}" class="btn">{{ node.field_generic_hero_cta.0.title }}</a>
           {% endif %}
         </div>
       </div>
