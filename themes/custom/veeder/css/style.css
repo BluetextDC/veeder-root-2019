@@ -543,7 +543,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .text-img-sec .img-part{/*padding-top: 10px;padding-bottom: 10px;*/}
 .text-img-sec .img-part + .text-part .inner-wrap{padding-left: 20px;}
 .text-img-sec .text-part:first-of-type .inner-wrap{padding-right: 20px;}
-.text-img-sec .img-part .bg-img{padding-top: calc(68 / 135 * 100%); display: block;width: 100%; position: relative; overflow: hidden;}
+.img-part .bg-img{padding-top: calc(68 / 135 * 100%); display: block;width: 100%; position: relative; overflow: hidden;}
 .text-img-sec .img-part .bg-img img{/*position: absolute; top: 0; left: 0; right: 0; bottom: 0;*/}
 .text-img-sec.sec60-40 .img-part .bg-img{padding-top: calc(85 / 169 * 100%);}
 .text-video-sec .video-part .c-video{padding-top: calc(85 / 169 * 100%); display: block;width: 100%; position: relative;}
