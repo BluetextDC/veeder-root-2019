@@ -313,6 +313,9 @@
     .text-video-sec .video-part{margin-bottom: 30px;}
     .inline-promo .img-part{width: 100%;}
     .inline-promo .text-part{width: 100%;}
+    
+    .language-dropdown,
+    .search-block-form{display: none;}
 
 }
 /* ----- 5. X-Small devices ≤480 ----- */

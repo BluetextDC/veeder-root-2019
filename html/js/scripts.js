@@ -53,7 +53,6 @@ $(document).ready(function(){
             element.siblings('li').find('ul').slideUp(200);
         }
     });    
-    $('.navigation .main-nav nav > ul:first-of-type > li > a').contents().wrap('<span/>');
 
     /* location click */ 
     $('.language-dropdown .dropdown-button').on('click', function(){      
