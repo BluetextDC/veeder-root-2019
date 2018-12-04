@@ -33,10 +33,11 @@
   {% if items %}
 
     {% if menu_level == 0 %}
-      <ul{{ attributes }}>
+      <ul{{ attributes }} t>
     {% else %}
       <ul>
     {% endif %}
+
     {% set count = 0 %}
     {% for item in items %}
       {% if menu_level == 1 %}
@@ -86,6 +87,12 @@
         </li>
       {% endif %}
     {% endfor %}
-    </ul>
+    
+    {% if menu_level == 0 %}
+      <ul{{ attributes }} t>
+    {% else %}
+      </ul>
+
+    {% endif %}
   {% endif %}
 {% endmacro %}
