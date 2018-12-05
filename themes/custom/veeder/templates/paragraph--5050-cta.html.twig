@@ -60,9 +60,9 @@ set classes = [
         {# If checked then text shows first otherwise image shows first#}
         {% if content.field_5050_cta_text_first.0["#markup"] == 1 %}
           <div class="featured-info col-md-6">
-            <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_cta_heading.0 }}</div>
-            {% if content.field_5050_cta_callout|render is not empty %}
-              <h3>{{ content.field_5050_cta_callout.0 }}</h3>
+            <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_cta_callout.0 }}</div>
+            {% if content.field_5050_cta_heading|render is not empty %}
+              <h3>{{ content.field_5050_cta_heading.0 }}</h3>
             {% endif %}
             {% if content.field_5050_cta_description|render is not empty %}
               <p>{{ content.field_5050_cta_description.0 }}</p>
@@ -111,9 +111,9 @@ set classes = [
             {% endif %}
           </div>
           <div class="featured-info col-md-6">
-            <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_cta_heading.0 }}</div>
-            {% if content.field_5050_cta_callout|render is not empty %}
-              <h3>{{ content.field_5050_cta_callout.0 }}</h3>
+            <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_cta_callout.0 }}</div>
+            {% if content.field_5050_cta_heading|render is not empty %}
+              <h3>{{ content.field_5050_cta_heading.0 }}</h3>
             {% endif %}
             {% if content.field_5050_cta_description|render is not empty %}
               <p>{{ content.field_5050_cta_description.0|raw }}</p>

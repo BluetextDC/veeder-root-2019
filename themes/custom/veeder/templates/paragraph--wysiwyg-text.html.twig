@@ -44,30 +44,31 @@ set classes = [
     'paragraph',
     'space-small',
     'pb-0',
+    'side-sec-wrap',
     paragraph_id,
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
   ]
 %}
-
+{#
 {% if paragraph.id() == 11 %}
   {% set classes = classes|merge(['side-sec-wrap']) %}
 {% endif %}
-
+#}
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }}>
   {% block content %}
     <div class="container"> 
       <div class="inner-wrap d-flex flex-wrap">
-        {% if paragraph.id() == 11 %}
+        {# {% if paragraph.id() == 11 %} #}
           <div class="left-side-part">
-        {% endif %}
+        {# {% endif %} #}
           <div class="e-desc">
             {{ content }}
           </div>
-        {% if paragraph.id() == 11 %}
+        {# {% if paragraph.id() == 11 %} #}
           </div>
-        {% endif %}
+        {# {% endif %} #}
       </div>
     </div>
   {% endblock %}
