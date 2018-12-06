@@ -8,8 +8,8 @@ core: 8.x
 libraries:
   - veender/fonts
   - veender/global_style
-  - veender/theme_js
   - veender/fancybox
+  - veender/theme_js
 
 regions:
   header_logo: 'Header Logo'

@@ -2,7 +2,6 @@ fonts:
   version: VERSION
   css:
     theme:
-      fonts/generated/generated-font.css: {}
       fonts/styles.css: {}
       '//file.myfontastic.com/B598Yje7or3gRUzgQsxhxQ/icons.css': {type: external} #external font
       '//fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900|Roboto:300,400,500,700,900': {type: external} #external fonts
@@ -26,9 +25,8 @@ slick:
 theme_js:
   js:
     js/jquery.matchHeight.js: {}
-    js/html5shiv.js: {}
+    # js/html5shiv.js: {}
     js/parallax.min.js: {}
-    js/velocity.min.js: {}
     js/scripts.js: {}
   dependencies:
     - core/jquery

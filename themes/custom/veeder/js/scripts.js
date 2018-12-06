@@ -109,13 +109,7 @@
         var that =$(this),
             hideCardI = that.parents('.product-list').find('.hide').index();
         that.parents('.product-list').find('.item').slice(hideCardI,hideCardI+2).removeClass('hide');
-    });    
-    /* parallax */
-    if($('.parallax-img').length > 0){
-        if($(window).width() >= 768){
-            $('.parallax-img').parallax();
-        }
-    }
+    });
 
     /* Script on load
     ------------------------------------------------------------------------------*/
@@ -124,15 +118,25 @@
         var hs = $('header.main-header').outerHeight();
         $('.header-space').css('height',hs);
         $('#mobilenav').css('max-height', $(window).height() - hs);
+
+        // Parallax image section. 
+        if (jQuery('#parallax').length) {
+            var scrollPosition = window.pageYOffset;
+            var bgParallax = document.getElementById('parallax');
+            var limit = bgParallax.offsetTop + bgParallax.offsetHeight;  
+            if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit) {
+                bgParallax.style.backgroundPositionY = (50 + 100 * scrollPosition/limit) + '%';    
+            } else {
+                bgParallax.style.backgroundPositionY = '50%';    
+            }
+        }
     });
 
     /* Script on scroll
     ------------------------------------------------------------------------------*/
     $(window).on('scroll', function() {
-
         if ($(this).scrollTop() >= 10) {
             $("header.main-header").addClass("header-sticky");    
-
         } else {
             $("header.main-header").removeClass("header-sticky");    
         }
@@ -143,17 +147,18 @@
     ------------------------------------------------------------------------------*/
     $(window).on('resize', function() {
         /* header-space */
-        setTimeout(function(){
+        setTimeout(function() {
             var hs = $('header.main-header').outerHeight();
             $('.header-space').css('height',hs);      
             $('#mobilenav').css('max-height', $(window).height() - hs);              
-        },250);
+        }, 250);
 
-        if($(window).width() >= 768){          
+        if ($(window).width() >= 768) {          
             $('.hamburger').removeClass('open');
             $('#mobilenav').slideUp();
             $('#mobilenav').removeClass('is-open');
         }else{
+            // Add here.
         }
     });
 
@@ -164,56 +169,44 @@
         remove: false
     });
 
-})(jQuery, Drupal);
-
-window.addEventListener('scroll', function(){
-    if(jQuery('#parallax').length){
-        var scrollPosition = window.pageYOffset;
-        var bgParallax = document.getElementById('parallax');
-        var limit = bgParallax.offsetTop + bgParallax.offsetHeight;  
-        if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit){
-            bgParallax.style.backgroundPositionY = (50 + 100 * scrollPosition/limit) + '%';    
-        }else{
-            bgParallax.style.backgroundPositionY = '50%';    
-        }
-    }
-});
-
-/* parallax img */
-window.Velocity = window.Velocity || (window.jQuery || window.Zepto || window).Velocity;
-var Vel;
-Vel = $ ? $.Velocity : Velocity,
-    function (a) {
-    a.fn.parallax = function () {
-        var b = a(window).width();
+    /* parallax */
+    $.fn.parallax = function () {
+        var b = $(window).width();
         return this.each(function () {
             function c(c) {
-                console.log('test')
-                var e;
-                e = 601 > b ? d.height() > 0 ? d.height() : d.children("img").height() : d.height() > 0 ? d.height() : 500;
-                var f = d.children("img").first(),
-                    g = f.height(),
-                    h = g - e,
-                    i = d.offset().top + e,
-                    j = d.offset().top,
-                    k = a(window).scrollTop(),
-                    l = window.innerHeight,
-                    m = k + l,
-                    n = (m - j) / (e + l),
-                    o = Math.round(h * n);
-                c && f.css("display", "block"), i > k && k + l > j && f.css("transform", "translate3D(-50%," + o + "px, 0)")
+                if (b >= 768 ) {
+                    console.log(b)
+                    var e;
+                    e = 601 > b ? d.height() > 0 ? d.height() : d.children("img").height() : d.height() > 0 ? d.height() : 500;
+                    var f = d.children("img").first(),
+                        g = f.height(),
+                        h = g - e,
+                        i = d.offset().top + e,
+                        j = d.offset().top,
+                        k = $(window).scrollTop(),
+                        l = window.innerHeight,
+                        m = k + l,
+                        n = (m - j) / (e + l),
+                        o = Math.round(h * n);
+                    c && f.css("display", "block"), i > k && k + l > j && f.css("transform", "translate3D(-50%," + o + "px, 0)")
+                } else {
+                    $(this).children("img").first().css("transform", "");
+                }
             }
-            var d = a(this);
+            var d = $(this);
             d.addClass("parallax-img"), d.children("img").one("load", function () {
-                console.log('test');
                 c(!0)
             }).each(function () {
-                this.complete && a(this).on('load')
-            }), a(window).on('scroll', function () {
-                b = a(window).width(), c(!1)
-            }), a(window).on('resize', function () {
-                b = a(window).width(), c(!1)
+                this.complete && $(this).on('load')
+            }), $(window).on('scroll', function () {
+                b = $(window).width(), c(!1)
+            }), $(window).on('resize', function () {
+                b = $(window).width(), c(!1)
             });
         });
     }
-}(jQuery);
+    if($('.parallax-img').length > 0){
+        $('.parallax-img').parallax();
+    }
+
+})(jQuery, Drupal);
