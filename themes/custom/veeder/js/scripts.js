@@ -169,13 +169,21 @@
         remove: false
     });
 
+    // Background Image to parent div start
+    jQuery(".bg-img img").each(function(i, elem) {
+        var img = jQuery(elem);
+        jQuery(this).hide();
+        jQuery(this).parent().css({
+            background: "url(" + img.attr("src") + ") no-repeat center center",
+        });
+    });
+
     /* parallax */
     $.fn.parallax = function () {
         var b = $(window).width();
         return this.each(function () {
             function c(c) {
                 if (b >= 768 ) {
-                    console.log(b)
                     var e;
                     e = 601 > b ? d.height() > 0 ? d.height() : d.children("img").height() : d.height() > 0 ? d.height() : 500;
                     var f = d.children("img").first(),
