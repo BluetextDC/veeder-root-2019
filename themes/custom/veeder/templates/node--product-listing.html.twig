@@ -85,15 +85,53 @@
   {% if display_submitted %}
     <div class="node__meta">
       {{ author_picture }}
-      <div{{ author_attributes }}>
+      <span{{ author_attributes }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
+      </span>
+      {{ metadata }}
     </div>
   {% endif %}
 
-  <div{{ content_attributes }}>
-    {{ content }}
-  </div>
+  <section class="hero-section{% if content.field_generic_hero_image.0|render is empty %} NoHero-sec {% endif %}">
+    <div class="inner-banner">
+      <!-- {% if (content.field_generic_hero_vimeo|render is not empty) or (content.field_generic_hero_image.0|render) is not empty %}
+        <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+            <span class="play-icon ic-play-icon"></span>
+        </a>
+      {% endif %} -->
+      {% if content.field_generic_hero_image.0|render is not empty %}
+        <div class="bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+        </div>
+      {% endif %}
+      <div class="banner-caption" style="background-color: {{ content.field_generic_hero_plate_color.0 }};">
+          <div class="caption-wrap">
+              <h1 style="color: #000;">{{ content.field_generic_hero_heading.0 }}</h1>
+              {% if content.field_generic_hero_cta_display.0["#markup"] == 1 and node.field_generic_hero_cta.0.title|render is not empty %}
+                <a href="{{ node.field_generic_hero_cta.0.url }}" class="btn" style="color: #000;">{{ node.field_generic_hero_cta.0.title }}</a>
+              {% endif %}
+          </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- content area part -->
+  <div class="main-content">
+    {{ content.field_components }}
+
+    {# Render other fields if client will create #}
+    {{ content|without('field_breadcrumb_color', 'field_components', 'field_generic_hero_cta', 'field_generic_hero_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_generic_hero_cta_display', 'field_display_contact_footer', 'field_contact_footer_form', 'field_generic_hero_heading', 'field_generic_hero_image', 'field_generic_hero_plate_color', 'field_generic_hero_vimeo', 'field_generic_hero_image_paralla', 'field_summary', 'field_taxonomy_image') }}
+
+    {% if content.field_display_contact_footer.0["#markup"] == 1 and content.field_contact_footer_form|render is not empty %}
+      <section class="contact-sec bg-gray space-large">
+        <div class="small-container">
+          <div class="heading-txt text-center">
+            <h2>{{ 'Contact Us'|trans }}</h2>
+          </div>
+          <div role="form" > 
+            {{ content.field_contact_footer_form }}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  </div>
 </div>

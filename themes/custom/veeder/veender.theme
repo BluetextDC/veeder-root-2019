@@ -83,6 +83,9 @@ function veender_preprocess_node(&$variables) {
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
   }
+  // Add content class.
+  //$variables['attributes']['class'][] = 'main-content';
+
   $node_type = $variables['node']->getType();
   switch ($node_type) {
     case 'generic_landing':
@@ -200,6 +203,24 @@ function veender_preprocess_breadcrumb(&$variables) {
       if ($node->field_display_breadcrumbs[0]->value == 1) {
         if (!empty($node->field_breadcrumb_color[0]->color)) {
           $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+        }
+        else {
+          $variables['breadcrumb_color'] = '#ffffff';
+        }
+      }
+      else {
+        unset($variables['breadcrumb']);
+      }
+    }
+    if ($node->gettype() == 'product_detail') {
+      if ($node->field_display_breadcrumbs[0]->value == 1) {
+        if (!empty($node->field_display_breadcrumbs_color[0]->color)) {
+          if (empty($node->field_generic_hero_image[0]->entity->getFileUri())) {
+            $variables['breadcrumb_color'] = $node->field_display_breadcrumbs_color[0]->color;
+          }
+          else {
+            $variables['breadcrumb_color'] = '#ffffff';
+          }
         }
         else {
           $variables['breadcrumb_color'] = '#ffffff';

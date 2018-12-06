@@ -14,9 +14,9 @@
     <div class="container">
       <ul class="breadcrumb">
       {% for item in breadcrumb %}
-        <li>
+        <li style="color: {{ breadcrumb_color }}">
           {% if item.url %}
-            <a href="{{ item.url }}" style="color: {{ breadcrumb_color }}">{{ item.text }}</a>
+            <a href="{{ item.url }}">{{ item.text }}</a>
           {% else %}
             {{ item.text }}
           {% endif %}
