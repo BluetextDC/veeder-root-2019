@@ -399,6 +399,8 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .inner-banner .bg-img{padding-top: calc(29 / 60 * 100%); position: relative;display: block; width: 100%;}
 .inner-banner .bg-img span{color: #fff;}
 .inner-banner .bg-img:before{content: ""; width: 100%; height: 100%; position: absolute; top: 0; left: 0; /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 100%, transparent); */ pointer-events: none;}
+#block-veender-breadcrumbs .breadcrumb_NoHero {position: relative;}
+.banner-caption .no-separator:after{border-bottom: none;}
 .inner-banner .banner-caption{position: absolute; z-index: 1; top: 50%; left: 0;width: auto; /*max-width: 43.5vw;*/ max-width: 590px; padding: 50px 50px; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);transform: translateY(-50%); /*padding-left: calc((100% - 1290px) / 2);*/}
 .inner-banner .bg-dark-blue h1{color: #fff;}
 .inner-banner .bg-green *:not(.btn):not(.heading){color: #fff;}
