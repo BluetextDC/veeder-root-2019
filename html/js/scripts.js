@@ -113,11 +113,11 @@ $(document).ready(function(){
         that.parents('.product-list').find('.item').slice(hideCardI,hideCardI+2).removeClass('hide');
     });    
     /* parallax */
-    if($('.parallax-img').length > 0){
+    /*if($('.parallax-img').length > 0){
         if($(window).width() >= 768){
             $('.parallax-img').parallax();
         }
-    }
+    }*/
 
 });
 
@@ -195,13 +195,11 @@ window.addEventListener('scroll', function(){
 });
 
 /* parallax img */
-var Vel;
-Vel = $ ? $.Velocity : Velocity,
-    function (a) {
-    a.fn.parallax = function () {
-        var b = a(window).width();
-        return this.each(function () {
-            function c(c) {
+$.fn.parallax = function () {
+    var b = $(window).width();
+    return this.each(function () {
+        function c(c) {
+            if (b >= 768 ) {                
                 var e;
                 e = 601 > b ? d.height() > 0 ? d.height() : d.children("img").height() : d.height() > 0 ? d.height() : 500;
                 var f = d.children("img").first(),
@@ -209,23 +207,28 @@ Vel = $ ? $.Velocity : Velocity,
                     h = g - e,
                     i = d.offset().top + e,
                     j = d.offset().top,
-                    k = a(window).scrollTop(),
+                    k = $(window).scrollTop(),
                     l = window.innerHeight,
                     m = k + l,
                     n = (m - j) / (e + l),
                     o = Math.round(h * n);
                 c && f.css("display", "block"), i > k && k + l > j && f.css("transform", "translate3D(-50%," + o + "px, 0)")
+            } else {
+                $(this).children("img").first().css("transform", "");
             }
-            var d = a(this);
-            d.addClass("parallax-img"), d.children("img").one("load", function () {
-                c(!0)
-            }).each(function () {
-                this.complete && a(this).load()
-            }), a(window).scroll(function () {
-                b = a(window).width(), c(!1)
-            }), a(window).resize(function () {
-                b = a(window).width(), c(!1)
-            })
-        })
-    }
-}(jQuery);
+        }
+        var d = $(this);
+        d.addClass("parallax-img"), d.children("img").one("load", function () {
+            c(!0)
+        }).each(function () {
+            this.complete && $(this).on('load')
+        }), $(window).on('scroll', function () {
+            b = $(window).width(), c(!1)
+        }), $(window).on('resize', function () {
+            b = $(window).width(), c(!1)
+        });
+    });
+}
+if($('.parallax-img').length > 0){
+    $('.parallax-img').parallax();
+}
