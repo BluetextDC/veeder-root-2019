@@ -53,7 +53,7 @@
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} style="background-color: {{ paragraph.field_3_column_taxonomy_bg_color.0.color }};">
+  <section{{ attributes.addClass(classes) }} style="background-color: {{ paragraph.field_3_column_taxonomy_bg_color.0.color }};" id="{{ content.field_3_column_taxonomy_cta_id.0 }}">
     <div class="container">
       {% block content %}
         <div class="heading text-center">
@@ -64,8 +64,6 @@
              
         {{ content.field_3_column_taxonomy_view }}
 
-        {# content.field_3_column_taxonomy_bg_color #}
-        {# content.field_3_column_taxonomy_cta_id #}
       {% endblock %}
     </div>
   </section>

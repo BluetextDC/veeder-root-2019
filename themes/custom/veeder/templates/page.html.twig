@@ -45,7 +45,7 @@
       <div class="container d-flex justify-content-between align-items-center">
         {{ page.header_logo }}
 
-        <a href="javascript:void(0)" class="hamburger"> <span><!-- trigger button --></span> </a>
+        <a href="javascript:void(0)" class="hamburger"> <span>{# -- trigger button -- #}</span> </a>
         <div class="navigation">
             {{ page.secondary_menu }}
             {{ page.primary_menu }}
@@ -54,16 +54,24 @@
       <div id="mobilenav" class="hidden-md-up">                    
           <div id="menu">                        
             <div class="menu-outer">
-              <ul class="sidebar-links">
-                  <li><a href="#">Find a Distributor</a><em class="caret"></em></li>
-                  <li><a href="#">Get a Quote</a><em class="caret"></em></li>
-              </ul>
               {{ page.primary_menu }}
             </div>
           </div>
       </div>   
     </header>
     <div class="header-space"></div>
+
+    {# jump menu #}
+    {% if node.field_enable_jump_nav.0.value == 1 %}
+      {% if page.jump_menu %}
+        <div class="page-sub-nav hidden-sm-down">
+          <div class="container">
+            {{ page.jump_menu }}
+            <span class="tri-color"></span>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
 
     {% if page.highlighted %}
       <div class="highlighted">
@@ -73,9 +81,9 @@
 
     {% if page.sidebar_first %}
       <div id="sidebar-first" class="column sidebar">
-        <aside class="section" role="complementary">
+        <div class="container">
           {{ page.sidebar_first }}
-        </aside>
+        </div>
       </div>
     {% endif %}
 
@@ -85,13 +93,13 @@
 
     {% if page.sidebar_second %}
       <div id="sidebar-second" class="column sidebar">
-        <aside class="section" role="complementary">
+        <div class="container">
           {{ page.sidebar_second }}
-        </aside>
+        </div>
       </div>
     {% endif %}
     
-    <!-- footer part -->
+    {# -- footer part -- #}
     <footer class="main-footer space-medium">
         <div class="container">
             {{ page.footer_first }}

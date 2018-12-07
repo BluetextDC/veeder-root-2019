@@ -92,24 +92,16 @@
     </h2>
   {% endif %}
   {{ title_suffix }}
-  {% if display_submitted %}
-    <div class="node__meta">
-      {{ author_picture }}
-      <span{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-      </span>
-      {{ metadata }}
-    </div>
-  {% endif %}
-  <section{{ content_attributes.addClass('hero-section') }}>
 
-    <div class="inner-banner video-banner">
-      {% if content.field_generic_hero_vimeo|render is not empty %}
-        <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+  {# Hero banner section #}
+  <section class="hero-section{% if content.field_generic_hero_image|render is empty %} NoHero-sec{% endif %}">
+    <div class="inner-banner{% if content.field_generic_hero_vimeo|render is not empty %} video-banner{% endif %}">
+      {% if (content.field_generic_hero_vimeo|render is not empty) and (content.field_generic_hero_image|render is not empty) %}
+        <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}{% if content.field_generic_hero_image|render is not empty %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;"{% endif %}>
             <span class="play-icon ic-play-icon"></span>
         </a>
-      {% else %}
-        <div class="bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+      {% elseif content.field_generic_hero_image|render is not empty %}
+        <div class="bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
         </div>
       {% endif %}
       <div class="banner-caption" style="background-color: {{ node.field_generic_hero_plate_color.0.color }};">
@@ -127,6 +119,16 @@
       </div>
     </div>
   </section>
+  
+  {% if display_submitted %}
+    <div class="node__meta">
+      {{ author_picture }}
+      <span{{ author_attributes }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+      </span>
+      {{ metadata }}
+    </div>
+  {% endif %}
   
   {% if content.field_display_contact_sidebar.0["#markup"] == 1 %}
     <div class="sidebar-wrap">
@@ -176,5 +178,18 @@
 
      {# Render other fields if client will create #}
     {{ content|without('field_breadcrumb_color', 'field_components', 'field_generic_hero_cta', 'field_generic_hero_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_generic_hero_heading', 'field_generic_hero_image', 'field_generic_hero_plate_color', 'field_generic_hero_vimeo', 'field_generic_hero_image_paralla', 'field_summary', 'field_taxonomy_image', 'field_taxonomy_listing_image') }}
+
+    {% if content.field_display_contact_footer.0["#markup"] == 1 and content.field_contact_footer_form|render is not empty %}
+      <section class="contact-sec bg-gray space-large">
+        <div class="small-container">
+          <div class="heading-txt text-center">
+            <h2>{{ 'Contact Us'|trans }}</h2>
+          </div>
+          <div role="form" > 
+            {{ content.field_contact_footer_form }}
+          </div>
+        </div>
+      </section>
+    {% endif %}
   </div>
 </div>

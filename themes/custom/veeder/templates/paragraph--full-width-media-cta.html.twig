@@ -46,7 +46,7 @@ set classes = [
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }}>
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_fullwd_media_cta_id.0 }}">
   {% block content %}
     <div class="container">
       <div class="video-wrap">
@@ -60,8 +60,8 @@ set classes = [
             <h3 style="color: {{ paragraph.field_fullwd_media_cta_color.0.color }};">{{ content.field_fullwd_media_cta_heading.0 }}</h3>
           </div>
           {% if content.field_fullwd_media_cta_descrptin|render is not empty %}
-            <div class="desc">
-              <p style="color: {{ paragraph.field_fullwd_media_cta_color.0.color }};">{{ content.field_fullwd_media_cta_descrptin.0 }}</p>
+            <div class="desc" style="color: {{ paragraph.field_fullwd_media_cta_color.0.color }};">
+              {{ content.field_fullwd_media_cta_descrptin.0|raw }}
             </div>
           {% endif %}
           

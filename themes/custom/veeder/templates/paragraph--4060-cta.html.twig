@@ -54,7 +54,7 @@ set classes = [
 {% endif %}
   
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }}>
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_4060_cta_id.0 }}">
   {% block content %}
     <div class="container">
       <div class="row align-items-center">
@@ -67,7 +67,7 @@ set classes = [
                 <h3>{{ content.field_4060_cta_callout.0 }}</h3>
               {% endif %}
               {% if content.field_4060_cta_description|render is not empty %}
-                <p>{{ content.field_4060_cta_description.0 }}</p>
+                {{ content.field_4060_cta_description.0|raw }}
               {% endif %}
               {% if paragraph.field_4060_cta.0.title is not empty %}
                 <a href="{{ paragraph.field_4060_cta.0.url }}" class="btn btn-black">{{ paragraph.field_4060_cta.0.title }}</a>
@@ -127,7 +127,7 @@ set classes = [
               <h3>{{ content.field_4060_cta_callout.0 }}</h3>
             {% endif %}
             {% if content.field_4060_cta_description|render is not empty %}
-              <p>{{ content.field_4060_cta_description.0|raw }}</p>
+              {{ content.field_4060_cta_description.0|raw }}
             {% endif %}
             {% if paragraph.field_4060_cta.0.title is not empty %}
               <a href="{{ paragraph.field_4060_cta.0.url }}" class="btn btn-black">{{ paragraph.field_4060_cta.0.title }}</a>

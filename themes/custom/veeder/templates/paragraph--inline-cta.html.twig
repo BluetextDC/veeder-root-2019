@@ -36,35 +36,48 @@
  * @ingroup themeable
  */
 #}
-{%
-set classes = [
+{% set classes = [
     'paragraph',
-    'full-content-sec',
-    'space-medium',
+    'side-sec-wrap',
+    'paragraph' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
   ]
 %}
 
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }} id="{{ content.field_full_width_cta_cta.0 }}">
-  {% block content %}
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_inline_cta_id.0 }}">
     <div class="container">
-      <div class="content-wrap space-medium text-center"{% if paragraph.field_full_width_cta_background.0.color|render is not empty %} style="background-color: {{ paragraph.field_full_width_cta_background.0.color }}; opacity: {{ paragraph.field_full_width_cta_background.0.opacity }};"{% endif %}{% if paragraph.field_full_width_cta_bg_image.entity.uri.value|render is not empty %} style="background: url({{ file_url(paragraph.field_full_width_cta_bg_image.entity.uri.value) }}) no-repeat center / cover;"{% endif %}>
-        <div class="small-desc" style="color: {{ paragraph.field_full_width_cta_color.0.color }};">
-          <h2 style="color: {{ paragraph.field_full_width_cta_color.0.color }};">{{ content.field_full_width_cta_heading.0 }}</h2>
-          {% if content.field_full_width_cta_description.0|render is not empty %}
-            {{ content.field_full_width_cta_description.0|raw }}
-          {% endif %}
-          {% if paragraph.field_full_width_cta_cta.0.title|render is not empty %}
-            <a href="{{ paragraph.field_full_width_cta_cta.0.url }}" class="btn" style="color: {{ paragraph.field_full_width_cta_color.0.color }};">{{ paragraph.field_full_width_cta_cta.0.title }}</a>
-          {% endif %}
+      {% block content %}
+        <div class="left-side-part">
+          <div class="inline-promo bg-blue">
+            <div class="img-part bg-white">
+              {% if content.field_inline_cta_image_parallax.0["#markup"] == 1 %}
+                <div class="inner-wrap">
+                  <div class="bg-img">
+                    <div class="parallax-img">
+                      {{ content.field_inline_cta_image.0 }}
+                    </div>
+                  </div>
+                </div>
+              {% else %}
+                <figure>
+                  {{ content.field_inline_cta_image.0 }}
+                </figure>
+              {% endif %}
+            </div>
+            <div class="text-part">
+                <h6>{{ content.field_inline_cta_heading.0 }}</h6>
+                {% if content.field_inline_cta_description|render is not empty %}
+                  {{ content.field_inline_cta_description.0|raw }}
+                {% endif %}
+                {% if paragraph.field_inline_cta_cta.0.title is not empty %}
+                  <a href="{{ paragraph.field_inline_cta_cta.0.url }}" class="btn-link">{{ paragraph.field_inline_cta_cta.0.title }}</a>
+                {% endif %}
+            </div>
+          </div>
         </div>
-        {% if content.field_full_width_cta_color_foote.0["#markup"] == 1 %}
-          <span class="tri-color large"></span>
-        {% endif %}
       </div>
-    </div>
-  {% endblock %}
-  </div>
+    {% endblock %}
+  </section>
 {% endblock paragraph %}

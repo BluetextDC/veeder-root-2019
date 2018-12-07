@@ -46,7 +46,7 @@ set classes = [
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }}>
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_5050_layered_cta_id.0 }}">
   {% block content %}
     <div class="container">
       <div class="text-img-sec sec40-60">
@@ -64,7 +64,7 @@ set classes = [
                     <h3>{{ content.field_5050_layered_cta_subheadin.0 }}</h3>
                   {% endif %}
                   {% if content.field_5050_layered_cta_descripti|render is not empty %}
-                    <p>{{ content.field_5050_layered_cta_descripti.0 }}</p>
+                    {{ content.field_5050_layered_cta_descripti.0|raw }}
                   {% endif %}
                   {% if paragraph.field_5050_layered_cta.0.title is not empty %}
                     <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_layered_cta.0.title }}</a>
@@ -92,7 +92,7 @@ set classes = [
                     <h3>{{ content.field_5050_layered_cta_subheadin.0 }}</h3>
                   {% endif %}
                   {% if content.field_5050_layered_cta_descripti|render is not empty %}
-                    <p>{{ content.field_5050_layered_cta_descripti.0 }}</p>
+                    {{ content.field_5050_layered_cta_descripti.0|raw }}
                   {% endif %}
                   {% if paragraph.field_5050_layered_cta.0.title is not empty %}
                     <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_layered_cta.0.title }}</a>

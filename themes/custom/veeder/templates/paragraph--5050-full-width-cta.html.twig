@@ -55,7 +55,7 @@ set classes = [
 {% endif %}
   
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }}>
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_5050_fullwd_cta_id.0 }}">
     <div class="img-text-wrap d-flex flex-wrap">
       {% block content %}
         {# If checked then text shows first otherwise image shows first#}
@@ -67,7 +67,7 @@ set classes = [
                 <h3>{{ content.field_5050_fullwd_cta_heading.0 }}</h3>
               {% endif %}
               {% if content.field_5050_fullwd_cta_descrption|render is not empty %}
-                <p>{{ content.field_5050_fullwd_cta_descrption.0 }}</p>
+                {{ content.field_5050_fullwd_cta_descrption.0|raw }}
               {% endif %}
               {% if paragraph.field_5050_fullwd_cta_cta.0.title is not empty %}
                 <a href="{{ paragraph.field_5050_fullwd_cta_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_fullwd_cta_cta.0.title }}</a>
@@ -127,7 +127,7 @@ set classes = [
               <h3>{{ content.field_5050_fullwd_cta_heading.0 }}</h3>
             {% endif %}
             {% if content.field_5050_fullwd_cta_descrption|render is not empty %}
-              <p>{{ content.field_5050_fullwd_cta_descrption.0|raw }}</p>
+              {{ content.field_5050_fullwd_cta_descrption.0|raw }}
             {% endif %}
             {% if paragraph.field_5050_fullwd_cta_cta.0.title is not empty %}
               <a href="{{ paragraph.field_5050_fullwd_cta_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_fullwd_cta_cta.0.title }}</a>

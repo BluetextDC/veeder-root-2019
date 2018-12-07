@@ -46,7 +46,7 @@ set classes = [
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }}>
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_documentation_id.0 }}">
     <div class="container">
       {% block content %}
         <div class="doc-part">

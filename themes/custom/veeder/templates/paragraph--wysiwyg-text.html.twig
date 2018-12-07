@@ -56,7 +56,7 @@ set classes = [
 {% endif %}
 #}
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }}>
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_wysiwyg_text_id.0 }}">
   {% block content %}
     <div class="container"> 
       <div class="inner-wrap d-flex flex-wrap">
@@ -64,7 +64,7 @@ set classes = [
           <div class="left-side-part">
         {# {% endif %} #}
           <div class="e-desc">
-            {{ content }}
+            {{ content.field_wysiwyg_text.0|raw }}
           </div>
         {# {% if paragraph.id() == 11 %} #}
           </div>

@@ -83,6 +83,10 @@ function veender_preprocess_node(&$variables) {
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
   }
+  // $node_type = $variables['node']->getType();
+  // if ($node_type == 'generic_landing') {
+  //   var_dump($variables['node']->get("field_generic_hero_plate_color")->value);
+  // }
   // Add content class.
   //$variables['attributes']['class'][] = 'main-content';
 
@@ -109,7 +113,7 @@ function veender_preprocess_region(&$variables) {
   if ($region == 'primary_menu') {
     $variables['attributes']['class'][] = 'main-nav';
   }
- if ($region == 'search_bar') {
+  if ($region == 'search_bar') {
     $variables['attributes']['class'][] = 'small-container';
   }
   if ($region == 'footer_first') {
@@ -135,6 +139,12 @@ function veender_preprocess_block(&$variables) {
   if ($variables['plugin_id'] == 'search_form_block') {
     $variables['attributes']['class'][] = 'search-part';
   }
+
+  if ($variables['plugin_id'] == 'system_menu_block:sidebar-menu') {
+    $variables['attributes']['class'][] = 'side-bar';
+  }
+
+  
   // Trending block view.
   // if ($variables['plugin_id'] == 'views_block:trending_blogs-block_2') {
   //   $variables['attributes']['class'][] = 'single-link';
@@ -192,6 +202,9 @@ function veender_preprocess_menu(&$variables) {
   if ($variables['menu_name'] == 'footer') {
     $variables['attributes']['class'][] = 'privacy-part';
   }
+  if ($variables['menu_name'] == 'sidebar-menu') {
+    $variables['attributes']['class'][] = 'sidebar-links';
+  }
 }
 
 /**
@@ -201,11 +214,17 @@ function veender_preprocess_breadcrumb(&$variables) {
   if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
     if ($node->gettype() == 'generic_landing') {
       if ($node->field_display_breadcrumbs[0]->value == 1) {
-        if (!empty($node->field_breadcrumb_color[0]->color)) {
+        if (empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          $variables['breadcrumb_class'] = 'breadcrumb_NoHero';
+          $variables['breadcrumb_color'] = '#000';
+        } elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_generic_hero_image[0]->entity->uri->value)) {
+          $variables['breadcrumb_color'] = '#000';
+          $variables['breadcrumb_class'] = 'breadcrumb_NoHero';
+          
+        } elseif (!empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          $variables['breadcrumb_color'] = '#000';
+        } else {
           $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
-        }
-        else {
-          $variables['breadcrumb_color'] = '#ffffff';
         }
       }
       else {
@@ -214,16 +233,17 @@ function veender_preprocess_breadcrumb(&$variables) {
     }
     if ($node->gettype() == 'product_detail') {
       if ($node->field_display_breadcrumbs[0]->value == 1) {
-        if (!empty($node->field_display_breadcrumbs_color[0]->color)) {
-          if (empty($node->field_generic_hero_image[0]->entity->getFileUri())) {
-            $variables['breadcrumb_color'] = $node->field_display_breadcrumbs_color[0]->color;
-          }
-          else {
-            $variables['breadcrumb_color'] = '#ffffff';
-          }
-        }
-        else {
-          $variables['breadcrumb_color'] = '#ffffff';
+        if (empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_display_breadcrumbs_color[0]->color)) {
+          $variables['breadcrumb_class'] = 'breadcrumb_NoHero';
+          $variables['breadcrumb_color'] = '#000';
+        } elseif (!empty($node->field_display_breadcrumbs_color[0]->color) && empty($node->field_generic_hero_image[0]->entity->uri->value)) {
+          $variables['breadcrumb_color'] = '#000';
+          $variables['breadcrumb_class'] = 'breadcrumb_NoHero';
+          
+        } elseif (!empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_display_breadcrumbs_color[0]->color)) {
+          $variables['breadcrumb_color'] = '#fff';
+        } else {
+          $variables['breadcrumb_color'] = $node->field_display_breadcrumbs_color[0]->color;
         }
       }
       else {
