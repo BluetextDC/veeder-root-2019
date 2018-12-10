@@ -72,45 +72,54 @@
  * @ingroup themeable
  */
 #}
-<div{{ attributes }}>
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
 
+<div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if not page %}
-    <h2{{ title_attributes }}>
+    <h2{{ title_attributes.addClass('node__title') }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
   {{ title_suffix }}
 
-  {{ metadata }}
-
-  {# Hero Banner Section #}
-  <section class="hero-section">
-    <div class="home-banner">
-      <div class="bg-img"{% if content.field_homepage_hero_image_parall.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_homepage_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
-      </div>
-      <div class="banner-caption">
-        <div class="container">
-          <div class="banner-heading text-center" style="background-color: {{ content.field_homepage_hero_plate_color.0 }};">
-            <div class="heading" style="color: {{ content.field_homepage_hero_text_color.0 }};">
-              <h1 style="color: {{ content.field_homepage_hero_text_color.0 }};">{{ content.field_homepage_hero_heading.0 }}</h1>
-            </div>
-            {% if content.field_homepage_hero_subheading|render is not empty %}
-              <p style="color: {{ content.field_homepage_hero_text_color.0 }}">
-                {{ content.field_homepage_hero_subheading.0|raw }}
-              </p>
-            {% endif %}
-            {% if node.field_homepage_hero_cta_cta.0.title is not empty %}
-              <a href="{{ node.field_homepage_hero_cta_cta.0.url }}" class="btn" style="color: {{ content.field_homepage_hero_text_color.0 }}; border-color: {{ content.field_homepage_hero_text_color.0 }};">{{ node.field_homepage_hero_cta_cta.0.title }}</a>
-            {% endif %}
+  {# Hero banner section #}
+  <section class="hero-section{% if content.field_generic_hero_image|render is empty %} NoHero-sec{% endif %}">
+    <div class="inner-banner{% if content.field_generic_hero_vimeo|render is not empty %} video-banner{% endif %}">
+      {% if (content.field_generic_hero_vimeo|render is not empty) and (content.field_generic_hero_image|render is not empty) %}
+        <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}{% if content.field_generic_hero_image|render is not empty %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;"{% endif %}>
+            <span class="play-icon ic-play-icon"></span>
+        </a>
+      {% elseif content.field_generic_hero_image|render is not empty %}
+        <div class="bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+        </div>
+      {% endif %}
+      <div class="banner-caption" style="background-color: {{ node.field_generic_hero_plate_color.0.color }};">
+        <div class="caption-wrap">
+          <div class="heading">
+            <h1 style="color: #ffffff">{{ content.field_generic_hero_heading.0 }}</h1>
           </div>
-          <span class="verticle-line"></span>
-          {{ content.field_add_starting_point }}
+          {% if content.field_generic_hero_description|render is not empty %}
+            <p style="color: #ffffff">{{ content.field_generic_hero_description.0|raw }}</p>
+          {% endif %}
+          {% if node.field_generic_hero_cta.0.title is not empty %}
+            <a href="{{ node.field_generic_hero_cta.0.url }}" class="btn">{{ node.field_generic_hero_cta.0.title }}</a>
+          {% endif %}
         </div>
       </div>
     </div>
   </section>
-
+  
   {% if content.field_display_contact_sidebar.0["#markup"] == 1 %}
     <div class="sidebar-wrap">
       <div class="side-bar">
@@ -153,16 +162,12 @@
       </div>
     </div>
   {% endif %}
-
-  {# Main container #}
+  {# -- content area part -- #}
   <div class="main-content">
-    
-    {{ content.field_add_column_cta }}
-
     {{ content.field_components }}
 
-    {# Render other field if client will create #}
-    {{ content|without('field_add_column_cta', 'field_add_starting_point', 'field_components', 'field_homepage_hero_cta_cta', 'field_homepage_hero_subheading', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_homepage_hero_heading', 'field_homepage_hero_cta_block_hd', 'field_homepage_hero_image', 'field_homepage_hero_image_parall', 'field_homepage_hero_plate_color', 'field_summary', 'field_homepage_hero_text_color') }}
+     {# Render other fields if client will create #}
+    {{ content|without('field_breadcrumb_color', 'field_components', 'field_generic_hero_cta', 'field_generic_hero_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_generic_hero_heading', 'field_generic_hero_image', 'field_generic_hero_plate_color', 'field_generic_hero_vimeo', 'field_generic_hero_image_paralla', 'field_summary', 'field_taxonomy_image', 'field_taxonomy_listing_image') }}
 
     {% if content.field_display_contact_footer.0["#markup"] == 1 and content.field_contact_footer_form|render is not empty %}
       <section class="contact-sec bg-gray space-large">
@@ -176,6 +181,5 @@
         </div>
       </section>
     {% endif %}
-
   </div>
 </div>

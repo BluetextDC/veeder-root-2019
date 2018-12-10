@@ -83,6 +83,7 @@ function veender_preprocess_node(&$variables) {
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
   }
+
   // $node_type = $variables['node']->getType();
   // if ($node_type == 'generic_landing') {
   //   var_dump($variables['node']->get("field_generic_hero_plate_color")->value);
@@ -162,13 +163,10 @@ function veender_preprocess_block(&$variables) {
 }
 
 
-// function veender_preprocess_paragraph(&$variables) {
-//   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-//   $paragraph = $variables['paragraph'];
-//   // Get the parent bundle.
-//   $parentBundle = $paragraph->getParentEntity()->bundle();
-//   var_dump($parentBundle);
-// }
+function veender_preprocess_paragraph(&$variables) {
+  // Get is_front variable on paragraph.html.twig.
+  $variables['is_front'] = Drupal::service('path.matcher')->isFrontPage();
+}
 
 /**
  * Implements hook_preprocess_HOOK() for menu.html.twig.

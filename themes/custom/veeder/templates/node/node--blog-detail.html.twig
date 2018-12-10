@@ -116,11 +116,6 @@
 
     <section class="hero-section">
       <div class="small-inner-banner">
-        <!-- {% if (content.field_generic_hero_vimeo|render is not empty) or (content.field_blog_detail_image.0|render) is not empty %}
-          <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_blog_detail_image_parallax.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_blog_detail_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
-              <span class="play-icon ic-play-icon"></span>
-          </a>
-        {% endif %} -->
         <div class="banner-caption" style="background-color: {{ content.field_blog_detail_plate_color.0 }};">
           <div class="cap-wrap">
             <h1 style="color: #fff;">{{ content.field_blog_detail_heading.0 }}</h1>
@@ -133,7 +128,11 @@
             </div>
           </div>
         </div>
-        {% if content.field_blog_detail_image.0|render is not empty %}
+        {% if (content.field_blog_detail_vimeo|render is not empty) and (content.field_blog_detail_image.0|render) is not empty %}
+          <a href="{{ content.field_blog_detail_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_blog_detail_image_parallax.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_blog_detail_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+              <span class="play-icon ic-play-icon"></span>
+          </a>
+        {% elseif content.field_blog_detail_image.0|render is not empty %}
           <div class="banner-img">
             <div class="bg-img"{% if content.field_blog_detail_image_parallax.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_blog_detail_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
             </div>
@@ -142,19 +141,73 @@
       </div>
     </section>
 
-    <!-- content area part -->
+    {% if content.field_display_contact_sidebar.0["#markup"] == 1 %}
+      <div class="sidebar-wrap">
+        <div class="side-bar">
+          <div class="bar-wrap">
+            <a href="#" class="a-link">Get a Quote</a>
+            <div class="line-wrap"><span class="verticle-line"></span><i class="ic-chevron-down"></i><span class="verticle-line"></span></div>
+            <a href="#" class="a-link">Find a Distributor</a>
+          </div>
+        </div>
+        <div class="dist-locat-sec">
+          <div class="container">
+            <div class="dl-wrap">
+              <div class="get-quote-form" role="form">
+                <div class="heading-txt">
+                  <h3>Know What You Want?</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+                </div>
+
+                {{ content.field_contact_footer_form }}
+              </div>
+              <div class="find-near-u">
+                <div class="heading-txt">
+                  <h3>Find a distributor near you</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+                </div>
+                <form class="form-grp">                                    
+                  <div class="inp-box">
+                    <span class="">
+                      <label>City, State and/or Postal Code</label>
+                      <input type="text">
+                    </span>
+                  </div>
+                  <div class="inp-box submit-box text-right">
+                    <input type="submit" value="Submit">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    
+    {# -- content area part -- #}
+    <section class="side-sec-wrap space-small">
+      <div class="container">                           
+        <div class="inner-wrap d-flex flex-wrap">
+          <div class="left-side-part">
+            <div class="e-desc">
+              {{ content.field_body.0|raw }}
+            </div>
+          </div>
+          <div class="right-side-part">
+            <div class="related-insight">
+              <h4>{{ content.field_blog_related_heading.0 }}</h4>
+              {{ content.field_blog_realted_view }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="main-content">
       {{ content.field_components }}
 
-      <div class="right-side-part">
-        <div class="related-insight">
-          <h4>{{ content.field_blog_related_heading.0 }}</h4>
-          {{ content.field_blog_realted_view }}
-        </div>
-      </div>
-
       {# Render other fields if client will create #}
-      {{ content|without('field_blog_author', 'field_breadcrumb_color', 'field_components', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_blog_date', 'field_display_contact_footer', 'field_contact_footer_form', 'field_blog_detail_heading', 'field_blog_detail_image', 'field_blog_detail_plate_color', 'field_blog_detail_vimeo', 'field_blog_detail_image_parallax', 'field_blog_related_heading', 'field_blog_realted_view', 'field_summary') }}
+      {{ content|without('field_blog_author', 'field_breadcrumb_color', 'field_components', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_blog_date', 'field_display_contact_footer', 'field_contact_footer_form', 'field_blog_detail_heading', 'field_blog_detail_image', 'field_blog_detail_plate_color', 'field_blog_detail_vimeo', 'field_blog_detail_image_parallax', 'field_blog_related_heading', 'field_blog_realted_view', 'field_summary', 'field_blog', 'field_body') }}
 
       {% if content.field_display_contact_footer.0["#markup"] == 1 and  content.field_contact_footer_form|render is not empty %}
         <section class="contact-sec bg-gray space-large">

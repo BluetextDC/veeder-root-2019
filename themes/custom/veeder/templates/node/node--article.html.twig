@@ -82,16 +82,6 @@
   {% endif %}
   {{ title_suffix }}
 
-  {% if display_submitted %}
-    <div class="node__meta">
-      {{ author_picture }}
-      <span{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-      </span>
-      {{ metadata }}
-    </div>
-  {% endif %}
-
   <section class="hero-section{% if content.field_blog_listing_image.0|render is empty %} NoHero-sec{% endif %}">
     <div class="inner-banner">
       <div class="banner-caption{% if content.field_blog_listing_image.0|render is empty %}  simple-banner{% endif %}" style="background-color: {{ content.field_blog_listing_plate_color.0 }};">
@@ -100,11 +90,11 @@
           <p>{{ content.field_blog_listing_description.0 }}</p>
         </div>
       </div>
-      {% if (content.field_blog_listing_vimeo|render is not empty) %}
-        <a href="{{ content.field_blog_listing_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_blog_detail_image_parallax.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_blog_listing_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+      {% if (content.field_blog_listing_vimeo|render is not empty) and (content.field_blog_listing_image.0|render is not empty) %}
+        <a href="{{ content.field_blog_listing_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_blog_listing_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_blog_listing_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
             <span class="play-icon ic-play-icon"></span>
         </a>
-      {% else %}
+      {% elseif content.field_blog_listing_image.0|render is not empty %}
         <div class="banner-img">
           <div class="bg-img"{% if content.field_blog_listing_image_paralla.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_blog_listing_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
           </div>
@@ -113,7 +103,50 @@
     </div>
   </section>
 
-  <!-- content area part -->
+  {% if content.field_display_contact_sidebar.0["#markup"] == 1 %}
+    <div class="sidebar-wrap">
+      <div class="side-bar">
+        <div class="bar-wrap">
+          <a href="#" class="a-link">Get a Quote</a>
+          <div class="line-wrap"><span class="verticle-line"></span><i class="ic-chevron-down"></i><span class="verticle-line"></span></div>
+          <a href="#" class="a-link">Find a Distributor</a>
+        </div>
+      </div>
+      <div class="dist-locat-sec">
+        <div class="container">
+          <div class="dl-wrap">
+            <div class="get-quote-form" role="form">
+              <div class="heading-txt">
+                <h3>Know What You Want?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+              </div>
+
+              {{ content.field_contact_footer_form }}
+            </div>
+            <div class="find-near-u">
+              <div class="heading-txt">
+                <h3>Find a distributor near you</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+              </div>
+              <form class="form-grp">                                    
+                <div class="inp-box">
+                  <span class="">
+                    <label>City, State and/or Postal Code</label>
+                    <input type="text">
+                  </span>
+                </div>
+                <div class="inp-box submit-box text-right">
+                  <input type="submit" value="Submit">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {# -- content area part -- #}
+
   <div class="main-content">
     <section class="blog-post-sec space-small">
       <div class="container">

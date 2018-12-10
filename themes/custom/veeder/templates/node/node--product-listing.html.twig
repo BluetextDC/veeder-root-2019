@@ -72,64 +72,37 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'clearfix',
-  ]
-%}
-{{ attach_library('classy/node') }}
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes }}>
+
   {{ title_prefix }}
   {% if not page %}
-    <h2{{ title_attributes.addClass('node__title') }}>
+    <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
   {{ title_suffix }}
 
-  {# Hero banner section #}
-  <section class="hero-section{% if content.field_generic_hero_image|render is empty %} NoHero-sec{% endif %}">
-    <div class="inner-banner{% if content.field_generic_hero_vimeo|render is not empty %} video-banner{% endif %}">
-      {% if (content.field_generic_hero_vimeo|render is not empty) and (content.field_generic_hero_image|render is not empty) %}
-        <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}{% if content.field_generic_hero_image|render is not empty %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;"{% endif %}>
-            <span class="play-icon ic-play-icon"></span>
+  <section class="hero-section{% if content.field_generic_hero_image.0|render is empty %} NoHero-sec {% endif %}">
+    <div class="inner-banner">
+      {% if (content.field_generic_hero_vimeo|render is not empty) and (content.field_generic_hero_image.0|render) is not empty %}
+        <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+          <span class="play-icon ic-play-icon"></span>
         </a>
       {% elseif content.field_generic_hero_image|render is not empty %}
-        <div class="bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+        <div class="bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
         </div>
       {% endif %}
-      <div class="banner-caption" style="background-color: {{ node.field_generic_hero_plate_color.0.color }};">
+      <div class="banner-caption" style="background-color: {{ content.field_generic_hero_plate_color.0 }};">
         <div class="caption-wrap">
-          <div class="heading">
-            <h1 style="color: #ffffff">{{ content.field_generic_hero_heading.0 }}</h1>
-          </div>
-          {% if content.field_generic_hero_description|render is not empty %}
-            <p style="color: #ffffff">{{ content.field_generic_hero_description.0|raw }}</p>
-          {% endif %}
-          {% if node.field_generic_hero_cta.0.title is not empty %}
-            <a href="{{ node.field_generic_hero_cta.0.url }}" class="btn">{{ node.field_generic_hero_cta.0.title }}</a>
+          <h1 style="color: #000;">{{ content.field_generic_hero_heading.0 }}</h1>
+          {% if content.field_generic_hero_cta_display.0["#markup"] == 1 and node.field_generic_hero_cta.0.title|render is not empty %}
+            <a href="{{ node.field_generic_hero_cta.0.url }}" class="btn" style="color: #000;">{{ node.field_generic_hero_cta.0.title }}</a>
           {% endif %}
         </div>
       </div>
     </div>
   </section>
-  
-  {% if display_submitted %}
-    <div class="node__meta">
-      {{ author_picture }}
-      <span{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-      </span>
-      {{ metadata }}
-    </div>
-  {% endif %}
-  
+
   {% if content.field_display_contact_sidebar.0["#markup"] == 1 %}
     <div class="sidebar-wrap">
       <div class="side-bar">
@@ -172,12 +145,12 @@
       </div>
     </div>
   {% endif %}
-  <!-- content area part -->
+  {# -- content area part -- #}
   <div class="main-content">
     {{ content.field_components }}
 
-     {# Render other fields if client will create #}
-    {{ content|without('field_breadcrumb_color', 'field_components', 'field_generic_hero_cta', 'field_generic_hero_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_generic_hero_heading', 'field_generic_hero_image', 'field_generic_hero_plate_color', 'field_generic_hero_vimeo', 'field_generic_hero_image_paralla', 'field_summary', 'field_taxonomy_image', 'field_taxonomy_listing_image') }}
+    {# Render other fields if client will create #}
+    {{ content|without('field_breadcrumb_color', 'field_components', 'field_generic_hero_cta', 'field_generic_hero_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_generic_hero_cta_display', 'field_display_contact_footer', 'field_contact_footer_form', 'field_generic_hero_heading', 'field_generic_hero_image', 'field_generic_hero_plate_color', 'field_generic_hero_vimeo', 'field_generic_hero_image_paralla', 'field_summary', 'field_taxonomy_image') }}
 
     {% if content.field_display_contact_footer.0["#markup"] == 1 and content.field_contact_footer_form|render is not empty %}
       <section class="contact-sec bg-gray space-large">

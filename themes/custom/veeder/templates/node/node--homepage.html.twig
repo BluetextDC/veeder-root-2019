@@ -82,48 +82,88 @@
   {% endif %}
   {{ title_suffix }}
 
-  {% if display_submitted %}
-    <div class="node__meta">
-      {{ author_picture }}
-      <span{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-      </span>
-      {{ metadata }}
-    </div>
-  {% endif %}
+  {{ metadata }}
 
+  {# Hero Banner Section #}
   <section class="hero-section">
-    <div class="inner-banner">
-      <!-- {% if (content.field_generic_hero_vimeo|render is not empty) or (content.field_generic_hero_image.0|render) is not empty %}
-        <a href="{{ content.field_generic_hero_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_generic_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
-            <span class="play-icon ic-play-icon"></span>
-        </a>
-      {% endif %} -->
-      <div class="bg-img"{% if content.field_product_show_hero_bg_img_p.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_product_show_hero_bg_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+    <div class="home-banner">
+      <div class="bg-img"{% if content.field_homepage_hero_image_parall.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_homepage_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
       </div>
-      <div class="banner-caption img-title-cap" style="background-color: {{ content.field_product_show_hero_plte_cor.0 }};">
-        <div class="caption-wrap">
-          <div class="cap-img bg-white">
-            <figure>
-              {{ content.field_product_show_hero_image.0 }}
-            </figure>
-          </div>                               
-          <div class="desc bg-dark-blue">
-            <h2>{{ content.field_product_show_hero_heading.0 }}</h2> 
+      <div class="banner-caption">
+        <div class="container">
+          <div class="banner-heading text-center" style="background-color: {{ content.field_homepage_hero_plate_color.0 }};">
+            <div class="heading" style="color: {{ content.field_homepage_hero_text_color.0 }};">
+              <h1 style="color: {{ content.field_homepage_hero_text_color.0 }};">{{ content.field_homepage_hero_heading.0 }}</h1>
+            </div>
+            {% if content.field_homepage_hero_subheading|render is not empty %}
+              <p style="color: {{ content.field_homepage_hero_text_color.0 }}">
+                {{ content.field_homepage_hero_subheading.0|raw }}
+              </p>
+            {% endif %}
+            {% if node.field_homepage_hero_cta_cta.0.title is not empty %}
+              <a href="{{ node.field_homepage_hero_cta_cta.0.url }}" class="btn" style="color: {{ content.field_homepage_hero_text_color.0 }}; border-color: {{ content.field_homepage_hero_text_color.0 }};">{{ node.field_homepage_hero_cta_cta.0.title }}</a>
+            {% endif %}
           </div>
+          <span class="verticle-line"></span>
+          {{ content.field_add_starting_point }}
         </div>
-      </div>                           
+      </div>
     </div>
   </section>
 
-  <!-- content area part -->
+  {% if content.field_display_contact_sidebar.0["#markup"] == 1 %}
+    <div class="sidebar-wrap">
+      <div class="side-bar">
+        <div class="bar-wrap">
+          <a href="#" class="a-link">Get a Quote</a>
+          <div class="line-wrap"><span class="verticle-line"></span><i class="ic-chevron-down"></i><span class="verticle-line"></span></div>
+          <a href="#" class="a-link">Find a Distributor</a>
+        </div>
+      </div>
+      <div class="dist-locat-sec">
+        <div class="container">
+          <div class="dl-wrap">
+            <div class="get-quote-form" role="form">
+              <div class="heading-txt">
+                <h3>Know What You Want?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+              </div>
+
+              {{ content.field_contact_footer_form }}
+            </div>
+            <div class="find-near-u">
+              <div class="heading-txt">
+                <h3>Find a distributor near you</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+              </div>
+              <form class="form-grp">                                    
+                <div class="inp-box">
+                  <span class="">
+                    <label>City, State and/or Postal Code</label>
+                    <input type="text">
+                  </span>
+                </div>
+                <div class="inp-box submit-box text-right">
+                  <input type="submit" value="Submit">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {# Main container #}
   <div class="main-content">
+    {{ content.field_add_column_cta }}
+
     {{ content.field_components }}
 
-    {# Render other fields if client will create #}
-    {{ content|without('field_display_breadcrumbs_color', 'field_components', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_product_show_hero_heading', 'field_product_show_hero_bg_image', 'field_product_show_hero_plte_cor', 'field_product_show_hero_image', 'field_product_show_hero_vimeo', 'field_product_show_hero_bg_img_p', 'field_summary', 'field_taxonomy_image') }}
+    {# Render other field if client will create #}
+    {{ content|without('field_add_column_cta', 'field_add_starting_point', 'field_components', 'field_homepage_hero_cta_cta', 'field_homepage_hero_subheading', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_homepage_hero_heading', 'field_homepage_hero_cta_block_hd', 'field_homepage_hero_image', 'field_homepage_hero_image_parall', 'field_homepage_hero_plate_color', 'field_summary', 'field_homepage_hero_text_color') }}
 
-    {% if content.field_display_contact_footer.0["#markup"] == 1 %}
+    {% if content.field_display_contact_footer.0["#markup"] == 1 and content.field_contact_footer_form|render is not empty %}
       <section class="contact-sec bg-gray space-large">
         <div class="small-container">
           <div class="heading-txt text-center">
