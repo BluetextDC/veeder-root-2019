@@ -106,7 +106,7 @@
       {% endif %}
       <div class="banner-caption" style="background-color: {{ node.field_generic_hero_plate_color.0.color }};">
         <div class="caption-wrap">
-          <div class="heading">
+          <div class="heading{% if content.field_generic_hero_description|render is empty %} no-separator{% endif %}">
             <h1 style="color: #ffffff">{{ content.field_generic_hero_heading.0 }}</h1>
           </div>
           {% if content.field_generic_hero_description|render is not empty %}
@@ -162,6 +162,7 @@
       </div>
     </div>
   {% endif %}
+
   {# -- content area part -- #}
   <div class="main-content">
     {{ content.field_components }}
@@ -169,7 +170,7 @@
      {# Render other fields if client will create #}
     {{ content|without('field_breadcrumb_color', 'field_components', 'field_generic_hero_cta', 'field_generic_hero_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_generic_hero_heading', 'field_generic_hero_image', 'field_generic_hero_plate_color', 'field_generic_hero_vimeo', 'field_generic_hero_image_paralla', 'field_summary', 'field_taxonomy_image', 'field_taxonomy_listing_image') }}
 
-    {% if content.field_display_contact_footer.0["#markup"] == 1 and content.field_contact_footer_form|render is not empty %}
+    {% if (content.field_display_contact_footer.0["#markup"] == 1) and (content.field_contact_footer_form|render is not empty) %}
       <section class="contact-sec bg-gray space-large">
         <div class="small-container">
           <div class="heading-txt text-center">

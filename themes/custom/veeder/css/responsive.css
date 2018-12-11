@@ -70,7 +70,8 @@
     .small-inner-banner .banner-caption h1{font-size: 26px;margin-bottom: 10px;}
     .small-inner-banner .banner-caption{padding-left: 40px;}
     .small-inner-banner .banner-caption .tag{padding: 0;margin-bottom: 10px;}
-    .small-inner-banner .banner-caption .tag a{font-size: 14px;}
+    .small-inner-banner .banner-caption .tag a,
+    .small-inner-banner .banner-caption .tag span{font-size: 14px;}
     .side-sec-wrap .left-side-part{padding-right: 25px;}
     .side-sec-wrap .right-side-part{padding-left: 25px;}
     .text-img-sec .text-part:first-of-type .inner-wrap{padding-right: 0;}
@@ -165,14 +166,16 @@
     .small-inner-banner .banner-caption{padding: 65px 50px 30px;}
     .small-inner-banner .banner-caption{padding-left: 40px;padding-right: 40px;}
     .small-inner-banner .banner-caption h1{font-size: 24px;margin-bottom: 10px;}
-    .small-inner-banner .banner-caption .tag a{font-size: 15px;}
+    .small-inner-banner .banner-caption .tag a,
+    .small-inner-banner .banner-caption .tag span{font-size: 15px;}
     .small-inner-banner .banner-caption .tag{padding: 0;}
     .banner-caption .social-block span{font-size: 20px;}
     .banner-caption .social-block a{font-size: 20px;}
     .side-sec-wrap .left-side-part{padding-right: 20px;}
     .side-sec-wrap .right-side-part{padding-left: 20px;}
     .inline-promo .text-part{padding: 20px;}
-    .full-img-text-sec .text-part{padding-right: 40px;}
+    .full-img-text-sec .text-part,
+    .full-img-text-sec .featured-info{padding-right: 40px;}
     .full-img-text-sec .text-part .desc-wrap .btn{margin-top: 10px;}
     .full-img-text-sec .text-part .desc-wrap{padding: 30px 20px 30px 30px;}
     .inner-banner .banner-caption{padding: 30px 30px 30px 40px;}
@@ -265,7 +268,9 @@
     .small-inner-banner .banner-caption{width: 100%; padding: 50px;}
     .small-inner-banner .banner-img{width: 100%;order: -1;}
     .full-img-text-sec .img-part{width: 100%;}
-    .full-img-text-sec .text-part{width: 100%;padding-right: 0;}
+    .full-img-text-sec .text-part,
+    .full-img-text-sec .featured-info{width: 100%;padding-right: 20px;padding-top: 0;}
+    .full-img-text-sec .img-part{padding-right: 0;}
     .full-img-text-sec .text-part .desc-wrap{padding: 40px 50px;}
     .four-block-sec p{margin-bottom: 12px;}
     .full-video-sec .title-desc{flex-wrap: wrap;}
@@ -293,9 +298,9 @@
     .NoHero-sec .inner-banner .simple-banner{max-width: 100%;padding: 40px 50px 20px;}
     .inner-banner .banner-caption.simple-banner .caption-wrap{max-width: 100%;}
     .parallax-img img{-webkit-transform:none;
-    -ms-transform:none;
-    -o-transform:none;
-    transform:none; width: 100%; height: 100%;object-fit: cover; min-height: auto; position: static;}
+        -ms-transform:none;
+        -o-transform:none;
+        transform:none; width: 100%; height: 100%;object-fit: cover; min-height: auto; position: static;}
 }
 
 /* ----- 4. Small devices ≤640 ----- */
@@ -372,8 +377,10 @@
     .features-list .item:first-of-type{margin-top: 0;}
     .features-list .item{margin: 20px 0 0 0;}
     .small-inner-banner .banner-caption{padding: 20px;}
-    .small-inner-banner .banner-caption .tag a{font-size: 14px;}
-    .small-inner-banner .banner-caption .tag a + a:before{margin: 0 5px;}
+    .small-inner-banner .banner-caption .tag a,
+    .small-inner-banner .banner-caption .tag span{font-size: 14px;}
+    .small-inner-banner .banner-caption .tag a + a:before,
+    .small-inner-banner .banner-caption .tag span + span:before{margin: 0 5px;}
     .small-inner-banner .banner-caption .tag{padding: 0;margin-bottom: 10px;}
     .banner-caption .social-block span{font-size: 18px; margin-right: 5px;}
     .banner-caption .social-block a{font-size: 20px;margin: 0 5px;}

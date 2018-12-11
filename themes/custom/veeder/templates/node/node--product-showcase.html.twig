@@ -92,7 +92,7 @@
         <div class="bg-img"{% if content.field_product_show_hero_bg_img_p.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_product_show_hero_bg_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
         </div>
       {% endif %}
-      <div class="banner-caption {% if content.field_product_show_hero_image.0|render is not empty %}img-title-cap{% endif %}" style="background-color: {{ content.field_product_show_hero_plte_cor.0 }};">
+      <div class="banner-caption{% if content.field_product_show_hero_image.0|render is not empty %} img-title-cap{% endif %}" style="background-color: {{ content.field_product_show_hero_plte_cor.0 }};">
         <div class="caption-wrap">
           {% if content.field_product_show_hero_image.0|render is not empty %}
             <div class="cap-img bg-white">
@@ -157,9 +157,9 @@
     {{ content.field_components }}
 
     {# Render other fields if client will create #}
-    {{ content|without('field_display_breadcrumbs_color', 'field_components', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_product_show_hero_heading', 'field_product_show_hero_bg_image', 'field_product_show_hero_plte_cor', 'field_product_show_hero_image', 'field_product_show_hero_vimeo', 'field_product_show_hero_bg_img_p', 'field_summary', 'field_taxonomy_image') }}
+    {{ content|without('field_display_breadcrumbs_color', 'field_components', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_product_show_hero_heading', 'field_product_show_hero_bg_image', 'field_product_show_hero_plte_cor', 'field_product_show_hero_image', 'field_product_show_hero_vimeo', 'field_product_show_hero_bg_img_p', 'field_product_tags', 'field_solution_tags', 'field_summary', 'field_taxonomy_image') }}
 
-    {% if content.field_display_contact_footer.0["#markup"] == 1 and content.field_contact_footer_form|render is not empty %}
+    {% if (content.field_display_contact_footer.0["#markup"] == 1) and (content.field_contact_footer_form|render is not empty) %}
       <section class="contact-sec bg-gray space-large">
         <div class="small-container">
           <div class="heading-txt text-center">

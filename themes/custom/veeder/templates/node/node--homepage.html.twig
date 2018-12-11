@@ -85,14 +85,14 @@
   {{ metadata }}
 
   {# Hero Banner Section #}
-  <section class="hero-section">
+  <section class="hero-section{% if content.field_homepage_hero_image|render is empty %} NoHero-sec{% endif %}">
     <div class="home-banner">
       <div class="bg-img"{% if content.field_homepage_hero_image_parall.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_homepage_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
       </div>
       <div class="banner-caption">
         <div class="container">
           <div class="banner-heading text-center" style="background-color: {{ content.field_homepage_hero_plate_color.0 }};">
-            <div class="heading" style="color: {{ content.field_homepage_hero_text_color.0 }};">
+            <div class="heading{% if content.field_homepage_hero_subheading|render is empty %} no-separator{% endif %}" style="color: {{ content.field_homepage_hero_text_color.0 }};">
               <h1 style="color: {{ content.field_homepage_hero_text_color.0 }};">{{ content.field_homepage_hero_heading.0 }}</h1>
             </div>
             {% if content.field_homepage_hero_subheading|render is not empty %}
@@ -163,7 +163,7 @@
     {# Render other field if client will create #}
     {{ content|without('field_add_column_cta', 'field_add_starting_point', 'field_components', 'field_homepage_hero_cta_cta', 'field_homepage_hero_subheading', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_homepage_hero_heading', 'field_homepage_hero_cta_block_hd', 'field_homepage_hero_image', 'field_homepage_hero_image_parall', 'field_homepage_hero_plate_color', 'field_summary', 'field_homepage_hero_text_color') }}
 
-    {% if content.field_display_contact_footer.0["#markup"] == 1 and content.field_contact_footer_form|render is not empty %}
+    {% if (content.field_display_contact_footer.0["#markup"] == 1) and (content.field_contact_footer_form|render is not empty) %}
       <section class="contact-sec bg-gray space-large">
         <div class="small-container">
           <div class="heading-txt text-center">
