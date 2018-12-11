@@ -44,15 +44,12 @@ set classes = [
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
   ]
 %}
-{% if content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 1 %}
-  {% set classes = classes|merge(['text-video-sec', 'space-medium']) %}
-{% elseif paragraph.id() == 19 %}
-  {% set classes = classes|merge(['product-sec', 'space-large']) %}
-{% elseif paragraph.id() == 26 %}
-  {% set classes = classes|merge(['text-img-sec', 'space-large']) %}
+
+{% if (content.field_5050_fullwd_cta_image.0|render is not empty) and (content.field_5050_fullwd_cta_vimeo_url.0|render is empty) %}
+  {% set classes = classes|merge(['text-img-sec']) %}
 {% else %}
-  {% set classes = classes|merge(['text-img-sec', 'space-medium']) %} 
-{% endif %}
+  {% set classes = classes|merge(['text-video-sec']) %}
+{%endif%}
   
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }} id="{{ content.field_5050_fullwd_cta_id.0 }}">
@@ -60,8 +57,8 @@ set classes = [
       {% block content %}
         {# If checked then text shows first otherwise image shows first#}
         {% if content.field_5050_fullwd_cta_text_first.0["#markup"] == 1 %}
-          <div class="featured-info col-md-6 text-part">
-            <div class="inner-wrap">
+          <div class="text-part">
+            <div class="desc-wrap">
               <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_fullwd_cta_callout.0 }}</div>
               {% if content.field_5050_fullwd_cta_heading|render is not empty %}
                 <h3>{{ content.field_5050_fullwd_cta_heading.0 }}</h3>
@@ -74,64 +71,60 @@ set classes = [
               {% endif %}
             </div>
           </div>
-          <div class="{% if content.field_5050_fullwd_cta_vimeo_play.0['#markup'] == 1 %}video-part {% else %}img-and-title img-part {% endif %}col-md-6">
-            {% if content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 1 %}
-              <div class="inner-wrap">
-                <a href="{{ paragraph.field_5050_fullwd_cta_vimeo_url.0.value }}" data-fancybox class="c-video" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover">
-                  <span class="play-icon ic-play-icon"></span>
-                </a>
-              </div>
-            {% else %}
-              {% if content.field_5050_fullwd_cta_image_para.0["#markup"] == 1 %}
-                <div class="inner-wrap">
-                  <div class="bg-img">
-                    <div class="parallax-img">
-                      {{ content.field_5050_fullwd_cta_image.0 }}
-                    </div>
-                  </div>
-                </div>
-              {% else %}
-                <figure>
+          <div class="{% if (content.field_5050_fullwd_cta_image.0|render is not empty) and (content.field_5050_fullwd_cta_vimeo_url.0|render is empty) %}img-part{% else %}video-part{% endif %}">
+            {% if (content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 1) and (content.field_5050_fullwd_cta_vimeo_url|render is not empty) %}
+              <a href="{{ content.field_5050_fullwd_cta_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover">
+                <span class="play-icon ic-play-icon"></span>
+              </a>
+            {% elseif (content.field_5050_fullwd_cta_vimeo_url|render is not empty) and (content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 0) and (content.field_5050_fullwd_cta_image.0|render is empty) %}
+              <a href="javascript:;" class="c-video">                                            
+                <iframe src="{{ content.field_5050_fullwd_cta_vimeo_url.0 }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                <span class="play-icon ic-play-icon"></span>
+              </a>
+            {% elseif (content.field_5050_fullwd_cta_image.0|render is not empty) and (content.field_5050_fullwd_cta_image_para.0["#markup"] == 0) %}
+              <div class="bg-img" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover"></div>
+            {% elseif (content.field_5050_fullwd_cta_image.0|render is not empty) and (content.field_5050_fullwd_cta_image_para.0["#markup"] == 1) %}
+              <div class="bg-img">
+                <div class="parallax-img">
                   {{ content.field_5050_fullwd_cta_image.0 }}
-                </figure>
-              {% endif %}
-            {% endif %}
+                </div>
+              </div>
+            {%endif%}
           </div>
         {% else %}
-          <div class="{% if content.field_5050_fullwd_cta_vimeo_play.0['#markup'] == 1 %}video-part {% else %}img-and-title img-part {% endif %}col-md-6">
-            {% if content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 1 %}
-              <div class="inner-wrap">
-                <a href="{{ paragraph.field_5050_fullwd_cta_vimeo_url.0.value }}" data-fancybox class="c-video" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover">
-                  <span class="play-icon ic-play-icon"></span>
-                </a>
-              </div>
-            {% else %}
-              {% if content.field_5050_fullwd_cta_image_para.0["#markup"] == 1 %}
-                <div class="inner-wrap">
-                  <div class="bg-img">
-                    <div class="parallax-img">
-                      {{ content.field_5050_fullwd_cta_image.0 }}
-                    </div>
-                  </div>
-                </div>
-              {% else %}
-                <figure>
+          <div class="{% if (content.field_5050_fullwd_cta_image.0|render is not empty) and (content.field_5050_fullwd_cta_vimeo_url.0|render is empty) %}img-part{% else %}video-part{% endif %}">
+            {% if (content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 1) and (content.field_5050_fullwd_cta_vimeo_url|render is not empty) %}
+              <a href="{{ content.field_5050_fullwd_cta_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover">
+                <span class="play-icon ic-play-icon"></span>
+              </a>
+            {% elseif (content.field_5050_fullwd_cta_vimeo_url|render is not empty) and (content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 0) and (content.field_5050_fullwd_cta_image.0|render is empty) %}
+              <a href="javascript:;" class="c-video">                                            
+                <iframe src="{{ content.field_5050_fullwd_cta_vimeo_url.0 }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                <span class="play-icon ic-play-icon"></span>
+              </a>
+            {% elseif (content.field_5050_fullwd_cta_image.0|render is not empty) and (content.field_5050_fullwd_cta_image_para.0["#markup"] == 0) %}
+              <div class="bg-img" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover"></div>
+            {% elseif (content.field_5050_fullwd_cta_image.0|render is not empty) and (content.field_5050_fullwd_cta_image_para.0["#markup"] == 1) %}
+              <div class="bg-img">
+                <div class="parallax-img">
                   {{ content.field_5050_fullwd_cta_image.0 }}
-                </figure>
-              {% endif %}
-            {% endif %}
+                </div>
+              </div>
+            {%endif%}
           </div>
-          <div class="featured-info col-md-6">
-            <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_fullwd_cta_callout.0 }}</div>
-            {% if content.field_5050_fullwd_cta_heading|render is not empty %}
-              <h3>{{ content.field_5050_fullwd_cta_heading.0 }}</h3>
-            {% endif %}
-            {% if content.field_5050_fullwd_cta_descrption|render is not empty %}
-              {{ content.field_5050_fullwd_cta_descrption.0|raw }}
-            {% endif %}
-            {% if paragraph.field_5050_fullwd_cta_cta.0.title is not empty %}
-              <a href="{{ paragraph.field_5050_fullwd_cta_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_fullwd_cta_cta.0.title }}</a>
-            {% endif %}
+          <div class="text-part">
+            <div class="desc-wrap">
+              <div class="line-title"><span class="hr-line"></span>{{ content.field_5050_fullwd_cta_callout.0 }}</div>
+              {% if content.field_5050_fullwd_cta_heading|render is not empty %}
+                <h3>{{ content.field_5050_fullwd_cta_heading.0 }}</h3>
+              {% endif %}
+              {% if content.field_5050_fullwd_cta_descrption|render is not empty %}
+                {{ content.field_5050_fullwd_cta_descrption.0|raw }}
+              {% endif %}
+              {% if paragraph.field_5050_fullwd_cta_cta.0.title is not empty %}
+                <a href="{{ paragraph.field_5050_fullwd_cta_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_fullwd_cta_cta.0.title }}</a>
+              {% endif %}
+            </div>
           </div>
         {% endif %}
       {% endblock %}

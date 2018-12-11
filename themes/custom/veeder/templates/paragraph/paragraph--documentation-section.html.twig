@@ -50,7 +50,7 @@ set classes = [
 {% for key, i in 0..document_data - 1 %}
   {% set items = {
       document_heading: content.field_add_documentation_sec_doc[i]['#paragraph'].field_documentation_doc_name.value,
-      document_file: file_url(content.field_add_documentation_sec_doc[i]['#paragraph'].field_add_documentation_doc_file.entity.uri.value),
+      document_file: content.field_add_documentation_sec_doc[i]['#paragraph'].field_add_documentation_doc_file.uri,
     }
   %}
   {% set document_items = document_items|merge({(key): items}) %}
@@ -62,7 +62,7 @@ set classes = [
       <label>{{ content.field_documentation_sec_heading }}</label>
       <ul>
         {% for document_item in document_items %}
-          <li><a href="{{ document_item.document_file }}" download="download" class="ic-download download"></a> {{ document_item.document_heading }}</li>
+          <li>{% if document_item.document_file is not empty %}<a href="{{ document_item.document_file }}" download="download" class="ic-download download" target="_blank"></a>{% endif %} {{ document_item.document_heading }}</li>
         {% endfor %}
       </ul>
     </div>

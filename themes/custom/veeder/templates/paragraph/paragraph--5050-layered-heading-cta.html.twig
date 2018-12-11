@@ -59,45 +59,45 @@ set classes = [
           {# If checked then text shows first otherwise image shows first#}
           {% if content.field_5050_layered_cta_text_firs.0["#markup"] == 1 %}
             <div class="col-md-7 text-part">
-                <div class="small-desc">
-                  {% if content.field_5050_layered_cta_subheadin|render is not empty %}
-                    <h3>{{ content.field_5050_layered_cta_subheadin.0 }}</h3>
-                  {% endif %}
-                  {% if content.field_5050_layered_cta_descripti|render is not empty %}
-                    {{ content.field_5050_layered_cta_descripti.0|raw }}
-                  {% endif %}
-                  {% if paragraph.field_5050_layered_cta.0.title is not empty %}
-                    <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_layered_cta.0.title }}</a>
-                  {% endif %}
-                </div>
+              <div class="small-desc">
+                {% if content.field_5050_layered_cta_subheadin|render is not empty %}
+                  <h3>{{ content.field_5050_layered_cta_subheadin.0 }}</h3>
+                {% endif %}
+                {% if content.field_5050_layered_cta_descripti|render is not empty %}
+                  {{ content.field_5050_layered_cta_descripti.0|raw }}
+                {% endif %}
+                {% if paragraph.field_5050_layered_cta.0.title is not empty %}
+                  <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_layered_cta.0.title }}</a>
+                {% endif %}
+              </div>
             </div>
             <div class="col-md-5 img-part text-center">
-                {% if content.field_5050_layered_cta_image|render is not empty %}
-                  <figure>
-                      {{ content.field_5050_layered_cta_image.0 }}
-                  </figure>
-                {% endif %}
+              {% if content.field_5050_layered_cta_image|render is not empty %}
+                <figure>
+                  {{ content.field_5050_layered_cta_image.0 }}
+                </figure>
+              {% endif %}
             </div>
           {% else %}
             <div class="col-md-5 img-part text-center">
-                {% if content.field_5050_layered_cta_image|render is not empty %}
-                  <figure>
-                      {{ content.field_5050_layered_cta_image.0 }}
-                  </figure>
-                {% endif %}
+              {% if content.field_5050_layered_cta_image|render is not empty %}
+                <figure>
+                  {{ content.field_5050_layered_cta_image.0 }}
+                </figure>
+              {% endif %}
             </div>
             <div class="col-md-7 text-part">
-                <div class="small-desc">
-                  {% if content.field_5050_layered_cta_subheadin|render is not empty %}
-                    <h3>{{ content.field_5050_layered_cta_subheadin.0 }}</h3>
-                  {% endif %}
-                  {% if content.field_5050_layered_cta_descripti|render is not empty %}
-                    {{ content.field_5050_layered_cta_descripti.0|raw }}
-                  {% endif %}
-                  {% if paragraph.field_5050_layered_cta.0.title is not empty %}
-                    <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_layered_cta.0.title }}</a>
-                  {% endif %}
-                </div>
+              <div class="small-desc">
+                {% if content.field_5050_layered_cta_subheadin|render is not empty %}
+                  <h3>{{ content.field_5050_layered_cta_subheadin.0 }}</h3>
+                {% endif %}
+                {% if content.field_5050_layered_cta_descripti|render is not empty %}
+                  {{ content.field_5050_layered_cta_descripti.0|raw }}
+                {% endif %}
+                {% if paragraph.field_5050_layered_cta.0.title is not empty %}
+                  <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_layered_cta.0.title }}</a>
+                {% endif %}
+              </div>
             </div>
           {% endif %}
         </div>
