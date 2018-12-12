@@ -1,0 +1,56 @@
+{#
+/**
+ * @see template_preprocess_node()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if node.field_display_contact_sidebar.0.value == 1 %}
+  <div class="sidebar-wrap">
+    <div class="side-bar">
+      <div class="bar-wrap">
+        <a href="#" class="a-link">Get a Quote</a>
+        <div class="line-wrap"><span class="verticle-line"></span><i class="ic-chevron-down"></i><span class="verticle-line"></span></div>
+        <a href="#" class="a-link">Find a Distributor</a>
+      </div>
+    </div>
+    <div class="dist-locat-sec">
+      <div class="container">
+        <div class="dl-wrap">
+          <div class="get-quote-form" role="form">
+            <div class="heading-txt">
+              <h3>Know What You Want?</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+            </div>
+            <!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+              portalId: "2159660",
+              formId: "af40956c-d8be-446b-83ca-491bd20514ad"
+            });
+            </script>
+          </div>
+          <div class="find-near-u">
+            <div class="heading-txt">
+              <h3>Find a distributor near you</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+            </div>
+            <!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+              portalId: "2159660",
+              formId: "449d3ad2-2c3b-4af5-89c5-8e4f5bcdf46a"
+            });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

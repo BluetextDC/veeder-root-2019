@@ -58,7 +58,7 @@
       description: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_description.value,
       link_title: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_cta.value[0].title,
       link_url: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_cta[0].url,
-      image: file_url(content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value),
+      image: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value ? file_url(content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value) : '',
     }
   %}
   {% set feature_items = feature_items|merge({(key): items}) %}
@@ -77,8 +77,10 @@
           {% for feature_item in feature_items %}
             <div class="col-md-4 item">
               <div class="item-wrap bg-white">
-                <div class="bg-img hidden-sm-down" style="background: url({{ feature_item.image }}) no-repeat center / cover;">
-                </div>
+                {% if feature_item.image is not empty %}
+                  <div class="bg-img hidden-sm-down" style="background: url({{ feature_item.image }}) no-repeat center / cover;">
+                  </div>
+                {% endif %}
                 <div class="desc line-top">
                   <h4 class="h6">{{ feature_item.title }}</h4>
                   {{ feature_item.description|raw }}

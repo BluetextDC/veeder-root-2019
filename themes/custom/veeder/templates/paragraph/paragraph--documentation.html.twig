@@ -39,6 +39,8 @@
 {%
 set classes = [
     'paragraph',
+    'space-small',
+    'pb-0',
     'paragraph' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
@@ -50,7 +52,7 @@ set classes = [
     <div class="container">
       {% block content %}
         <div class="doc-part">
-          <h3>{{ content.field_documentation_heading.0 }}</h3>
+          <h2 class="h3">{{ content.field_documentation_heading.0 }}</h2>
           {{ content.field_add_documentation_section }}
         </div>
       {% endblock %}

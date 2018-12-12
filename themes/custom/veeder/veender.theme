@@ -15,47 +15,17 @@ use Drupal\Core\Template\Attribute;
  */
 function veender_preprocess_html(&$variables) {
   // Add information about the number of sidebars.
-  // if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
-  //   $variables['attributes']['class'][] = 'layout-two-sidebars';
-  // }
-  // elseif (!empty($variables['page']['sidebar_first'])) {
-  //   $variables['attributes']['class'][] = 'layout-one-sidebar';
-  //   $variables['attributes']['class'][] = 'layout-sidebar-first';
-  // }
-  // elseif (!empty($variables['page']['sidebar_second'])) {
-  //   $variables['attributes']['class'][] = 'layout-one-sidebar';
-  //   $variables['attributes']['class'][] = 'layout-sidebar-second';
-  // }
-  // else {
-  //   $variables['attributes']['class'][] = 'layout-no-sidebars';
-  // }
-
-  // if (!empty($variables['page']['featured_top'])) {
-  //   $variables['attributes']['class'][] = 'has-featured-top';
-  // }
-
-}
-
-/**
- * Implements hook_preprocess_HOOK() for page templates.
- */
-function veender_preprocess_page_title(&$variables) {
-  // Since the title and the shortcut link are both block level elements,
-  // positioning them next to each other is much simpler with a wrapper div.
-  // if (!empty($variables['title_suffix']['add_or_remove_shortcut']) && $variables['title']) {
-  //   // Add a wrapper div using the title_prefix and title_suffix render
-  //   // elements.
-  //   $variables['title_prefix']['shortcut_wrapper'] = [
-  //     '#markup' => '<div class="shortcut-wrapper clearfix">',
-  //     '#weight' => 100,
-  //   ];
-  //   $variables['title_suffix']['shortcut_wrapper'] = [
-  //     '#markup' => '</div>',
-  //     '#weight' => -99,
-  //   ];
-  //   // Make sure the shortcut link is the first item in title_suffix.
-  //   $variables['title_suffix']['add_or_remove_shortcut']['#weight'] = -100;
-  // }
+  if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = 'layout-two-sidebars';
+  }
+  elseif (!empty($variables['page']['sidebar_first'])) {
+    $variables['attributes']['class'][] = 'layout-one-sidebar';
+    $variables['attributes']['class'][] = 'layout-sidebar-first';
+  }
+  elseif (!empty($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = 'layout-one-sidebar';
+    $variables['attributes']['class'][] = 'layout-sidebar-second';
+  }
 }
 
 /**
@@ -144,22 +114,6 @@ function veender_preprocess_block(&$variables) {
   if ($variables['plugin_id'] == 'system_menu_block:sidebar-menu') {
     $variables['attributes']['class'][] = 'side-bar';
   }
-
-  
-  // Trending block view.
-  // if ($variables['plugin_id'] == 'views_block:trending_blogs-block_2') {
-  //   $variables['attributes']['class'][] = 'single-link';
-  // }
-
-  // if ($variables['plugin_id'] == 'system_menu_block:footer-menu') {
-  //   $variables['attributes']['class'][] = 'single-link';
-  // }
-
-  // if ($variables['plugin_id'] == 'system_menu_block:footer') {
-  //   $variables['attributes']['class'][] = 'footer-link';
-  // }
-  //system_menu_block:main, system_menu_block:language-switcher, search_form_block
-  //var_dump($variables['plugin_id']);
 }
 
 
@@ -209,6 +163,18 @@ function veender_preprocess_menu(&$variables) {
  * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
  */
 function veender_preprocess_breadcrumb(&$variables) {
+  // Get current page title.
+  $request = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+  
+  if (!empty($page_title)) {
+    $variables['breadcrumb'][] = [
+      'text' => $page_title,
+      'attributes' => new Attribute(['class' => ['active']])
+    ];
+  }
+  // Image with and without breadcrumbs.
   if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
     if ($node->gettype() != 'page' || $node->gettype() != 'homepage') {
       if ($node->field_display_breadcrumbs[0]->value == 1) {
@@ -272,17 +238,6 @@ function veender_preprocess_breadcrumb(&$variables) {
       else {
         unset($variables['breadcrumb']);
       }
-    }
-    // Get current page title.
-    $request = \Drupal::request();
-    $route_match = \Drupal::routeMatch();
-    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
-    
-    if (!empty($page_title)) {
-      $variables['breadcrumb'][] = [
-        'text' => $page_title,
-        'attributes' => new Attribute(['class' => ['active']])
-      ];
     }
   }
 }

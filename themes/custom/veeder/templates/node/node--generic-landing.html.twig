@@ -120,48 +120,7 @@
     </div>
   </section>
   
-  {% if content.field_display_contact_sidebar.0["#markup"] == 1 %}
-    <div class="sidebar-wrap">
-      <div class="side-bar">
-        <div class="bar-wrap">
-          <a href="#" class="a-link">Get a Quote</a>
-          <div class="line-wrap"><span class="verticle-line"></span><i class="ic-chevron-down"></i><span class="verticle-line"></span></div>
-          <a href="#" class="a-link">Find a Distributor</a>
-        </div>
-      </div>
-      <div class="dist-locat-sec">
-        <div class="container">
-          <div class="dl-wrap">
-            <div class="get-quote-form" role="form">
-              <div class="heading-txt">
-                <h3>Know What You Want?</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-              </div>
-
-              {{ content.field_contact_footer_form }}
-            </div>
-            <div class="find-near-u">
-              <div class="heading-txt">
-                <h3>Find a distributor near you</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-              </div>
-              <form class="form-grp">                                    
-                <div class="inp-box">
-                  <span class="">
-                    <label>City, State and/or Postal Code</label>
-                    <input type="text">
-                  </span>
-                </div>
-                <div class="inp-box submit-box text-right">
-                  <input type="submit" value="Submit">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  {% endif %}
+  {% include directory ~ '/templates/parts/sidebar-form.html.twig' %}
 
   {# -- content area part -- #}
   <div class="main-content">

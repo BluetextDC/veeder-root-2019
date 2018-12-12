@@ -41,12 +41,18 @@
 {%
   set classes = [
     'paragraph',
-    'about-sec',
     'paragraph-' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
   ]
 %}
+
+{# Checking front page for making space between section #}
+{% if is_front == true %}
+  {% set classes = classes|merge(['about-sec']) %}
+{% else %}
+  {% set classes = classes|merge(['four-block-sec', 'space-large']) %}
+{% endif%}
 
 {% set column_data = content.field_4_column_add_cta['#items'] | length %}
 {% set column_items = {} %}
@@ -57,17 +63,17 @@
       description: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_description.value,
       link_title: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta.value[0].title,
       link_url: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta[0].url,
-      image: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value,
+      image: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value ? file_url(content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value) : '',
     }
   %}
   {% set column_items = column_items|merge({(key): items}) %}
 {% endfor %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} id="{{ content.field_4_column_cta_block_id.0 }}">
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_4_column_cta_block_id.0 }}"{% if is_front != true %} style="background-color: {{ content.field_4_column_cta_block_color.0 }};"{% endif %}>
   {% block content %}
     <div class="container">
-      <div class="four-block-sec space-large{% if is_front == true %} sec-top{% endif %}" style="background-color: {{ content.field_4_column_cta_block_color.0 }};">
+      <div{% if is_front == true %} class="four-block-sec space-large sec-top" style="background-color: {{ content.field_4_column_cta_block_color.0 }};"{% else %} class="four-column-inner-section"{% endif %}>
         <div class="heading text-center" style="color: {{ content.field_4_column_cta_block_head_co.0 }};">
           <h2 style="color: {{ content.field_4_column_cta_block_head_co.0 }};">{{ content.field_4_column_cta_block_heading.0 }}</h2>
         </div>
