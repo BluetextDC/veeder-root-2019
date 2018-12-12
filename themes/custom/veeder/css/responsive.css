@@ -82,6 +82,9 @@
     .dist-locat-sec .find-near-u{padding-left: 3%;}
     .dist-locat-sec .get-quote-form{padding-right: 3%;}
     .get-quote-form .inp-box{margin-bottom: 20px;}
+
+    .full-img-text-sec .text-part{padding-left: 50px;padding-right: 30px;}
+    .full-img-text-sec .img-part + .text-part{padding-right: 50px;padding-left: 30px;}
 }
 
 /* ----- 2. Tablet ≥768 and ≤1023 ----- */
@@ -177,7 +180,7 @@
     .full-img-text-sec .text-part,
     .full-img-text-sec .featured-info{padding-right: 40px;}
     .full-img-text-sec .text-part .desc-wrap .btn{margin-top: 10px;}
-    .full-img-text-sec .text-part .desc-wrap{padding: 30px 20px 30px 30px;}
+    .full-img-text-sec .text-part .desc-wrap{padding: 30px 0 30px 0;}
     .inner-banner .banner-caption{padding: 30px 30px 30px 40px;}
     .inner-banner .banner-caption h1{font-size: 23px;}
     .inner-banner .banner-caption .btn{margin-top: 10px;}
@@ -189,6 +192,9 @@
     .featured-blog .text-part{width: 100%; padding: 20px 0 0 0;}
     .blog-list .item .inner-item .desc{padding: 20px 15px;}
     .navigation .main-nav .search-part i{font-size: 17px;}
+    .full-img-text-sec .text-part{padding-left: 40px;padding-right: 25px;}
+    .full-img-text-sec .img-part + .text-part{padding-right: 40px;padding-left: 25px;}
+    .get-quote-form .hs-form-field{width: 100%;}
 }
 
 /* ----- 3. Medium devices ≤767 ----- */
@@ -244,6 +250,7 @@
     .text-img-sec .img-part,
     .text-video-sec .text-part,
     .text-video-sec .video-part{margin:0 0 40px 0;}
+    .text-img-sec .text-part{margin: 0;}
     .text-img-sec .text-part + .img-part{margin-bottom: 20px;}
     .text-img-sec.sec40-60 .img-part{order: -1;}
     .text-img-sec .large-heading + .inner-wrap .img-part figure{margin-top: -20px;margin-left: 0;}
@@ -271,7 +278,7 @@
     .full-img-text-sec .text-part,
     .full-img-text-sec .featured-info{width: 100%;padding-right: 20px;padding-top: 0;}
     .full-img-text-sec .img-part{padding-right: 0;}
-    .full-img-text-sec .text-part .desc-wrap{padding: 40px 50px;}
+    .full-img-text-sec .text-part .desc-wrap{padding: 40px 0;}
     .four-block-sec p{margin-bottom: 12px;}
     .full-video-sec .title-desc{flex-wrap: wrap;}
     .full-video-sec .title-desc .heading-text{width: 100%;}
@@ -297,10 +304,9 @@
     .blog-list .item .inner-item .desc p{font-size: 14px;}
     .NoHero-sec .inner-banner .simple-banner{max-width: 100%;padding: 40px 50px 20px;}
     .inner-banner .banner-caption.simple-banner .caption-wrap{max-width: 100%;}
-    .parallax-img img{-webkit-transform:none;
-        -ms-transform:none;
-        -o-transform:none;
-        transform:none; width: 100%; height: 100%;object-fit: cover; min-height: auto; position: static;}
+    .parallax-img img{-webkit-transform:none;-ms-transform:none;-o-transform:none;transform:none; width: 100%; height: 100%;object-fit: cover; min-height: auto; position: static;}
+    .full-img-text-sec .text-part,
+    .full-img-text-sec .img-part + .text-part{padding-right: 20px;padding-left: 20px;}
 }
 
 /* ----- 4. Small devices ≤640 ----- */
@@ -388,7 +394,7 @@
     .inline-promo .text-part{padding: 20px;}
     .main-content .e-desc ul{margin-bottom: 0;}
     .main-content .e-desc{margin-bottom: 15px;}
-    .full-img-text-sec .text-part .desc-wrap{padding: 30px 20px;}
+    .full-img-text-sec .text-part .desc-wrap{padding: 30px 0;}
     .banner-caption .heading:after{ width: 38px; margin-top: 15px;}    
     .banner-caption .heading{margin-bottom: 15px;}
     .NoHero-sec .banner-caption .btn{margin-top: 0;}

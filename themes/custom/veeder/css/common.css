@@ -215,7 +215,7 @@
 .float-none{float:none}
 
 /* mange spacing */
-.space-small{ padding-top: 40px; padding-bottom: 40px; }
+.space-small{ padding-top: 30px; padding-bottom: 30px; }
 .space-medium { padding-top: 50px; padding-bottom: 50px; }
 .space-large { padding-top: 70px; padding-bottom: 70px; }
 .no-bdr{border-width: 0 }

@@ -33,66 +33,60 @@
   {% if items %}
 
     {% if menu_level == 0 %}
-      <ul{{ attributes }} t>
+      <ul{{ attributes }}>
     {% else %}
       <ul>
     {% endif %}
 
-    {% set count = 0 %}
-    {% for item in items %}
-      {% if menu_level == 1 %}
-        {% if count % 2 == 0 %}
-          <div class="list-wrapper">
-            <div class="list-part">
-        {% endif %}
-              <li class="menu-title">
-                {% set link_title = '<span>'~item.title~'</span>' %}
-                {% set link_text %}
-                  {{ link_title|raw }}
-                {% endset %}
-
-                {{ link(link_text, item.url) }}
-                {% if item.below %}
-                  {% if menu_level == 0 %}
-                    <div class="drop-down">
-                      {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                    </div>
-                  {% else %}
-                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-                  {% endif %}
-                {% endif %}
-              </li>
-        {% if count % 2 == 1 %}
-            </div>
-          </div>
-        {% endif %}
-        {% set count = count + 1 %}
-      {% else %}
-        <li{{ attributes }}>
-          {% set link_title = '<span>'~item.title~'</span>' %}
-          {% set link_text %}
-            {{ link_title|raw }}
-          {% endset %}
-
-          {{ link(link_text, item.url) }}
-          {% if item.below %}
-            {% if menu_level == 0 %}
-              <div class="drop-down">
-                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-              </div>
-            {% else %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-            {% endif %}
+      {% set count = 0 %}
+      {% for item in items %}
+        {% if menu_level == 1 %}
+          {% if count % 2 == 0 %}
+            <div class="list-wrapper">
+              <div class="list-part">
           {% endif %}
-        </li>
-      {% endif %}
-    {% endfor %}
-    
-    {% if menu_level == 0 %}
-      <ul{{ attributes }} t>
-    {% else %}
-      </ul>
+                <li class="menu-title">
+                  {% set link_title = '<span>'~item.title~'</span>' %}
+                  {% set link_text %}
+                    {{ link_title|raw }}
+                  {% endset %}
 
-    {% endif %}
+                  {{ link(link_text, item.url) }}
+                  {% if item.below %}
+                    {% if menu_level == 0 %}
+                      <div class="drop-down">
+                        {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                      </div>
+                    {% else %}
+                      {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                    {% endif %}
+                  {% endif %}
+                </li>
+          {% if count % 2 == 1 %}
+              </div>
+            </div>
+          {% endif %}
+          {% set count = count + 1 %}
+        {% else %}
+          <li{{ attributes }}>
+            {% set link_title = '<span>'~item.title~'</span>' %}
+            {% set link_text %}
+              {{ link_title|raw }}
+            {% endset %}
+
+            {{ link(link_text, item.url) }}
+            {% if item.below %}
+              {% if menu_level == 0 %}
+                <div class="drop-down">
+                  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                </div>
+              {% else %}
+                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {% endif %}
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
   {% endif %}
 {% endmacro %}

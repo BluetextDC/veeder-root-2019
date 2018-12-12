@@ -50,7 +50,7 @@ set classes = [
   <div{{ attributes.addClass(classes) }} id="{{ content.field_full_width_cta_id.0 }}">
   {% block content %}
     <div class="container">
-      <div class="content-wrap space-medium text-center"{% if paragraph.field_full_width_cta_background.0.color|render is not empty %} style="background-color: {{ paragraph.field_full_width_cta_background.0.color }}; opacity: {{ paragraph.field_full_width_cta_background.0.opacity }};"{% endif %}{% if paragraph.field_full_width_cta_bg_image.entity.uri.value|render is not empty %} style="background: url({{ file_url(paragraph.field_full_width_cta_bg_image.entity.uri.value) }}) no-repeat center / cover;"{% endif %}>
+      <div class="content-wrap space-medium text-center"{% if content.field_full_width_cta_background.0|render is not empty %} style="background-color: {{ content.field_full_width_cta_background.0 }};"{% endif %}{% if paragraph.field_full_width_cta_bg_image.entity.uri.value|render is not empty %} style="background: url({{ file_url(paragraph.field_full_width_cta_bg_image.entity.uri.value) }}) no-repeat center / cover;"{% endif %}>
         <div class="small-desc">
           <h2 style="color: {{ paragraph.field_full_width_cta_color.0.color }};">{{ content.field_full_width_cta_heading.0 }}</h2>
           {% if content.field_full_width_cta_description.0|render is not empty %}
