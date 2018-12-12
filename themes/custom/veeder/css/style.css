@@ -651,6 +651,7 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .full-video-sec .title-desc .heading-text{width: 39%;}
 .full-video-sec .title-desc .desc{width:41%; margin: 0 20px;}
 .full-video-sec .title-desc .btn{align-self: center; white-space: nowrap;}
+.full-video-sec .video-wrap p{color: inherit;}
 
 /* features-list */
 .features-list .bg-img{padding-top:calc(34 / 77 * 100%); position: relative;width: 100%;} 
