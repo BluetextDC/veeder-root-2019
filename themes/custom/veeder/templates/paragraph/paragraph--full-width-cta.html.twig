@@ -54,7 +54,7 @@ set classes = [
         <div class="small-desc">
           <h2 style="color: {{ paragraph.field_full_width_cta_color.0.color }};">{{ content.field_full_width_cta_heading.0 }}</h2>
           {% if content.field_full_width_cta_description.0|render is not empty %}
-            <div class="desc">
+            <div class="desc" style="color: {{ paragraph.field_full_width_cta_color.0.color }};">
               {{ content.field_full_width_cta_description.0|raw }}
             </div>
           {% endif %}
