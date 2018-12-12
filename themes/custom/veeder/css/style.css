@@ -586,7 +586,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .full-img-text-sec .img-text-wrap{align-items: center;}
 .full-img-text-sec figure{width: 100%;}
 .full-img-text-sec .img-part img{width: 100%;}
-.full-img-text-sec .img-part .bg-img{padding-top: calc(25 / 36 * 100%); width: 100%;}
+.full-img-text-sec .img-part .bg-img{/* padding-top: calc(25 / 36 * 100%); */ width: 100%;}
 .full-img-text-sec .text-part,
 .full-img-text-sec .featured-info{width: 50%;display: inline-flex; flex-wrap: wrap;align-items: center;padding-top: 20px;padding-bottom: 20px;}
 .full-img-text-sec .featured-info{padding-right: calc((100% - 1220px)/2);padding-left: 70px;}
