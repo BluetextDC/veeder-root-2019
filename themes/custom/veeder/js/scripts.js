@@ -176,6 +176,19 @@
         remove: false
     });
 
+    window.addEventListener('scroll', function(){
+        if($('#parallax').length){
+            var scrollPosition = window.pageYOffset;
+            var bgParallax = document.getElementById('parallax');
+            var limit = bgParallax.offsetTop + bgParallax.offsetHeight;  
+            if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit){
+                bgParallax.style.backgroundPositionY = (50 + 100 * scrollPosition/limit) + '%';    
+            }else{
+                bgParallax.style.backgroundPositionY = '50%';    
+            }
+        }
+    });
+
     /* parallax */
     $.fn.parallax = function () {
         var b = $(window).width();
@@ -216,3 +229,4 @@
     }
 
 })(jQuery, Drupal);
+
