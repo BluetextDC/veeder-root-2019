@@ -719,8 +719,7 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .overlay.open{opacity: 1; visibility: visible; pointer-events: auto;}
 .parallax-img {position: absolute;top: 0;left: 0;right: 0;bottom: 0;z-index: 0;overflow: hidden;}
 .parallax-img img {max-width: 100%;/*display: none;*/position: absolute;left: 50%;bottom: 0;min-width: 100%;min-height: calc(100% + 100px);max-width: none; pointer-events: none;-webkit-transform: translate3d(-50%, 0, 0);transform: translate3d(-50%, 0, 0);}
-.wysiwyg-editor-content p a,
-.wysiwyg-editor-content li a{text-decoration: underline}
+.wysiwyg-editor-content a{text-decoration: underline}
 .search-form{width: 100%;margin: auto;max-width: 900px;padding: 50px;}
 .search-form .js-form-type-search {width: calc(100% - 110px);margin-right: 25px;}
 .search-form .form-wrapper{display: flex;width: 100%;padding-bottom: 15px;}
