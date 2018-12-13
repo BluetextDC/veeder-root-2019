@@ -75,7 +75,9 @@
 
     {% if page.highlighted %}
       <div class="highlighted">
-        {{ page.highlighted }}
+        <div class="container">
+          {{ page.highlighted }}
+        </div>
       </div>
     {% endif %}
 
@@ -89,7 +91,15 @@
 
     <a id="main-content" tabindex="-1"></a>
 
-    {{ page.content }}
+    {% if node_type is not null %}
+      {{ page.content }}
+    {% else %}
+      <div class="main-content">
+        <div class="container">
+          {{ page.content }}
+        </div>
+      </div>
+    {% endif %}
 
     {% if page.sidebar_second %}
       <div id="sidebar-second" class="column sidebar">

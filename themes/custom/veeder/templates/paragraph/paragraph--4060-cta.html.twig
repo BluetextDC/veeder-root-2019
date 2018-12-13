@@ -39,6 +39,7 @@
 {%
 set classes = [
     'paragraph',
+    'space-small',
     'sec60-40',
     'paragraph-' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
@@ -52,13 +53,6 @@ set classes = [
   {% set classes = classes|merge(['text-video-sec']) %}
 {%endif%}
 
-{# Checking front page for making space between section #}
-{% if is_front == true %}
-  {% set classes = classes|merge(['space-large']) %}
-{% else %}
-  {% set classes = classes|merge(['space-medium']) %}
-{% endif%}
-  
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }} id="{{ content.field_4060_cta_id.0 }}">
   {% block content %}

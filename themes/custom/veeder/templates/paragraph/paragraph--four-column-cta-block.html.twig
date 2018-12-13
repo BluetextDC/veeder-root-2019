@@ -41,6 +41,8 @@
 {%
   set classes = [
     'paragraph',
+    'space-medium',
+    'mt-3',
     'paragraph-' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
@@ -51,7 +53,7 @@
 {% if is_front == true %}
   {% set classes = classes|merge(['about-sec']) %}
 {% else %}
-  {% set classes = classes|merge(['four-block-sec', 'space-large']) %}
+  {% set classes = classes|merge(['four-block-sec']) %}
 {% endif%}
 
 {% set column_data = content.field_4_column_add_cta['#items'] | length %}

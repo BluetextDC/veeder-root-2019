@@ -39,6 +39,7 @@
 {%
 set classes = [
     'paragraph',
+    'space-small',
     'paragraph-' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
@@ -50,13 +51,6 @@ set classes = [
 {% else %}
   {% set classes = classes|merge(['text-video-sec']) %}
 {%endif%}
-
-{# Checking front page for making space between section #}
-{% if is_front == true %}
-  {% set classes = classes|merge(['space-large']) %}
-{% else %}
-  {% set classes = classes|merge(['space-medium']) %}
-{% endif%}
 
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }} id="{{ content.field_5050_cta_id.0 }}">
