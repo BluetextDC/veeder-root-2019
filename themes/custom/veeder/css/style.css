@@ -444,6 +444,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .small-inner-banner .banner-caption .tag span a:before,
 .small-inner-banner .banner-caption .tag span:empty:before{display: none;} 
 .small-inner-banner .banner-caption .tag span a{margin-right: 8px;}
+.small-inner-banner .banner-caption .tag span:last-child a{margin-right: 3px;}
 .banner-caption .social-block a{color: #fff;font-size: 26px;margin: 0 10px; display: inline-flex;vertical-align: middle;}
 .banner-caption .social-block a:hover{color: #c10230; text-decoration: none;}
 .banner-caption .social-block span{color: #fff;font-size: 24px;font-weight: 700;font-family: 'Raleway', sans-serif; display: inline-flex; vertical-align: middle;margin-right: 15px;}
