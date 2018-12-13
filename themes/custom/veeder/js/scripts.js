@@ -111,6 +111,13 @@
         that.parents('.product-list').find('.item').slice(hideCardI,hideCardI+2).removeClass('hide');
     });
 
+    if($('#block-jumpnavigation ul').length > 0){
+        $('#block-jumpnavigation ul').onePageNav({
+            currentClass: 'active',
+            offsetTop: $('header').height()   
+        });
+    }
+
     /* Script on load
     ------------------------------------------------------------------------------*/
     $(window).on('load', function() {

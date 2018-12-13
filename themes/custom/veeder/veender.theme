@@ -254,6 +254,7 @@ function veender_theme_suggestions_form_alter(array &$suggestions, array $variab
  * Implements hook_form_alter() to add classes to the search form.
  */
 function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  unset($form['langcode']);
   if (in_array($form_id, ['search_block_form', 'search_form'])) {
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
     if (!isset($form[$key]['submit']['#attributes'])) {
@@ -262,37 +263,4 @@ function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form[$key]['submit']['#attributes']->addClass('searchButton');
     $form['keys']['#attributes']['placeholder'][] = t('Search..');
   }
-}
-
-/**
- * Implements hook_form_BASE_FORM_ID_alter().
- *
- * Add class and change lable of the field for the contact us form.
- */
-function veender_form_contact_message_feedback_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $form['#attributes']['class'][] = 'form-grp';
-  unset($form['langcode']);
-  // First Name.
-  $form['name']['#prefix'] = '<div class="inp-box half-box">';
-  $form['name']['#suffix'] = '</div>';
-  $form['name']['#title'] = t('First Name*');
-  // Last Name.
-  $form['field_last_name']['#attributes']['class'][] = 'inp-box half-box';
-  $form['field_last_name']['widget'][0]['value']['#title'] = t('Last Name*');
-  // Email.
-  $form['mail']['#prefix'] = '<div class="inp-box half-box">';
-  $form['mail']['#suffix'] = '</div>';
-  $form['mail']['#title'] = t('Email*');
-  // Phone.
-  $form['field_phone_number']['#attributes']['class'][] = 'inp-box half-box';
-  $form['field_phone_number']['widget'][0]['value']['#title'] = t('Phone Number');
-  // Country.
-  $form['field_country']['#attributes']['class'][] = 'inp-box half-box';
-  $form['field_country']['widget'][0]['value']['#title'] = t('Country*');
-  //Request Type*
-  $form['field_request_type']['#attributes']['class'][] = 'inp-box half-box';
-  $form['field_request_type']['widget'][0]['value']['#title'] = t('Request Type*');
-  // Message.
-  $form['message']['#attributes']['class'][] = 'inp-box half-box';
-  $form['message']['widget'][0]['value']['#title'] = t('How may we help you?*');
 }
