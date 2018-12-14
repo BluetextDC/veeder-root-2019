@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<div class="row">
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  <div class="item col-md-4">
+    <div class="inner-item">
+      {% set image_url = file_url(row.content['#row']._entity.field_blog_detail_image.entity.uri.value) %}
+      <div class="bg-img" style="background: url({{ image_url }}) no-repeat center / cover">
+      </div>
+      <div class="desc line-top">
+          <h6>{{ row.content['#row']._entity.title.value }}</h6>
+          <span class="cat">Category 1</span>
+          <div class="date-show">{{ row.content['#row']._entity.field_blog_date.value }} |  {{ row.content['#row']._entity.field_blog_author.value }}</div>
+          <p>{{ row.content['#row']._entity.field_summary.value }}</p>
+          <a href="{{ path('entity.node.canonical', {'node': row.content['#row']._entity.id}) }}" class="btn-link" data-icon="c">{{ 'Read More'|trans }}</a>
+      </div>
+    </div>
+    {# row.content #}
+  </div>
+{% endfor %}
+</div>

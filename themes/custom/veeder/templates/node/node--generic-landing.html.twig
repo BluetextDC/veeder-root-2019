@@ -127,7 +127,7 @@
     {{ content.field_components }}
 
      {# Render other fields if client will create #}
-    {{ content|without('field_breadcrumb_color', 'field_components', 'field_generic_hero_cta', 'field_generic_hero_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_generic_hero_heading', 'field_generic_hero_image', 'field_generic_hero_plate_color', 'field_generic_hero_vimeo', 'field_generic_hero_image_paralla', 'field_summary', 'field_taxonomy_image', 'field_taxonomy_listing_image') }}
+    {{ content|without('field_breadcrumb_color', 'field_components', 'field_generic_hero_cta', 'field_generic_hero_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_generic_hero_heading', 'field_generic_hero_image', 'field_generic_hero_plate_color', 'field_generic_hero_vimeo', 'field_generic_hero_image_paralla', 'field_landing_product', 'field_landing_solution', 'field_summary', 'field_taxonomy_image') }}
 
     {% if (content.field_display_contact_footer.0["#markup"] == 1) and (content.field_contact_footer_form|render is not empty) %}
       <section class="contact-sec bg-gray space-large">
