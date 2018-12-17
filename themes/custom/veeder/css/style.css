@@ -539,6 +539,9 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .line-title .hr-line{width: 125px; height: 1px; background-color: #c10230;display: inline-block;margin-right: 15px;}
 .product-list figure{margin-bottom: 40px;display: flex; align-items: center; justify-content: center;}
 .product-list .p-data .hr-line{width: 38px; height: 1px;background-color: #c10230; display: block;margin-bottom: 15px; -webkit-transition: all 0.4s ease;-o-transition: all 0.4s ease;transition: all 0.4s ease;}
+.product-list .p-data h4{color: inherit;}
+.product-list .p-data p{color: inherit;}
+.product-list .p-data a{color: inherit;}
 .product-list .item{margin: 35px 0; cursor: default;}
 .product-list .item:hover{text-decoration: none;}
 .product-list .item:hover .p-data .hr-line{width: 100%;}

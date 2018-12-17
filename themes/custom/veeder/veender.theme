@@ -34,7 +34,56 @@ function veender_preprocess_html(&$variables) {
 function veender_preprocess_page(&$variables) {
   // Content type variable for the page.html.twig.
   if (isset($variables['node'])) {
+    // Return node type on page.
     $variables['node_type'] = $variables['node']->getType();
+    // Retrun Jump Menu.
+    if ($variables['node']->getType() == 'product_detail') {
+      $paragraph = $variables['node']->field_components->getValue();
+      // Loop through the result set.
+      $jump_menu = [];
+      foreach ( $paragraph as $element ) {
+        $paragraph_details = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
+        $paragraph_name = $paragraph_details->getType();
+        // 50 50 CTA
+        if ($paragraph_name == '5050_cta') {
+          $jump_menu[] = $paragraph_details->field_5050_cta_id->value;
+        }
+        elseif ($paragraph_name == 'four_column_cta_block') { // 4 Column CTA
+          $jump_menu[] = $paragraph_details->field_4_column_cta_block_id->value;
+        }
+        elseif ($paragraph_name == '5050_layered_heading_cta') { // 50 50 Layer CTA
+          $jump_menu[] = $paragraph_details->field_5050_layered_cta_id->value;
+        }
+        elseif ($paragraph_name == 'wysiwyg_text') { // Wysiwyg Text
+          $jump_menu[] = $paragraph_details->field_wysiwyg_text_id->value;
+        }
+        elseif ($paragraph_name == 'documentation') { // Documentation
+          $jump_menu[] = $paragraph_details->field_documentation_id->value;
+        }
+        elseif ($paragraph_name == '3_column_taxonomy_listing') { // 3 Column Taxonomy Listing
+          $jump_menu[] = $paragraph_details->field_3_column_taxonomy_cta_id->value;
+        }
+        elseif ($paragraph_name == '4060_cta') { // 40 60 CTA
+          $jump_menu[] = $paragraph_details->field_4060_cta_id->value;
+        }
+        elseif ($paragraph_name == '5050_full_width_cta') { // 50 50 Full Width
+          $jump_menu[] = $paragraph_details->field_5050_fullwd_cta_id->value;
+        }
+        elseif ($paragraph_name == '4_column_taxonomy_listing') { // 4 Column Taxonomy Listing
+          $jump_menu[] = $paragraph_details->field_4_column_taxonomy_cta_id->value;
+        }
+        elseif ($paragraph_name == 'features_cta_block') { // Features Cta Block
+          $jump_menu[] = $paragraph_details->field_features_cta_block_id->value;
+        }
+        elseif ($paragraph_name == 'full_width_cta') { // Full Width Cta
+          $jump_menu[] = $paragraph_details->field_full_width_cta_id->value;
+        }
+        elseif ($paragraph_name == 'full_width_media_cta') { // Full Width Media CTA
+          $jump_menu[] = $paragraph_details->field_fullwd_media_cta_id->value;
+        }
+      }
+      $variables['jump_menu'] = $jump_menu;
+    }
   }
 }
 
@@ -62,14 +111,6 @@ function veender_preprocess_node(&$variables) {
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
   }
-
-  // $node_type = $variables['node']->getType();
-  // if ($node_type == 'generic_landing') {
-  //   var_dump($variables['node']->get("field_generic_hero_plate_color")->value);
-  // }
-  // Add content class.
-  //$variables['attributes']['class'][] = 'main-content';
-
   $node_type = $variables['node']->getType();
   switch ($node_type) {
     case 'generic_landing':

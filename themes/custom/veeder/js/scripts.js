@@ -110,9 +110,9 @@
             hideCardI = that.parents('.product-list').find('.hide').index();
         that.parents('.product-list').find('.item').slice(hideCardI,hideCardI+2).removeClass('hide');
     });
-
-    if($('#block-jumpnavigation ul').length > 0){
-        $('#block-jumpnavigation ul').onePageNav({
+    // Product detail sub-navigation.
+    if($('.page-sub-nav ul').length > 0){
+        $('.page-sub-nav ul').onePageNav({
             currentClass: 'active',
             offsetTop: $('header').height()   
         });
