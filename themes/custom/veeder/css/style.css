@@ -216,10 +216,11 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .search-bar .search-wrap button i{display: inline-flex;}
 .search-bar .search-wrap input{height: 100%;}
 .search-bar .search-wrap > input{height: auto;}
-.search-bar form{width: 100%;display: flex;}
+.search-bar form{width: 100%;display: flex;padding: 0;flex-wrap: wrap;}
 .search-bar form .form-item label{display: none;}
-.search-bar form .form-item{flex: 1 0 auto;}
-.search-bar form .form-actions{margin-left: 20px;}
+.search-bar form .form-item{/*flex: 1 0 auto;*/width: calc(100% - 173px);margin-right: 0;}
+.search-bar form .form-actions{margin-left: 20px;width: auto;}
+.search-bar .search-form .form-wrapper{padding-bottom: 0;}
 
 /* nav */
 .navigation {display: inline-block;}
@@ -264,6 +265,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 @media (min-width:768px) {
     .main-header .container {position: relative;}
     nav .drop-down {opacity: 0;visibility: hidden;position: absolute;top: calc(100% + 30px);max-width: 750px;left: 0;right: 0;margin: 0 auto;width: 100%;transition: 0.3s;z-index: 2;background-color: #ebebeb;pointer-events: none;display: flex;flex-wrap: wrap;}
+    .navigation nav li:last-child .drop-down {left: auto;right: 150px;}
     nav .drop-down > ul{width: 100%;display: flex;margin-left: 0;}
     .main-nav ul li:hover .drop-down {opacity: 1;visibility: visible;pointer-events: auto;top: 100%;}
     nav .drop-down .list-wrapper {width: 50%;padding: 35px 40px;position: relative;display: inline-block;vertical-align: top;}
@@ -402,6 +404,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .banner-caption .banner-point-part figure img{max-width: 80px; max-height: 70px;}
 .banner-caption .banner-point-part .item p{color: #fff; font-size: 16px; font-weight: 700; letter-spacing: 0em; align-self: center; border-bottom: 1px solid transparent; padding-bottom: 5px;}
 .banner-caption .banner-point-part .item:hover p{border-color: #fff;}
+.banner-caption .banner-point-part .item:hover a{text-decoration: none}
 .banner-caption .banner-point-part .item + .item{margin-left: 20px;}
 
 /* inner-banner */
