@@ -736,3 +736,4 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .search-form{width: 100%;margin: auto;max-width: 900px;padding: 50px;}
 .search-form .js-form-type-search {width: calc(100% - 110px);margin-right: 25px;}
 .search-form .form-wrapper{display: flex;width: 100%;padding-bottom: 15px;}
+.mapboxgl-ctrl-group > button{min-width: auto;}

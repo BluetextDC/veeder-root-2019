@@ -101,6 +101,7 @@
         $('.language-dropdown .select-list').slideUp('fast');
         $(this).parents('.search-part').toggleClass('open');
         $(this).parents('.main-header').find('.search-bar').stop().slideToggle().toggleClass('open'); 
+        $('.search-bar .search-wrap .form-search').focus();
     });
     /* load more */
     $('.product-list .item').slice(4,$('.product-list .item').length).addClass('hide');
