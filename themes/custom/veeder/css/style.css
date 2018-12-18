@@ -344,6 +344,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 #mobilenav.is-open .nav-backdrop{ opacity: 1;z-index: 999;visibility: visible;}
 #mobilenav .menu-outer{/*max-height: calc(100vh - 80px)*/;overflow-y: auto;padding-bottom: 0;}
 #mobilenav .sidebar-links li a{background: #001e32; color: #fff;}
+.mobile-side-bar-menu {display: none;}
 
 /* footer */
 .main-footer {background-color: #001e32;width:100%; height:auto; line-height: normal;}

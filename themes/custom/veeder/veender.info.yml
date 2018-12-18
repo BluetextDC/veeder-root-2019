@@ -15,10 +15,12 @@ regions:
   header_logo: 'Header Logo'
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'
+  sidebar_menu: 'Sidebar Menu'
+  form_sidebar_first: 'Form Sidebar first'
+  form_sidebar_second: 'Form Sidebar second'
   page_top: 'Page top'
   page_bottom: 'Page bottom'
   highlighted: Highlighted
-  breadcrumb: Breadcrumb
   content: Content
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'

@@ -54,6 +54,7 @@
       <div id="mobilenav" class="hidden-md-up">                    
           <div id="menu">                        
             <div class="menu-outer">
+              {{ page.sidebar_menu }}
               {{ page.primary_menu }}
             </div>
           </div>
@@ -92,6 +93,35 @@
     {% endif %}
 
     <a id="main-content" tabindex="-1"></a>
+
+    {% if node.field_display_contact_sidebar.0.value == 1 %}
+      <div class="sidebar-wrap">
+        <div class="side-bar">
+          <div class="bar-wrap">
+            {#
+            {{ page.sidebar_menu }} #}
+            <a href="#" class="a-link">Get a Quote</a>
+            <div class="line-wrap"><span class="verticle-line"></span><i class="ic-chevron-down"></i><span class="verticle-line"></span></div>
+            <a href="#" class="a-link">Find a Distributor</a>
+          </div>
+        </div>
+        <div class="dist-locat-sec">
+          <div class="container">
+            <div class="dl-wrap">
+              {# Sidebar Form First #}
+              {% if page.form_sidebar_first %}
+                {{ page.form_sidebar_first }}
+              {% endif %}
+
+              {# Sidebar Form Second #}
+              {% if page.form_sidebar_second %}
+                {{ page.form_sidebar_second }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
 
     {% if node_type is not null %}
       {{ page.content }}
