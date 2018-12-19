@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains viewfield_autocomplete.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for adding js.
+ */
+function viewfield_autocomplete_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $form['#attached']['library'][] = 'viewfield_autocomplete/autocomplete_js';
+  $node = $form_state->getFormObject()->getEntity();
+  if ($node->getType() == 'product_detail' || $node->getType() == 'product_showcase' || $node->getType() == 'product_listing' || $node->getType() == 'generic_landing') {
+    // $node->field_landing_solution->vid
+    $p_vid = 'product';
+    $p_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($p_vid);
+    $term_product = [];
+    foreach ($p_terms as $term) {
+     $term_product[] = $term->name;
+    }
+    $form['#attached']['drupalSettings']['viewfield_autocomplete']['product'] = $term_product;
+
+    $s_vid = 'solution';
+    $s_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($s_vid);
+    $term_solution = [];
+    foreach ($s_terms as $term) {
+     $term_solution[] = $term->name;
+    }
+    $form['#attached']['drupalSettings']['viewfield_autocomplete']['solution'] = $term_solution;
+  } elseif ($node->getType() == 'blog_detail') {
+    $b_vid = 'product';
+    $b_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($b_vid);
+    $term_blog = [];
+    foreach ($b_terms as $term) {
+     $term_blog[] = $term->name;
+    }
+    $form['#attached']['drupalSettings']['viewfield_autocomplete']['product'] = $term_blog;
+  }
+}

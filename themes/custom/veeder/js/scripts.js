@@ -2,7 +2,7 @@
 ------------------------------------------------------------------------------*/
 (function ($, Drupal) {
     /* Responsive Jquery Navigation */    
-    $('.hamburger').click(function(event){        
+    $('.hamburger').click(function(event) {        
         $(this).toggleClass('open');
         $('#mobilenav').slideToggle();
         $('#mobilenav').toggleClass('is-open');
@@ -18,7 +18,7 @@
             $('.overlay').removeClass('open');
         }
     });
-    $('.overlay').click(function(){
+    $('.overlay').click(function() {
         $('.hamburger').removeClass ('open');
         $('#mobilenav').slideUp();
         $('#mobilenav').removeClass('is-open');
@@ -27,15 +27,16 @@
 
     var clickable = $('#menu').attr('link-clickable');
     $('#mobilenav li:has(ul)').addClass('has-sub');
-    $('#mobilenav .has-sub>a').after('<em class="caret">');
-    if(clickable == 'true'){
-        $('#mobilenav .has-sub>a').addClass('trigger-caret').attr('href','javascript:;');
-    }else{
-        $('#mobilenav .has-sub>.caret').addClass('trigger-caret');
+    $('#mobilenav .has-sub > a').after('<em class="caret">');
+    if(clickable == 'true') {
+        $('#mobilenav .has-sub > a').addClass('trigger-caret').attr('href','javascript:;');
+    }
+    else{
+        $('#mobilenav .has-sub > .caret').addClass('trigger-caret');
     }
 
     /* menu open and close on single click */
-    $(document).on('click','#mobilenav .has-sub>.trigger-caret',function(event){
+    $(document).on('click', '#mobilenav .has-sub > .trigger-caret', function(event) {
         var element = $(this).parent('li');
         if (element.hasClass('is-open')) {
             element.removeClass('is-open');
@@ -44,7 +45,7 @@
         }
         else {
             element.addClass('is-open');
-            element.children('ul').slideDown(200);
+            element.children('.drop-down').children('ul').slideDown(200);
             element.siblings('li').children('ul').slideUp(200);
             element.siblings('li').removeClass('is-open');
             element.siblings('li').find('li').removeClass('is-open');

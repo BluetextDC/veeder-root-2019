@@ -219,7 +219,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .search-bar form{width: 100%;display: flex;padding: 0;flex-wrap: wrap;}
 .search-bar form .form-item label{display: none;}
 .search-bar form .form-item{/*flex: 1 0 auto;*/width: calc(100% - 173px);margin-right: 0;}
-.search-bar form .form-actions{margin-left: 20px;width: auto;}
+.search-bar form .form-actions{margin-left: 16px;width: auto;}
 .search-bar .search-form .form-wrapper{padding-bottom: 0;}
 
 /* nav */
@@ -738,3 +738,8 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .search-form .js-form-type-search {width: calc(100% - 110px);margin-right: 25px;}
 .search-form .form-wrapper{display: flex;width: 100%;padding-bottom: 15px;}
 .mapboxgl-ctrl-group > button{min-width: auto;}
+
+/* Error Message */
+.alert {position: relative;padding: .75rem 1.25rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: .25rem;}
+.alert-danger {color: #721c24;background-color: #f8d7da;border-color: #f5c6cb; }
+.alert-success {color: #155724;background-color: #d4edda;border-color: #c3e6cb; }

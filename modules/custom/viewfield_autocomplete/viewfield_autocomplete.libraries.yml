@@ -1,0 +1,6 @@
+autocomplete_js:
+  js:
+    js/custom-script.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.ui.autocomplete

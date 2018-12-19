@@ -1,4 +1,3 @@
-{% extends "@classy/misc/status-messages.html.twig" %}
 {#
 /**
  * @file
@@ -16,13 +15,35 @@
  * Available variables:
  * - message_list: List of messages to be displayed, grouped by type.
  * - status_headings: List of all status types.
+ * - display: (optional) May have a value of 'status' or 'error' when only
+ *   displaying messages of that specific type.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ *
+ * @ingroup themeable
  */
 #}
-{% block messages %}
-  {% if message_list is not empty %}
-    {{ attach_library('bartik/messages') }}
-    <div class="messages__wrapper layout-container">
-      {{ parent() }}
-    </div>
-  {% endif %}
-{% endblock messages %}
+{% for type, messages in message_list %}
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+    {% if type == 'error' %}
+      <div role="alert" class="alert alert-danger mt-3 mb-3">
+    {% else %}
+      <div role="alert" class="alert alert-success mt-3 mb-3">
+    {% endif %}
+      {% if status_headings[type] %}
+        <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+      {% endif %}
+      {% if messages|length > 1 %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {{ messages|first }}
+      {% endif %}
+    {% if type == 'error' %}
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}
