@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.generic_landing.field_generic_hero_vimeo
     - field.field.node.generic_landing.field_landing_product
     - field.field.node.generic_landing.field_landing_solution
+    - field.field.node.generic_landing.field_meta_tags
     - field.field.node.generic_landing.field_product_refer_weight
     - field.field.node.generic_landing.field_solution_refer_weight
     - field.field.node.generic_landing.field_summary
@@ -30,6 +31,7 @@ dependencies:
     - entity_browser
     - field_group
     - link
+    - metatag
     - paragraphs
     - path
     - svg_image
@@ -267,6 +269,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
+    region: content
+  field_meta_tags:
+    weight: 135
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   field_product_refer_weight:
     weight: 132
