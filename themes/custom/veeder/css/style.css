@@ -249,7 +249,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .navigation .main-nav .language-dropdown,
 .navigation .main-nav .search-part{padding-top: 14px;/*align-self: flex-start;*/}
 .navigation .main-nav .search-part{margin-left: 0; width: 60px; display: inline-flex; justify-content: center; align-items: flex-start; position: relative;}
-.navigation .main-nav .search-part i{font-size: 22px; display: inline-flex; cursor: pointer;padding: 0 4px 4px 4px;}
+.navigation .main-nav .search-part i{font-size: 28px; display: inline-flex; cursor: pointer;padding: 0 4px 10px 4px;}
 .navigation .main-nav .search-part.open,
 .navigation .main-nav .search-part:hover{background-color: #236092; color: #fff;}
 .navigation .main-nav .search-part.open i,
