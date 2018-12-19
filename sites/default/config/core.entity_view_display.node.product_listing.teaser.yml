@@ -1,0 +1,54 @@
+uuid: 093debc7-fbd1-43f0-a123-2b9bb0767905
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.product_listing.field_breadcrumb_color
+    - field.field.node.product_listing.field_components
+    - field.field.node.product_listing.field_display_breadcrumbs
+    - field.field.node.product_listing.field_display_contact_footer
+    - field.field.node.product_listing.field_display_contact_sidebar
+    - field.field.node.product_listing.field_generic_hero_cta
+    - field.field.node.product_listing.field_generic_hero_cta_display
+    - field.field.node.product_listing.field_generic_hero_description
+    - field.field.node.product_listing.field_generic_hero_heading
+    - field.field.node.product_listing.field_generic_hero_image
+    - field.field.node.product_listing.field_generic_hero_image_paralla
+    - field.field.node.product_listing.field_generic_hero_plate_color
+    - field.field.node.product_listing.field_generic_hero_vimeo
+    - field.field.node.product_listing.field_product_tags
+    - field.field.node.product_listing.field_solution_tags
+    - field.field.node.product_listing.field_summary
+    - field.field.node.product_listing.field_taxonomy_image
+    - node.type.product_listing
+  module:
+    - user
+id: node.product_listing.teaser
+targetEntityType: node
+bundle: product_listing
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_breadcrumb_color: true
+  field_components: true
+  field_display_breadcrumbs: true
+  field_display_contact_footer: true
+  field_display_contact_sidebar: true
+  field_generic_hero_cta: true
+  field_generic_hero_cta_display: true
+  field_generic_hero_description: true
+  field_generic_hero_heading: true
+  field_generic_hero_image: true
+  field_generic_hero_image_paralla: true
+  field_generic_hero_plate_color: true
+  field_generic_hero_vimeo: true
+  field_product_tags: true
+  field_solution_tags: true
+  field_summary: true
+  field_taxonomy_image: true

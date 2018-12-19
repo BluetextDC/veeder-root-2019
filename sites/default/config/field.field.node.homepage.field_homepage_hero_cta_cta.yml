@@ -1,0 +1,23 @@
+uuid: c1c6273a-a6fd-4ec2-a63e-2290037c49cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_hero_cta_cta
+    - node.type.homepage
+  module:
+    - link
+id: node.homepage.field_homepage_hero_cta_cta
+field_name: field_homepage_hero_cta_cta
+entity_type: node
+bundle: homepage
+label: CTA
+description: 'Enter the hero banner CTA text & URL. If left blank, the CTA will not appear.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

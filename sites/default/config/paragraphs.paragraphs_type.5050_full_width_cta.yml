@@ -1,0 +1,9 @@
+uuid: a70455af-9367-412f-a0ed-ab4699c69478
+langcode: en
+status: true
+dependencies: {  }
+id: 5050_full_width_cta
+label: '50-50 Full Width CTA'
+icon_uuid: null
+description: 'Use 50-50 Full-Width CTA for the 2 column with the title, description, image, Vimeo URL, and CTA.'
+behavior_plugins: {  }

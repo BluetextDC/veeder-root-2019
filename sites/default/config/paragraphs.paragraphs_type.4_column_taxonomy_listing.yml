@@ -1,0 +1,9 @@
+uuid: 637763b4-68a2-4ed1-953e-bd35feca16fc
+langcode: en
+status: true
+dependencies: {  }
+id: 4_column_taxonomy_listing
+label: '4 Column Taxonomy Listing'
+icon_uuid: null
+description: 'Use 4 Column Taxonomy Listing for the 4 column of taxonomy list on pages.'
+behavior_plugins: {  }

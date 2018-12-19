@@ -1,0 +1,19 @@
+uuid: ce8b264d-e51b-48c6-81bb-f95f03c1c8cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_generic_hero_heading
+    - node.type.product_detail
+id: node.product_detail.field_generic_hero_heading
+field_name: field_generic_hero_heading
+entity_type: node
+bundle: product_detail
+label: Heading
+description: 'Enter a heading for the hero.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

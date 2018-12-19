@@ -1,0 +1,22 @@
+uuid: 8b47f390-b4c0-4752-953c-a6bdf0a4b345
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - veender
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: veender_messages
+theme: veender
+region: highlighted
+weight: -8
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,24 @@
+uuid: 78198b96-95a8-41ee-b4f7-d132c16d908b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.trending_blogs
+  module:
+    - views
+  theme:
+    - veender
+id: views_block__trending_blogs_block_2
+theme: veender
+region: footer_second
+weight: -9
+provider: null
+plugin: 'views_block:trending_blogs-block_2'
+settings:
+  id: 'views_block:trending_blogs-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

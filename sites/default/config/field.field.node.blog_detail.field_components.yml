@@ -1,0 +1,109 @@
+uuid: ac8a625a-fc7c-482c-bdff-992a5a46b573
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_components
+    - node.type.blog_detail
+    - paragraphs.paragraphs_type.3_column_taxonomy_listing
+    - paragraphs.paragraphs_type.4060_cta
+    - paragraphs.paragraphs_type.4_column_taxonomy_listing
+    - paragraphs.paragraphs_type.5050_cta
+    - paragraphs.paragraphs_type.5050_full_width_cta
+    - paragraphs.paragraphs_type.5050_layered_heading_cta
+    - paragraphs.paragraphs_type.features_cta_block
+    - paragraphs.paragraphs_type.four_column_cta_block
+    - paragraphs.paragraphs_type.full_width_cta
+    - paragraphs.paragraphs_type.full_width_media_cta
+    - paragraphs.paragraphs_type.html_embed
+    - paragraphs.paragraphs_type.inline_cta
+    - paragraphs.paragraphs_type.wysiwyg_text
+  module:
+    - entity_reference_revisions
+id: node.blog_detail.field_components
+field_name: field_components
+entity_type: node
+bundle: blog_detail
+label: Components
+description: 'Please add the components for this page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      3_column_taxonomy_listing: 3_column_taxonomy_listing
+      4060_cta: 4060_cta
+      4_column_taxonomy_listing: 4_column_taxonomy_listing
+      5050_cta: 5050_cta
+      5050_full_width_cta: 5050_full_width_cta
+      5050_layered_heading_cta: 5050_layered_heading_cta
+      features_cta_block: features_cta_block
+      four_column_cta_block: four_column_cta_block
+      full_width_media_cta: full_width_media_cta
+      inline_cta: inline_cta
+      full_width_cta: full_width_cta
+      wysiwyg_text: wysiwyg_text
+      html_embed: html_embed
+    target_bundles_drag_drop:
+      3_column_taxonomy_listing:
+        enabled: true
+        weight: 18
+      4060_cta:
+        enabled: true
+        weight: 19
+      4_column_taxonomy_listing:
+        enabled: true
+        weight: 20
+      5050_cta:
+        enabled: true
+        weight: 21
+      5050_full_width_cta:
+        enabled: true
+        weight: 22
+      5050_layered_heading_cta:
+        enabled: true
+        weight: 23
+      column_cta:
+        weight: 24
+        enabled: false
+      documentation:
+        weight: 25
+        enabled: false
+      documentation_document:
+        weight: 26
+        enabled: false
+      documentation_section:
+        weight: 27
+        enabled: false
+      feature_cta:
+        weight: 28
+        enabled: false
+      features_cta_block:
+        enabled: true
+        weight: 29
+      four_column_cta_block:
+        enabled: true
+        weight: 30
+      full_width_media_cta:
+        enabled: true
+        weight: 31
+      inline_cta:
+        enabled: true
+        weight: 32
+      full_width_cta:
+        enabled: true
+        weight: 33
+      starting_point:
+        weight: 33
+        enabled: false
+      wysiwyg_text:
+        enabled: true
+        weight: 34
+      html_embed:
+        enabled: true
+        weight: 35
+field_type: entity_reference_revisions

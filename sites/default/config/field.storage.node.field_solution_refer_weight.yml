@@ -1,0 +1,20 @@
+uuid: 93d9c06b-6875-41c3-8a53-d9ab79d63d43
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_solution_refer_weight
+field_name: field_solution_refer_weight
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

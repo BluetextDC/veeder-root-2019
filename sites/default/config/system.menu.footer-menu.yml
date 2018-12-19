@@ -1,0 +1,8 @@
+uuid: e4dc3d81-4a6a-46ad-afeb-6230315943d7
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu
+label: 'Footer Menu'
+description: 'This shows in footer section.'
+locked: false

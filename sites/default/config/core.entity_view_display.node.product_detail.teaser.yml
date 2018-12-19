@@ -1,0 +1,56 @@
+uuid: 737cc4c3-9d48-4d32-8958-ea7a2635355a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.product_detail.field_breadcrumb_color
+    - field.field.node.product_detail.field_components
+    - field.field.node.product_detail.field_display_breadcrumbs
+    - field.field.node.product_detail.field_display_contact_footer
+    - field.field.node.product_detail.field_display_contact_sidebar
+    - field.field.node.product_detail.field_enable_jump_nav
+    - field.field.node.product_detail.field_generic_hero_cta
+    - field.field.node.product_detail.field_generic_hero_cta_display
+    - field.field.node.product_detail.field_generic_hero_description
+    - field.field.node.product_detail.field_generic_hero_heading
+    - field.field.node.product_detail.field_generic_hero_image
+    - field.field.node.product_detail.field_generic_hero_image_paralla
+    - field.field.node.product_detail.field_generic_hero_plate_color
+    - field.field.node.product_detail.field_generic_hero_vimeo
+    - field.field.node.product_detail.field_product_tags
+    - field.field.node.product_detail.field_solution_tags
+    - field.field.node.product_detail.field_summary
+    - field.field.node.product_detail.field_taxonomy_image
+    - node.type.product_detail
+  module:
+    - user
+id: node.product_detail.teaser
+targetEntityType: node
+bundle: product_detail
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_breadcrumb_color: true
+  field_components: true
+  field_display_breadcrumbs: true
+  field_display_contact_footer: true
+  field_display_contact_sidebar: true
+  field_enable_jump_nav: true
+  field_generic_hero_cta: true
+  field_generic_hero_cta_display: true
+  field_generic_hero_description: true
+  field_generic_hero_heading: true
+  field_generic_hero_image: true
+  field_generic_hero_image_paralla: true
+  field_generic_hero_plate_color: true
+  field_generic_hero_vimeo: true
+  field_product_tags: true
+  field_solution_tags: true
+  field_summary: true
+  field_taxonomy_image: true

@@ -1,0 +1,60 @@
+uuid: 6ee9d7a5-9899-4f67-8526-1dfbadc43ea5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.column_cta.field_column_cta_cta
+    - field.field.paragraph.column_cta.field_column_cta_description
+    - field.field.paragraph.column_cta.field_column_cta_heading
+    - field.field.paragraph.column_cta.field_column_cta_image
+    - paragraphs.paragraphs_type.column_cta
+  module:
+    - link
+    - svg_image
+    - text
+id: paragraph.column_cta.default
+targetEntityType: paragraph
+bundle: column_cta
+mode: default
+content:
+  field_column_cta_cta:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_column_cta_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_column_cta_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_column_cta_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

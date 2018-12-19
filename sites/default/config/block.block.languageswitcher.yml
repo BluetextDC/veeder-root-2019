@@ -1,0 +1,24 @@
+uuid: 45e40132-53b6-4d31-bfba-60ef852b7556
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.language-switcher
+  module:
+    - system
+  theme:
+    - veender
+id: languageswitcher
+theme: veender
+region: primary_menu
+weight: -7
+provider: null
+plugin: 'system_menu_block:language-switcher'
+settings:
+  id: 'system_menu_block:language-switcher'
+  label: 'Language Switcher'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

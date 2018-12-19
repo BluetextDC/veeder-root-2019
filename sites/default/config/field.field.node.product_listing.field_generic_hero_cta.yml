@@ -1,0 +1,23 @@
+uuid: 321198a7-f2b9-4d27-b975-7322076dbe4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_generic_hero_cta
+    - node.type.product_listing
+  module:
+    - link
+id: node.product_listing.field_generic_hero_cta
+field_name: field_generic_hero_cta
+entity_type: node
+bundle: product_listing
+label: CTA
+description: 'Enter the hero CTA text & URL. If left blank, the CTA will not appear.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

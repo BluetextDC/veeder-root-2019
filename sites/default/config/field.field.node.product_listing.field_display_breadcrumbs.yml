@@ -1,0 +1,23 @@
+uuid: e4289fb9-6def-4d65-9b3b-73f4af87c6ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_breadcrumbs
+    - node.type.product_listing
+id: node.product_listing.field_display_breadcrumbs
+field_name: field_display_breadcrumbs
+entity_type: node
+bundle: product_listing
+label: 'Display Breadcrumbs'
+description: 'Choose whether breacrumbs will display on this page.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

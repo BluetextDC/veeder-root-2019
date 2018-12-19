@@ -1,0 +1,21 @@
+uuid: af2cc915-dc0f-44d5-9e74-ed00cf6c3758
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_inline_cta_description
+    - paragraphs.paragraphs_type.inline_cta
+  module:
+    - text
+id: paragraph.inline_cta.field_inline_cta_description
+field_name: field_inline_cta_description
+entity_type: paragraph
+bundle: inline_cta
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

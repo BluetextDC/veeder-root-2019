@@ -1,0 +1,19 @@
+uuid: 1d8c33fb-9cc0-455e-b1f8-f5e5a9ed631a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_listing_vimeo
+    - node.type.article
+id: node.article.field_blog_listing_vimeo
+field_name: field_blog_listing_vimeo
+entity_type: node
+bundle: article
+label: 'Hero Vimeo URL'
+description: 'Enter a Vimeo video URL for the hero. If neither image nor Vimeo URL is chosen, the hero will have a blank background.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

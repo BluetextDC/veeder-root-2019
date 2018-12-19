@@ -1,0 +1,38 @@
+uuid: 57f79723-69bb-42d8-a340-e784463fe937
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_show_hero_image
+    - node.type.product_showcase
+  module:
+    - image
+id: node.product_showcase.field_product_show_hero_image
+field_name: field_product_show_hero_image
+entity_type: node
+bundle: product_showcase
+label: 'Hero Product Image'
+description: 'Choose an image for the hero. If neither image nor Vimeo URL is chosen, the hero will have no media.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

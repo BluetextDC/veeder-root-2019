@@ -1,0 +1,22 @@
+uuid: 1c13fe01-a2e2-419a-8782-817dc16771ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_width_cta_background
+    - paragraphs.paragraphs_type.full_width_cta
+  module:
+    - color_field
+id: paragraph.full_width_cta.field_full_width_cta_background
+field_name: field_full_width_cta_background
+entity_type: paragraph
+bundle: full_width_cta
+label: 'Background Color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 1
+field_type: color_field_type

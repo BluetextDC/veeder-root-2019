@@ -1,0 +1,23 @@
+uuid: 4c6371b1-dd92-4583-a46c-e7237c00cac6
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.contact_sidebar_ctas
+    - field.storage.contact_message.field_contact_sidebar_distributo
+  module:
+    - link
+id: contact_message.contact_sidebar_ctas.field_contact_sidebar_distributo
+field_name: field_contact_sidebar_distributo
+entity_type: contact_message
+bundle: contact_sidebar_ctas
+label: 'Find a Distributor URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

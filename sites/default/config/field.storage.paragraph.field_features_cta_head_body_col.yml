@@ -1,0 +1,20 @@
+uuid: 17d489c4-74a5-4b57-9535-0500de49425c
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - paragraphs
+id: paragraph.field_features_cta_head_body_col
+field_name: field_features_cta_head_body_col
+entity_type: paragraph
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

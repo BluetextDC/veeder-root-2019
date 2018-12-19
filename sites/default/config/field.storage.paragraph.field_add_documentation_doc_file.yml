@@ -1,0 +1,19 @@
+uuid: 065e0dbd-f60f-4623-be6e-c68175278fcc
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_add_documentation_doc_file
+field_name: field_add_documentation_doc_file
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,18 @@
+uuid: 575737e0-7350-4d6f-9288-79939f737e2c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_display_contact_footer
+field_name: field_display_contact_footer
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

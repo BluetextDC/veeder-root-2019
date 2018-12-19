@@ -1,0 +1,163 @@
+uuid: fabea51f-5342-46a6-9d8e-9053e6d441c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.browse_files_modal
+    - field.field.paragraph.4060_cta.field_4060_cta
+    - field.field.paragraph.4060_cta.field_4060_cta_callout
+    - field.field.paragraph.4060_cta.field_4060_cta_description
+    - field.field.paragraph.4060_cta.field_4060_cta_heading
+    - field.field.paragraph.4060_cta.field_4060_cta_id
+    - field.field.paragraph.4060_cta.field_4060_cta_image
+    - field.field.paragraph.4060_cta.field_4060_cta_image_parallax
+    - field.field.paragraph.4060_cta.field_4060_cta_text_first
+    - field.field.paragraph.4060_cta.field_4060_cta_vimeo_player
+    - field.field.paragraph.4060_cta.field_4060_cta_vimeo_url
+    - paragraphs.paragraphs_type.4060_cta
+  module:
+    - entity_browser
+    - field_group
+    - link
+    - text
+third_party_settings:
+  field_group:
+    group_information_tabs:
+      children:
+        - group_text
+        - group_media
+      parent_name: ''
+      weight: 20
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Information Tabs'
+    group_text:
+      children:
+        - field_4060_cta_text_first
+        - field_4060_cta_heading
+        - field_4060_cta_callout
+        - field_4060_cta_description
+        - field_4060_cta
+        - field_4060_cta_id
+      parent_name: group_information_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        label: Text
+        formatter: closed
+        description: 'This tab contains basic informative fields. '
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Text
+    group_media:
+      children:
+        - field_4060_cta_image
+        - field_4060_cta_vimeo_url
+        - field_4060_cta_vimeo_player
+        - field_4060_cta_image_parallax
+      parent_name: group_information_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: 'This tab contains image and files fields'
+        required_fields: true
+      label: Media
+id: paragraph.4060_cta.default
+targetEntityType: paragraph
+bundle: 4060_cta
+mode: default
+content:
+  field_4060_cta:
+    weight: 29
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_4060_cta_callout:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_4060_cta_description:
+    weight: 28
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_4060_cta_heading:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_4060_cta_id:
+    weight: 30
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_4060_cta_image:
+    weight: 6
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      preview_image_style: thumbnail
+      field_widget_edit: true
+      field_widget_replace: false
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_4060_cta_image_parallax:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_4060_cta_text_first:
+    weight: 25
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_4060_cta_vimeo_player:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_4060_cta_vimeo_url:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

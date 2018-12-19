@@ -1,0 +1,23 @@
+uuid: e7f40552-4fd6-4011-9fef-7c2ccb168c2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_listing_cta_cta
+    - node.type.article
+  module:
+    - link
+id: node.article.field_blog_listing_cta_cta
+field_name: field_blog_listing_cta_cta
+entity_type: node
+bundle: article
+label: CTA
+description: 'Enter the hero CTA text & URL. If left blank, the CTA will not appear.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

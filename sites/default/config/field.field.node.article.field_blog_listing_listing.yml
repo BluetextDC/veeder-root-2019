@@ -1,0 +1,47 @@
+uuid: b2df34ca-6418-4810-9f66-2698d8052922
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_listing_listing
+    - node.type.article
+  module:
+    - viewfield
+id: node.article.field_blog_listing_listing
+field_name: field_blog_listing_listing
+entity_type: node
+bundle: article
+label: 'Blog Listing'
+description: 'Select blog listing view for the page.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  force_default: 0
+  allowed_views:
+    blog_listing: blog_listing
+    comment: 0
+    contact_messages: 0
+    content: 0
+    block_content: 0
+    files: 0
+    frontpage: 0
+    user_admin_people: 0
+    product_list: 0
+    comments_recent: 0
+    content_recent: 0
+    related_products: 0
+    taxonomy_term: 0
+    trending_blogs: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+  allowed_display_types:
+    block: block
+    feed: 0
+    default: 0
+    page: 0
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

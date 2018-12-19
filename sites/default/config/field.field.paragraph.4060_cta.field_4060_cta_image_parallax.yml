@@ -1,0 +1,23 @@
+uuid: e2270885-8374-4386-afd0-2aa953f899be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4060_cta_image_parallax
+    - paragraphs.paragraphs_type.4060_cta
+id: paragraph.4060_cta.field_4060_cta_image_parallax
+field_name: field_4060_cta_image_parallax
+entity_type: paragraph
+bundle: 4060_cta
+label: 'Parallax Image'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

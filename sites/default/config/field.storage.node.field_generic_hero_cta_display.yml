@@ -1,0 +1,18 @@
+uuid: 0a556cfe-d979-46aa-b88b-afc9fa036a7b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_generic_hero_cta_display
+field_name: field_generic_hero_cta_display
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

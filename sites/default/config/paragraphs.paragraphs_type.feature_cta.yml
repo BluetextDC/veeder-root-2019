@@ -1,0 +1,9 @@
+uuid: f0d14aba-6f94-4a48-b0cd-a0274d342acb
+langcode: en
+status: true
+dependencies: {  }
+id: feature_cta
+label: 'Feature CTA'
+icon_uuid: null
+description: 'Use feature CTA for the specific column with the heading, description, image, and CTA.'
+behavior_plugins: {  }

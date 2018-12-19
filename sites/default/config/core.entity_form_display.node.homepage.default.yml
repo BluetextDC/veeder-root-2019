@@ -1,0 +1,321 @@
+uuid: f2956fce-6ce7-4952-8984-cc2cd6cc584a
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.browse_files_modal
+    - field.field.node.homepage.field_add_column_cta
+    - field.field.node.homepage.field_add_starting_point
+    - field.field.node.homepage.field_components
+    - field.field.node.homepage.field_contact_footer_form
+    - field.field.node.homepage.field_display_contact_footer
+    - field.field.node.homepage.field_display_contact_sidebar
+    - field.field.node.homepage.field_homepage_hero_cta_cta
+    - field.field.node.homepage.field_homepage_hero_heading
+    - field.field.node.homepage.field_homepage_hero_image
+    - field.field.node.homepage.field_homepage_hero_image_parall
+    - field.field.node.homepage.field_homepage_hero_plate_color
+    - field.field.node.homepage.field_homepage_hero_subheading
+    - field.field.node.homepage.field_homepage_hero_text_color
+    - field.field.node.homepage.field_summary
+    - node.type.homepage
+  module:
+    - color_field
+    - entity_browser
+    - field_group
+    - link
+    - paragraphs
+    - path
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_basic_information
+        - group_hero_banner
+        - group_hero_starting_points
+        - group_hero_cta_block
+        - group_components
+        - group_misc
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        label: Tabs
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: Tabs
+    group_basic_information:
+      children:
+        - title
+        - field_summary
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        label: 'Basic Information'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Basic Information'
+    group_hero_banner:
+      children:
+        - field_homepage_hero_heading
+        - field_homepage_hero_subheading
+        - field_homepage_hero_image
+        - field_homepage_hero_image_parall
+        - field_homepage_hero_cta_cta
+        - field_homepage_hero_text_color
+        - field_homepage_hero_plate_color
+      parent_name: group_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        label: 'Hero Banner'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Hero Banner'
+    group_hero_starting_points:
+      children:
+        - field_add_starting_point
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        label: 'Hero Starting Points'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Hero Starting Points'
+    group_hero_cta_block:
+      children:
+        - field_add_column_cta
+      parent_name: group_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        label: 'Hero CTA Block'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Hero CTA Block'
+    group_components:
+      children:
+        - field_components
+      parent_name: group_tabs
+      weight: 24
+      format_type: tab
+      format_settings:
+        label: Components
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Components
+    group_misc:
+      children:
+        - field_display_contact_sidebar
+        - field_display_contact_footer
+        - field_contact_footer_form
+      parent_name: group_tabs
+      weight: 25
+      format_type: tab
+      format_settings:
+        label: Misc
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Misc
+id: node.homepage.default
+targetEntityType: node
+bundle: homepage
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_add_column_cta:
+    type: entity_reference_paragraphs
+    weight: 135
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_add_starting_point:
+    type: entity_reference_paragraphs
+    weight: 128
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_components:
+    type: entity_reference_paragraphs
+    weight: 130
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_contact_footer_form:
+    weight: 136
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_display_contact_footer:
+    weight: 132
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_display_contact_sidebar:
+    weight: 131
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_homepage_hero_cta_cta:
+    weight: 126
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_homepage_hero_heading:
+    weight: 122
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_homepage_hero_image:
+    weight: 124
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      preview_image_style: thumbnail
+      field_widget_edit: true
+      field_widget_replace: false
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_homepage_hero_image_parall:
+    weight: 125
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_homepage_hero_plate_color:
+    weight: 128
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_homepage_hero_subheading:
+    weight: 123
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_homepage_hero_text_color:
+    weight: 127
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_summary:
+    weight: -4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

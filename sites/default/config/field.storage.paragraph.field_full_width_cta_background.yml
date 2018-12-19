@@ -1,0 +1,20 @@
+uuid: 3d9f860b-b418-4c10-89a3-2607573dbc92
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - paragraphs
+id: paragraph.field_full_width_cta_background
+field_name: field_full_width_cta_background
+entity_type: paragraph
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,52 @@
+uuid: 01f36158-c2c9-481b-b7e0-2a67522f9e4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.generic_landing.field_breadcrumb_color
+    - field.field.node.generic_landing.field_components
+    - field.field.node.generic_landing.field_display_breadcrumbs
+    - field.field.node.generic_landing.field_display_contact_footer
+    - field.field.node.generic_landing.field_display_contact_sidebar
+    - field.field.node.generic_landing.field_generic_hero_cta
+    - field.field.node.generic_landing.field_generic_hero_description
+    - field.field.node.generic_landing.field_generic_hero_heading
+    - field.field.node.generic_landing.field_generic_hero_image
+    - field.field.node.generic_landing.field_generic_hero_image_paralla
+    - field.field.node.generic_landing.field_generic_hero_plate_color
+    - field.field.node.generic_landing.field_generic_hero_vimeo
+    - field.field.node.generic_landing.field_landing_product
+    - field.field.node.generic_landing.field_landing_solution
+    - field.field.node.generic_landing.field_summary
+    - field.field.node.generic_landing.field_taxonomy_image
+    - node.type.generic_landing
+  module:
+    - user
+id: node.generic_landing.teaser
+targetEntityType: node
+bundle: generic_landing
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_breadcrumb_color: true
+  field_components: true
+  field_display_breadcrumbs: true
+  field_display_contact_footer: true
+  field_display_contact_sidebar: true
+  field_generic_hero_cta: true
+  field_generic_hero_description: true
+  field_generic_hero_heading: true
+  field_generic_hero_image: true
+  field_generic_hero_image_paralla: true
+  field_generic_hero_plate_color: true
+  field_generic_hero_vimeo: true
+  field_landing_product: true
+  field_landing_solution: true
+  field_summary: true
+  field_taxonomy_image: true

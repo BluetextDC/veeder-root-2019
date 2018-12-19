@@ -1,0 +1,14 @@
+uuid: 4c0f4d0d-78b5-4d9b-ad20-98fa8dac4d5c
+name: 'Veeder Root'
+mail: girish@bluetext.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

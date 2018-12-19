@@ -1,0 +1,9 @@
+uuid: 600ab5fd-7b42-4fd3-82a2-4791285b6842
+langcode: en
+status: true
+dependencies: {  }
+id: wysiwyg_text
+label: 'WYSIWYG Text'
+icon_uuid: null
+description: 'Use WYSIWYG Text for the formatted and long text on pages.'
+behavior_plugins: {  }

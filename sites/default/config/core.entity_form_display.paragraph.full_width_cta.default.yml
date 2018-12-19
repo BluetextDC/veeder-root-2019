@@ -1,0 +1,98 @@
+uuid: 18cffe08-0795-4f71-9f6d-04e7d0eb5380
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.browse_files_modal
+    - field.field.paragraph.full_width_cta.field_full_width_cta_background
+    - field.field.paragraph.full_width_cta.field_full_width_cta_bg_image
+    - field.field.paragraph.full_width_cta.field_full_width_cta_color
+    - field.field.paragraph.full_width_cta.field_full_width_cta_color_foote
+    - field.field.paragraph.full_width_cta.field_full_width_cta_cta
+    - field.field.paragraph.full_width_cta.field_full_width_cta_description
+    - field.field.paragraph.full_width_cta.field_full_width_cta_heading
+    - field.field.paragraph.full_width_cta.field_full_width_cta_id
+    - paragraphs.paragraphs_type.full_width_cta
+  module:
+    - color_field
+    - entity_browser
+    - link
+    - text
+id: paragraph.full_width_cta.default
+targetEntityType: paragraph
+bundle: full_width_cta
+mode: default
+content:
+  field_full_width_cta_background:
+    weight: 3
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_full_width_cta_bg_image:
+    weight: 4
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      preview_image_style: thumbnail
+      field_widget_edit: true
+      field_widget_replace: false
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_full_width_cta_color:
+    weight: 2
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_full_width_cta_color_foote:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_full_width_cta_cta:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_full_width_cta_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_full_width_cta_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_full_width_cta_id:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

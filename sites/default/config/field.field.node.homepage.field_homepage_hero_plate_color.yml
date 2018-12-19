@@ -1,0 +1,22 @@
+uuid: d57110aa-ed84-47bd-a8ab-67be6064f596
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_hero_plate_color
+    - node.type.homepage
+  module:
+    - color_field
+id: node.homepage.field_homepage_hero_plate_color
+field_name: field_homepage_hero_plate_color
+entity_type: node
+bundle: homepage
+label: 'Plate Color'
+description: 'Choose a color for this hero plate using hex codes & Choose a level of transparency between 0 and 1, where 1 is transparent.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 1
+field_type: color_field_type

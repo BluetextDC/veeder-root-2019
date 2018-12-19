@@ -1,0 +1,23 @@
+uuid: 20e1ee12-5a7f-40d9-83fd-e85dd7631c6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_contact_footer
+    - node.type.generic_landing
+id: node.generic_landing.field_display_contact_footer
+field_name: field_display_contact_footer
+entity_type: node
+bundle: generic_landing
+label: 'Display Footer Contact form'
+description: 'Choose whether the contact footer will display on this page.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: 9be00f89-a3a3-415e-9b0f-6352cc543de3
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - node
+id: node.field_product_show_hero_plte_cor
+field_name: field_product_show_hero_plte_cor
+entity_type: node
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

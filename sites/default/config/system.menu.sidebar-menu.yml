@@ -1,0 +1,8 @@
+uuid: 9c209916-c780-4345-9955-fa032a4b7064
+langcode: en
+status: true
+dependencies: {  }
+id: sidebar-menu
+label: 'Sidebar Menu'
+description: 'Sidebar slider menu'
+locked: false

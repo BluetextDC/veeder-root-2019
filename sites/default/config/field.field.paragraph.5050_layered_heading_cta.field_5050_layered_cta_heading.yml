@@ -1,0 +1,19 @@
+uuid: 779e36ac-2913-4cf1-aafb-131276107334
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_layered_cta_heading
+    - paragraphs.paragraphs_type.5050_layered_heading_cta
+id: paragraph.5050_layered_heading_cta.field_5050_layered_cta_heading
+field_name: field_5050_layered_cta_heading
+entity_type: paragraph
+bundle: 5050_layered_heading_cta
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

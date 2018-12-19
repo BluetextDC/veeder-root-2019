@@ -1,0 +1,25 @@
+uuid: a1f4b657-38d2-4749-bc40-6dc164fdd51d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_features_cta_head_body_col
+    - paragraphs.paragraphs_type.features_cta_block
+  module:
+    - color_field
+id: paragraph.features_cta_block.field_features_cta_head_body_col
+field_name: field_features_cta_head_body_col
+entity_type: paragraph
+bundle: features_cta_block
+label: 'Heading and Body Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    color: '#FFFFFF'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

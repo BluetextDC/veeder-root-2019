@@ -1,0 +1,23 @@
+uuid: 948ec133-4933-4359-a7e1-481091790f02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_layered_cta_text_firs
+    - paragraphs.paragraphs_type.5050_layered_heading_cta
+id: paragraph.5050_layered_heading_cta.field_5050_layered_cta_text_firs
+field_name: field_5050_layered_cta_text_firs
+entity_type: paragraph
+bundle: 5050_layered_heading_cta
+label: 'Text First (Left)'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

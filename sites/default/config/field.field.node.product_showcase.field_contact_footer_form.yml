@@ -1,0 +1,21 @@
+uuid: 7449760a-f678-4f0a-b8ce-edce77f2d061
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_footer_form
+    - node.type.product_showcase
+  module:
+    - options
+id: node.product_showcase.field_contact_footer_form
+field_name: field_contact_footer_form
+entity_type: node
+bundle: product_showcase
+label: 'Footer Contact Form'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

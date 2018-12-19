@@ -1,0 +1,25 @@
+uuid: c419183b-91af-46ed-aede-a2ff34dd6781
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:33ea16c5-2831-4144-ba5e-8c3324227404'
+  module:
+    - block_content
+  theme:
+    - veender
+id: footerlogo
+theme: veender
+region: footer_first
+weight: -9
+provider: null
+plugin: 'block_content:33ea16c5-2831-4144-ba5e-8c3324227404'
+settings:
+  id: 'block_content:33ea16c5-2831-4144-ba5e-8c3324227404'
+  label: 'Footer Logo'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

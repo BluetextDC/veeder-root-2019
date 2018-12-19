@@ -1,0 +1,19 @@
+uuid: 01e179db-5751-4a63-b590-d6c6a53f5fce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_layered_cta_subheadin
+    - paragraphs.paragraphs_type.5050_layered_heading_cta
+id: paragraph.5050_layered_heading_cta.field_5050_layered_cta_subheadin
+field_name: field_5050_layered_cta_subheadin
+entity_type: paragraph
+bundle: 5050_layered_heading_cta
+label: Subheading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: 05a00913-6ce0-4d7b-8b2f-0095c1a5dba3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_fullwd_cta_image_para
+    - paragraphs.paragraphs_type.5050_full_width_cta
+id: paragraph.5050_full_width_cta.field_5050_fullwd_cta_image_para
+field_name: field_5050_fullwd_cta_image_para
+entity_type: paragraph
+bundle: 5050_full_width_cta
+label: 'Parallax Image'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

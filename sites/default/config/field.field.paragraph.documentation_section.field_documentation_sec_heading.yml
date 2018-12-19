@@ -1,0 +1,19 @@
+uuid: 8ffcc14a-2030-4b03-ba04-0b854b1482e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_documentation_sec_heading
+    - paragraphs.paragraphs_type.documentation_section
+id: paragraph.documentation_section.field_documentation_sec_heading
+field_name: field_documentation_sec_heading
+entity_type: paragraph
+bundle: documentation_section
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,24 @@
+uuid: 3fe9f9cc-03df-4910-b3d6-f87d7a6f820e
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu
+  module:
+    - system
+  theme:
+    - veender
+id: footermenu
+theme: veender
+region: footer_third
+weight: -8
+provider: null
+plugin: 'system_menu_block:footer-menu'
+settings:
+  id: 'system_menu_block:footer-menu'
+  label: 'Footer Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

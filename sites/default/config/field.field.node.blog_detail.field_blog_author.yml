@@ -1,0 +1,19 @@
+uuid: febc74bd-3e83-4cbc-b869-3caed6707151
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_author
+    - node.type.blog_detail
+id: node.blog_detail.field_blog_author
+field_name: field_blog_author
+entity_type: node
+bundle: blog_detail
+label: Author
+description: 'Enter an author for this blog.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

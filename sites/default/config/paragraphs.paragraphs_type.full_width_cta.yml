@@ -1,0 +1,9 @@
+uuid: 63e1a654-52c7-4de9-98a2-1e31ff61b059
+langcode: en
+status: true
+dependencies: {  }
+id: full_width_cta
+label: 'Full Width CTA'
+icon_uuid: null
+description: 'Use Full Width CTA for creating CTA row section with using heading, background, and image.'
+behavior_plugins: {  }

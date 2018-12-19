@@ -1,0 +1,48 @@
+uuid: f11a3787-5241-4d88-ab3f-9d68f8af433b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documentation.field_add_documentation_section
+    - field.field.paragraph.documentation.field_documentation_heading
+    - field.field.paragraph.documentation.field_documentation_id
+    - paragraphs.paragraphs_type.documentation
+  module:
+    - paragraphs
+id: paragraph.documentation.default
+targetEntityType: paragraph
+bundle: documentation
+mode: default
+content:
+  field_add_documentation_section:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_documentation_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_documentation_id:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

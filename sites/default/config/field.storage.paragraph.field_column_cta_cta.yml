@@ -1,0 +1,19 @@
+uuid: 4d95932e-4eac-48d9-abfb-f7ab98b4f9b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_column_cta_cta
+field_name: field_column_cta_cta
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

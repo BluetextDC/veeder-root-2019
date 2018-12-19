@@ -1,0 +1,19 @@
+uuid: f32d77c8-afd5-482f-a68d-bad6b9ca4278
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4060_cta_heading
+    - paragraphs.paragraphs_type.4060_cta
+id: paragraph.4060_cta.field_4060_cta_heading
+field_name: field_4060_cta_heading
+entity_type: paragraph
+bundle: 4060_cta
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

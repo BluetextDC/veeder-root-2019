@@ -1,0 +1,23 @@
+uuid: ff2bf7ef-e710-47af-ad44-6d767e514a76
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.contact_sidebar_ctas
+    - field.storage.contact_message.field_contact_sidebar_quote_url
+  module:
+    - link
+id: contact_message.contact_sidebar_ctas.field_contact_sidebar_quote_url
+field_name: field_contact_sidebar_quote_url
+entity_type: contact_message
+bundle: contact_sidebar_ctas
+label: 'Get a Quote URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

@@ -1,0 +1,12 @@
+uuid: ac41b0c7-77e3-4603-b204-63089ee611b6
+langcode: en
+status: true
+dependencies: {  }
+id: contact_sidebar_ctas
+label: 'Contact Sidebar CTAs'
+recipients:
+  - girish@bluetext.com
+reply: '<non@autoreply.com>'
+weight: 0
+message: 'Thanks for submitting contact sidebar.'
+redirect: ''

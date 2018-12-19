@@ -1,0 +1,120 @@
+uuid: 78c4460e-c1f3-4465-8e96-d417bf976cd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_callout
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_cta
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_descrption
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_heading
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_id
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_image
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_image_para
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_text_first
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_vimeo_play
+    - field.field.paragraph.5050_full_width_cta.field_5050_fullwd_cta_vimeo_url
+    - paragraphs.paragraphs_type.5050_full_width_cta
+  module:
+    - link
+    - svg_image
+    - text
+id: paragraph.5050_full_width_cta.default
+targetEntityType: paragraph
+bundle: 5050_full_width_cta
+mode: default
+content:
+  field_5050_fullwd_cta_callout:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_5050_fullwd_cta_cta:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_5050_fullwd_cta_descrption:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_5050_fullwd_cta_heading:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_5050_fullwd_cta_id:
+    weight: 9
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_5050_fullwd_cta_image:
+    weight: 5
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_5050_fullwd_cta_image_para:
+    weight: 8
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_5050_fullwd_cta_text_first:
+    weight: 0
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_5050_fullwd_cta_vimeo_play:
+    weight: 7
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_5050_fullwd_cta_vimeo_url:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

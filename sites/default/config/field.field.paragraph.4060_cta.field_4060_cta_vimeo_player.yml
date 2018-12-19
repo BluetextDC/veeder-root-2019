@@ -1,0 +1,23 @@
+uuid: b6af113e-82e0-4235-b30a-3f077156cdc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4060_cta_vimeo_player
+    - paragraphs.paragraphs_type.4060_cta
+id: paragraph.4060_cta.field_4060_cta_vimeo_player
+field_name: field_4060_cta_vimeo_player
+entity_type: paragraph
+bundle: 4060_cta
+label: 'Inline Video Player'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

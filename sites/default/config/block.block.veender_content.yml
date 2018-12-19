@@ -1,0 +1,22 @@
+uuid: 49480a88-3b84-47c7-a6f1-de815ebd2a80
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - veender
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: veender_content
+theme: veender
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

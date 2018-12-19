@@ -1,0 +1,9 @@
+uuid: 054caab6-f511-4d77-b1bc-5dd23448dbc0
+langcode: en
+status: true
+dependencies: {  }
+id: documentation
+label: Documentation
+icon_uuid: null
+description: 'Use documentation for showing documents (PDF, Doc, etc.).'
+behavior_plugins: {  }
