@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.blog_detail.field_display_breadcrumbs
     - field.field.node.blog_detail.field_display_contact_footer
     - field.field.node.blog_detail.field_display_contact_sidebar
+    - field.field.node.blog_detail.field_meta_tags
     - field.field.node.blog_detail.field_summary
     - node.type.blog_detail
   module:
@@ -30,6 +31,7 @@ dependencies:
     - datetime
     - entity_browser
     - field_group
+    - metatag
     - paragraphs
     - path
     - social_media
@@ -313,6 +315,12 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_meta_tags:
+    weight: 140
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   field_summary:
     weight: -4

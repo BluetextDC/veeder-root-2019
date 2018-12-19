@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.product_detail.field_generic_hero_image_paralla
     - field.field.node.product_detail.field_generic_hero_plate_color
     - field.field.node.product_detail.field_generic_hero_vimeo
+    - field.field.node.product_detail.field_meta_tags
     - field.field.node.product_detail.field_product_refer_weight
     - field.field.node.product_detail.field_product_tags
     - field.field.node.product_detail.field_solution_refer_weight
@@ -29,6 +30,7 @@ dependencies:
     - color_field
     - entity_reference_revisions
     - link
+    - metatag
     - options
     - svg_image
     - user
@@ -179,6 +181,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_meta_tags:
+    weight: 22
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   field_product_refer_weight:
     weight: 18

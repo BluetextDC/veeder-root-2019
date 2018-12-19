@@ -22,12 +22,14 @@ dependencies:
     - field.field.node.blog_detail.field_display_breadcrumbs
     - field.field.node.blog_detail.field_display_contact_footer
     - field.field.node.blog_detail.field_display_contact_sidebar
+    - field.field.node.blog_detail.field_meta_tags
     - field.field.node.blog_detail.field_summary
     - node.type.blog_detail
   module:
     - color_field
     - datetime
     - entity_reference_revisions
+    - metatag
     - options
     - social_media
     - svg_image
@@ -207,6 +209,13 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_meta_tags:
+    weight: 21
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   field_summary:
     weight: 12
