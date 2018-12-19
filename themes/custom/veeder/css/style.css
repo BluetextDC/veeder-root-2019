@@ -602,8 +602,8 @@ form.contact-form .form-autocomplete{background-image: none !important}
 .text-img-sec .img-part{/*padding-top: 10px;padding-bottom: 10px;*/}
 .text-img-sec .img-part + .text-part .inner-wrap{padding-left: 20px;}
 .text-img-sec .text-part:first-of-type .inner-wrap{padding-right: 20px;}
-.text-img-sec .img-part .bg-img{padding-top: calc(68 / 135 * 100%); display: block;width: 100%; position: relative; overflow: hidden;}
-.text-img-sec .img-part .bg-img img{/*position: absolute; top: 0; left: 0; right: 0; bottom: 0;*/}
+.text-img-sec .img-part .bg-img{/* padding-top: calc(68 / 135 * 100%); */ display: block;width: 100%; position: relative; overflow: hidden;}
+.text-img-sec .img-part .bg-img img{/*position: absolute; top: 0; left: 0; right: 0; bottom: 0;*/ max-height: 300px;}
 .text-img-sec.sec60-40 .img-part .bg-img{padding-top: calc(85 / 169 * 100%);}
 .text-video-sec .video-part .c-video{padding-top: calc(9 / 16 * 100%); display: block;width: 100%; position: relative;}
 .play-icon{position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);transform: translate(-50%,-50%); font-size: 80px; display: inline-flex; cursor: pointer; color: #fff;}
