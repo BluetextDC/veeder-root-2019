@@ -102,7 +102,7 @@ input[type="email"],
 input[type="tel"], 
 input[type="search"],
 input[type="number"],
-textarea { border: 0; border-bottom:1px solid #000000; padding:0 15px; color:#000; font-size:14px; height:27px; font-weight: 400; width: 100%; background-color: transparent; padding: 0 20px; -webkit-border-radius: 0;-moz-border-radius: 0;-ms-border-radius: 0;-o-border-radius: 0;border-radius: 0;}
+textarea { border: 0; border-bottom:1px solid #000000; color:#000; font-size:14px; height:27px; font-weight: 400; width: 100%; background-color: transparent; padding: 0 10px; -webkit-border-radius: 0;-moz-border-radius: 0;-ms-border-radius: 0;-o-border-radius: 0;border-radius: 0;}
 
 textarea{ height:175px; resize:none; overflow: auto; padding: 20px 15px; border: 1px solid #000;}
 
@@ -504,15 +504,16 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 
 /* hs Form  */
 .hbspt-form form {display: flex;flex-wrap: wrap;justify-content: space-between;align-items: flex-start;align-content: flex-start;width: 100%;}
-.hbspt-form .hs-form-field{width: calc(50% - 14px);margin-bottom: 30px;}
+.hbspt-form .hs-form-field{width: calc(50% - 14px);margin-bottom: 20px;}
 .hbspt-form .hs-form-field.hs_financing_information{width: 100%;margin-bottom: 0;}
-.hbspt-form .hs-form-field label{margin-bottom: 5px;}
+.hbspt-form .hs-form-field label{margin-bottom: 0px;}
 .hbspt-form .hs-fieldtype-textarea{width: 100%;}
 .hbspt-form .hs-form-field select{height: 27px;}
+.hbspt-form .hs-form-field textarea{height: 80px;}
 .hbspt-form .hs-error-msgs{margin-left: 0;}
 .hbspt-form .hs-error-msgs li{list-style: none;padding-top: 5px;}
 .hbspt-form .hs-error-msgs li label{color: #c10230 !important;font-weight: normal}
-.hbspt-form .hs-error-msgs label{padding-left: 0;}
+.hbspt-form .hs-error-msgs label, .hbspt-form label {padding-left: 0;}
 .hbspt-form .hs-form-field.hs-fieldtype-checkbox{width: 100%;}
 .hbspt-form .hs-form-field .inputs-list{display: flex;flex-wrap: wrap;justify-content: space-between;align-items: flex-start;align-content: flex-start;width: 100%;margin: 0;}
 .hbspt-form .hs-form-field .inputs-list li{list-style: none}
@@ -553,7 +554,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 /* #block-veender-breadcrumbs{min-height: 40px;} */
 
 /* contact us */
-.heading-txt{margin-bottom: 45px;}
+.heading-txt{margin-bottom: 15px;}
 .heading-txt h2{text-transform: uppercase;}
 .inp-box{margin-bottom: 30px;width: 100%;}
 .inp-box.half-box {width: calc(50% - 32px);}
