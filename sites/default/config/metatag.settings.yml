@@ -1,0 +1,26 @@
+entity_type_groups:
+  node:
+    article:
+      basic: basic
+      advanced: advanced
+    blog_detail:
+      basic: basic
+      advanced: advanced
+    generic_landing:
+      basic: basic
+      advanced: advanced
+    homepage:
+      basic: basic
+      advanced: advanced
+    page:
+      basic: basic
+      advanced: advanced
+    product_detail:
+      basic: basic
+      advanced: advanced
+    product_listing:
+      basic: basic
+      advanced: advanced
+    product_showcase:
+      basic: basic
+      advanced: advanced
