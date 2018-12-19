@@ -45,6 +45,7 @@ module:
   path: 0
   quickedit: 0
   rdf: 0
+  responsive_favicons: 0
   search: 0
   shortcut: 0
   social_media: 0
