@@ -11,7 +11,8 @@
         "drupal/views_taxonomy_term_name_depth": "^3.3",
         "drupal/entity_browser": "^2.0",
         "drupal/workbench_moderation": "^1.4",
-        "drupal/file_browser": "^1.1"
+        "drupal/file_browser": "^1.1",
+        "drupal/responsive_favicons": "^1.4"
     },
     "replace": {
         "drupal/core": "^8.6"
