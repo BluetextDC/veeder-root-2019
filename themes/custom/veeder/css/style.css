@@ -744,10 +744,14 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .parallax-img {position: absolute;top: 0;left: 0;right: 0;bottom: 0;z-index: 0;overflow: hidden;}
 .parallax-img img {max-width: 100%;/*display: none;*/position: absolute;left: 50%;bottom: 0;min-width: 100%;min-height: calc(100% + 100px);max-width: none; pointer-events: none;-webkit-transform: translate3d(-50%, 0, 0);transform: translate3d(-50%, 0, 0);}
 .wysiwyg-editor-content a{text-decoration: underline}
-.search-form{width: 100%;margin: auto;max-width: 900px;padding: 50px;}
+.mapboxgl-ctrl-group > button{min-width: auto;}
+
+/* Search Styles */
+.search-form label { font-size: 18px; padding: 0px; }
+.search-form{width: 100%;margin: auto;padding: 50px 50px 50px 0px;}
 .search-form .js-form-type-search {width: calc(100% - 110px);margin-right: 25px;}
 .search-form .form-wrapper{display: flex;width: 100%;padding-bottom: 15px;}
-.mapboxgl-ctrl-group > button{min-width: auto;}
+.search-form input[type="search"] { font-size: 16px; height: 35px; margin-top: 10px; }
 
 /* Error Message */
 .alert {position: relative;padding: .75rem 1.25rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: .25rem;}
