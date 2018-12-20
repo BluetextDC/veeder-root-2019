@@ -262,7 +262,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 
 
 /* mega-menu */
-@media (min-width:768px) and (min-height:600px){
+@media (min-width:768px) and (min-height:400px){
     .main-header .container {position: relative;}
     nav .drop-down {opacity: 0;visibility: hidden;position: absolute;top: calc(100% + 30px);max-width: 750px;left: 0;right: 0;margin: 0 auto;width: 100%;transition: 0.3s;z-index: 2;background-color: #ebebeb;pointer-events: none;display: flex;flex-wrap: wrap;}
     .navigation nav li:last-child .drop-down {left: auto;right: 150px;}
