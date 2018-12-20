@@ -618,6 +618,7 @@ form.contact-form .form-autocomplete{background-image: none !important}
 .text-img-sec .text-part .small-desc{max-width: 500px;}
 .text-img-sec .large-heading + .inner-wrap .img-part figure{margin-top: -110px;}
 .fancybox-button{min-width: 44px;}
+.cta-img img{max-height: 300px; vertical-align: middle}
 
 /* full img text sec */
 .full-img-text-sec.space-medium{padding-top: 0;padding-bottom: 0;}

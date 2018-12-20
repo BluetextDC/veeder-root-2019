@@ -87,7 +87,9 @@ set classes = [
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_image_parallax.0["#markup"] == 0) %}
-                <div class="bg-img" style="background: url({{ file_url(paragraph.field_4060_cta_image.entity.uri.value) }}) no-repeat center / cover"></div>
+                <div class="cta-img">
+                  <img src="{{ file_url(paragraph.field_5050_image.entity.uri.value) }}">
+                </div>
               {% elseif (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_image_parallax.0["#markup"] == 1) %}
                 <div class="bg-img">
                   <div class="parallax-img">
@@ -110,7 +112,9 @@ set classes = [
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_image_parallax.0["#markup"] == 0) %}
-                <div class="bg-img" style="background: url({{ file_url(paragraph.field_4060_cta_image.entity.uri.value) }}) no-repeat center / cover"></div>
+                <div class="cta-img">
+                  <img src="{{ file_url(paragraph.field_5050_image.entity.uri.value) }}">
+                </div>
               {% elseif (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_image_parallax.0["#markup"] == 1) %}
                 <div class="bg-img">
                   <div class="parallax-img">
