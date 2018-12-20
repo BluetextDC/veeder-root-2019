@@ -265,7 +265,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     region: content
   field_solution_refer_weight:
     weight: 141
@@ -281,7 +281,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     region: content
   field_summary:
     weight: -4

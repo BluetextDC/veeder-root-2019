@@ -20,29 +20,34 @@ default_value_callback: ''
 settings:
   force_default: 0
   allowed_views:
-    blog_listing: 0
+    blog_author_listing: blog_author_listing
+    blog_listing: blog_listing
+    product_list: product_list
+    related_blogs: related_blogs
+    related_products: related_products
+    related_solutions: related_solutions
+    trending_blogs: trending_blogs
     comment: 0
     contact_messages: 0
     content: 0
     block_content: 0
+    file_entity_browser: 0
     files: 0
     frontpage: 0
+    media: 0
     user_admin_people: 0
-    product_list: 0
-    product_tags: 0
     comments_recent: 0
     content_recent: 0
-    related_products: 0
     taxonomy_term: 0
-    trending_blogs: 0
     watchdog: 0
     who_s_new: 0
     who_s_online: 0
   allowed_display_types:
     block: block
     default: default
+    page: page
+    entity_browser: 0
     feed: 0
-    page: 0
   handler: 'default:view'
   handler_settings: {  }
 field_type: viewfield

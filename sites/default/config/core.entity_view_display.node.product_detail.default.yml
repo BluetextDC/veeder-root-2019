@@ -183,8 +183,8 @@ content:
     type: string
     region: content
   field_meta_tags:
-    weight: 22
-    label: above
+    weight: 21
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
@@ -245,7 +245,7 @@ content:
     type: image
     region: content
   links:
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }

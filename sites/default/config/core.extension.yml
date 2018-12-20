@@ -61,6 +61,7 @@ module:
   viewfield: 0
   viewfield_autocomplete: 0
   views_infinite_scroll: 0
+  views_taxonomy_term_name_depth: 0
   views_ui: 0
   menu_link_content: 1
   pathauto: 1

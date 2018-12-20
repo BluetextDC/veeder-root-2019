@@ -177,8 +177,8 @@ content:
     type: entity_reference_label
     region: content
   field_meta_tags:
-    weight: 20
-    label: above
+    weight: 19
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
@@ -223,7 +223,7 @@ content:
     type: image
     region: content
   links:
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
