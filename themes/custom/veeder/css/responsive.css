@@ -88,7 +88,7 @@
 }
 
 /* ----- 2. Tablet ≥768 and ≤1023 ----- */
-@media (min-width:768px) and (max-width:1023px) {
+@media (min-width:768px) and (max-width:1023px) and (min-height:768px) {
     .h1, h1{font-size: 40px;}
     .h2, h2{font-size: 35px;}
     .h3, h3{font-size: 23px;margin-bottom: 12px;}
@@ -197,10 +197,15 @@
     .full-img-text-sec .text-part{padding-left: 40px;padding-right: 25px;}
     .full-img-text-sec .img-part + .text-part{padding-right: 40px;padding-left: 25px;}
     .get-quote-form .hs-form-field{width: 100%;}
+    .full-img-text-sec .text-part + .img-part{padding-right: 50px;}
 }
 
 /* ----- 3. Medium devices ≤767 ----- */
-/*@media (max-device-width:812px) and (max-device-height: 896px){    */
+@media (max-width:767px){    
+    .navigation{display: none;}
+    .four-block-sec .item figure{margin-bottom: 30px;}
+    .slick-dots-wrap{margin-top: 20px;}
+}
 @media (max-width:812px) and (max-height: 896px){    
     .hamburger:not(.close){display: block; position: relative;}
     .h1, h1{font-size: 35px;}
@@ -314,6 +319,7 @@
     .mobile-side-bar-menu {display: block;}
     .language-dropdown {display: none;}
     .search-block-form.search-part {display: none;}
+    .full-img-text-sec .text-part + .img-part{padding-right: 0;}
 }
 
 /* ----- 4. Small devices ≤640 ----- */

@@ -8,7 +8,7 @@
 3. Medium devices
 4. Small devices
 */
-/* ----- 0. Medium Desktop â‰¤1399 ----- */
+/* ----- 0. Medium Desktop ≤1399 ----- */
 @media (max-width:1399px) {	
     .side-bar .bar-wrap{padding: 12px 40px}
     .side-bar a{font-size: 16px;}
@@ -30,7 +30,7 @@
     .inner-banner .banner-caption{max-width: 43.5vw;}
 }
 
-/* ----- 1. Desktop â‰¥1024 and â‰¤1199 ----- */
+/* ----- 1. Desktop ≥1024 and ≤1199 ----- */
 @media (min-width:1024px) and (max-width:1199px) {	
     .h1, h1{font-size: 38px;}
     .container{padding-left: 50px;padding-right: 50px;}
@@ -87,8 +87,8 @@
     .full-img-text-sec .img-part + .text-part{padding-right: 50px;padding-left: 30px;}
 }
 
-/* ----- 2. Tablet â‰¥768 and â‰¤1023 ----- */
-@media (min-width:768px) and (max-width:1023px) {
+/* ----- 2. Tablet ≥768 and ≤1023 ----- */
+@media (min-width:768px) and (max-width:1023px) and (min-height:768px) {
     .h1, h1{font-size: 40px;}
     .h2, h2{font-size: 35px;}
     .h3, h3{font-size: 23px;margin-bottom: 12px;}
@@ -200,13 +200,12 @@
     .full-img-text-sec .text-part + .img-part{padding-right: 50px;}
 }
 
-/* ----- 3. Medium devices â‰¤767 ----- */
+/* ----- 3. Medium devices ≤767 ----- */
 @media (max-width:767px){    
     .navigation{display: none;}
     .four-block-sec .item figure{margin-bottom: 30px;}
     .slick-dots-wrap{margin-top: 20px;}
 }
-/*@media (max-device-width:812px) and (max-device-height: 896px){    */
 @media (max-width:812px) and (max-height: 896px){    
     .hamburger:not(.close){display: block; position: relative;}
     .h1, h1{font-size: 35px;}
@@ -323,7 +322,7 @@
     .full-img-text-sec .text-part + .img-part{padding-right: 0;}
 }
 
-/* ----- 4. Small devices â‰¤640 ----- */
+/* ----- 4. Small devices ≤640 ----- */
 @media (max-width:640px) {
     .large-heading h2{font-size: 60px;}
     .product-list .item{max-width: 375px; margin-left: auto;margin-right: auto;}
@@ -354,7 +353,7 @@
     .search-block-form.search-part {display: none;}
 
 }
-/* ----- 5. X-Small devices â‰¤480 ----- */
+/* ----- 5. X-Small devices ≤480 ----- */
 @media (max-width:480px) {
     .btn{font-size: 12px;}
     .h1, h1{font-size: 24px;margin-bottom: 0.3em;}    
