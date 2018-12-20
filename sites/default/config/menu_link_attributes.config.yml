@@ -1,4 +1,0 @@
-attributes:
-  class:
-    label: 'Custom Classes'
-    description: 'Add custom classes that can be used to alter the default styling of menus to accommodate special cases.'
