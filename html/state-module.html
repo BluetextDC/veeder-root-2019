@@ -2,7 +2,7 @@
 <html lang="zxx">
     <head>
         <meta charset="UTF-8">
-        <title>Landing | Veeder-Root</title>
+        <title>State module | Veeder-Root</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="description" content="" /> 
         <meta name="keywords" content="">
@@ -12,6 +12,7 @@
         <!-- main css --> 
         <link href="css/common.css" rel="stylesheet" />
         <link href="css/style.css" rel="stylesheet" />
+        <link href="css/slick.css" rel="stylesheet" />
         <link href="css/jquery.fancybox.min.css" rel="stylesheet" />
         <link href="css/responsive.css" rel="stylesheet" />
 
@@ -183,30 +184,7 @@
                 <div class="overlay"></div>
                 <div class="header-space"></div>               
 
-                <!-- banner area part -->
-                <section class="hero-section NoHero-sec">
-                    <div class="breadcrumb-block">
-                        <div class="container">
-                            <ul class="breadcrumb">
-                                <li><a href="#">Breadcrumb</a></li>
-                                <li><a href="#">Ipsum Dolor</a></li>                            
-                                <li>Product Detail</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="inner-banner video-banner">
-                        <div class="banner-caption bg-green">
-                            <div class="caption-wrap">
-                                <div class="heading">
-                                    <h1>Lorem ipsum headline dolor sit</h1>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore </p> 
-                                <a href="#" class="btn">Call to Action</a>
-                            </div>
-                        </div>                        
-                    </div>
-                </section>    
-                 <div class="sidebar-wrap">
+                <div class="sidebar-wrap">
                     <div class="side-bar">
                         <div class="bar-wrap">
                             <a href="#" class="a-link">Get a Quote</a>
@@ -302,190 +280,160 @@
                 </div>            
                 <!-- content area part -->
                 <div class="main-content">
-                    <section class="side-sec-wrap space-small pb-0">
-                        <div class="container">                           
-                            <div class="inner-wrap d-flex flex-wrap">
-                                <div class="left-side-part">
-                                    <div class="e-desc">
-                                        <h4>Dolor sit amet consectetur adipisicing elit sed do eiusmod tempor</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    <section class="four-block-sec space-medium bg-green">
+                        <div class="container">
+                            <div class="heading text-center">
+                                <h2>Four Column CTA Block</h2>
+                            </div>
+                            <div class="block-list row">
+                                <div class="item col-md-3 col-6">                                    
+                                    <div class="cd-wrap">
+                                        <figure>
+                                            <img src="images/img-1.jpg" alt="">
+                                        </figure>
+                                        <h6>Lorem ipsum dolor sit amet lorem ipsum</h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
                                     </div>
+                                    <a href="#" class="btn">Call to Action</a>
+                                </div>
+                                <div class="item col-md-3 col-6">
+                                    <div class="cd-wrap">
+                                        <figure>
+                                            <img src="images/img-18.png" alt="">
+                                        </figure>
+                                        <h6>Lorem ipsum dolor sit </h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                                    </div>
+                                    <a href="#" class="btn">Call to Action</a>
+                                </div>
+                                <div class="item col-md-3 col-6">
+                                    <div class="cd-wrap">
+                                       <figure>
+                                            <img src="images/img-2.jpg" alt="">
+                                        </figure>
+                                        <h6>Lorem ipsum dolor sit amet lorem ipsum</h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                                    </div>
+                                    <a href="#" class="btn">Call to Action</a>
+                                </div>
+                                <div class="item col-md-3 col-6">
+                                    <div class="cd-wrap">
+                                       <figure>
+                                            <img src="images/img-18.png" alt="">
+                                        </figure>
+                                        <h6>Lorem ipsum dolor sit amet lorem ipsum</h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+                                    </div>
+                                    <a href="#" class="btn">Call to Action</a>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="text-video-sec space-medium">
+                    <section class="text-video-sec space-large">
                         <div class="container">
                             <div class="row align-items-center">
-                                <div class="col-md-6 video-part">
+                                <div class="col-md-7 video-part">
                                     <div class="inner-wrap">
-                                        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" data-fancybox class="c-video" style="background: url(images/img-2.jpg) no-repeat center / cover">
+                                        <a href="https://youtu.be/C0DPdy98e4c" data-fancybox class="c-video" style="background: url(images/img-7.jpg) no-repeat center / cover">
                                             <span class="play-icon ic-play-icon"></span>
                                         </a>
                                     </div>                                    
                                 </div>
-                                <div class="col-md-6 text-part">
+                                <div class="col-md-5 text-part">
                                     <div class="inner-wrap">
-                                        <div class="line-title"><span class="hr-line"></span>Video ipsum lorem</div>
-                                        <h3>Lorem ipsum dolor sit amet ac mattis leo convallis ut sit amet</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </section>
-                    <section class="related-sol-sec bg-blue space-medium">
-                        <div class="container">
-                            <div class="heading text-center">
-                                <h2 class="text-white">Related PRODUCTS</h2>
-                            </div>
-                            <div class="related-list row">
-                                <div class="col-md-4 item">
-                                    <div class="item-wrap bg-white">
-                                        <div class="bg-img">
-                                            <figure>
-                                                <img src="images/product-3.png" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="desc">
-                                            <h4 class="h6 line-top">Lorem ipsum dolor sit amet</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <a href="#" class="btn-link" data-icon="c">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 item">
-                                    <div class="item-wrap bg-white">
-                                        <div class="bg-img">
-                                            <figure>
-                                                <img src="images/product-2.png" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="desc">
-                                            <h4 class="h6 line-top">Lorem ipsum dolor sit amet</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <a href="#" class="btn-link" data-icon="c">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 item">
-                                    <div class="item-wrap bg-white">
-                                        <div class="bg-img">
-                                            <figure>
-                                                <img src="images/product-4.png" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="desc">
-                                            <h4 class="h6 line-top">Lorem ipsum dolor sit amet</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <a href="#" class="btn-link" data-icon="c">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 item">
-                                    <div class="item-wrap bg-white">
-                                        <div class="bg-img">
-                                            <figure>
-                                                <img src="images/product-4.png" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="desc">
-                                            <h4 class="h6 line-top">Lorem ipsum dolor sit amet</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <a href="#" class="btn-link" data-icon="c">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 item">
-                                    <div class="item-wrap bg-white">
-                                        <div class="bg-img">
-                                            <figure>
-                                                <img src="images/product-4.png" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="desc">
-                                            <h4 class="h6 line-top">Lorem ipsum dolor sit amet</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <a href="#" class="btn-link" data-icon="c">Learn More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 item">
-                                    <div class="item-wrap bg-white">
-                                        <div class="bg-img">
-                                            <figure>
-                                                <img src="images/product-4.png" alt="">
-                                            </figure>
-                                        </div>
-                                        <div class="desc">
-                                            <h4 class="h6 line-top">Lorem ipsum dolor sit amet</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <a href="#" class="btn-link" data-icon="c">Learn More</a>
-                                        </div>
+                                        <div class="line-title"><span class="hr-line"></span>Sixty forty</div>
+                                        <h3>Lorem ipsum dolor sit amet ac mattis leo convallis ut</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>                                        
                                     </div>
                                 </div>
                             </div>
                         </div>                        
-                    </section> 
-                    <section class="text-img-sec space-medium">
+                    </section>                      
+                    <section class="text-video-sec space-large">
                         <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-md-6 text-part">
-                                    <div class="inner-wrap">
-                                        <div class="line-title"><span class="hr-line"></span>Featured Product</div>
+                            <div class="text-video-slider">
+                                <div class="item">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 text-part">
+                                            <div class="inner-wrap">
+                                                <div class="line-title"><span class="hr-line"></span>Fifty fifty</div>
+                                                <h3>Lorem ipsum dolor sit amet ac mattis leo convallis ut sit amet</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                                <a href="#" class="btn btn-black">Call to Action</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 video-part">
+                                            <div class="inner-wrap">
+                                                <a href="https://youtu.be/C0DPdy98e4c" data-fancybox class="c-video" style="background: url(images/img-6.jpg) no-repeat center / cover">
+                                                    <span class="play-icon ic-play-icon"></span>
+                                                </a>
+                                            </div>                                    
+                                        </div>
+
+                                    </div>
+                                </div> 
+                                <div class="item">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 video-part">
+                                            <div class="inner-wrap">
+                                                <a href="https://youtu.be/C0DPdy98e4c" data-fancybox class="c-video" style="background: url(images/img-6.jpg) no-repeat center / cover">
+                                                    <span class="play-icon ic-play-icon"></span>
+                                                </a>
+                                            </div>                                    
+                                        </div>
+                                        <div class="col-md-6 text-part">
+                                            <div class="inner-wrap">
+                                                <div class="line-title"><span class="hr-line"></span>Featured Product</div>
+                                                <h3>Lorem ipsum dolor sit amet ac mattis leo convallis ut sit amet</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                       
+                            </div>
+                        </div>
+                    </section>
+                    <section class="full-img-text-sec second full-img-slider">  
+                        <div class="item">                      
+                            <div class="img-text-wrap d-flex flex-wrap">
+                                <div class="img-part">
+                                    <div class="bg-img" style="background: url(images/img-9.jpg) no-repeat center / cover">
+
+                                    </div>
+                                </div>
+                                <div class="text-part">
+                                    <div class="desc-wrap">
+                                        <div class="line-title"><span class="hr-line"></span>Lorem ipsum</div>
                                         <h3>Lorem ipsum dolor sit amet ac mattis leo convallis ut sit amet</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
                                         <a href="#" class="btn btn-black">Call to Action</a>
                                     </div>
-                                </div>
-                                <div class="col-md-6 img-part">
-                                    <div class="inner-wrap">
-                                        <div class="bg-img" style="background: url(images/img-10.jpg) no-repeat center / cover"></div>
-                                    </div>
-                                </div>
+                                </div>                        
                             </div>
                         </div>
-                    </section>
-                    <section class="full-video-sec">
-                        <div class="container">
-                            <div class="video-wrap">
-                                <div class="video-block">
-                                    <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" data-fancybox class="bg-img" style="background: url(images/img-11.jpg) no-repeat center / cover">
-                                        <span class="play-icon ic-play-icon"></span>
-                                    </a>
-                                </div> 
-                                <div class="title-desc d-flex bg-red">
-                                    <div class="heading-text">
-                                        <h3>Full width image or video and CTA lorem ipsum dolor sit amet</h3>
+                        <div class="item">                      
+                            <div class="img-text-wrap d-flex flex-wrap">
+                                <div class="text-part">
+                                    <div class="desc-wrap">
+                                        <div class="line-title"><span class="hr-line"></span>Lorem ipsum</div>
+                                        <h3>Lorem ipsum dolor sit amet ac mattis leo convallis ut sit amet</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                        <a href="#" class="btn btn-black">Call to Action</a>
                                     </div>
-                                    <div class="desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum </p>
+                                </div>   
+                                <div class="img-part">
+                                    <div class="bg-img" style="background: url(images/img-9.jpg) no-repeat center / cover">
+
                                     </div>
-                                    <a href="#" class="btn">Call to Action</a>
                                 </div>
                             </div>
                         </div>
                     </section>  
-                    <div class="full-content-sec space-medium">
-                        <div class="container">
-                            <div class="content-wrap bg-dark-gray space-medium text-center">
-                                <div class="small-desc">
-                                    <h2>Lorem Ipsum</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                                    <a href="#" class="btn">Call to Action</a>
-                                </div>
-                                <span class="tri-color large"></span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
             <!-- footer part -->
-              <footer class="main-footer space-medium">
+            <footer class="main-footer space-medium">
                 <div class="container">
                     <div class="footer-left">
                         <a href="#" target="_blank" class="footer-logo">
@@ -540,8 +488,23 @@
 <![endif]-->
 
         <script src="js/jquery.matchHeight.js"></script>
-        <script src="js/jquery.fancybox.min.js"></script>
+        <script src="js/jquery.fancybox.min.js"></script>        
+        <script src="js/slick.min.js"></script>        
         <!-- general script -->
         <script src="js/scripts.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){                                                
+                $('.full-img-slider,.text-video-slider').slick({
+                    dots: true,                    
+                    prevArrow:'<span class="slick-prev"><i class="ic-chevron-right"></i></span>',
+                    nextArrow:'<span class="slick-next"><i class="ic-chevron-right"></i></span>',
+                });
+                $('.slick-slider').each(function(){
+                    $(this).find('.slick-dots').wrap('<div class="slick-dots-wrap"></div>');                    
+                    $(this).find('.slick-dots-wrap').prepend($(this).find('.slick-prev.slick-arrow'));
+                    $(this).find('.slick-dots-wrap').append($(this).find('.slick-next.slick-arrow'));
+                });
+            });
+        </script>
     </body>
 </html>
