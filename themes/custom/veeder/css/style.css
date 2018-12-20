@@ -303,7 +303,8 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .language-dropdown select { display: none;} 
 .language-dropdown ul.select-list {width: auto; display: none; position: absolute;top: 100%; right: 0; z-index: 1;padding: 0;background-color: #fff; margin: 0 0 0 0;} 
 .language-dropdown .select-list li{ /*display: none;*/ width: 100%;margin-bottom: 0; /*cursor: pointer;*/ list-style: none; display: flex; align-items: center;font-size: 15px; /*padding: 14px 30px;*/ white-space: nowrap;}
-.language-dropdown .select-list li:nth-child(odd){background-color: #ebebeb;}
+.language-dropdown .select-list li{background-color: #ebebeb;}
+.language-dropdown .select-list li:hover{text-decoration: underline}
 .language-dropdown .select-list li span {display: inline-block; font-size: 25px; width: 1em; height: 1em; background-repeat: no-repeat; display: block; background-size: cover; text-indent: 999px; margin-right: 2px; display: none !important;}
 .language-dropdown .dropdown-button > span,
 .language-dropdown h6{font-size: 0; width: 29px; height: 29px;display: inline-block;vertical-align: middle; background-size: cover;text-indent: 999px; -webkit-border-radius: 100%;-moz-border-radius: 100%;-ms-border-radius: 100%;-o-border-radius: 100%;border-radius: 100%;border: 1px solid #fff; background-image: url(../images/uk-icon.png) !important;}
