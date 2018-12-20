@@ -45,7 +45,12 @@
         }
         else {
             element.addClass('is-open');
-            element.children('.drop-down').children('ul').slideDown(200);
+            if (element.children('.drop-down').length > 0) {
+                element.children('.drop-down').children('ul').slideDown(200);
+            }
+            else {
+                element.children('ul').slideDown(200);
+            }
             element.siblings('li').children('ul').slideUp(200);
             element.siblings('li').removeClass('is-open');
             element.siblings('li').find('li').removeClass('is-open');
