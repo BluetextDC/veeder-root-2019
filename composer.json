@@ -14,7 +14,9 @@
         "drupal/file_browser": "^1.1",
         "drupal/responsive_favicons": "^1.4",
         "drupal/porterstemmer": "^1.0",
-        "drupal/menu_link_attributes": "^1.0"
+        "drupal/menu_link_attributes": "^1.0",
+        "drupal/link_attributes": "^1.5",
+        "drupal/linkit": "^4.3"
     },
     "replace": {
         "drupal/core": "^8.6"
