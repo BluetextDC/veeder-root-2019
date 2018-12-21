@@ -128,26 +128,13 @@
         </div>
         <div class="blog-list-wrap">
           <div class="category-by mb-1">
-            <span>Filter by Category:</span>
-            <a href="#">EMR3</a>
-            <a href="#">Trade Shows</a>
-            <a href="#">Press Release</a>
-            <a href="#">Bulk Fueling</a>
-            <a href="#">Datalink</a>
-            <a href="#">Fuel Loss</a>
-            <a href="#">EMR4</a>
-            <a href="#">Mobile Fueling</a>
-            <a href="#">Fuel Custody Transfer</a>
-            <a href="#">Electronic Meter Register</a>
-            <a href="#">ATG</a>
-            <a href="#">Red Jacket</a>
-            <a href="#">EMR3</a>
+            <span>{{ 'Filter by Category:'|trans }}</span>
+            {% for term in blog_terms %}
+              <a href="#{#{{ term.url }}#}">{{ term.name }}</a>
+            {%endfor %}
           </div>
           <div class="blog-list">
             {{ content.field_blog_listing_listing.0 }}
-            <!-- <div class="btn-block text-center">
-              <a href="#" class="btn btn-red">Load More</a>
-            </div> -->
           </div>
         </div>                            
       </div>                      
