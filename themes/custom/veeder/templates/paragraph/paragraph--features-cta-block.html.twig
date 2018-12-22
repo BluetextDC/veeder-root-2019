@@ -58,7 +58,8 @@
       description: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_description.value,
       link_title: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_cta.value[0].title,
       link_url: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_cta[0].url,
-      image: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value ? file_url(content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value) : '',
+      link_target: content.field_4_column_add_cta[i]['#paragraph'].field_feature_cta_cta.value[0].options.attributes.target,
+      image_uri: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value ? content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value : '',
     }
   %}
   {% set feature_items = feature_items|merge({(key): items}) %}
@@ -77,15 +78,23 @@
           {% for feature_item in feature_items %}
             <div class="col-md-4 item">
               <div class="item-wrap bg-white">
-                {% if feature_item.image is not empty %}
-                  <div class="bg-img hidden-sm-down" style="background: url({{ feature_item.image }}) no-repeat center / cover;">
-                  </div>
+                {% if feature_item.image_uri is not empty %}
+                  {% set features_cta_image = {
+                      '#theme':      'image_style',
+                      '#style_name': 'features_cta',
+                      '#uri':        feature_item.image_uri,
+                      '#alt':        feature_item.title,
+                    } 
+                  %}
+                  <figure>
+                    {{ features_cta_image }}
+                  </figure>
                 {% endif %}
                 <div class="desc line-top">
                   <h4 class="h6">{{ feature_item.title }}</h4>
                   {{ feature_item.description|raw }}
                   {% if feature_item.link_title|render is not empty %}
-                    <a href="{{ feature_item.link_url }}" class="btn-link">{{ feature_item.link_title }}</a>
+                    <a href="{{ feature_item.link_url }}" class="btn-link" {% if feature_item.link_target is not empty %}target="{{ feature_item.link_target }}"{% endif %}>{{ feature_item.link_title }}</a>
                   {% endif %}
                 </div>
               </div>

@@ -39,7 +39,8 @@
 {%
 set classes = [
     'paragraph',
-    'pb-0',
+    'space-small',
+    'pb-3',
     'paragraph' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
@@ -68,7 +69,7 @@ set classes = [
                   {{ content.field_5050_layered_cta_descripti.0|raw }}
                 {% endif %}
                 {% if paragraph.field_5050_layered_cta.0.title is not empty %}
-                  <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_layered_cta.0.title }}</a>
+                  <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black" {% if paragraph.field_5050_layered_cta.0.options.attributes.target is not null %}target="{{ paragraph.field_5050_layered_cta.0.options.attributes.target }}"{% endif %}>{{ paragraph.field_5050_layered_cta.0.title }}</a>
                 {% endif %}
               </div>
             </div>
@@ -96,7 +97,7 @@ set classes = [
                   {{ content.field_5050_layered_cta_descripti.0|raw }}
                 {% endif %}
                 {% if paragraph.field_5050_layered_cta.0.title is not empty %}
-                  <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_layered_cta.0.title }}</a>
+                  <a href="{{ paragraph.field_5050_layered_cta.0.url }}" class="btn btn-black" {% if paragraph.field_5050_layered_cta.0.options.attributes.target is not null %}target="{{ paragraph.field_5050_layered_cta.0.options.attributes.target }}"{% endif %}>{{ paragraph.field_5050_layered_cta.0.title }}</a>
                 {% endif %}
               </div>
             </div>

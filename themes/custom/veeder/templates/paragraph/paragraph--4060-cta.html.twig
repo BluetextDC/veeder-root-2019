@@ -41,7 +41,7 @@ set classes = [
     'paragraph',
     'space-small',
     'sec60-40',
-    'pb-0',
+    'pb-3',
     'paragraph-' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
@@ -52,14 +52,14 @@ set classes = [
   {% set classes = classes|merge(['text-img-sec']) %}
 {% else %}
   {% set classes = classes|merge(['text-video-sec']) %}
-{%endif%}
+{% endif %}
 
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }} id="{{ content.field_4060_cta_id.0 }}">
   {% block content %}
     <div class="container">
       <div class="row align-items-center">
-        {# If checked then text shows first otherwise image shows first#}
+        {# If checked then text shows first otherwise image shows first #}
         {% if content.field_4060_cta_text_first.0["#markup"] == 1 %}
           <div class="col-md-5 text-part">
             <div class="inner-wrap">
@@ -71,7 +71,7 @@ set classes = [
                 {{ content.field_4060_cta_description.0|raw }}
               {% endif %}
               {% if paragraph.field_4060_cta.0.title is not empty %}
-                <a href="{{ paragraph.field_4060_cta.0.url }}" class="btn btn-black">{{ paragraph.field_4060_cta.0.title }}</a>
+                <a href="{{ paragraph.field_4060_cta.0.url }}" class="btn btn-black" {% if paragraph.field_4060_cta.0.options.attributes.target is not null %}target="{{ paragraph.field_4060_cta.0.options.attributes.target }}"{% endif %}>{{ paragraph.field_4060_cta.0.title }}</a>
               {% endif %}
             </div>
           </div>
@@ -87,16 +87,16 @@ set classes = [
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_image_parallax.0["#markup"] == 0) %}
-                <div class="cta-img">
-                  <img src="{{ file_url(paragraph.field_5050_image.entity.uri.value) }}">
-                </div>
+                <figure>
+                  {{ content.field_4060_cta_image.0 }}
+                </figure>
               {% elseif (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_image_parallax.0["#markup"] == 1) %}
                 <div class="bg-img">
                   <div class="parallax-img">
                     {{ content.field_4060_cta_image.0 }}
                   </div>
                 </div>
-              {%endif%}
+              {% endif %}
             </div>
           </div>
         {% else %}
@@ -112,16 +112,16 @@ set classes = [
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_image_parallax.0["#markup"] == 0) %}
-                <div class="cta-img">
-                  <img src="{{ file_url(paragraph.field_5050_image.entity.uri.value) }}">
-                </div>
+                <figure>
+                  {{ content.field_4060_cta_image.0 }}
+                </figure>
               {% elseif (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_image_parallax.0["#markup"] == 1) %}
                 <div class="bg-img">
                   <div class="parallax-img">
                     {{ content.field_4060_cta_image.0 }}
                   </div>
                 </div>
-              {%endif%}
+              {% endif %}
             </div>
           </div>
           <div class="col-md-5 text-part">
@@ -133,7 +133,7 @@ set classes = [
               {{ content.field_4060_cta_description.0|raw }}
             {% endif %}
             {% if paragraph.field_4060_cta.0.title is not empty %}
-              <a href="{{ paragraph.field_4060_cta.0.url }}" class="btn btn-black">{{ paragraph.field_4060_cta.0.title }}</a>
+              <a href="{{ paragraph.field_4060_cta.0.url }}" class="btn btn-black" {% if paragraph.field_4060_cta.0.options.attributes.target is not null %}target="{{ paragraph.field_4060_cta.0.options.attributes.target }}"{% endif %}>{{ paragraph.field_4060_cta.0.title }}</a>
             {% endif %}
           </div>
         {% endif %}

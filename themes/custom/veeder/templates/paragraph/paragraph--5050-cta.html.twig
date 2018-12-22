@@ -40,7 +40,7 @@
 set classes = [
     'paragraph',
     'space-small',
-    'pb-0',
+    'pb-3',
     'paragraph-' ~ paragraph.id(),
     'paragraph--' ~ paragraph.bundle|clean_class,
     view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
@@ -51,7 +51,7 @@ set classes = [
   {% set classes = classes|merge(['text-img-sec']) %}
 {% else %}
   {% set classes = classes|merge(['text-video-sec']) %}
-{%endif%}
+{% endif %}
 
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }} id="{{ content.field_5050_cta_id.0 }}">
@@ -70,7 +70,7 @@ set classes = [
                 {{ content.field_5050_cta_description.0|raw }}
               {% endif %}
               {% if paragraph.field_5050_cta.0.title is not empty %}
-                <a href="{{ paragraph.field_5050_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_cta.0.title }}</a>
+                <a href="{{ paragraph.field_5050_cta.0.url }}" class="btn btn-black" {% if paragraph.field_5050_cta.0.options.attributes.target is not null %}target="{{ paragraph.field_5050_cta.0.options.attributes.target }}"{% endif %}>{{ paragraph.field_5050_cta.0.title }}</a>
               {% endif %}
             </div>
           </div>
@@ -86,16 +86,16 @@ set classes = [
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_5050_image.0|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 0) %}
-                <div class="cta-img">
-                  <img src="{{ file_url(paragraph.field_5050_image.entity.uri.value) }}">
-                </div>
+                <figure>
+                  {{ content.field_5050_image.0 }}
+                </figure>
               {% elseif (content.field_5050_image.0|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 1) %}
                 <div class="bg-img">
                   <div class="parallax-img">
                     {{ content.field_5050_image.0 }}
                   </div>
                 </div>
-              {%endif%}
+              {% endif %}
             </div>
           </div>
         {% else %}
@@ -111,9 +111,9 @@ set classes = [
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_5050_image.0|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 0) %}
-                <div class="cta-img">
-                  <img src="{{ file_url(paragraph.field_5050_image.entity.uri.value) }}">
-                </div>
+                <figure>
+                  {{ content.field_5050_image.0 }}
+                </figure>
               {% elseif (content.field_5050_image.0|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 1) %}
                 <div class="bg-img">
                   <div class="parallax-img">
@@ -132,7 +132,7 @@ set classes = [
               {{ content.field_5050_cta_description.0|raw }}
             {% endif %}
             {% if paragraph.field_5050_cta.0.title is not empty %}
-              <a href="{{ paragraph.field_5050_cta.0.url }}" class="btn btn-black">{{ paragraph.field_5050_cta.0.title }}</a>
+              <a href="{{ paragraph.field_5050_cta.0.url }}" class="btn btn-black" {% if paragraph.field_5050_cta.0.options.attributes.target is not null %}target="{{ paragraph.field_5050_cta.0.options.attributes.target }}"{% endif %}>{{ paragraph.field_5050_cta.0.title }}</a>
             {% endif %}
           </div>
         {% endif %}

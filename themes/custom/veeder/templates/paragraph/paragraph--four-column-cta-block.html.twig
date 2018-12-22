@@ -54,7 +54,7 @@
   {% set classes = classes|merge(['about-sec']) %}
 {% else %}
   {% set classes = classes|merge(['four-block-sec']) %}
-{% endif%}
+{% endif %}
 
 {% set column_data = content.field_4_column_add_cta['#items'] | length %}
 {% set column_items = {} %}
@@ -65,6 +65,7 @@
       description: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_description.value,
       link_title: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta.value[0].title,
       link_url: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta[0].url,
+      link_target: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta.value[0].options.attributes.target,
       image_uri: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value ? content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value : '',
     }
   %}
@@ -94,7 +95,7 @@
                 {% if items.image_uri is not empty %}
                   {% set cta_image_with_style = {
                       '#theme':      'image_style',
-                      '#style_name': 'medium',
+                      '#style_name': '4_column_cta',
                       '#uri':        items.image_uri,
                       '#alt':        items.title,
                     } 
@@ -107,7 +108,7 @@
                 {{ items.description|raw }}
               </div>
               {% if items.link_title|render is not empty %}
-                <a href="{{ items.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn four-column-cta-btn"{% else %} class="btn-link four-column-cta-btn"{% endif %}>{{ items.link_title }}</a>
+                <a href="{{ items.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn four-column-cta-btn"{% else %} class="btn-link four-column-cta-btn"{% endif %} {% if items.link_target is not empty %}target="{{ items.link_target }}"{% endif %}>{{ items.link_title }}</a>
               {% endif %}
             </div>
           {% endfor %}

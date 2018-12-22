@@ -72,7 +72,7 @@
                   {{ content.field_inline_cta_description.0|raw }}
                 {% endif %}
                 {% if paragraph.field_inline_cta_cta.0.title is not empty %}
-                  <a href="{{ paragraph.field_inline_cta_cta.0.url }}" class="btn-link">{{ paragraph.field_inline_cta_cta.0.title }}</a>
+                  <a href="{{ paragraph.field_inline_cta_cta.0.url }}" class="btn-link" {% if paragraph.field_inline_cta_cta.0.options.attributes.target is not null %}target="{{ paragraph.field_inline_cta_cta.0.options.attributes.target }}"{% endif %}>{{ paragraph.field_inline_cta_cta.0.title }}</a>
                 {% endif %}
             </div>
           </div>
