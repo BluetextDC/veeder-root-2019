@@ -235,5 +235,16 @@
         $('.parallax-img').parallax();
     }
 
+    $('.images-slider').slick({
+        dots: true,                    
+        prevArrow:'<span class="slick-prev"><i class="ic-chevron-right"></i></span>',
+        nextArrow:'<span class="slick-next"><i class="ic-chevron-right"></i></span>',
+    });
+    $('.slick-slider').each(function(){
+        $(this).find('.slick-dots').wrap('<div class="slick-dots-wrap"></div>');                    
+        $(this).find('.slick-dots-wrap').prepend($(this).find('.slick-prev.slick-arrow'));
+        $(this).find('.slick-dots-wrap').append($(this).find('.slick-next.slick-arrow'));
+    });
+
 })(jQuery, Drupal);
 

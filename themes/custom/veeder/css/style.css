@@ -684,7 +684,7 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .related-list.row{margin-left: -15px;margin-right: -15px; padding-left: 30px;padding-right: 30px;}
 .related-list .item-wrap .bg-img figure{position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);transform: translate(-50%,-50%); height: 100%; padding: 10px; display: flex ; align-items: center; justify-content: center; width: 100%;}
 .related-list .item-wrap .bg-img  img{max-height: 100%;}
-.related-list figure{display: flex; align-items: center; justify-content: center;margin-bottom: 20px;}		
+.related-list figure{display: flex; align-items: center; justify-content: center;/* margin-bottom: 20px; */}		
 .related-list figure img{max-height: 100%;}
 
 /* related insight */

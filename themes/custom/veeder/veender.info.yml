@@ -9,6 +9,7 @@ libraries:
   - veender/fonts
   - veender/global_style
   - veender/fancybox
+  - veender/slick_component
   - veender/theme_js
 
 regions:

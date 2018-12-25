@@ -85,9 +85,9 @@ set classes = [
                   <iframe src="{{ content.field_5050_vimeo_url.0 }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                   <span class="play-icon ic-play-icon"></span>
                 </a>
-              {% elseif (content.field_5050_image.0|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 0) %}
+              {% elseif (content.field_5050_image|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 0) %}
                 <figure>
-                  {{ content.field_5050_image.0 }}
+                  {{ content.field_5050_image }}
                 </figure>
               {% elseif (content.field_5050_image.0|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 1) %}
                 <div class="bg-img">
@@ -110,9 +110,9 @@ set classes = [
                   <iframe src="{{ content.field_5050_vimeo_url.0 }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                   <span class="play-icon ic-play-icon"></span>
                 </a>
-              {% elseif (content.field_5050_image.0|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 0) %}
+              {% elseif (content.field_5050_image|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 0) %}
                 <figure>
-                  {{ content.field_5050_image.0 }}
+                  {{ content.field_5050_image }}
                 </figure>
               {% elseif (content.field_5050_image.0|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 1) %}
                 <div class="bg-img">

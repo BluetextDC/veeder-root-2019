@@ -113,7 +113,7 @@
             <p style="color: #ffffff">{{ content.field_generic_hero_description.0|raw }}</p>
           {% endif %}
           {% if node.field_generic_hero_cta.0.title is not empty %}
-            <a href="{{ node.field_generic_hero_cta.0.url }}" class="btn">{{ node.field_generic_hero_cta.0.title }}</a>
+            <a href="{{ node.field_generic_hero_cta.0.url }}" class="btn" {% if node.field_generic_hero_cta.0.options.attributes.target is not null %}target="{{ node.field_generic_hero_cta.0.options.attributes.target }}"{% endif %}>{{ node.field_generic_hero_cta.0.title }}</a>
           {% endif %}
         </div>
       </div>

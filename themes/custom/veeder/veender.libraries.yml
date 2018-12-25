@@ -15,12 +15,12 @@ global_style:
       css/style.css: {}
       css/responsive.css: {}
 
-slick:
+slick_component:
   css:
-    component:
-
+    theme:
+      css/slick.css: {}
   js:
-
+      js/slick.min.js: {}
 
 theme_js:
   js:

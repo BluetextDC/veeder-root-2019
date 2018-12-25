@@ -101,7 +101,7 @@
               </p>
             {% endif %}
             {% if node.field_homepage_hero_cta_cta.0.title is not empty %}
-              <a href="{{ node.field_homepage_hero_cta_cta.0.url }}" class="btn" style="color: {{ content.field_homepage_hero_text_color.0 }}; border-color: {{ content.field_homepage_hero_text_color.0 }};">{{ node.field_homepage_hero_cta_cta.0.title }}</a>
+              <a href="{{ node.field_homepage_hero_cta_cta.0.url }}" class="btn" style="color: {{ content.field_homepage_hero_text_color.0 }}; border-color: {{ content.field_homepage_hero_text_color.0 }};" {% if node.field_homepage_hero_cta_cta.0.options.attributes.target is not null %}target="{{ node.field_homepage_hero_cta_cta.0.options.attributes.target }}"{% endif %}>{{ node.field_homepage_hero_cta_cta.0.title }}</a>
             {% endif %}
           </div>
           <span class="verticle-line"></span>

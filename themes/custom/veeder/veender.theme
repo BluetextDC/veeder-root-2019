@@ -189,7 +189,7 @@ function veender_preprocess_paragraph(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK() for menu.html.twig.
+ * Implements hook_preprocess_HOOK() for field.html.twig.
  */
 function veender_preprocess_field(&$variables, $hook) {
   $element = $variables['element'];
@@ -198,6 +198,24 @@ function veender_preprocess_field(&$variables, $hook) {
       $variables['attributes']['class'][] = 'banner-point-part d-flex justify-content-center';
     }
     if ($element['#field_name'] == 'field_add_starting_point') {
+      $delta = 0;
+      while (!empty($element[$delta])) {
+        $variables['items'][$delta ]['attributes']['class'] = 'item';
+        $delta++;
+      }
+    }
+    // 50-50 CTA image slider.
+    if ($element['#field_name'] == 'field_5050_image') {
+      $variables['attributes']['class'][] = 'images-slider';
+      $delta = 0;
+      while (!empty($element[$delta])) {
+        $variables['items'][$delta ]['attributes']['class'] = 'item';
+        $delta++;
+      }
+    }
+    // 40-60 CTA image slider.
+    if ($element['#field_name'] == 'field_4060_cta_image') {
+      $variables['attributes']['class'][] = 'images-slider';
       $delta = 0;
       while (!empty($element[$delta])) {
         $variables['items'][$delta ]['attributes']['class'] = 'item';
