@@ -145,17 +145,7 @@
     {# Render other fields if client will create #}
     {{ content|without('field_blog_listing_listing', 'field_breadcrumb_color', 'field_components', 'field_blog_listing_cta_cta', 'field_blog_listing_description', 'field_display_breadcrumbs', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_featured_blog_post', 'field_contact_footer_form', 'field_blog_listing_heading', 'field_blog_listing_image', 'field_blog_listing_plate_color', 'field_blog_listing_vimeo', 'field_blog_listing_image_paralla', 'field_summary', 'field_blog_listing_trending_head', 'field_blog_listing_trending_view') }}
 
-    {% if (content.field_display_contact_footer.0["#markup"] == 1) and (content.field_contact_footer_form|render is not empty) %}
-      <section class="contact-sec bg-gray space-large">
-        <div class="small-container">
-          <div class="heading-txt text-center">
-            <h2>{{ 'Contact Us'|trans }}</h2>
-          </div>
-          <div role="form" > 
-            {{ content.field_contact_footer_form }}
-          </div>
-        </div>
-      </section>
-    {% endif %}
+    {# Include template #}
+    {% include directory ~ '/templates/parts/contact-footer.html.twig' %}
   </div>
 </div>

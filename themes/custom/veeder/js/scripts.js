@@ -124,6 +124,16 @@
             offsetTop: $('header').height()   
         });
     }
+    /* slider */
+    $('.text-img-sec .img-part .images-slider.slick-dotted').each(function(){            
+        $(this).parents('.text-img-sec').addClass('slider-dots-space');
+    });
+    $('.about-sec .about-block-wrap p,.product-list figure,.four-block-sec .item h6').matchHeight({
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    });
 
     /* Script on load
     ------------------------------------------------------------------------------*/
@@ -144,6 +154,9 @@
                 bgParallax.style.backgroundPositionY = '50%';    
             }
         }
+        $('.text-img-sec .img-part .images-slider.slick-dotted').each(function(){            
+            $(this).parents('.text-img-sec').addClass('slider-dots-space');
+        });
     });
 
     /* Script on scroll
@@ -174,14 +187,15 @@
         }else{
             // Add here.
         }
+
     });
 
-    $('.about-sec .about-block-wrap p,.product-list figure').matchHeight({
+    /*$('.about-sec .about-block-wrap p,.product-list figure,.four-block-sec h6').matchHeight({
         byRow: true,
         property: 'height',
         target: null,
         remove: false
-    });
+    });*/
 
     window.addEventListener('scroll', function(){
         if($('#parallax').length){

@@ -120,17 +120,7 @@
     {# Render other field if client will create #}
     {{ content|without('field_add_column_cta', 'field_add_starting_point', 'field_components', 'field_homepage_hero_cta_cta', 'field_homepage_hero_subheading', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_homepage_hero_heading', 'field_homepage_hero_image', 'field_homepage_hero_image_parall', 'field_homepage_hero_plate_color', 'field_summary', 'field_homepage_hero_text_color') }}
 
-    {% if (content.field_display_contact_footer.0["#markup"] == 1) and (content.field_contact_footer_form|render is not empty) %}
-      <section class="contact-sec bg-gray space-large">
-        <div class="small-container">
-          <div class="heading-txt text-center">
-            <h2>{{ 'Contact Us'|trans }}</h2>
-          </div>
-          <div role="form" > 
-            {{ content.field_contact_footer_form }}
-          </div>
-        </div>
-      </section>
-    {% endif %}
+    {# Include template #}
+    {% include directory ~ '/templates/parts/contact-footer.html.twig' %}
   </div>
 </div>

@@ -38,7 +38,7 @@
     {% endif %}
     {% for item in items %}
       <li{{ item.attributes }}>
-        <a href="#" class="a-link">{{ item.title }}</a>
+        <a href="{{ item.url }}" class="a-link">{{ item.title }}</a>
         <em class="caret"></em>
       </li>
     {% endfor %}

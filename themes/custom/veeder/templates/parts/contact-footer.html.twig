@@ -1,0 +1,44 @@
+{#
+/**
+ * @see template_preprocess_node()
+ *
+ * Contact footer.
+ * @ingroup themeable
+ */
+#}
+{% if (content.field_display_contact_footer.0["#markup"] == 1) and (content.field_contact_footer_form|render is not empty) %}
+  <section class="contact-sec bg-gray space-large">
+    <div class="small-container">
+      <div class="heading-txt text-center">
+        <h2>{{ content.field_contact_footer_form.0["#markup"] }}</h2>
+      </div>
+      <div role="form" >
+        {% if node.field_contact_footer_form.0.value == 'contact-us' %}
+          <!--[if lte IE 8]>
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+          <![endif]-->
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+            portalId: "2159660",
+            formId: "af40956c-d8be-446b-83ca-491bd20514ad"
+          });
+          </script>
+        {% endif %}
+        
+        {% if node.field_contact_footer_form.0.value == 'request-for-quote' %}
+          <!--[if lte IE 8]>
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+          <![endif]-->
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+            portalId: "2159660",
+            formId: "af40956c-d8be-446b-83ca-491bd20514ad"
+          });
+          </script>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
