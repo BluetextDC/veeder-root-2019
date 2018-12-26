@@ -104,7 +104,7 @@
     {% endif %}
     {{ title_suffix }}
 
-    <section class="hero-section{% if content.field_blog_detail_image.0|render is empty %} NoHero-sec{% endif %}">
+    <section class="hero-section{% if (content.field_blog_detail_image.0|render is empty) and (content.field_blog_detail_vimeo|render is empty) %} NoHero-sec{% endif %}">
       <div class="small-inner-banner{% if content.field_blog_detail_vimeo|render is not empty %} video-banner{% endif %}">
         <div class="banner-caption" style="background-color: {{ content.field_blog_detail_plate_color.0 }};">
           <div class="cap-wrap">
@@ -113,9 +113,9 @@
             {{ content.field_blog_social_share }}                                
           </div>
         </div>
-        {% if (content.field_blog_detail_vimeo|render is not empty) and (content.field_blog_detail_image.0|render is not empty) %}
-          <a href="{{ content.field_blog_detail_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_blog_detail_image_parallax.0["#markup"] == 1 %} id="parallax" {% endif %}style="background: url({{ file_url(content.field_blog_detail_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
-              <span class="play-icon ic-play-icon"></span>
+        {% if (content.field_blog_detail_vimeo|render is not empty) %}
+          <a href="{{ content.field_blog_detail_vimeo.0 }}" data-fancybox class="c-video bg-img"{% if content.field_blog_detail_image_parallax.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ vimeo_thumb }}) no-repeat center / cover;">
+            <span class="play-icon ic-play-icon"></span>
           </a>
         {% elseif content.field_blog_detail_image.0|render is not empty %}
           <div class="banner-img">

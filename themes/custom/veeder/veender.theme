@@ -8,6 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
+use Drupal\Component\Serialization\Json;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -33,13 +34,14 @@ function veender_preprocess_html(&$variables) {
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function veender_preprocess_page(&$variables) {
+  $node_data = $variables['node'];
   // Content type variable for the page.html.twig.
-  if (isset($variables['node'])) {
+  if (isset($node_data)) {
     // Return node type on page.
-    $variables['node_type'] = $variables['node']->getType();
+    $variables['node_type'] = $node_data->getType();
     // Retrun Jump Menu.
-    if ($variables['node']->getType() == 'product_detail') {
-      $paragraph = $variables['node']->field_components->getValue();
+    if ($node_data->getType() == 'product_detail') {
+      $paragraph = $node_data->field_components->getValue();
       // Loop through the result set.
       $jump_menu = [];
       foreach ( $paragraph as $element ) {
@@ -107,12 +109,13 @@ function veender_preprocess_maintenance_page(&$variables) {
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function veender_preprocess_node(&$variables) {
+  $node_data = $variables['node'];
   // Remove the "Add new comment" link on teasers or when the comment form is
   // displayed on the page.
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
   }
-  $node_type = $variables['node']->getType();
+  $node_type = $node_data->getType();
   if ($node_type == 'article') {
     $blog_vid = 'blog';
     $blog_terms =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($blog_vid);
@@ -125,6 +128,35 @@ function veender_preprocess_node(&$variables) {
         ], ['absolute' => TRUE])->toString());
     }
     $variables['blog_terms'] = $blog_taxonomy_term;
+    // Hero vimeo thumbnail from vimeo url.
+    if (!empty($node_data->field_blog_listing_vimeo->value)) {
+      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
+      $variables['vimeo_thumb'] = $vimeo_thumbnail;
+    }
+  }
+
+  if ($node_data->getType() == 'generic_landing' || $node_data->gettype() == 'product_detail' || $node_data->gettype() == 'product_listing') {
+    // Hero vimeo thumbnail from vimeo url.
+    if (!empty($node_data->field_generic_hero_vimeo->value)) {
+      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_generic_hero_vimeo->value);
+      $variables['vimeo_thumb'] = $vimeo_thumbnail;
+    }
+  }
+
+  if ($node_data->getType() == 'blog_detail') {
+    // Hero vimeo thumbnail from vimeo url.
+    if (!empty($node_data->field_blog_detail_vimeo->value)) {
+      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_detail_vimeo->value);
+      $variables['vimeo_thumb'] = $vimeo_thumbnail;
+    }
+  }
+
+  if ($node_data->getType() == 'product_showcase') {
+    // Hero vimeo thumbnail from vimeo url.
+    if (!empty($node_data->field_product_show_hero_vimeo->value)) {
+      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_product_show_hero_vimeo->value);
+      $variables['vimeo_thumb'] = $vimeo_thumbnail;
+    }
   }
 }
 
@@ -186,6 +218,38 @@ function veender_preprocess_block(&$variables) {
 function veender_preprocess_paragraph(&$variables) {
   // Get is_front variable on paragraph.html.twig.
   $variables['is_front'] = Drupal::service('path.matcher')->isFrontPage();
+  // Get paragraph object.
+  $paragraph = $variables['paragraph'];
+  // Get the paragraph name.
+  $paragraph_name = $paragraph->getType();
+  if ($paragraph_name == '5050_cta') {
+    // CTA vimeo thumbnail from vimeo url.
+    if (!empty($paragraph->field_5050_vimeo_url->value)) {
+      $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_5050_vimeo_url->value);
+      $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
+    }
+  }
+  elseif ($paragraph_name == '4060_cta') { // 40 60 CTA
+    // CTA vimeo thumbnail from vimeo url.
+    if (!empty($paragraph->field_4060_cta_vimeo_url->value)) {
+      $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_4060_cta_vimeo_url->value);
+      $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
+    }
+  }
+  elseif ($paragraph_name == '5050_full_width_cta') { // 50 50 Full Width
+    // CTA vimeo thumbnail from vimeo url.
+    if (!empty($paragraph->field_5050_fullwd_cta_vimeo_url->value)) {
+      $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_5050_fullwd_cta_vimeo_url->value);
+      $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
+    }
+  }
+  elseif ($paragraph_name == 'full_width_media_cta') { // Full Width Media CTA
+    // CTA vimeo thumbnail from vimeo url.
+    if (!empty($paragraph->field_fullwd_media_cta_vimeo_url->value)) {
+      $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_fullwd_media_cta_vimeo_url->value);
+      $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
+    }
+  }
 }
 
 /**
@@ -368,4 +432,21 @@ function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form[$key]['submit']['#attributes']->addClass('searchButton');
     $form['keys']['#attributes']['placeholder'][] = t('Search..');
   }
+}
+
+/**
+ * Grab the url of a publicly embeddable video hosted on vimeo
+ * @param  str $video_url The "embed" url of a video
+ * @return str The url of the thumbnail, or false if there's an error
+ */
+function veender_vimeo_thumbnail($vimeo_url){
+  if( !$vimeo_url ) {
+    return false;
+  }
+
+  $data = Json::decode( file_get_contents( 'https://vimeo.com/api/oembed.json?url=' . $vimeo_url ) );
+  if( !$data ) {
+    return false;
+  }
+  return $data['thumbnail_url'];
 }

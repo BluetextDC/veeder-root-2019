@@ -53,7 +53,7 @@ set classes = [
       <div class="video-wrap">
         <div class="video-block">
           {% if (content.field_fullwd_media_cta_vimeo_url|render is not empty) and (content.field_fullwd_media_cta_image|render is not empty) %}
-            <a href="{{ paragraph.field_fullwd_media_cta_vimeo_url.0.value }}" data-fancybox class="bg-img"{% if content.field_fullwd_media_cta_image_par.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(paragraph.field_fullwd_media_cta_image.entity.uri.value) }}) no-repeat center / cover">
+            <a href="{{ paragraph.field_fullwd_media_cta_vimeo_url.0.value }}" data-fancybox class="bg-img"{% if content.field_fullwd_media_cta_image_par.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
               <span class="play-icon ic-play-icon"></span>
             </a>
           {% else %}

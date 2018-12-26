@@ -78,7 +78,7 @@ set classes = [
           <div class="col-md-7 {% if (content.field_4060_cta_image.0|render is not empty) and (content.field_4060_cta_vimeo_url.0|render is empty) %}img-part{% else %}video-part{% endif %}">
             <div class="inner-wrap">
               {% if (content.field_4060_cta_vimeo_player.0["#markup"] == 1) and (content.field_4060_cta_vimeo_url|render is not empty) %}
-                <a href="{{ content.field_4060_cta_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ file_url(paragraph.field_4060_cta_image.entity.uri.value) }}) no-repeat center / cover">
+                <a href="{{ content.field_4060_cta_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_4060_cta_vimeo_url|render is not empty) and (content.field_4060_cta_vimeo_player.0["#markup"] == 0) and (content.field_4060_cta_image.0|render is empty) %}
