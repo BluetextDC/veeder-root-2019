@@ -128,7 +128,7 @@
     $('.text-img-sec .img-part .images-slider.slick-dotted').each(function(){            
         $(this).parents('.text-img-sec').addClass('slider-dots-space');
     });
-    $('.about-sec .about-block-wrap p,.product-list figure,.four-block-sec .item h6').matchHeight({
+    $('.about-sec .about-block-wrap p,.product-list figure,.four-block-sec .item h6,.related-list figure').matchHeight({
         byRow: true,
         property: 'height',
         target: null,

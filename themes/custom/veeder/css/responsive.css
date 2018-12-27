@@ -210,6 +210,8 @@
     .navigation{display: none;}
     .four-block-sec .item figure{margin-bottom: 30px;}
     .slick-dots-wrap{margin-top: 20px;}
+    .related-list .bg-img,
+    .related-list figure{display: none;}
 }
 @media (max-width:812px) and (max-height: 896px){    
     .hamburger:not(.close){display: block; position: relative;}

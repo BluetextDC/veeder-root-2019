@@ -445,10 +445,13 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .small-inner-banner .banner-caption .tag{padding: 10px 0; margin-bottom: 20px;}
 .small-inner-banner .banner-caption .tag a,
 .small-inner-banner .banner-caption .tag span{color: #fff;font-size: 18px; display: inline-block;position: relative;}
-.small-inner-banner .banner-caption .tag a + a:before,
+/*.small-inner-banner .banner-caption .tag a + a:before,
 .small-inner-banner .banner-caption .tag span + span:before,
 .small-inner-banner .banner-caption .tag span + a:before,
-.small-inner-banner .banner-caption .tag a + span:before{content: "|"; display: inline-block; margin: 0 10px;}
+.small-inner-banner .banner-caption .tag a + span:before{content: "|"; display: inline-block; margin: 0 10px;}*/
+/*.small-inner-banner .banner-caption .tag a:after,*/
+.small-inner-banner .banner-caption .tag span:not(:last-of-type):after{content: "|"; display: inline-block; margin: 0 10px;}
+
 .small-inner-banner .banner-caption .tag span a:before,
 .small-inner-banner .banner-caption .tag span:empty:before{display: none;} 
 .small-inner-banner .banner-caption .tag span a{margin-right: 8px;}
@@ -545,11 +548,11 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .img-and-title figure{position: relative; text-align: center;z-index: 1;}
 .img-and-title figure:before{content: ""; position: absolute; width: 100%; height: 73px; background-color: #c10230; bottom: 5px; left: 0;z-index: -1; display: none;}
 .line-title{font-size: 14px;color: #c10230;display: flex; flex-wrap: wrap; align-items: center;margin-bottom: 10px;}
-.line-title .hr-line{width: 125px; height: 1px; background-color: #c10230;display: inline-block;margin-right: 15px;}
+.line-title .hr-line{width: 125px; height: 1px; background-color: #c10230;display: inline-block;margin-right: 15px;margin-bottom: 0;}
 .product-list figure{margin-bottom: 40px;display: inline-flex; align-items: center; justify-content: center; max-height: 150px; width: 100%;}
 .product-list figure img{max-height: 100%;max-width: 100%;}
 .product-list .p-data .hr-line{width: 38px; height: 1px;background-color: #c10230; display: block;margin-bottom: 15px; -webkit-transition: all 0.4s ease;-o-transition: all 0.4s ease;transition: all 0.4s ease;}
-.hr-line{width: 38px; height: 1px;background-color: #c10230; display: block; -webkit-transition: all 0.4s ease;-o-transition: all 0.4s ease;transition: all 0.4s ease;}
+.hr-line{width: 38px; height: 1px;background-color: #c10230; display: block; -webkit-transition: all 0.4s ease;-o-transition: all 0.4s ease;transition: all 0.4s ease;margin-bottom: 20px;}
 .product-list .p-data h4{color: inherit;}
 .product-list .p-data p{color: inherit;}
 .product-list .p-data a{color: inherit;}
@@ -584,6 +587,7 @@ form.contact-form .form-autocomplete{background-image: none !important}
 
 /* breadcrumb-block */
 .breadcrumb-block{position: absolute; /*top: 105px;*/left: 0;width:100%;z-index: 1;padding: 30px 0;}
+.breadcrumb-block .breadcrumb,
 .breadcrumb{margin: 0;}
 .breadcrumb li{display: inline-block; list-style: none; margin: 0; font-size: 18px; color: #fff;vertical-align: middle;}
 .breadcrumb li a{color: inherit;display: inline-block;}
@@ -689,7 +693,7 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .related-list .item-wrap .bg-img figure{position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);transform: translate(-50%,-50%); height: 100%; padding: 10px; display: flex ; align-items: center; justify-content: center; width: 100%;}
 .related-list .item-wrap .bg-img figure a{}
 .related-list .item-wrap .bg-img  img{max-height: 100%;}
-.related-list figure{display: flex; align-items: center; justify-content: center;/* margin-bottom: 20px; */}		
+.related-list figure{display: flex; align-items: center; justify-content: center; margin-bottom: 20px; padding: 10px;width: 100%;}
 .related-list figure img{max-height: 100%; display: flex; justify-content: center;}
 
 /* related insight */
@@ -782,3 +786,6 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .text-img-sec.slider-dots-space{margin-bottom: 70px !important;}
 .text-img-sec .container{position: relative;}
 .text-img-sec .img-part .slick-dots-wrap{position: absolute;width: 100%; right: 0; bottom: -55px; margin: 0 auto;}
+
+/* */
+.inherit-color{color: inherit !important;}
