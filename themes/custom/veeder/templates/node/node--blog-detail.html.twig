@@ -72,7 +72,7 @@
  * @ingroup themeable
  */
 #}
-{% if view_mode == teaser %}
+{% if view_mode == 'featured_view' %}
   <div class="featured-blog d-flex flex-wrap align-items-center col-md-7 col-lg-8">
     {% if content.field_blog_detail_image.0|render is not empty %}
       <div class="img-part">
@@ -92,6 +92,24 @@
         <p>{{ content.field_summary.0 }}</p>
         <a href="{{ url }}" class="btn-link" data-icon="c">{{ 'Read More'|trans }}</a>
     </div>
+  </div>
+{% elseif view_mode == 'teaser' %}
+  <div class="item col-md-4">
+      <div class="inner-item">
+          <div class="bg-img" style="background: url({{ file_url(content.field_blog_detail_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
+          </div>
+          <div class="desc line-top">
+              {{ title_prefix }}
+                {% if not page %}
+                  <h6{{ title_attributes }}>{{ label }}</h6>
+                {% endif %}
+              {{ title_suffix }}
+              <span class="cat">{{ content.field_blog_tags.0 }}</span>
+              <div class="date-show">{{ content.field_blog_date.0 }} | {{ content.field_blog_author.0 }}</div>
+              <p>{{ content.field_summary.0 }}</p>
+              <a href="{{ url }}" class="btn-link" data-icon="c">{{ 'Read More'|trans }}</a>
+          </div>
+      </div>
   </div>
 {% else %}
   <div{{ attributes }}>

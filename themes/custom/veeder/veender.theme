@@ -154,7 +154,7 @@ function veender_preprocess_node(&$variables) {
     $variables['blog_terms'] = $blog_taxonomy_term;
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_listing_vimeo->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
+      $vimeo_thumbnail = veender_hero_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -162,7 +162,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'generic_landing' || $node_data->gettype() == 'product_detail' || $node_data->gettype() == 'product_listing') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_generic_hero_vimeo->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_generic_hero_vimeo->value);
+      $vimeo_thumbnail = veender_hero_vimeo_thumbnail($node_data->field_generic_hero_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -170,7 +170,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'blog_detail') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_detail_vimeo->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_detail_vimeo->value);
+      $vimeo_thumbnail = veender_hero_vimeo_thumbnail($node_data->field_blog_detail_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -178,7 +178,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'product_showcase') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_product_show_hero_vimeo->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_product_show_hero_vimeo->value);
+      $vimeo_thumbnail = veender_hero_vimeo_thumbnail($node_data->field_product_show_hero_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -483,9 +483,7 @@ function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 }
 
 /**
- * Grab the url of a publicly embeddable video hosted on vimeo
- * @param  str $video_url The "embed" url of a video
- * @return str The url of the thumbnail, or false if there's an error
+ * Get the component video thumbnail using json data.
  */
 function veender_vimeo_thumbnail($vimeo_url){
   if( !$vimeo_url ) {
@@ -497,4 +495,22 @@ function veender_vimeo_thumbnail($vimeo_url){
     return false;
   }
   return $data['thumbnail_url'];
+}
+
+/**
+ * Get the hero banner large thmbnail using vimeo API v2.
+ */
+function veender_hero_vimeo_thumbnail($vimeo_url){
+  if( !$vimeo_url ) {
+    return false;
+  }
+
+  preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/', $vimeo_url, $match);
+  $vimeo_id = $match[5];
+  $vimeo_data = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vimeo_id.php"));
+
+  if( !$vimeo_data ) {
+    return false;
+  }
+  return $vimeo_data[0]["thumbnail_large"];
 }
