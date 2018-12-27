@@ -49,40 +49,64 @@ function veender_preprocess_page(&$variables) {
         $paragraph_name = $paragraph_details->getType();
         // 50 50 CTA
         if ($paragraph_name == '5050_cta') {
-          $jump_menu[] = $paragraph_details->field_5050_cta_id->value;
+          if (!empty($paragraph_details->field_5050_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_5050_cta_id->value;
+          }
         }
         elseif ($paragraph_name == 'four_column_cta_block') { // 4 Column CTA
-          $jump_menu[] = $paragraph_details->field_4_column_cta_block_id->value;
+          if (!empty($paragraph_details->field_4_column_cta_block_id->value)) {
+            $jump_menu[] = $paragraph_details->field_4_column_cta_block_id->value;
+          }
         }
         elseif ($paragraph_name == '5050_layered_heading_cta') { // 50 50 Layer CTA
-          $jump_menu[] = $paragraph_details->field_5050_layered_cta_id->value;
+          if (!empty($paragraph_details->field_5050_layered_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_5050_layered_cta_id->value;
+          }
         }
         elseif ($paragraph_name == 'wysiwyg_text') { // Wysiwyg Text
-          $jump_menu[] = $paragraph_details->field_wysiwyg_text_id->value;
+          if (!empty($paragraph_details->field_wysiwyg_text_id->value)) {
+            $jump_menu[] = $paragraph_details->field_wysiwyg_text_id->value;
+          }
         }
         elseif ($paragraph_name == 'documentation') { // Documentation
-          $jump_menu[] = $paragraph_details->field_documentation_id->value;
+          if (!empty($paragraph_details->field_documentation_id->value)) {
+            $jump_menu[] = $paragraph_details->field_documentation_id->value;
+          }
         }
         elseif ($paragraph_name == '3_column_taxonomy_listing') { // 3 Column Taxonomy Listing
-          $jump_menu[] = $paragraph_details->field_3_column_taxonomy_cta_id->value;
+          if (!empty($paragraph_details->field_3_column_taxonomy_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_3_column_taxonomy_cta_id->value;
+          }
         }
         elseif ($paragraph_name == '4060_cta') { // 40 60 CTA
-          $jump_menu[] = $paragraph_details->field_4060_cta_id->value;
+          if (!empty($paragraph_details->field_4060_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_4060_cta_id->value;
+          }
         }
         elseif ($paragraph_name == '5050_full_width_cta') { // 50 50 Full Width
-          $jump_menu[] = $paragraph_details->field_5050_fullwd_cta_id->value;
+          if (!empty($paragraph_details->field_5050_fullwd_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_5050_fullwd_cta_id->value;
+          }
         }
         elseif ($paragraph_name == '4_column_taxonomy_listing') { // 4 Column Taxonomy Listing
-          $jump_menu[] = $paragraph_details->field_4_column_taxonomy_cta_id->value;
+          if (!empty($paragraph_details->field_4_column_taxonomy_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_4_column_taxonomy_cta_id->value;
+          }
         }
         elseif ($paragraph_name == 'features_cta_block') { // Features Cta Block
-          $jump_menu[] = $paragraph_details->field_features_cta_block_id->value;
+          if (!empty($paragraph_details->field_features_cta_block_id->value)) {
+            $jump_menu[] = $paragraph_details->field_features_cta_block_id->value;
+          }
         }
         elseif ($paragraph_name == 'full_width_cta') { // Full Width Cta
-          $jump_menu[] = $paragraph_details->field_full_width_cta_id->value;
+          if (!empty($paragraph_details->field_full_width_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_full_width_cta_id->value;
+          }
         }
         elseif ($paragraph_name == 'full_width_media_cta') { // Full Width Media CTA
-          $jump_menu[] = $paragraph_details->field_fullwd_media_cta_id->value;
+          if (!empty($paragraph_details->field_fullwd_media_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_fullwd_media_cta_id->value;
+          }
         }
       }
       $variables['jump_menu'] = $jump_menu;
@@ -345,58 +369,82 @@ function veender_preprocess_breadcrumb(&$variables) {
     if ($node->gettype() != 'page' || $node->gettype() != 'homepage') {
       if ($node->field_display_breadcrumbs[0]->value == 1) {
         if ($node->gettype() == 'generic_landing' || $node->gettype() == 'product_detail' || $node->gettype() == 'product_listing') {
-          if (empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          if (empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_generic_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             $variables['breadcrumb_color'] = '#000';
-          } elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_generic_hero_image[0]->entity->uri->value)) {
+          }
+          elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_generic_hero_vimeo->value)) {
             $variables['breadcrumb_color'] = '#000';
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             
-          } elseif (!empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          }
+          elseif (!empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_color'] = '#000';
-          } else {
+          }
+          elseif (!empty($node->field_generic_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#000';
+          }
+          else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
           }
         }
         elseif ($node->gettype() == 'blog_detail') {
-          if (empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          if (empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_blog_detail_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             $variables['breadcrumb_color'] = '#000';
-          } elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_detail_image[0]->entity->uri->value)) {
+          }
+          elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_blog_detail_vimeo->value)) {
             $variables['breadcrumb_color'] = '#000';
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             
-          } elseif (!empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          }
+          elseif (!empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_color'] = '#000';
-          } else {
+          }
+          elseif (!empty($node->field_blog_detail_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#000';
+          }
+          else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
           }
         } 
         elseif ($node->gettype() == 'article'){
-          if (empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          if (empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_blog_listing_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             $variables['breadcrumb_color'] = '#000';
-          } elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_listing_image[0]->entity->uri->value)) {
+          }
+          elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_blog_listing_vimeo->value)) {
             $variables['breadcrumb_color'] = '#000';
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             
-          } elseif (!empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          }
+          elseif (!empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_color'] = '#000';
-          } else {
+          }
+          elseif (!empty($node->field_blog_listing_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#000';
+          }
+          else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
           }
         }
         elseif ($node->gettype() == 'product_showcase') {
-          if (empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          if (empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_product_show_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             $variables['breadcrumb_color'] = '#000';
-          } elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_product_show_hero_bg_image[0]->entity->uri->value)) {
+          }
+          elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_product_show_hero_vimeo->value)) {
             $variables['breadcrumb_color'] = '#000';
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             
-          } elseif (!empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+          }
+          elseif (!empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_color'] = '#fff';
-          } else {
+          }
+          elseif (!empty($node->field_product_show_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
           }
         }

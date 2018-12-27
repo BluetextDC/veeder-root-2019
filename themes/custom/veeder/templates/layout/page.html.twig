@@ -64,16 +64,18 @@
 
     {# jump menu #}
     {% if node.field_enable_jump_nav.0.value == 1 %}
-      <div class="page-sub-nav hidden-sm-down">
-        <div class="container">
-          <ul>
-            {% for i, menus in jump_menu %}
-              <li><a href="#{{ menus }}">{{ menus|upper|replace('-', ' ') }}</a></li>
-            {% endfor %}
-          </ul>
+      {% if jump_menu is not empty %}
+        <div class="page-sub-nav hidden-sm-down">
+          <div class="container">
+            <ul>
+              {% for i, menus in jump_menu %}
+                <li><a href="#{{ menus }}">{{ menus|upper|replace('-', ' ') }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <span class="tri-color"></span>
         </div>
-        <span class="tri-color"></span>
-      </div>
+      {% endif %}
     {% endif %}
 
     {% if page.highlighted %}
