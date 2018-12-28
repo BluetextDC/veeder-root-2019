@@ -16,7 +16,8 @@
         "drupal/porterstemmer": "^1.0",
         "drupal/menu_link_attributes": "^1.0",
         "drupal/link_attributes": "^1.5",
-        "drupal/linkit": "^4.3"
+        "drupal/linkit": "^4.3",
+        "drupal/contact_block": "^1.4"
     },
     "replace": {
         "drupal/core": "^8.6"

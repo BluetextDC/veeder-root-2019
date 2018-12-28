@@ -41,7 +41,7 @@
       {% set count = 0 %}
       {% for item in items %}
         {% if menu_level == 1 %}
-          {% if count % 2 == 0 %}
+          {% if (item.below) and (count % 2 == 0) %}
             <div class="list-wrapper">
               <div class="list-part">
           {% endif %}
@@ -62,7 +62,7 @@
                     {% endif %}
                   {% endif %}
                 </li>
-          {% if count % 2 == 1 %}
+          {% if (item.below) and (count % 2 == 1) %}
               </div>
             </div>
           {% endif %}

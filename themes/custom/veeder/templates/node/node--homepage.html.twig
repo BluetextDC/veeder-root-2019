@@ -118,7 +118,7 @@
     {{ content.field_components }}
 
     {# Render other field if client will create #}
-    {{ content|without('field_add_column_cta', 'field_add_starting_point', 'field_components', 'field_homepage_hero_cta_cta', 'field_homepage_hero_subheading', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_homepage_hero_heading', 'field_homepage_hero_image', 'field_homepage_hero_image_parall', 'field_homepage_hero_plate_color', 'field_summary', 'field_homepage_hero_text_color') }}
+    {{ content|without('field_add_column_cta', 'field_add_starting_point', 'field_components', 'field_homepage_hero_cta_cta', 'field_homepage_hero_subheading', 'field_display_contact_sidebar', 'field_display_contact_footer', 'field_contact_footer_form', 'field_homepage_hero_heading', 'field_homepage_hero_image', 'field_homepage_hero_vimeo', 'field_homepage_hero_image_parall', 'field_homepage_hero_plate_color', 'field_summary', 'field_homepage_hero_text_color') }}
 
     {# Include template #}
     {% include directory ~ '/templates/parts/contact-footer.html.twig' %}

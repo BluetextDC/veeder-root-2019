@@ -9,6 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\Component\Serialization\Json;
+use Symfony\Component\Yaml\Parser;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -154,7 +155,7 @@ function veender_preprocess_node(&$variables) {
     $variables['blog_terms'] = $blog_taxonomy_term;
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_listing_vimeo->value)) {
-      $vimeo_thumbnail = veender_hero_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
+      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -162,7 +163,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'generic_landing' || $node_data->gettype() == 'product_detail' || $node_data->gettype() == 'product_listing') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_generic_hero_vimeo->value)) {
-      $vimeo_thumbnail = veender_hero_vimeo_thumbnail($node_data->field_generic_hero_vimeo->value);
+      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_generic_hero_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -170,7 +171,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'blog_detail') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_detail_vimeo->value)) {
-      $vimeo_thumbnail = veender_hero_vimeo_thumbnail($node_data->field_blog_detail_vimeo->value);
+      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_detail_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -178,7 +179,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'product_showcase') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_product_show_hero_vimeo->value)) {
-      $vimeo_thumbnail = veender_hero_vimeo_thumbnail($node_data->field_product_show_hero_vimeo->value);
+      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_product_show_hero_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -320,17 +321,24 @@ function veender_preprocess_menu(&$variables) {
   if ($variables['menu_name'] == 'main') {
     foreach ($variables['items'] as $key => $item) {
       if ($item['below']) {
-        // Add parent menu li class.
-        $sub_menu_count = count($item['below']);
-        if ($sub_menu_count <= 2) {
-          $variables['items'][$key]['attributes']->addClass('one-column-menu');
-        }
-        elseif ($sub_menu_count >= 2) {
-          $variables['items'][$key]['attributes']->addClass('two-column-menu');
-        }
         // Add submenu li class.
         foreach ($item['below'] as $subitem) {
-          $subitem['attributes']->addClass('menu-title');
+          $sub_menu_count = count($item['below']);
+          if ($subitem['below']) {
+            $subitem['attributes']->addClass('menu-title');
+            // Add parent menu li class.
+            if ($sub_menu_count <= 2) {
+              $variables['items'][$key]['attributes']->addClass('one-column-menu');
+            }
+            elseif ($sub_menu_count >= 2) {
+              $variables['items'][$key]['attributes']->addClass('two-column-menu');
+            }
+          }
+          else {
+            if ($sub_menu_count >= 3) {
+              $variables['items'][$key]['attributes']->addClass('single-column-menu');
+            }
+          }
         }
       }
     }
@@ -483,34 +491,21 @@ function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 }
 
 /**
- * Get the component video thumbnail using json data.
+ * Get the hero banner large thmbnail using vimeo API v2.
  */
 function veender_vimeo_thumbnail($vimeo_url){
   if( !$vimeo_url ) {
     return false;
   }
 
-  $data = Json::decode( file_get_contents( 'https://vimeo.com/api/oembed.json?url=' . $vimeo_url ) );
-  if( !$data ) {
-    return false;
-  }
-  return $data['thumbnail_url'];
-}
-
-/**
- * Get the hero banner large thmbnail using vimeo API v2.
- */
-function veender_hero_vimeo_thumbnail($vimeo_url){
-  if( !$vimeo_url ) {
-    return false;
-  }
-
-  preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/', $vimeo_url, $match);
-  $vimeo_id = $match[5];
+  Parser::preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/', $vimeo_url, $matches);
+  $vimeo_id = $matches[5];
   $vimeo_data = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vimeo_id.php"));
 
   if( !$vimeo_data ) {
     return false;
   }
-  return $vimeo_data[0]["thumbnail_large"];
+  $video_thumnail = (explode("_640", $vimeo_data[0]['thumbnail_large']));
+  $video_thumnail_url = $video_thumnail[0] . $video_thumnail[1];
+  return $video_thumnail_url;
 }

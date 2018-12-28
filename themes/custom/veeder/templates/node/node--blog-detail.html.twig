@@ -76,12 +76,13 @@
   <div class="featured-blog d-flex flex-wrap align-items-center col-md-7 col-lg-8">
     {% if content.field_blog_detail_image.0|render is not empty %}
       <div class="img-part">
-          <div class="bg-img" style="background: url({{ file_url(content.field_blog_detail_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
-          </div>
+        <figure>
+          {{ content.field_blog_detail_image.0 }}
+        </figure>
       </div>
     {% endif %}
     <div class="text-part">
-        <div class="line-title"><span class="hr-line"></span>Featured Product</div>
+        <div class="line-title"><span class="hr-line"></span></div>
         {{ title_prefix }}
           {% if not page %}
             <h4{{ title_attributes }}>
@@ -96,8 +97,9 @@
 {% elseif view_mode == 'teaser' %}
   <div class="item col-md-4">
       <div class="inner-item">
-          <div class="bg-img" style="background: url({{ file_url(content.field_blog_detail_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
-          </div>
+          <figure>
+            {{ content.field_blog_detail_image.0 }}
+          </figure>
           <div class="desc line-top">
               {{ title_prefix }}
                 {% if not page %}
