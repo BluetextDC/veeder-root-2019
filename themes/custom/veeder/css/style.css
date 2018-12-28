@@ -503,7 +503,10 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .sidebar-wrap select,
 .sidebar-wrap textarea{border-color: #fff;}
 .sidebar-wrap select option{color: #000 !important;}
-.sidebar-wrap select{background: url(../images/down-arrow-white.png) no-repeat center right 25px}
+.sidebar-wrap select{background: url(../images/down-arrow-white.png) no-repeat center right 25px;}
+.sidebar-wrap .form-item-field-zip-code-0-value{margin-bottom: 30px;}
+.sidebar-wrap h2{font-size: 28px; font-weight: bold; text-transform: uppercase;margin-bottom: 20px;}
+.sidebar-wrap .form-actions{text-align: right;}
 .dist-locat-sec .get-quote-form{width: 60%; /*display: inline-flex; flex-wrap: wrap; */padding-right: 4%;}
 .dist-locat-sec .heading-txt {max-width: 432px;}
 .dist-locat-sec .heading-txt h3{text-transform: uppercase;}

@@ -88,6 +88,7 @@
     .full-img-text-sec .text-part + .video-part{padding-right: 50px;}
     .full-img-text-sec .video-part + .text-part{padding-right: 50px;}
     .hero-section .home-banner .vimeo-bg-video iframe{/*width: 297vh;*/}
+    .sidebar-wrap h2{font-size: 20px;}
 }
 
 /* ----- 2. Tablet ≥768 and ≤1023 ----- */
@@ -205,6 +206,7 @@
     .full-img-text-sec .text-part + .video-part{padding-right: 50px;}
     .full-img-text-sec .video-part + .text-part{padding-right: 50px;}
     .hero-section .home-banner .vimeo-bg-video iframe{width: 265vw;}
+    .sidebar-wrap h2{font-size: 20px;}
 }
 
 /* ----- 3. Medium devices ≤767 ----- */

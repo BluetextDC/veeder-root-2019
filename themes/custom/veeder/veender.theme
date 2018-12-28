@@ -328,8 +328,8 @@ function veender_preprocess_menu(&$variables) {
         // Add submenu li class.
         foreach ($item['below'] as $subitem) {
           $sub_menu_count = count($item['below']);
+          $subitem['attributes']->addClass('menu-title');
           if ($subitem['below']) {
-            $subitem['attributes']->addClass('menu-title');
             // Add parent menu li class.
             if ($sub_menu_count <= 2) {
               $variables['items'][$key]['attributes']->addClass('one-column-menu');
