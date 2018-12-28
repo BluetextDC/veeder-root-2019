@@ -61,12 +61,14 @@
 
 {% for key, i in 0..column_data - 1 %}
   {% set items = {
-      title: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_heading.value,
+      title:       content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_heading.value,
       description: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_description.value,
-      link_title: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta.value[0].title,
-      link_url: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta[0].url,
+      link_title:  content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta.value[0].title,
+      link_url:    content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta[0].url,
       link_target: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_cta.value[0].options.attributes.target,
-      image_uri: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value ? file_url(content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value) : '',
+      image_uri:   content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value ? file_url(content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_image.entity.uri.value) : '',
+      vimeo_url:   content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_vimeo_url[0].value,
+      inline_play: content.field_4_column_add_cta[i]['#paragraph'].field_column_cta_inline_video[0].value,
     }
   %}
   {% set column_items = column_items|merge({(key): items}) %}
@@ -89,19 +91,31 @@
           <h2 style="color: {{ content.field_4_column_cta_block_head_co.0 }};">{{ content.field_4_column_cta_block_heading.0 }}</h2>
         </div>
         <div class="block-list row">
-          {% for items in column_items %}
+          {% for j, column_item in column_items %}
             <div class="item col-md-3 col-6">
               <div class="cd-wrap" style="color: {{ content.field_4_column_cta_block_head_co.0 }};">
-                {% if items.image_uri is not empty %}
+                {% if (column_item.inline_play == '1') and (column_item.vimeo_url is not empty) and (column_item.image_uri is empty) %}
                   <figure>
-                    <img src="{{ items.image_uri }}" alt="{{ items.title }}">
+                    <a href="{{ column_item.vimeo_url }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb[j] }}) no-repeat center / cover">
+                      <span class="play-icon ic-play-icon"></span>
+                    </a>
+                  </figure>
+                {% elseif (column_item.vimeo_url is not empty) and (column_item.inline_play == '0') and (column_item.image_uri is empty) %}
+                  <figure>
+                    <a href="javascript:;" class="c-video">                                            
+                      <iframe src="{{ column_item.vimeo_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                    </a>
+                  </figure>
+                {% elseif column_item.image_uri is not empty %}
+                  <figure>
+                    <img src="{{ column_item.image_uri }}" alt="{{ column_item.title }}">
                   </figure>
                 {% endif %}
-                <h6>{{ items.title }}</h6>
-                {{ items.description|raw }}
+                <h6>{{ column_item.title }}</h6>
+                {{ column_item.description|raw }}
               </div>
-              {% if items.link_title|render is not empty %}
-                <a href="{{ items.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn four-column-cta-btn"{% else %} class="btn-link four-column-cta-btn"{% endif %} {% if items.link_target is not empty %}target="{{ items.link_target }}"{% endif %}>{{ items.link_title }}</a>
+              {% if column_item.link_title|render is not empty %}
+                <a href="{{ column_item.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn four-column-cta-btn"{% else %} class="btn-link four-column-cta-btn"{% endif %} {% if column_item.link_target is not empty %}target="{{ column_item.link_target }}"{% endif %}>{{ column_item.link_title }}</a>
               {% endif %}
             </div>
           {% endfor %}

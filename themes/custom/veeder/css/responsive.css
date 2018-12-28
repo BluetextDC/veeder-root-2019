@@ -87,6 +87,7 @@
     .full-img-text-sec .img-part + .text-part{padding-right: 50px;padding-left: 30px;}
     .full-img-text-sec .text-part + .video-part{padding-right: 50px;}
     .full-img-text-sec .video-part + .text-part{padding-right: 50px;}
+    .hero-section .home-banner .vimeo-bg-video iframe{/*width: 297vh;*/}
 }
 
 /* ----- 2. Tablet ≥768 and ≤1023 ----- */
@@ -203,6 +204,7 @@
     .full-img-text-sec .text-part + .img-part{padding-right: 50px;}
     .full-img-text-sec .text-part + .video-part{padding-right: 50px;}
     .full-img-text-sec .video-part + .text-part{padding-right: 50px;}
+    .hero-section .home-banner .vimeo-bg-video iframe{width: 265vw;}
 }
 
 /* ----- 3. Medium devices ≤767 ----- */
@@ -332,7 +334,8 @@
     .product-list figure{justify-content: flex-start;}
     .full-img-text-sec .video-part{width: 100%;padding-right: 0;}
     .full-img-text-sec .text-part + .video-part{padding-right: 0;margin-bottom: 0;}
-    
+    .hero-section .home-banner .vimeo-bg-video{display: none;}
+    .hero-section .home-banner .bg-img.mobile-banner-img{display: block;}
 }
 
 /* ----- 4. Small devices ≤640 ----- */
@@ -439,6 +442,7 @@
     .category-by{font-size: 14px;}
     .NoHero-sec .inner-banner .simple-banner{padding: 30px 20px 10px;}
     .full-img-text-sec .text-part, .full-img-text-sec .img-part + .text-part{padding-left: 20px;padding-right: 20px;}
+    .text-img-sec .img-part .images-slider .item{height: 200px;}
 }
 
 /* iPhone X ----------- */

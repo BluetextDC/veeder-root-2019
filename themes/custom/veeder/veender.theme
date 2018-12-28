@@ -10,6 +10,7 @@ use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\Component\Serialization\Json;
 use Symfony\Component\Yaml\Parser;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -142,17 +143,6 @@ function veender_preprocess_node(&$variables) {
   }
   $node_type = $node_data->getType();
   if ($node_type == 'article') {
-    $blog_vid = 'blog';
-    $blog_terms =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($blog_vid);
-    $blog_taxonomy_term = [];
-    foreach ($blog_terms as $blog_term) {
-     $blog_taxonomy_term[] = array(
-      'name' => $blog_term->name,
-      'url'  => Url::fromRoute('entity.taxonomy_term.canonical', [
-          'taxonomy_term' => $blog_term->tid
-        ], ['absolute' => TRUE])->toString());
-    }
-    $variables['blog_terms'] = $blog_taxonomy_term;
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_listing_vimeo->value)) {
       $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
@@ -274,6 +264,20 @@ function veender_preprocess_paragraph(&$variables) {
       $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_fullwd_media_cta_vimeo_url->value);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
+  }
+  elseif ($paragraph_name == 'four_column_cta_block') { // 4 Column CTA
+    // CTA vimeo thumbnail from vimeo url.
+    // field_4_column_add_cta
+    // var_dump($paragraph->field_4_column_add_cta->getValue());
+    $four_column_vimeo_url = [];
+    foreach ($paragraph->field_4_column_add_cta as $key => $child_paragraph) {
+      $paragraph_child = Paragraph::load($child_paragraph->target_id);
+      if (!empty($paragraph_child->field_column_cta_vimeo_url->value)) {
+        $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph_child->field_column_cta_vimeo_url->value);
+        $four_column_vimeo_url[] = $vimeo_thumbnail;
+      }
+    }
+    $variables['para_vimeo_thumb'] = $four_column_vimeo_url;
   }
 }
 
