@@ -207,6 +207,7 @@
     .full-img-text-sec .video-part + .text-part{padding-right: 50px;}
     .hero-section .home-banner .vimeo-bg-video iframe{width: 265vw;}
     .sidebar-wrap h2{font-size: 20px;}
+    .features-list .item .item-wrap figure{height: 100px;}
 }
 
 /* ----- 3. Medium devices ≤767 ----- */
@@ -285,7 +286,7 @@
     .inner-banner .banner-caption.img-title-cap .desc{padding: 15px 50px;}
     .inner-banner .banner-caption h2{font-size: 20px;}
     .features-list .bg-img{/*display: none;*/}
-    .features-list .desc{padding: 0;}
+    .features-list .desc{/*padding: 0;*/}
     .features-list .item{margin: 38px 0 0 0;}
     .text-img-sec .img-part + .text-part .inner-wrap{padding-left: 0;}
     .heading:after{display: none;}
@@ -338,6 +339,7 @@
     .full-img-text-sec .text-part + .video-part{padding-right: 0;margin-bottom: 0;}
     .hero-section .home-banner .vimeo-bg-video{display: none;}
     .hero-section .home-banner .bg-img.mobile-banner-img{display: block;}
+    .features-list .item .item-wrap figure{display: none;}
 }
 
 /* ----- 4. Small devices ≤640 ----- */

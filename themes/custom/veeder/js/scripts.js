@@ -1,6 +1,7 @@
 /* Script on ready
 ------------------------------------------------------------------------------*/
 (function ($, Drupal) {
+    
     /* Responsive Jquery Navigation */    
     $('.hamburger').click(function(event) {        
         $(this).toggleClass('open');
@@ -180,6 +181,7 @@
             $('.header-space').css('height',hs);      
             $('#mobilenav').css('max-height', $(window).height() - hs);              
         }, 250);
+    
 
         if ($(window).width() >= 768) {          
             $('.hamburger').removeClass('open');
@@ -191,7 +193,7 @@
 
     });
 
-    
+
 
     window.addEventListener('scroll', function(){
         if($('#parallax').length){
@@ -255,6 +257,6 @@
         $(this).find('.slick-dots-wrap').prepend($(this).find('.slick-prev.slick-arrow'));
         $(this).find('.slick-dots-wrap').append($(this).find('.slick-next.slick-arrow'));
     });
-
+    
 })(jQuery, Drupal);
 
