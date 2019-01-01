@@ -267,8 +267,6 @@ function veender_preprocess_paragraph(&$variables) {
   }
   elseif ($paragraph_name == 'four_column_cta_block') { // 4 Column CTA
     // CTA vimeo thumbnail from vimeo url.
-    // field_4_column_add_cta
-    // var_dump($paragraph->field_4_column_add_cta->getValue());
     $four_column_vimeo_url = [];
     foreach ($paragraph->field_4_column_add_cta as $key => $child_paragraph) {
       $paragraph_child = Paragraph::load($child_paragraph->target_id);
@@ -278,6 +276,18 @@ function veender_preprocess_paragraph(&$variables) {
       }
     }
     $variables['para_vimeo_thumb'] = $four_column_vimeo_url;
+  }
+  elseif ($paragraph_name == 'features_cta_block') { // Features CTA
+    // CTA vimeo thumbnail from vimeo url.
+    $features_cta_vimeo_url = [];
+    foreach ($paragraph->field_features_cta_add_cta as $key => $child_paragraph) {
+      $paragraph_child = Paragraph::load($child_paragraph->target_id);
+      if (!empty($paragraph_child->field_feature_cta_vimeo_url->value)) {
+        $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph_child->field_feature_cta_vimeo_url->value);
+        $features_cta_vimeo_url[] = $vimeo_thumbnail;
+      }
+    }
+    $variables['para_vimeo_thumb'] = $features_cta_vimeo_url;
   }
 }
 
@@ -492,6 +502,26 @@ function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form[$key]['submit']['#attributes']->addClass('searchButton');
     $form['keys']['#attributes']['placeholder'][] = t('Search..');
   }
+  if ($form_id == 'contact_message_find_distributor_form') {
+    // Call custom function on submit form.
+    $form['actions']['submit']['#submit'][] = 'veender_find_distributor_form_redirect';
+  }
+}
+
+/**
+ * Custom function for the distributor form redirect.
+ */
+function veender_find_distributor_form_redirect(&$form, FormStateInterface $form_state) {
+  // Get zip code value.
+  $zip_code = $form_state->getValue('field_zip_code')[0]['value'];
+  $form_state->setRedirect('entity.node.canonical', [
+      'node' => 150
+    ], [
+      'query' => [
+        'locate' => $zip_code
+      ]
+    ]
+  );
 }
 
 /**

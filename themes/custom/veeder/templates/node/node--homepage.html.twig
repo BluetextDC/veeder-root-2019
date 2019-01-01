@@ -87,11 +87,10 @@
   {# Hero Banner Section #}
   <section class="hero-section{% if content.field_homepage_hero_image|render is empty %} NoHero-sec{% endif %}">
     <div class="home-banner">
-      {% if content.field_homepage_hero_vimeo|render is not empty %}
-        <div class="vimeo-bg-video">
-          <iframe src="{{ content.field_homepage_hero_vimeo.0 }}?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
-      {% endif %}
+      <div class="home-video-loader"></div>
+      <div class="vimeo-bg-video">
+        <iframe src="{{ content.field_homepage_hero_vimeo.0 }}?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
       <div class="bg-img mobile-banner-img"{% if content.field_homepage_hero_image_parall.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_homepage_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
       </div>
       <div class="banner-caption">

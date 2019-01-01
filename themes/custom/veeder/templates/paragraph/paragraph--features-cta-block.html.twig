@@ -58,8 +58,10 @@
       description: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_description.value,
       link_title: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_cta.value[0].title,
       link_url: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_cta[0].url,
-      link_target: content.field_4_column_add_cta[i]['#paragraph'].field_feature_cta_cta.value[0].options.attributes.target,
+      link_target: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_cta.value[0].options.attributes.target,
       image_uri: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value ? file_url(content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_image.entity.uri.value) : '',
+      vimeo_url:   content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_vimeo_url[0].value,
+      inline_play: content.field_features_cta_add_cta[i]['#paragraph'].field_feature_cta_inline_video[0].value,
     }
   %}
   {% set feature_items = feature_items|merge({(key): items}) %}
@@ -75,10 +77,22 @@
           </div>
         {% endif %}
         <div class="features-list row justify-content-center">
-          {% for feature_item in feature_items %}
+          {% for j, feature_item in feature_items %}
             <div class="col-md-4 item">
               <div class="item-wrap bg-white">
-                {% if feature_item.image_uri is not empty %}
+                {% if (feature_item.inline_play == '1') and (feature_item.vimeo_url is not empty) and (feature_item.image_uri is empty) %}
+                  <figure>
+                    <a href="{{ feature_item.vimeo_url }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb[j] }}) no-repeat center / cover">
+                      <span class="play-icon ic-play-icon"></span>
+                    </a>
+                  </figure>
+                {% elseif (feature_item.vimeo_url is not empty) and (feature_item.inline_play == '0') and (feature_item.image_uri is empty) %}
+                  <figure>
+                    <a href="javascript:;" class="c-video">                                            
+                      <iframe src="{{ feature_item.vimeo_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                    </a>
+                  </figure>
+                {% elseif feature_item.image_uri is not empty %}
                   <figure>
                     <img src="{{ feature_item.image_uri }}" alt="{{ feature_item.title }}">
                   </figure>
