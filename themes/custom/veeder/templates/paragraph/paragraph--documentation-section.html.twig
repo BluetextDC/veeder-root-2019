@@ -62,7 +62,12 @@ set classes = [
       <label>{{ content.field_documentation_sec_heading }}</label>
       <ul>
         {% for document_item in document_items %}
-          <li>{% if document_item.document_file is not empty %}<a href="{{ document_item.document_file }}" download="download" class="ic-download download" target="_blank"></a>{% endif %} {{ document_item.document_heading }}</li>
+          <li>
+            {% if document_item.document_file is not empty %}
+              <a href="{{ document_item.document_file }}" class="ic-download download" target="_blank"></a>
+            {% endif %}
+            {{ document_item.document_heading }}
+          </li>
         {% endfor %}
       </ul>
     </div>
