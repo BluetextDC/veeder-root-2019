@@ -390,10 +390,10 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 /*--------- home page ------------*/
 /* banner part */
 .hero-section{position: relative;}
-.hero-section .home-banner{min-height: 1288px; width: 100%;}
+.hero-section .home-banner{min-height: 1288px; width: 100%; position: relative; overflow: hidden;}
 .hero-section .home-banner .bg-img{ position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; }
 #parallax{background-attachment: fixed !important;	}
-.hero-section .home-banner .vimeo-bg-video{display: block;position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; }
+.hero-section .home-banner .vimeo-bg-video{display: block;position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; padding-top: 90%;}
 .hero-section .home-banner .vimeo-bg-video iframe{min-width: 100%; /*width: 265vh;*/ width: 225vw; height: 100%; position: absolute; left: 50%; top: 50%; margin: 0 auto; display: block; -webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
 .hero-section .home-banner .bg-img.mobile-banner-img{display: none;}
 
@@ -445,7 +445,9 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .inner-banner .banner-caption.half-block{padding-top: 0;padding-bottom: 0;}
 .inner-banner .banner-caption.img-title-cap{padding: 0; width: 40.5vw;}
 .inner-banner .banner-caption.img-title-cap .desc{padding: 25px 50px;}
-.inner-banner .banner-caption.img-title-cap .cap-img{padding: 70px 50px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;}
+.inner-banner .banner-caption.img-title-cap .cap-img{display: flex; padding: 50px 50px; flex-wrap: wrap; align-items: center; justify-content: center; width: 100%;}
+.inner-banner .banner-caption.img-title-cap .cap-img figure{}
+.inner-banner .banner-caption.img-title-cap .cap-img img{max-height: 250px;} 
 .inner-banner .banner-caption.img-title-cap .cap-img,
 .inner-banner .banner-caption.img-title-cap .desc{/*padding-left: calc((99vw - 1290px) / 2);*/}
 .inner-banner .banner-caption h2{color: #fff;text-transform: uppercase;margin-bottom: 0;}

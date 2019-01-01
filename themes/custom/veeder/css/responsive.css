@@ -88,7 +88,7 @@
     .full-img-text-sec .text-part + .video-part{padding-right: 50px;}
     .full-img-text-sec .video-part + .text-part{padding-right: 50px;}
     .hero-section .home-banner .vimeo-bg-video iframe{/*width: 297vh;*/}
-    .sidebar-wrap h2{font-size: 20px;}
+    .sidebar-wrap h2{font-size: 20px;}    
 }
 
 /* ----- 2. Tablet ≥768 and ≤1023 ----- */
@@ -165,6 +165,7 @@
     .related-list .desc{padding: 20px 15px;}
     .breadcrumb-block{padding: 20px 0;}
     .NoHero-sec .inner-banner .banner-caption{padding-left: 40px;padding-right: 40px;}
+    .inner-banner .banner-caption.img-title-cap{padding: 0;}
     .inner-banner .banner-caption.img-title-cap .desc{padding: 15px 40px;}
     .inner-banner .banner-caption h2{font-size: 17px;}
     .inner-banner .banner-caption.img-title-cap .cap-img figure{height: 100px;}
@@ -205,9 +206,10 @@
     .full-img-text-sec .text-part + .img-part{padding-right: 50px;}
     .full-img-text-sec .text-part + .video-part{padding-right: 50px;}
     .full-img-text-sec .video-part + .text-part{padding-right: 50px;}
-    .hero-section .home-banner .vimeo-bg-video iframe{width: 265vw;}
+    .hero-section .home-banner .vimeo-bg-video iframe{/*width: 265vw;*/}
     .sidebar-wrap h2{font-size: 20px;}
-    .features-list .item .item-wrap figure{height: 100px;}
+    .features-list .item .item-wrap figure{height: 100px;}    
+    .language-dropdown .dropdown-button > span, .language-dropdown h6{width: 24px;height: 24px;}
 }
 
 /* ----- 3. Medium devices ≤767 ----- */
@@ -357,7 +359,8 @@
     .inner-banner .banner-caption h1{font-size: 35px;}
     .inner-banner .bg-img{min-height: 334px;}
     .play-icon{font-size: 65px;}
-    .inner-banner .banner-caption.img-title-cap{width: 68.5vw; margin-top: -175px;}
+    .inner-banner .banner-caption.img-title-cap{width: 68.5vw; /*margin-top: -175px;*/}
+    .NoHero-sec .inner-banner .banner-caption.img-title-cap{margin-top: 0;}
     .inner-banner .banner-caption.img-title-cap .cap-img{padding: 50px 50px;}
     .inner-banner .banner-caption.img-title-cap .cap-img figure{height: 170px;}
     .inner-banner .banner-caption h2{font-size: 32px;}
@@ -420,7 +423,8 @@
     .side-sec-wrap table th:first-of-type{width: 100px !important;}
     .related-list.row{padding: 0;}
     .inner-banner .banner-caption.img-title-cap .cap-img figure{height: auto;}
-    .inner-banner .banner-caption.img-title-cap{margin-top: -75px;}
+    .inner-banner .banner-caption.img-title-cap{/*margin-top: -75px;*/}
+    .NoHero-sec .inner-banner .banner-caption.img-title-cap{margin-top: 0;}
     .inner-banner .banner-caption.img-title-cap .cap-img figure{height: 80px;}
     .inner-banner .banner-caption.img-title-cap .cap-img, .inner-banner .banner-caption.img-title-cap .desc{padding: 20px;}
     .inner-banner .banner-caption h2{font-size: 16px;}
