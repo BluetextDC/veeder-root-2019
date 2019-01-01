@@ -564,7 +564,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .four-block-sec p{margin-bottom: 35px;}
 .sec-top{margin-top: -290px;}
 .block-list{justify-content: center;}
-.four-block-sec .item figure{/* height: 215px; */width: 100%;display: flex; align-items: center; justify-content: center; margin-bottom: 60px;}
+.four-block-sec .item figure{ height: 215px; width: 100%;display: flex; align-items: center; justify-content: center; margin-bottom: 60px;}
 .four-block-sec .item figure img{flex: 1;} /* for ie */
 
 /* product sec */
@@ -832,11 +832,3 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .inherit-color{color: inherit !important;}
 #home-video-loader{width: 80px; height: 80px;display: block; position: absolute; top: 0; left: 0; right: 0;bottom: 0; margin: auto;}
 #home-video-loader img{display: block;}
-#home-video-loader span{-webkit-animation: animate 1.5s linear infinite;
-    animation: animate 1.5s linear infinite;
-    clip: rect(0, 80px, 80px, 40px);
-    height: 80px;
-    width: 80px;
-    position: absolute;
-    left: calc(50% - 40px);
-    top: calc(50% - 40px);}
