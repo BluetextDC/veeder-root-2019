@@ -396,7 +396,7 @@ function veender_preprocess_breadcrumb(&$variables) {
             $variables['breadcrumb_color'] = '#000';
           }
           elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_generic_hero_vimeo->value)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             
           }
@@ -416,7 +416,7 @@ function veender_preprocess_breadcrumb(&$variables) {
             $variables['breadcrumb_color'] = '#000';
           }
           elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_blog_detail_vimeo->value)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             
           }
@@ -436,7 +436,7 @@ function veender_preprocess_breadcrumb(&$variables) {
             $variables['breadcrumb_color'] = '#000';
           }
           elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_blog_listing_vimeo->value)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             
           }
@@ -456,15 +456,15 @@ function veender_preprocess_breadcrumb(&$variables) {
             $variables['breadcrumb_color'] = '#000';
           }
           elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_product_show_hero_vimeo->value)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
             
           }
           elseif (!empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#fff';
+            $variables['breadcrumb_color'] = '#000';
           }
           elseif (!empty($node->field_product_show_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#fff';
+            $variables['breadcrumb_color'] = '#000';
           }
           else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
