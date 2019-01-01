@@ -99,14 +99,8 @@
     {% if node.field_display_contact_sidebar.0.value == 1 %}
       <div class="sidebar-wrap">
         <div class="side-bar">
-          <div class="bar-wrap">
-            
-            {# {{ page.sidebar_menu }} #}
-            <!-- <ul class="sidebar-links"> -->
-              <a href="#" class="a-link">Get a Quote</a>
-              <div class="line-wrap"><span class="verticle-line"></span><i class="ic-chevron-down"></i><span class="verticle-line"></span></div>
-              <a href="#" class="a-link">Find a Distributor</a>
-            <!-- </ul> -->
+          <div class="bar-wrap">            
+             {{ page.sidebar_menu }}            
           </div>
         </div>
         <div class="dist-locat-sec">

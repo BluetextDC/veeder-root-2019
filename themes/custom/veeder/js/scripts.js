@@ -82,12 +82,10 @@
     //    $(document).on('click','body , html',function(e){
     //        /*console.log('out')*/
     //    });
-    $(".search-bar").click(function(event) {
+    $(".search-bar").click(function(event) {        
         /*console.log('in')*/
         event.stopPropagation();
     });
-
-
     /* side bar */
     var hh = $('.main-header').outerHeight();    
     $('.side-bar').css('padding-right',hh);
@@ -96,6 +94,8 @@
         $(this).parents('.sidebar-wrap').stop().toggleClass('is-open');
         $('body').stop().toggleClass('scroll-hidden');
     });
+    
+    $('.sidebar-wrap ul.sidebar-links li:first-child').after('<div class="line-wrap"><span class="verticle-line"></span><i class="ic-chevron-down"></i><span class="verticle-line"></span></div>');
 
     /* header-space */
     var hs = $('header.main-header').outerHeight();
