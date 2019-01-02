@@ -81,7 +81,7 @@ a:focus {outline: none;}
 
 /* 5. Forms
 ------------------------------------------------------------------------------*/
-label {color:#000; font-size:14px; font-weight:700; line-height:1.5;  margin-bottom:10px; display: block;}
+label {color:#000; font-size:14px; font-weight:700; line-height:1.5;  margin-bottom:10px;}
 form label{padding: 0 20px;}
 input, 
 textarea, 
@@ -530,7 +530,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .sidebar-wrap:not(.is-open) .side-bar .line-wrap i{-webkit-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);transform: rotate(180deg);}
 
 /* hs Form  */
-.hbspt-form form {display: flex;flex-wrap: wrap;justify-content: space-between;align-items: flex-start;align-content: flex-start;width: 100%;}
+.hbspt-form form {display: flex;flex-wrap: wrap;justify-content: space-between;align-items: flex-start;align-content: flex-start;width: 100%; margin-bottom: 30px;}
 .hbspt-form .hs-form-field{width: calc(50% - 14px);margin-bottom: 20px;}
 .hbspt-form .hs-form-field.hs_financing_information{width: 100%;margin-bottom: 0;}
 .hbspt-form .hs-form-field label{margin-bottom: 0px;}
@@ -799,7 +799,7 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .mapboxgl-ctrl-group > button{min-width: auto;}
 
 /* Search Styles */
-.search-form label { font-size: 18px; padding: 0px; }
+.search-form .js-form-type-search label { font-size: 18px; padding: 0px; }
 .search-form{width: 100%;margin: auto;padding: 50px 50px 50px 0px;}
 .search-form .js-form-type-search {width: calc(100% - 110px);margin-right: 25px;}
 .search-form .form-wrapper{display: flex;width: 100%;padding-bottom: 15px;}

@@ -16,9 +16,9 @@ use Drupal\paragraphs\Entity\Paragraph;
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function veeder_preprocess_page(&$variables) {
-  $node_data = $variables['node'];
   // Content type variable for the page.html.twig.
-  if (isset($node_data)) {
+  if (isset($variables['node'])) {
+    $node_data = $variables['node'];
     // Return node type on page.
     $variables['node_type'] = $node_data->getType();
     // Retrun Jump Menu.
@@ -359,19 +359,20 @@ function veeder_preprocess_menu(&$variables) {
  * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
  */
 function veeder_preprocess_breadcrumb(&$variables) {
-  // Get current page title.
+  // Request parameter to get current page title.
   $request = \Drupal::request();
   $route_match = \Drupal::routeMatch();
   $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
-  
-  if (!empty($page_title)) {
-    $variables['breadcrumb'][] = [
-      'text' => $page_title,
-      'attributes' => new Attribute(['class' => ['active']])
-    ];
-  }
   // Image with and without breadcrumbs.
-  if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
+  if ($route_match && $node = $route_match->getParameter('node')) {
+    // Get current page title.
+    if (!empty($page_title)) {
+      $variables['breadcrumb'][] = [
+        'text' => $page_title,
+        'attributes' => new Attribute(['class' => ['active']])
+      ];
+    }
+
     if ($node->gettype() != 'page' || $node->gettype() != 'homepage') {
       if ($node->field_display_breadcrumbs[0]->value == 1) {
         if ($node->gettype() == 'generic_landing' || $node->gettype() == 'product_detail' || $node->gettype() == 'product_listing') {
@@ -461,7 +462,7 @@ function veeder_preprocess_breadcrumb(&$variables) {
     }
   } else {
     $variables['breadcrumb_class'] = 'breadcrumb-nohero';
-    $variables['breadcrumb_color'] = '#fff';
+    $variables['breadcrumb_color'] = '#000';
   }
 }
 /**
