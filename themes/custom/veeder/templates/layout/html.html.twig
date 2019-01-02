@@ -25,6 +25,17 @@
  * @ingroup themeable
  */
 #}
+{%
+  set body_classes = [
+    logged_in ? 'user-logged-in' : 'user-logged-out',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    path_info.args ? 'path-' ~ path_info.args,
+    node_type ? 'page-node-type-' ~ node_type|clean_class,
+    db_offline ? 'db-offline',
+    page.sidebar_first ? 'sidebar-first',
+    page.sidebar_second ? 'sidebar-second',
+  ]
+%}
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
@@ -44,7 +55,7 @@
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2159660.js"></script>
     <!-- End of HubSpot Embed Code -->
   </head>
-  <body{{ attributes }}>
+  <body{{ attributes.addClass(body_classes) }}>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLFGHMH"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

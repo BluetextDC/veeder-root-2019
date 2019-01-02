@@ -13,26 +13,6 @@ use Symfony\Component\Yaml\Parser;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
- * Implements hook_preprocess_HOOK() for HTML document templates.
- *
- * Adds body classes if certain regions have content.
- */
-function veeder_preprocess_html(&$variables) {
-  // Add information about the number of sidebars.
-  if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
-    $variables['attributes']['class'][] = 'layout-two-sidebars';
-  }
-  elseif (!empty($variables['page']['sidebar_first'])) {
-    $variables['attributes']['class'][] = 'layout-one-sidebar';
-    $variables['attributes']['class'][] = 'layout-sidebar-first';
-  }
-  elseif (!empty($variables['page']['sidebar_second'])) {
-    $variables['attributes']['class'][] = 'layout-one-sidebar';
-    $variables['attributes']['class'][] = 'layout-sidebar-second';
-  }
-}
-
-/**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function veeder_preprocess_page(&$variables) {
@@ -226,6 +206,10 @@ function veeder_preprocess_block(&$variables) {
 
   if ($variables['plugin_id'] == 'system_menu_block:sidebar-menu') {
     $variables['attributes']['class'][] = 'mobile-side-bar-menu';
+  }
+
+  if ($variables['plugin_id'] == 'local_tasks_block') {
+    $variables['attributes']['class'][] = 'veeder-tab-style';
   }
 }
 

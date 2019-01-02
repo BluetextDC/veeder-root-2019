@@ -254,10 +254,10 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .navigation .main-nav .search-part:hover{background-color: #236092; color: #fff;}
 .navigation .main-nav .search-part.open i,
 .navigation .main-nav .search-part:hover i{border-bottom: 1px solid #fff;}
-#block-veeder-local-tasks.contextual-region ul{text-align: center;margin: 0;padding-top: 35px;}
-#block-veeder-local-tasks.contextual-region li{display: inline-block;vertical-align: middle;list-style: none;margin-bottom: 0;}
-#block-veeder-local-tasks.contextual-region li a{color: #fff;background-color: #c10230;padding: 9px 20px;display: block;font-family: 'Raleway', sans-serif;font-size: 16px;font-weight: 700;text-transform: unset;min-width: 120px;}
-#block-veeder-local-tasks.contextual-region li a:hover{background-color: #000;text-decoration: none}
+.veeder-tab-style ul{text-align: center;margin: 0;padding-top: 35px;}
+.veeder-tab-style li{display: inline-block;vertical-align: middle;list-style: none;margin-bottom: 0;}
+.veeder-tab-style li a{color: #fff;background-color: #c10230;padding: 9px 20px;display: block;font-family: 'Raleway', sans-serif;font-size: 16px;font-weight: 700;text-transform: unset;min-width: 120px;}
+.veeder-tab-style li a:hover{background-color: #000;text-decoration: none}
 #toolbar-administration{position: relative;z-index: 999999;}
 
 
@@ -833,3 +833,9 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 .inherit-color{color: inherit !important;}
 #home-video-loader{width: 80px; height: 80px;display: block; position: absolute; top: 0; left: 0; right: 0;bottom: 0; margin: auto;}
 #home-video-loader img{display: block;}
+.path-user form{margin: 30px 0;}
+.path-user form label {padding: 0;}
+.path-user form .form-item {margin-bottom: 20px;}
+nav.pager ul.pager__items {text-align: center;}
+nav.pager ul.pager__items li {list-style: none;display: inline-block;margin: 0 10px;font-size: 16px;font-weight: 700;}
+.path-search ol li {list-style: none; margin-bottom: 30px;}
