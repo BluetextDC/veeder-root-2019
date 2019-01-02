@@ -1,4 +1,4 @@
-name: Veender Root
+name: Veeder Root
 type: theme
 description: Veeder-Root is the number-one supplier of automated tank gauges in the world, backed by an unmatched service network.
 package: Custom
@@ -6,11 +6,11 @@ version: VERSION
 core: 8.x
 
 libraries:
-  - veender/fonts
-  - veender/global_style
-  - veender/fancybox
-  - veender/slick_component
-  - veender/theme_js
+  - veeder/fonts
+  - veeder/global_style
+  - veeder/fancybox
+  - veeder/slick_component
+  - veeder/theme_js
 
 regions:
   header_logo: 'Header Logo'

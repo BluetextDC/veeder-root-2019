@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Theming functions to support in the Veender Root theme.
+ * Theming functions to support in the Veeder Root theme.
  */
 
 use Drupal\Core\Form\FormStateInterface;
@@ -17,7 +17,7 @@ use Drupal\paragraphs\Entity\Paragraph;
  *
  * Adds body classes if certain regions have content.
  */
-function veender_preprocess_html(&$variables) {
+function veeder_preprocess_html(&$variables) {
   // Add information about the number of sidebars.
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['attributes']['class'][] = 'layout-two-sidebars';
@@ -35,7 +35,7 @@ function veender_preprocess_html(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
-function veender_preprocess_page(&$variables) {
+function veeder_preprocess_page(&$variables) {
   $node_data = $variables['node'];
   // Content type variable for the page.html.twig.
   if (isset($node_data)) {
@@ -119,7 +119,7 @@ function veender_preprocess_page(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
  */
-function veender_preprocess_maintenance_page(&$variables) {
+function veeder_preprocess_maintenance_page(&$variables) {
   // By default, site_name is set to Drupal if no db connection is available
   // or during site installation. Setting site_name to an empty string makes
   // the site and update pages look cleaner.
@@ -134,7 +134,7 @@ function veender_preprocess_maintenance_page(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
-function veender_preprocess_node(&$variables) {
+function veeder_preprocess_node(&$variables) {
   $node_data = $variables['node'];
   // Remove the "Add new comment" link on teasers or when the comment form is
   // displayed on the page.
@@ -145,7 +145,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_type == 'article') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_listing_vimeo->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -153,7 +153,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'generic_landing' || $node_data->gettype() == 'product_detail' || $node_data->gettype() == 'product_listing') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_generic_hero_vimeo->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_generic_hero_vimeo->value);
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($node_data->field_generic_hero_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -161,7 +161,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'blog_detail') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_detail_vimeo->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_blog_detail_vimeo->value);
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($node_data->field_blog_detail_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -169,7 +169,7 @@ function veender_preprocess_node(&$variables) {
   if ($node_data->getType() == 'product_showcase') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_product_show_hero_vimeo->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($node_data->field_product_show_hero_vimeo->value);
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($node_data->field_product_show_hero_vimeo->value);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -178,7 +178,7 @@ function veender_preprocess_node(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for region.html.twig.
  */
-function veender_preprocess_region(&$variables) {
+function veeder_preprocess_region(&$variables) {
   $region = $variables['elements']['#region'];
   $variables['region'] = $variables['elements']['#region'];
   // Secondary menu region.
@@ -214,7 +214,7 @@ function veender_preprocess_region(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
-function veender_preprocess_block(&$variables) {
+function veeder_preprocess_block(&$variables) {
   // Add a clearfix class to system branding blocks.
   if ($variables['plugin_id'] == 'system_menu_block:language-switcher') {
     $variables['attributes']['class'][] = 'language-dropdown';
@@ -230,7 +230,7 @@ function veender_preprocess_block(&$variables) {
 }
 
 
-function veender_preprocess_paragraph(&$variables) {
+function veeder_preprocess_paragraph(&$variables) {
   // Get is_front variable on paragraph.html.twig.
   $variables['is_front'] = Drupal::service('path.matcher')->isFrontPage();
   // Get paragraph object.
@@ -240,28 +240,28 @@ function veender_preprocess_paragraph(&$variables) {
   if ($paragraph_name == '5050_cta') {
     // CTA vimeo thumbnail from vimeo url.
     if (!empty($paragraph->field_5050_vimeo_url->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_5050_vimeo_url->value);
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph->field_5050_vimeo_url->value);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
   elseif ($paragraph_name == '4060_cta') { // 40 60 CTA
     // CTA vimeo thumbnail from vimeo url.
     if (!empty($paragraph->field_4060_cta_vimeo_url->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_4060_cta_vimeo_url->value);
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph->field_4060_cta_vimeo_url->value);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
   elseif ($paragraph_name == '5050_full_width_cta') { // 50 50 Full Width
     // CTA vimeo thumbnail from vimeo url.
     if (!empty($paragraph->field_5050_fullwd_cta_vimeo_url->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_5050_fullwd_cta_vimeo_url->value);
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph->field_5050_fullwd_cta_vimeo_url->value);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
   elseif ($paragraph_name == 'full_width_media_cta') { // Full Width Media CTA
     // CTA vimeo thumbnail from vimeo url.
     if (!empty($paragraph->field_fullwd_media_cta_vimeo_url->value)) {
-      $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph->field_fullwd_media_cta_vimeo_url->value);
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph->field_fullwd_media_cta_vimeo_url->value);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -271,7 +271,7 @@ function veender_preprocess_paragraph(&$variables) {
     foreach ($paragraph->field_4_column_add_cta as $key => $child_paragraph) {
       $paragraph_child = Paragraph::load($child_paragraph->target_id);
       if (!empty($paragraph_child->field_column_cta_vimeo_url->value)) {
-        $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph_child->field_column_cta_vimeo_url->value);
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph_child->field_column_cta_vimeo_url->value);
         $four_column_vimeo_url[] = $vimeo_thumbnail;
       }
     }
@@ -283,7 +283,7 @@ function veender_preprocess_paragraph(&$variables) {
     foreach ($paragraph->field_features_cta_add_cta as $key => $child_paragraph) {
       $paragraph_child = Paragraph::load($child_paragraph->target_id);
       if (!empty($paragraph_child->field_feature_cta_vimeo_url->value)) {
-        $vimeo_thumbnail = veender_vimeo_thumbnail($paragraph_child->field_feature_cta_vimeo_url->value);
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph_child->field_feature_cta_vimeo_url->value);
         $features_cta_vimeo_url[] = $vimeo_thumbnail;
       }
     }
@@ -294,7 +294,7 @@ function veender_preprocess_paragraph(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for field.html.twig.
  */
-function veender_preprocess_field(&$variables, $hook) {
+function veeder_preprocess_field(&$variables, $hook) {
   $element = $variables['element'];
   if (isset($element['#field_name'])) {
     if ($element['#field_name'] == 'field_add_starting_point') {
@@ -331,7 +331,7 @@ function veender_preprocess_field(&$variables, $hook) {
 /**
  * Implements hook_preprocess_HOOK() for menu.html.twig.
  */
-function veender_preprocess_menu(&$variables) {
+function veeder_preprocess_menu(&$variables) {
   if ($variables['menu_name'] == 'main') {
     foreach ($variables['items'] as $key => $item) {
       if ($item['below']) {
@@ -374,7 +374,7 @@ function veender_preprocess_menu(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
  */
-function veender_preprocess_breadcrumb(&$variables) {
+function veeder_preprocess_breadcrumb(&$variables) {
   // Get current page title.
   $request = \Drupal::request();
   $route_match = \Drupal::routeMatch();
@@ -393,7 +393,7 @@ function veender_preprocess_breadcrumb(&$variables) {
         if ($node->gettype() == 'generic_landing' || $node->gettype() == 'product_detail' || $node->gettype() == 'product_listing') {
           if (empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_generic_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_generic_hero_vimeo->value)) {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
@@ -401,10 +401,10 @@ function veender_preprocess_breadcrumb(&$variables) {
             
           }
           elseif (!empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           elseif (!empty($node->field_generic_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
@@ -413,7 +413,7 @@ function veender_preprocess_breadcrumb(&$variables) {
         elseif ($node->gettype() == 'blog_detail') {
           if (empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_blog_detail_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_blog_detail_vimeo->value)) {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
@@ -421,10 +421,10 @@ function veender_preprocess_breadcrumb(&$variables) {
             
           }
           elseif (!empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           elseif (!empty($node->field_blog_detail_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
@@ -433,7 +433,7 @@ function veender_preprocess_breadcrumb(&$variables) {
         elseif ($node->gettype() == 'article'){
           if (empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_blog_listing_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_blog_listing_vimeo->value)) {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
@@ -441,10 +441,10 @@ function veender_preprocess_breadcrumb(&$variables) {
             
           }
           elseif (!empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           elseif (!empty($node->field_blog_listing_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
@@ -453,7 +453,7 @@ function veender_preprocess_breadcrumb(&$variables) {
         elseif ($node->gettype() == 'product_showcase') {
           if (empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_product_show_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
             $variables['breadcrumb_class'] = 'breadcrumb-nohero';
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_product_show_hero_vimeo->value)) {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
@@ -461,10 +461,10 @@ function veender_preprocess_breadcrumb(&$variables) {
             
           }
           elseif (!empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           elseif (!empty($node->field_product_show_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
-            $variables['breadcrumb_color'] = '#000';
+            $variables['breadcrumb_color'] = '#fff';
           }
           else {
             $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
@@ -477,13 +477,13 @@ function veender_preprocess_breadcrumb(&$variables) {
     }
   } else {
     $variables['breadcrumb_class'] = 'breadcrumb-nohero';
-    $variables['breadcrumb_color'] = '#000';
+    $variables['breadcrumb_color'] = '#fff';
   }
 }
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
  */
-function veender_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+function veeder_theme_suggestions_form_alter(array &$suggestions, array $variables) {
   if ($variables['element']['#form_id'] == 'search_block_form') {
     $suggestions[] = 'form__search_block_form';
   }
@@ -492,7 +492,7 @@ function veender_theme_suggestions_form_alter(array &$suggestions, array $variab
 /**
  * Implements hook_form_alter() to add classes to the search form.
  */
-function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function veeder_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   unset($form['langcode']);
   if (in_array($form_id, ['search_block_form', 'search_form'])) {
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
@@ -504,14 +504,14 @@ function veender_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   }
   if ($form_id == 'contact_message_find_distributor_form') {
     // Call custom function on submit form.
-    $form['actions']['submit']['#submit'][] = 'veender_find_distributor_form_redirect';
+    $form['actions']['submit']['#submit'][] = 'veeder_find_distributor_form_redirect';
   }
 }
 
 /**
  * Custom function for the distributor form redirect.
  */
-function veender_find_distributor_form_redirect(&$form, FormStateInterface $form_state) {
+function veeder_find_distributor_form_redirect(&$form, FormStateInterface $form_state) {
   // Get zip code value.
   $zip_code = $form_state->getValue('field_zip_code')[0]['value'];
   $form_state->setRedirect('entity.node.canonical', [
@@ -527,16 +527,19 @@ function veender_find_distributor_form_redirect(&$form, FormStateInterface $form
 /**
  * Get the hero banner large thmbnail using vimeo API v2.
  */
-function veender_vimeo_thumbnail($vimeo_url){
-  if( !$vimeo_url ) {
+function veeder_vimeo_thumbnail($vimeo_url){
+  if (!$vimeo_url) {
     return false;
   }
 
   Parser::preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/', $vimeo_url, $matches);
   $vimeo_id = $matches[5];
+  if (!$vimeo_id) {
+    return false;
+  }
   $vimeo_data = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vimeo_id.php"));
 
-  if( !$vimeo_data ) {
+  if (!$vimeo_data) {
     return false;
   }
   $video_thumnail = (explode("_640", $vimeo_data[0]['thumbnail_large']));
