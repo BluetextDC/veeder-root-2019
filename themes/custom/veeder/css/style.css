@@ -568,7 +568,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .four-block-sec p{margin-bottom: 35px;}
 .sec-top{margin-top: -290px;}
 .block-list{justify-content: center;}
-.four-block-sec .item figure{ width: 100%;display: flex; align-items: center; justify-content: center; margin-bottom: 30px;}
+.four-block-sec .item figure{ width: 100%;display: flex; align-items: center; justify-content: center; margin-bottom: 20px;}
 .four-block-sec .item figure img{flex: 1;} /* for ie */
 
 /* product sec */
