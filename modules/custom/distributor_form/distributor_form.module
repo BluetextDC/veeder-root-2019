@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ * Social Contact Information helps to add social & contact details for website.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function distributor_form_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the block module.
+    case 'help.page.distributor_form':
+      return '<p>' . t('Distributor Form') . '</p>';
+  }
+}

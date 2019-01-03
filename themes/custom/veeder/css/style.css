@@ -839,3 +839,4 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 nav.pager ul.pager__items {text-align: center;}
 nav.pager ul.pager__items li {list-style: none;display: inline-block;margin: 0 10px;font-size: 16px;font-weight: 700;}
 .path-search ol li {list-style: none; margin-bottom: 30px;}
+.find-distributor-form form label {padding: 0;}
