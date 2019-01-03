@@ -333,9 +333,7 @@ function veeder_preprocess_menu(&$variables) {
             }
           }
           else {
-            if ($sub_menu_count >= 3) {
-              $variables['items'][$key]['attributes']->addClass('single-column-menu');
-            }
+            $variables['items'][$key]['attributes']->addClass('single-column-menu');
           }
         }
       }
