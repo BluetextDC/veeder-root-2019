@@ -296,6 +296,10 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
     nav .single-column-menu .drop-down{width: 280px;left: auto;right: 0;}
     nav .single-column-menu .drop-down ul{flex-wrap: wrap;padding: 35px 40px;}
     nav .single-column-menu .drop-down li{display: block; list-style: none;}
+    
+    /* mix menu */
+    nav .two-column-menu.single-column-menu .drop-down .list-wrapper{padding: 0;width: 100%;} 
+    nav .two-column-menu.single-column-menu .drop-down .list-wrapper ul{padding: 0;padding-bottom: 15px;}
 }
 
 /* language dropdown */
