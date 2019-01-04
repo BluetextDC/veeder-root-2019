@@ -130,7 +130,8 @@
         $(this).parents('.text-img-sec').addClass('slider-dots-space');
     });
     // Making same height.
-    $('.about-sec .about-block-wrap p, .product-list .item figure, .four-block-sec .item h6, .related-list figure, .blog-list .item figure').matchHeight({
+    /* , .four-block-sec .item h6 */
+    $('.about-sec .about-block-wrap p, .product-list .item figure, .related-list figure, .blog-list .item figure').matchHeight({
         byRow: true,
         property: 'height',
         target: null,
