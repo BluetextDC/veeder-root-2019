@@ -72,7 +72,7 @@
     <div class="container">
       {% block content %}
         {% if content.field_features_cta_block_heading|render is not empty %}
-          <div class="heading text-center">
+          <div class="heading text-center" style="color: {{ content.field_features_cta_head_body_col.0 }};">
             <h2 style="color: {{ content.field_features_cta_head_body_col.0 }};">{{ content.field_features_cta_block_heading.0 }}</h2>
           </div>
         {% endif %}
@@ -94,7 +94,9 @@
                   </figure>
                 {% elseif feature_item.image_uri is not empty %}
                   <figure>
-                    <img src="{{ feature_item.image_uri }}" alt="{{ feature_item.title }}">
+                    <a href="{{ feature_item.link_url }}" class="clickable-image">
+                      <img src="{{ feature_item.image_uri }}" alt="{{ feature_item.title }}">
+                    </a>
                   </figure>
                 {% endif %}
                 <div class="desc line-top">

@@ -109,7 +109,9 @@
                   </figure>
                 {% elseif column_item.image_uri is not empty %}
                   <figure>
-                    <img src="{{ column_item.image_uri }}" alt="{{ column_item.title }}">
+                    <a href="{{ column_item.link_url }}" class="clickable-image">
+                      <img src="{{ column_item.image_uri }}" alt="{{ column_item.title }}">
+                    </a>
                   </figure>
                 {% endif %}
                 <h6>{{ column_item.title }}</h6>
