@@ -60,12 +60,12 @@
     });    
 
     /* location click */ 
-    $('.language-dropdown .dropdown-button').on('click', function(){      
+ /*   $('.language-dropdown .dropdown-button').on('click', function(){      
         $('.main-header').find('.search-part').removeClass('open');
         $('.main-header').find('.search-bar').slideUp().removeClass('open');
         $(this).parents('.language-dropdown').toggleClass('open');
         $('.language-dropdown .select-list').slideToggle('fast');  
-    });     
+    }); */    
     /* End */ 
 
     var div_tooltip_tpl =  $('.language-dropdown .dropdown-button,.search-part');
