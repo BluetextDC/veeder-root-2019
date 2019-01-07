@@ -275,6 +275,7 @@
             $(this).attr('src', embed_url);
         }
     });
-
+    // Responsive table.
+    $('.responsive-table').basictable();
 })(jQuery, Drupal);
 

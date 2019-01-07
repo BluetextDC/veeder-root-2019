@@ -14,6 +14,7 @@ global_style:
       css/common.css: {}
       css/style.css: {}
       css/responsive.css: {}
+      css/basictable.css: {}
 
 slick_component:
   css:
@@ -25,9 +26,9 @@ slick_component:
 theme_js:
   js:
     js/jquery.matchHeight.js: {}
-    # js/html5shiv.js: {}
     js/parallax.min.js: {}
     js/jquery.nav.js: {}
+    js/jquery.basictable.min.js: {}
     js/scripts.js: {}
   dependencies:
     - core/jquery
