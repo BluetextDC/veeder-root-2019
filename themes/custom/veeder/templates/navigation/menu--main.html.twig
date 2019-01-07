@@ -38,12 +38,36 @@
       <ul>
     {% endif %}
 
-      {% set count = 1 %}
+      {% set count = 0 %}
       {% for item in items %}
-        {% if (item.below) and (menu_level == 1) and (count % 2 == 0 or count == 1) %}
-          <div class="list-wrapper">
-            <div class="list-part">
-        {% endif %}
+        {% if (menu_level == 1) and (item.below) and (items|length >= 3) %}
+          {% if (item.below) and (menu_level == 1) and (count % 2 == 0 or count == 0) %}
+            <div class="list-wrapper">
+              <div class="list-part">
+          {% endif %}
+            <li{{ item.attributes }}>
+              {% set link_title = '<span>'~item.title~'</span>' %}
+              {% set link_text %}
+                {{ link_title|raw }}
+              {% endset %}
+
+              {{ link(link_text, item.url) }}
+              {% if item.below %}
+                {% if menu_level == 0 %}
+                  <div class="drop-down">
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                  </div>
+                {% else %}
+                  {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                {% endif %}
+              {% endif %}
+            </li>
+          {% set count = count + 1 %}
+          {% if (item.below) and (menu_level == 1) and (count % 2 == 0) %}
+              </div>
+            </div>
+          {% endif %}
+        {% else %}
           <li{{ item.attributes }}>
             {% set link_title = '<span>'~item.title~'</span>' %}
             {% set link_text %}
@@ -61,10 +85,6 @@
               {% endif %}
             {% endif %}
           </li>
-        {% set count = count + 1 %}
-        {% if (item.below) and (menu_level == 1) and (count % 2 == 0) %}
-            </div>
-          </div>
         {% endif %}
       {% endfor %}
     </ul>

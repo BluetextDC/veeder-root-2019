@@ -698,14 +698,13 @@ ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
 
 /* inline-promo */
 .inline-promo{display: flex;flex-wrap: wrap; margin-bottom: 30px;width: 100%;}
-.inline-promo.bg-blue{border: 2px solid #236092;}
-.inline-promo.bg-green{border: 2px solid #71984a;}
 .inline-promo .text-part{width: 64%;display: inline-flex;vertical-align: top; flex-wrap: wrap; align-content: center; padding: 35px;}
-.inline-promo .text-part h6{width: 100%;}
+.inline-promo .text-part h6{width: 100%; color: inherit;}
+.inline-promo .text-part p{color: inherit;}
+.inline-promo .text-part a.btn-link{color: inherit;}
 .inline-promo .img-part{width: 36%;display: inline-flex;vertical-align: top;}
 .inline-promo figure{margin: 0 10px; padding-top: calc( 65 / 109 * 100%); width: 100%; position: relative;display: flex; align-items: center; justify-content: center;}
 .inline-promo figure img{position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);transform: translate(-50%,-50%);}
-.inline-promo .text-part *{color: #fff;}
 
 /* side-part */
 .side-sec-wrap .left-side-part{width: 73%; display: inline-flex; flex-wrap: wrap; padding-right: 44px;}

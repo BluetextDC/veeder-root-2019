@@ -52,11 +52,9 @@ set classes = [
   {% block content %}
     <div class="container">
       <div class="text-img-sec sec40-60">
-        {% if content.field_5050_layered_cta_layer.0["#markup"] == 1 %}
-          <div class="large-heading text-center">
-              <h2 class="text-red">{{ content.field_5050_layered_cta_heading.0 }}</h2>
-          </div>
-        {% endif %}                         
+        <div{% if content.field_5050_layered_cta_layer.0["#markup"] == 1 %} class="large-heading text-center"{% else %} class="medium-heading text-left"{% endif %}>
+            <h2 style="color: {{ content.field_5050_layered_cta_head_colo.0 }};">{{ content.field_5050_layered_cta_heading.0 }}</h2>
+        </div>             
         <div class="row inner-wrap align-items-center">
           {# If checked then text shows first otherwise image shows first#}
           {% if content.field_5050_layered_cta_text_firs.0["#markup"] == 1 %}
@@ -73,7 +71,7 @@ set classes = [
                 {% endif %}
               </div>
             </div>
-            <div class="col-md-5 img-part text-center">
+            <div class="col-md-5 img-part text-{{ paragraph.field_5050_layered_cta_image_alg.0.value }}">
               {% if content.field_5050_layered_cta_image|render is not empty %}
                 <figure>
                   {{ content.field_5050_layered_cta_image.0 }}
