@@ -695,7 +695,8 @@ form.contact-form .form-autocomplete{background-image: none !important}
 .doc-list li{padding-left: 34px; list-style: none; position: relative; line-height: 1.5;margin-bottom: 13px;}
 ul li a.download{position: absolute; top: 1px; left: 0; color: #c10230; font-size: 16px; display: inline-flex;}
 ul li a.download:hover{color:#b7b9bc; text-decoration: none;}
-.main-content .e-desc{margin-bottom:/* 30px*/;} 
+.main-content .e-desc{width: 100%;margin-bottom:/* 30px*/;} 
+table.bt tbody td:before{width: 5em;}
 
 /* inline-promo */
 .inline-promo{display: flex;flex-wrap: wrap; margin-bottom: 30px;width: 100%;}
