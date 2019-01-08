@@ -52,7 +52,7 @@ set classes = [
 {% else %}
   {% set classes = classes|merge(['text-video-sec']) %}
 {% endif %}
-  
+
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }} id="{{ content.field_5050_fullwd_cta_id.0 }}">
     <div class="img-text-wrap d-flex flex-wrap">
@@ -75,7 +75,7 @@ set classes = [
           </div>
           <div class="{% if (content.field_5050_fullwd_cta_image|render is not empty) and (content.field_5050_fullwd_cta_vimeo_url|render is empty) %}img-part{% else %}video-part{% endif %}">
             {% if (content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 1) %}
-              <a href="{{ content.field_5050_fullwd_cta_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
+              <a href="{{ content.field_5050_fullwd_cta_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover;">
                 <span class="play-icon ic-play-icon"></span>
               </a>
             {% elseif (content.field_5050_fullwd_cta_vimeo_url|render is not empty) and (content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 0) and (content.field_5050_fullwd_cta_image|render is empty) %}
@@ -84,19 +84,23 @@ set classes = [
                 <span class="play-icon ic-play-icon"></span>
               </a>
             {% elseif (content.field_5050_fullwd_cta_image|render is not empty) and (content.field_5050_fullwd_cta_image_para.0["#markup"] == 0) %}
-              <div class="bg-img" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover"></div>
+              <a href="{{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}" data-fancybox>
+                <div class="bg-img" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover;"></div>
+              </a>
             {% elseif (content.field_5050_fullwd_cta_image|render is not empty) and (content.field_5050_fullwd_cta_image_para.0["#markup"] == 1) %}
-              <div class="bg-img">
-                <div class="parallax-img">
-                  {{ content.field_5050_fullwd_cta_image.0 }}
+              <a href="{{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}" data-fancybox>
+                <div class="bg-img">
+                  <div class="parallax-img">
+                    {{ content.field_5050_fullwd_cta_image.0 }}
+                  </div>
                 </div>
-              </div>
+              </a>
             {% endif %}
           </div>
         {% else %}
           <div class="{% if (content.field_5050_fullwd_cta_image|render is not empty) and (content.field_5050_fullwd_cta_vimeo_url|render is empty) %}img-part{% else %}video-part{% endif %}">
             {% if (content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 1) %}
-              <a href="{{ content.field_5050_fullwd_cta_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
+              <a href="{{ content.field_5050_fullwd_cta_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover;">
                 <span class="play-icon ic-play-icon"></span>
               </a>
             {% elseif (content.field_5050_fullwd_cta_vimeo_url|render is not empty) and (content.field_5050_fullwd_cta_vimeo_play.0["#markup"] == 0) and (content.field_5050_fullwd_cta_image|render is empty) %}
@@ -105,7 +109,9 @@ set classes = [
                 <span class="play-icon ic-play-icon"></span>
               </a>
             {% elseif (content.field_5050_fullwd_cta_image|render is not empty) and (content.field_5050_fullwd_cta_image_para.0["#markup"] == 0) %}
-              <div class="bg-img" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover"></div>
+              <a href="{{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}" data-fancybox>
+                <div class="bg-img" style="background: url({{ file_url(paragraph.field_5050_fullwd_cta_image.entity.uri.value) }}) no-repeat center / cover;"></div>
+              </a>
             {% elseif (content.field_5050_fullwd_cta_image|render is not empty) and (content.field_5050_fullwd_cta_image_para.0["#markup"] == 1) %}
               <div class="bg-img">
                 <div class="parallax-img">

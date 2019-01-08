@@ -57,9 +57,11 @@ set classes = [
               <span class="play-icon ic-play-icon"></span>
             </a>
           {% else %}
-            <div class="bg-img"{% if content.field_fullwd_media_cta_image_par.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(paragraph.field_fullwd_media_cta_image.entity.uri.value) }}) no-repeat center / cover"></div>
+            <a href="{{ file_url(paragraph.field_fullwd_media_cta_image.entity.uri.value) }}" data-fancybox>
+              <div class="bg-img"{% if content.field_fullwd_media_cta_image_par.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(paragraph.field_fullwd_media_cta_image.entity.uri.value) }}) no-repeat center / cover"></div>
+            </a>
           {% endif %}
-        </div> 
+        </div>
         <div class="title-desc d-flex" style="background-color: {{ paragraph.field_fullwd_media_cta_bar_color.0.color }}">
           <div class="heading-text">
             <h3 style="color: {{ paragraph.field_fullwd_media_cta_color.0.color }};">{{ content.field_fullwd_media_cta_heading.0 }}</h3>
@@ -69,7 +71,6 @@ set classes = [
               {{ content.field_fullwd_media_cta_descrptin.0|raw }}
             </div>
           {% endif %}
-          
           {% if paragraph.field_fullwd_media_cta_cta.0.title|render is not empty %}
             <a href="{{ paragraph.field_fullwd_media_cta_cta.0.url }}" class="btn" style="color: {{ paragraph.field_fullwd_media_cta_color.0.color }};" {% if paragraph.field_fullwd_media_cta_cta.0.options.attributes.target is not null %}target="{{ paragraph.field_fullwd_media_cta_cta.0.options.attributes.target }}"{% endif %}>
               {{ paragraph.field_fullwd_media_cta_cta.0.title }}
