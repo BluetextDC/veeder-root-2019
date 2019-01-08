@@ -1,0 +1,203 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   - id: The paragraph ID.
+ *   - bundle: The type of the paragraph, for example, "image" or "text".
+ *   - authorid: The user ID of the paragraph author.
+ *   - createdtime: Formatted creation date. Preprocess functions can
+ *     reformat it by calling format_date() with the desired parameters on
+ *     $variables['paragraph']->getCreatedTime().
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'side-sec-wrap',
+    'space-small',
+    'paragraph-' ~ paragraph.id(),
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? paragraph.bundle|clean_class ~ '--' ~ view_mode|clean_class,
+  ]
+%}
+
+{% block paragraph %}
+  <section{{ attributes.addClass(classes) }} id="{{ content.field_wysiwyg_text_id.0 }}">
+    {% block content %}
+      <div class="container">
+        <div class="heading text-center">
+          <h3>{{ content.field_selection_heading.0 }}</h3>
+          <p>{{ content.field_selection_body.0 }}</p>
+        </div>
+        <div class="left-side-part">
+          <div id="__htmlBaseLink">
+          </div>
+          <form style="width:100%;">
+            <table>
+              <tr class="datafiltershow">
+                <td id="__htmlfldPartNumber"> </td>
+                <td id="__htmlprbPartNumber"> </td>
+              </tr>
+              <tr class="datafiltershow">
+                <td id="__htmlfldDescription"></td>
+                <td id="__htmlprbDescription"> </td>
+              </tr>
+              <tr class="datafiltershow">
+                <td id="__htmlfldConsole"></td>
+                <td id="__htmlprbConsole"></td>
+              </tr>
+              <tr class="datafiltershow">
+                <td id="__htmlfldFloatPartNumber"></td>
+                <td id="__htmlfltPartNumber"></td>
+              </tr>
+              <tr>
+                  <td><br></td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td id="__htmlfldProductGroup"></td>
+                  <td>
+                  <select id="__htmlprbProductGroup" size="1" 
+                                                onchange="clickProductGroup(this.value)">
+                      </select>
+                        </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldProduct"></td>
+                <td>
+                  <select id="__htmlprbProduct" size="1" 
+                                                onchange="clickProduct(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldTankType"></td>
+                <td>
+                  <select id="__htmlprbTankType" size="1" 
+                                                onchange="clickTankType(this.value)">
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldLeakDetection"></td>
+                <td>
+                  <select id="__htmlprbLeakDetection" size="1" 
+                                                onchange="clickLeakDetection(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldProbeMaterial"></td>
+                <td>
+                  <select id="__htmlprbProbeMaterial" size="1" 
+                                                onchange="clickProbeMaterial(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldCanister"></td>
+                <td>
+                  <select id="__htmlprbCanister" size="1" 
+                                                onchange="clickCanister(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldApproval"></td>
+                <td>
+                  <select id="__htmlprbApproval" size="1" 
+                                                onchange="clickApproval(this.value)">
+                  </select>
+                </td>
+              </tr>
+                <td id="__htmlfldDensity"></td>
+                <td>
+                  <select id="__htmlprbDensity" size="1" 
+                                                onchange="clickDensity(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldWaterDetection"></td>
+                <td>
+                  <select id="__htmlprbWaterDetection" size="1" 
+                                                onchange="clickWaterDetection(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldConnection"></td>
+                <td>
+                  <select id="__htmlprbConnection" size="1" 
+                                                onchange="clickConnection(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldMeasurement"></td>
+                <td>
+                  <select id="__htmlprbMeasurement" size="1" 
+                                                onchange="clickMeasurement(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldFloatType"></td>
+                <td>
+                  <select id="__htmlfltFloatType" size="1" 
+                                                onchange="clickFloatType(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldFloatSize"></td>
+                <td>
+                  <select id="__htmlfltFloatSize" size="1" 
+                                                onchange="clickFloatSize(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td id="__htmlfldCableLength"></td>
+                <td>
+                  <select id="__htmlfltCableLength" size="1" 
+                                                onchange="clickCableLength(this.value)">
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><br><br><br></td>
+                <td></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    {% endblock %}
+  </select>
+{% endblock paragraph %}
