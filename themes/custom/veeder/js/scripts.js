@@ -249,7 +249,8 @@
     }
 
     $('.images-slider').slick({
-        dots: true,                    
+        dots: true,
+        infinite: false,                
         prevArrow:'<span class="slick-prev"><i class="ic-chevron-right"></i></span>',
         nextArrow:'<span class="slick-next"><i class="ic-chevron-right"></i></span>',
     });
