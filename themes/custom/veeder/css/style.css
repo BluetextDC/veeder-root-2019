@@ -643,6 +643,7 @@ form.contact-form .form-autocomplete{background-image: none !important}
 
 /* text image video sec */
 .text-img-sec .img-part{/*padding-top: 10px;padding-bottom: 10px;*/}
+.text-img-sec .img-part a{width: 100%;}
 .text-img-sec .img-part + .text-part .inner-wrap{padding-left: 20px;}
 .text-img-sec .text-part:first-of-type .inner-wrap{padding-right: 20px;}
 .text-img-sec .img-part .bg-img{ padding-top: calc(68 / 135 * 100%);  display: block;width: 100%; position: relative; overflow: hidden;}
