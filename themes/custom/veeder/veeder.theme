@@ -346,10 +346,6 @@ function veeder_preprocess_breadcrumb(&$variables) {
       $variables['breadcrumb'][] = [
         'text' => $node->getTitle(),
       ];
-      // Add cache context based on url, user, session.
-      $variables['#cache']['contexts'][] = 'session';
-      $variables['#cache']['contexts'][] = 'user';
-      $variables['#cache']['contexts'][] = 'url';
     }
 
     if ($node->gettype() != 'page' || $node->gettype() != 'homepage') {
