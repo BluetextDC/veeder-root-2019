@@ -273,6 +273,10 @@ function veeder_preprocess_paragraph(&$variables) {
     }
     $variables['para_vimeo_thumb'] = $features_cta_vimeo_url;
   }
+  elseif ($paragraph_name == 'selection_module') { // Features CTA
+    $selection_form = \Drupal::formBuilder()->getForm('Drupal\selection_form\Form\SelectionForm');
+    $variables['selection_form'] = $selection_form;
+  }
 }
 
 /**

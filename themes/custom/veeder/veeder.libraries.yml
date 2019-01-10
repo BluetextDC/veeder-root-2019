@@ -30,7 +30,6 @@ theme_js:
     js/jquery.nav.js: {}
     js/jquery.basictable.min.js: {}
     js/scripts.js: {}
-    js/form-data/probe-float.js: {}
   dependencies:
     - core/jquery
     - core/drupal

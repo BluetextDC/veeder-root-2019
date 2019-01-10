@@ -1,0 +1,7 @@
+name: Product Selection Form
+description: This module helps to filter product by using product categories.
+package: Custom
+core: 8.x
+type: module
+dependencies:
+ - paragraphs
