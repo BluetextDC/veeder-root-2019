@@ -1,5 +1,14 @@
 (function ($, window, Drupal) {
   'use strict';
+
+  Drupal.behaviors.selection_module = {
+    attach: function(context, settings){
+      if (jQuery(context).find('.ajax-response').length > 0) {
+        console.log(context);
+        $.fancybox.open(context);
+      }
+    }
+  }
   $('.datafilteredvalues').each(function(index, el) {
     $(this).hide();
   });

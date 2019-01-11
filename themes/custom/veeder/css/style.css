@@ -869,3 +869,5 @@ body .fancybox-slide--image .fancybox-content{background-color: #fff;}
 .product-selection-form input[type="text"]{padding-left: 20px;padding-right: 20px;}
 .product-selection-form .form-item{padding-bottom: 20px;}
 .product-selection-form .button{margin: auto;display: block;}
+.fancy-popup-form-submit {width: 70% !important;}
+.datafilteredvalues{display: none !important;}

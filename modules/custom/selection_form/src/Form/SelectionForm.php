@@ -100,6 +100,8 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbProductGroup',
         'onchange' => 'clickProductGroup(this.value)',
       ],
+      '#validated' => TRUE,
+
     ];
 
     $form['product'] = [
@@ -115,6 +117,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbProduct',
         'onchange' => 'clickProduct(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['tank_type'] = [
@@ -130,6 +133,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbTankType',
         'onchange' => 'clickTankType(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['leak_detection'] = [
@@ -145,6 +149,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbLeakDetection',
         'onchange' => 'clickLeakDetection(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['probe_material'] = [
@@ -160,6 +165,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbProbeMaterial',
         'onchange' => 'clickProbeMaterial(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['canister_cover'] = [
@@ -175,6 +181,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbCanister',
         'onchange' => 'clickCanister(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['approval'] = [
@@ -190,6 +197,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbApproval',
         'onchange' => 'clickApproval(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['density'] = [
@@ -205,6 +213,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbDensity',
         'onchange' => 'clickDensity(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['water_detection'] = [
@@ -220,6 +229,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbWaterDetection',
         'onchange' => 'clickWaterDetection(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['console_connection'] = [
@@ -235,6 +245,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbConnection',
         'onchange' => 'clickConnection(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['measurement'] = [
@@ -250,6 +261,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlprbMeasurement',
         'onchange' => 'clickMeasurement(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['float_type'] = [
@@ -265,6 +277,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlfltFloatType',
         'onchange' => 'clickFloatType(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['float_size'] = [
@@ -280,6 +293,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlfltFloatSize',
         'onchange' => 'clickFloatSize(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['cable_length'] = [
@@ -295,6 +309,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlfltCableLength',
         'onchange' => 'clickCableLength(this.value)',
       ],
+      '#validated' => TRUE,
     ];
 
     $form['actions'] = [
@@ -312,6 +327,12 @@ class SelectionForm extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
+    if ($form_state->getValue('probe_part_number') == '') {
+      $form_state->setErrorByName('probe_part_number', $this->t('Please enter Probe Part Number.'));
+    }
+    if ($form_state->getValue('float_part_number') == '') {
+      $form_state->setErrorByName('float_part_number', $this->t('Please enter Float Part Number.'));
+    }
   }
 
   /**
@@ -319,6 +340,7 @@ class SelectionForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
+    return; 
   }
 
   /**
@@ -329,60 +351,74 @@ class SelectionForm extends FormBase {
     if (!empty($form_state->getValue('probe_part_number')) && !empty($form_state->getValue('float_part_number'))) {
       $form_probe_part = substr($form_state->getValue('probe_part_number'), 0, strrpos($form_state->getValue('probe_part_number'), '-'));
       $form_float_part = substr($form_state->getValue('float_part_number'), 0, strrpos($form_state->getValue('float_part_number'), '-'));
-      $nids = \Drupal::entityQuery('node')->condition('type','product_detail')->execute();
-      $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
+      $content_types = ['product_detail', 'product_listing', 'product_showcase'];
+      $nids = [];
+      foreach ($content_types as $bundle) {
+        $nids[] = \Drupal::entityQuery('node')->condition('type', $bundle)->execute();
+      }
 
+      $node_objects = [];
+      foreach ($nids as $nid) {
+        $node_objects[] =  \Drupal\node\Entity\Node::loadMultiple($nid);
+      }
       $content_types = [];
-      foreach($nodes as $node) {
-        $probe_number_ids = $node->get('field_probe_number_tags')->getValue();
-        if (!empty($probe_number_ids)) {
-          foreach ($probe_number_ids as $pid => $probe_number_id) {
-            $probe_term = Term::load($probe_number_ids[$pid]['target_id']);
-            $probe_number_name = $probe_term->getName();
-            if ($form_probe_part == $probe_number_name) {
-              $content_types[$node->id()] = $node->label();
-            }
-          } 
-        }
-        $float_number_ids = $node->get('field_float_number_tags')->getValue();
-        if (!empty($float_number_ids)) {
-          foreach ($float_number_ids as $fid => $float_number_id) {
-            $float_term = Term::load($float_number_ids[$fid]['target_id']);
-            $float_number_name = $float_term->getName();
-            if ($form_float_part == $float_number_name) {
-              $content_types[$node->id()] = $node->label();
+      foreach($node_objects as $node_object) {
+        foreach ($node_object as $node) {
+          $probe_number_ids = $node->get('field_probe_number_tags')->getValue();
+          if (!empty($probe_number_ids)) {
+            foreach ($probe_number_ids as $pid => $probe_number_id) {
+              $probe_term = Term::load($probe_number_ids[$pid]['target_id']);
+              $probe_number_name = $probe_term->getName();
+              if ($form_probe_part == $probe_number_name) {
+                $content_types[$node->id()] = $node->label();
+              }
+            } 
+          }
+          $float_number_ids = $node->get('field_float_number_tags')->getValue();
+          if (!empty($float_number_ids)) {
+            foreach ($float_number_ids as $fid => $float_number_id) {
+              $float_term = Term::load($float_number_ids[$fid]['target_id']);
+              $float_number_name = $float_term->getName();
+              if ($form_float_part == $float_number_name) {
+                $content_types[$node->id()] = $node->label();
+              }
             }
           }
         }
       }
 
-      $match_output = '<div class="product-list row">';
-      foreach ($content_types as $ids => $node_detail) {
-        $node_load = Node::load($ids);
-        if (!empty($node_load->field_taxonomy_image)) {
-          $taxonomy_image = file_create_url($node_load->field_taxonomy_image->entity->uri->value);
-        }
+      $match_output = '<div class="product-list fancy-popup-form-submit">';
+        $match_output .= '<div class="row">';
+          foreach ($content_types as $ids => $node_detail) {
+            $node_load = Node::load($ids);
+            if (!empty($node_load->field_taxonomy_image->entity->uri->value)) {
+              $taxonomy_image = file_create_url($node_load->field_taxonomy_image->entity->uri->value);
+            }
+            else {
+              $taxonomy_image = '/sites/default/files/default_images/default-image-product_0.png';
+            }
 
-        $node_url = Url::fromRoute('entity.node.canonical', ['node' => $ids], ['absolute' => TRUE])->toString();
-        // var_dump($node_detail. $node_load->label());
-        $match_output .= '<div class="item col-md-3 col-sm-6 hide">
-                            <figure style="height: 150px;">
-                              <a href="' . $node_url . '" class="clickable-image">
-                                <img src="' . $taxonomy_image . '" alt="' . $node_detail . '">
-                              </a>
-                            </figure>
-                            <div class="p-data">
-                                <span class="hr-line"></span>
-                                <h4 class="h6">' . $node_detail . '</h4>
-                                <a href="' . $node_url . '" class="btn-link" hreflang="en">Learn More</a>
-                            </div>
-                          </div>';
-      }
+            $node_url = Url::fromRoute('entity.node.canonical', ['node' => $ids], ['absolute' => TRUE])->toString();
+
+            $match_output .= '<div class="item col-md-6 col-sm-12 ajax-response">
+                                <figure style="height: 150px;">
+                                  <a href="' . $node_url . '" class="clickable-image">
+                                    <img src="' . $taxonomy_image . '" alt="' . $node_detail . '">
+                                  </a>
+                                </figure>
+                                <div class="p-data">
+                                    <span class="hr-line"></span>
+                                    <h4 class="h6">' . $node_detail . '</h4>
+                                    <a href="' . $node_url . '" class="btn-link" hreflang="en">Learn More</a>
+                                </div>
+                              </div>';
+          }
+        $match_output .= '</div>';
       $match_output .= '</div>';
-      $response->addCommand( new HtmlCommand('#product-selection-form', $match_output));
+      $response->addCommand( new HtmlCommand('.filter-form-data-container', $match_output));
     }
     else {
-      $response->addCommand( new HtmlCommand('#product-selection-form', $this->t('Please select all the product variations')));
+      $response->addCommand( new HtmlCommand('.filter-form-data-container', $this->t('Please select all the product variations')));
     }
 
     return $response;
