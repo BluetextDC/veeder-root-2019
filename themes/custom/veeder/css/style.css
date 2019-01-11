@@ -561,7 +561,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .about-sec .four-block-sec{/*background-color: #236192;*/ padding-left: 6.5%; padding-right: 6.5%;}
 .bg-blue .btn:hover{color: #236192 !important;}
 .four-block-sec{/* margin-top: 30px; */}
-.four-block-sec *:not(.btn):not(.heading){color: #fff;}
+/* .four-block-sec *:not(.btn):not(.heading){color: #fff;} */
 .four-block-sec .item{margin: 10px 0; display: inline-flex; flex-wrap: wrap; justify-content: space-between; flex-direction: column; align-items: flex-start;}
 .four-block-sec .item .cd-wrap{/*display: flex; flex-wrap: wrap; align-content: space-between; flex: 1 0 auto;width: 100%;height: calc(100% - 45px);*/ }
 .four-block-sec .item .c-video{position: relative;display: block; height: 150px;width: 100%;}
@@ -575,7 +575,9 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .four-block-sec .item figure img{flex: 1;} /* for ie */
 .four-block-sec .block-list .cd-wrap h6,
 .four-block-sec .block-list .cd-wrap p,
-.four-block-sec .block-list .cd-wrap .btn-link{color: inherit}
+.four-block-sec .block-list .btn-link{color: inherit}
+.four-block-sec .block-list .btn{color: inherit}
+.four-block-sec .block-list div.item a.btn:hover, .four-block-sec .block-list div.item a.btn:focus, .four-block-sec .block-list div.item a.btn:active { color: inherit; background-color: #ffffff;}
 
 /* product sec */
 .large-heading h2{font-size: 90px;margin-bottom: -0.46em;line-height: 1;}

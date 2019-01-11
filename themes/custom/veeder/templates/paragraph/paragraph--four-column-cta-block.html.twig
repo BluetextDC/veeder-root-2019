@@ -75,56 +75,48 @@
 
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }} id="{{ content.field_4_column_cta_block_id.0 }}"{% if is_front != true %} style="background-color: {{ content.field_4_column_cta_block_color.0 }};"{% endif %}>
-  <style>
-    {{ content.field_4_column_cta_block_id.0 }} div.block-list div.item a.four-column-cta-btn:hover,
-    {{ content.field_4_column_cta_block_id.0 }} div.block-list div.item a.four-column-cta-btn:focus,
-    {{ content.field_4_column_cta_block_id.0 }} div.block-list div.item a.four-column-cta-btn:active {
-      color: {{ content.field_4_column_cta_block_color.0 }} !important;
-      background-color: #ffffff;
-    }
-  </style>
-  {% block content %}
-    <div class="container">
-      <div{% if is_front == true %} class="four-block-sec space-large sec-top" style="background-color: {{ content.field_4_column_cta_block_color.0 }};"{% else %} class="four-column-inner-section"{% endif %}>
-        {% if content.field_4_column_cta_block_heading|render is not empty %}
-          <div class="heading text-center" style="color: {{ content.field_4_column_cta_block_head_co.0 }};">
-            <h2 style="color: {{ content.field_4_column_cta_block_head_co.0 }};">{{ content.field_4_column_cta_block_heading.0 }}</h2>
-          </div>
-        {% endif %}
-        <div class="block-list row">
-          {% for j, column_item in column_items %}
-            <div class="item col-md-3 col-6">
-              <div class="cd-wrap" style="color: {{ content.field_4_column_cta_block_head_co.0 }};">
-                {% if (column_item.inline_play == '1') and (column_item.vimeo_url is not empty) and (column_item.image_uri is empty) %}
-                  <figure>
-                    <a href="{{ column_item.vimeo_url }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb[j] }}) no-repeat center / cover">
-                      <span class="play-icon ic-play-icon"></span>
-                    </a>
-                  </figure>
-                {% elseif (column_item.vimeo_url is not empty) and (column_item.inline_play == '0') and (column_item.image_uri is empty) %}
-                  <figure>
-                    <a href="javascript:;" class="c-video">                                            
-                      <iframe src="{{ column_item.vimeo_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                    </a>
-                  </figure>
-                {% elseif column_item.image_uri is not empty %}
-                  <figure>
-                    <a href="{{ column_item.link_url }}" class="clickable-image">
-                      <img src="{{ column_item.image_uri }}" alt="{{ column_item.title }}">
-                    </a>
-                  </figure>
-                {% endif %}
-                <h6>{{ column_item.title }}</h6>
-                {{ column_item.description|raw }}
-              </div>
-              {% if column_item.link_title|render is not empty %}
-                <a href="{{ column_item.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn four-column-cta-btn"{% else %} class="btn-link four-column-cta-btn"{% endif %} {% if column_item.link_target is not empty %}target="{{ column_item.link_target }}"{% endif %}>{{ column_item.link_title }}</a>
-              {% endif %}
+    {% block content %}
+      <div class="container">
+        <div{% if is_front == true %} class="four-block-sec space-large sec-top" style="background-color: {{ content.field_4_column_cta_block_color.0 }};"{% else %} class="four-column-inner-section"{% endif %}>
+          {% if content.field_4_column_cta_block_heading|render is not empty %}
+            <div class="heading text-center" style="color: {{ content.field_4_column_cta_block_head_co.0 }};">
+              <h2 style="color: {{ content.field_4_column_cta_block_head_co.0 }};">{{ content.field_4_column_cta_block_heading.0 }}</h2>
             </div>
-          {% endfor %}
+          {% endif %}
+          <div class="block-list row">
+            {% for j, column_item in column_items %}
+              <div class="item col-md-3 col-6"  style="color: {{ content.field_4_column_cta_block_head_co.0 }};">
+                <div class="cd-wrap">
+                  {% if (column_item.inline_play == '1') and (column_item.vimeo_url is not empty) and (column_item.image_uri is empty) %}
+                    <figure>
+                      <a href="{{ column_item.vimeo_url }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb[j] }}) no-repeat center / cover">
+                        <span class="play-icon ic-play-icon"></span>
+                      </a>
+                    </figure>
+                  {% elseif (column_item.vimeo_url is not empty) and (column_item.inline_play == '0') and (column_item.image_uri is empty) %}
+                    <figure>
+                      <a href="javascript:;" class="c-video">                                            
+                        <iframe src="{{ column_item.vimeo_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                      </a>
+                    </figure>
+                  {% elseif column_item.image_uri is not empty %}
+                    <figure>
+                      <a href="{{ column_item.link_url }}" class="clickable-image">
+                        <img src="{{ column_item.image_uri }}" alt="{{ column_item.title }}">
+                      </a>
+                    </figure>
+                  {% endif %}
+                  <h6>{{ column_item.title }}</h6>
+                  {{ column_item.description|raw }}
+                </div>
+                {% if column_item.link_title|render is not empty %}
+                  <a href="{{ column_item.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn four-column-cta-btn"{% else %} class="btn-link four-column-cta-btn"{% endif %} {% if column_item.link_target is not empty %}target="{{ column_item.link_target }}"{% endif %}>{{ column_item.link_title }}</a>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
-    </div>
-  {% endblock %}
+    {% endblock %}
   </section>
 {% endblock paragraph %}

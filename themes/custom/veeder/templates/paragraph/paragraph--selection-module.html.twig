@@ -55,11 +55,11 @@
           <h3>{{ content.field_selection_heading.0 }}</h3>
           <p>{{ content.field_selection_body.0 }}</p>
         </div>
-        <div class="left-side-part">
-          <div id="__htmlBaseLink">
-          </div>
-          {{ selection_form }}
+        <div id="__htmlBaseLink">
         </div>
+        {% if selection_form|render is not empty %}
+          {{ selection_form }}
+        {% endif %}
       </div>
     {% endblock %}
   </select>

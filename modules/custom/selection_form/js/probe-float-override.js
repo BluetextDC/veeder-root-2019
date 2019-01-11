@@ -3,7 +3,7 @@
   $('.datafilteredvalues').each(function(index, el) {
     $(this).hide();
   });
-  $('#__htmlfltFormSubmit').hide();
+  $('#product-selection-form .form-submit').hide();
   $('#__htmlprbMeasurement').change(function(event) {
       $('.datafilteredvalues').each(function(index, el) {
           $(this).show();
@@ -12,7 +12,7 @@
       });
   });
   $('#__htmlfltCableLength').change(function(event) {
-      $('#__htmlfltFormSubmit').show();
+      $('#product-selection-form .form-submit').show();
       var inputVal = $('#__htmlfltPartNumber').text();
       $('#__htmlfltPartNumber').val(inputVal);
   });

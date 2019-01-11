@@ -10,6 +10,12 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Ajax\ChangedCommand;
+use Drupal\Core\Ajax\CssCommand;
+use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Url;
 
 class SelectionForm extends FormBase {
 
@@ -291,15 +297,6 @@ class SelectionForm extends FormBase {
       ],
     ];
 
-    // $form['actions']['#type'] = 'actions';
-    // $form['actions']['submit'] = [
-    //   '#type' => 'submit',
-    //   '#value' => t('Submit'),
-    //   '#button_type' => 'primary',
-    //   '#attributes' => [
-    //     'id' => '__htmlfltFormSubmit',
-    //   ],
-    // ];
     $form['actions'] = [
       '#type' => 'button',
       '#value' => $this->t('Submit'),
@@ -329,17 +326,65 @@ class SelectionForm extends FormBase {
    */
   public function setMessage(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
-    $nids = \Drupal::entityQuery('node')->condition('type','product_detail')->execute();
-    $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
+    if (!empty($form_state->getValue('probe_part_number')) && !empty($form_state->getValue('float_part_number'))) {
+      $form_probe_part = substr($form_state->getValue('probe_part_number'), 0, strrpos($form_state->getValue('probe_part_number'), '-'));
+      $form_float_part = substr($form_state->getValue('float_part_number'), 0, strrpos($form_state->getValue('float_part_number'), '-'));
+      $nids = \Drupal::entityQuery('node')->condition('type','product_detail')->execute();
+      $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
 
-    $content_types = [];
-    foreach($nodes as $type) {
-      $content_types[$type->id()] = $type->label();
+      $content_types = [];
+      foreach($nodes as $node) {
+        $probe_number_ids = $node->get('field_probe_number_tags')->getValue();
+        if (!empty($probe_number_ids)) {
+          foreach ($probe_number_ids as $pid => $probe_number_id) {
+            $probe_term = Term::load($probe_number_ids[$pid]['target_id']);
+            $probe_number_name = $probe_term->getName();
+            if ($form_probe_part == $probe_number_name) {
+              $content_types[$node->id()] = $node->label();
+            }
+          } 
+        }
+        $float_number_ids = $node->get('field_float_number_tags')->getValue();
+        if (!empty($float_number_ids)) {
+          foreach ($float_number_ids as $fid => $float_number_id) {
+            $float_term = Term::load($float_number_ids[$fid]['target_id']);
+            $float_number_name = $float_term->getName();
+            if ($form_float_part == $float_number_name) {
+              $content_types[$node->id()] = $node->label();
+            }
+          }
+        }
+      }
+
+      $match_output = '<div class="product-list row">';
+      foreach ($content_types as $ids => $node_detail) {
+        $node_load = Node::load($ids);
+        if (!empty($node_load->field_taxonomy_image)) {
+          $taxonomy_image = file_create_url($node_load->field_taxonomy_image->entity->uri->value);
+        }
+
+        $node_url = Url::fromRoute('entity.node.canonical', ['node' => $ids], ['absolute' => TRUE])->toString();
+        // var_dump($node_detail. $node_load->label());
+        $match_output .= '<div class="item col-md-3 col-sm-6 hide">
+                            <figure style="height: 150px;">
+                              <a href="' . $node_url . '" class="clickable-image">
+                                <img src="' . $taxonomy_image . '" alt="' . $node_detail . '">
+                              </a>
+                            </figure>
+                            <div class="p-data">
+                                <span class="hr-line"></span>
+                                <h4 class="h6">' . $node_detail . '</h4>
+                                <a href="' . $node_url . '" class="btn-link" hreflang="en">Learn More</a>
+                            </div>
+                          </div>';
+      }
+      $match_output .= '</div>';
+      $response->addCommand( new HtmlCommand('#product-selection-form', $match_output));
+    }
+    else {
+      $response->addCommand( new HtmlCommand('#product-selection-form', $this->t('Please select all the product variations')));
     }
 
-    // var_dump($content_types);
-    // var_dump($form_state->getValue('probe_part_number'), $form_state->getValue('float_part_number'));
-    // exit;
     return $response;
   }
 }
