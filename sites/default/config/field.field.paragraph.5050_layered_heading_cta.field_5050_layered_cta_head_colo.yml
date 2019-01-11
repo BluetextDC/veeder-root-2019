@@ -1,0 +1,25 @@
+uuid: 1d17da82-f3e9-40d4-b54b-9916e39892b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_layered_cta_head_colo
+    - paragraphs.paragraphs_type.5050_layered_heading_cta
+  module:
+    - color_field
+id: paragraph.5050_layered_heading_cta.field_5050_layered_cta_head_colo
+field_name: field_5050_layered_cta_head_colo
+entity_type: paragraph
+bundle: 5050_layered_heading_cta
+label: 'Heading Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    color: '#ff0000'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

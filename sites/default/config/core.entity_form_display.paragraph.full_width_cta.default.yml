@@ -16,7 +16,7 @@ dependencies:
   module:
     - color_field
     - entity_browser
-    - link
+    - link_attributes
     - text
 id: paragraph.full_width_cta.default
 targetEntityType: paragraph
@@ -65,8 +65,16 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_full_width_cta_description:
     weight: 1

@@ -1,4 +1,4 @@
-uuid: 78198b96-95a8-41ee-b4f7-d132c16d908b
+uuid: a0c43e5e-8714-4ac9-b988-893d9692a840
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - views
   theme:
-    - veender
+    - veeder
 id: views_block__trending_blogs_block_2
-theme: veender
+theme: veeder
 region: footer_second
-weight: -9
+weight: 0
 provider: null
 plugin: 'views_block:trending_blogs-block_2'
 settings:

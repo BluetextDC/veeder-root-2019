@@ -1,4 +1,4 @@
-uuid: 45e40132-53b6-4d31-bfba-60ef852b7556
+uuid: 550e2c4b-eecb-4153-802d-a4343790e7ae
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - veender
+    - veeder
 id: languageswitcher
-theme: veender
+theme: veeder
 region: primary_menu
-weight: -7
+weight: -6
 provider: null
 plugin: 'system_menu_block:language-switcher'
 settings:

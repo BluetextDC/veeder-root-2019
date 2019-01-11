@@ -1,0 +1,9 @@
+uuid: e2d73543-dd5e-4ffb-be02-befb76810bd9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Probe Number'
+vid: probe_number
+description: 'Product filter number'
+hierarchy: 0
+weight: 0

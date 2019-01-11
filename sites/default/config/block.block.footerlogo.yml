@@ -1,4 +1,4 @@
-uuid: c419183b-91af-46ed-aede-a2ff34dd6781
+uuid: 73c29945-5e33-494a-83af-93545d1051a7
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - block_content
   theme:
-    - veender
+    - veeder
 id: footerlogo
-theme: veender
+theme: veeder
 region: footer_first
-weight: -9
+weight: -8
 provider: null
 plugin: 'block_content:33ea16c5-2831-4144-ba5e-8c3324227404'
 settings:

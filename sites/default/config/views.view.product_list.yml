@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_summary
     - field.storage.node.field_taxonomy_image
-    - image.style.product_list
     - node.type.product_detail
     - node.type.product_listing
     - node.type.product_showcase
@@ -13,6 +12,7 @@ dependencies:
     - node
     - svg_image
     - user
+    - views_infinite_scroll
 id: product_list
 label: 'Product List'
 module: views
@@ -515,7 +515,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: product_list
+            image_style: ''
             image_link: ''
             svg_render_as_image: 0
             svg_attributes:
@@ -780,10 +780,26 @@ display:
     display_options:
       display_extenders: {  }
       pager:
-        type: some
+        type: infinite_scroll
         options:
-          items_per_page: 0
+          items_per_page: 8
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load More'
+            automatically_load_content: false
       defaults:
         pager: false
         fields: false
@@ -840,7 +856,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: product_list
+            image_style: ''
             image_link: ''
             svg_render_as_image: 0
             svg_attributes:
@@ -1090,6 +1106,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:

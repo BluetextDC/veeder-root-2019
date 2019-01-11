@@ -1,0 +1,19 @@
+uuid: fb558aef-ef4f-4f51-a8e8-3710cf11d51b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_hero_vimeo
+    - node.type.homepage
+id: node.homepage.field_homepage_hero_vimeo
+field_name: field_homepage_hero_vimeo
+entity_type: node
+bundle: homepage
+label: 'Hero Vimeo URL'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

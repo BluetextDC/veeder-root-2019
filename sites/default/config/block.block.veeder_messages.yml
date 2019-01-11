@@ -1,17 +1,17 @@
-uuid: 8b47f390-b4c0-4752-953c-a6bdf0a4b345
+uuid: fc813187-2c0c-41a5-a9e9-1d3032aac77b
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - veender
+    - veeder
 _core:
   default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
-id: veender_messages
-theme: veender
+id: veeder_messages
+theme: veeder
 region: highlighted
-weight: -8
+weight: 0
 provider: null
 plugin: system_messages_block
 settings:

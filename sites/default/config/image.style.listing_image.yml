@@ -1,0 +1,15 @@
+uuid: c29287a3-edda-4bf9-8333-99cdcb30692c
+langcode: en
+status: true
+dependencies: {  }
+name: listing_image
+label: 'Listing Image (385X175)'
+effects:
+  8ac5a40f-c799-42e6-b383-f4ee04ae8be9:
+    uuid: 8ac5a40f-c799-42e6-b383-f4ee04ae8be9
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 385
+      height: 175
+      anchor: center-center

@@ -12,18 +12,22 @@ dependencies:
     - field.field.node.blog_detail.field_blog_detail_plate_color
     - field.field.node.blog_detail.field_blog_detail_vimeo
     - field.field.node.blog_detail.field_blog_realted_view
+    - field.field.node.blog_detail.field_blog_refer_weight
     - field.field.node.blog_detail.field_blog_related_heading
     - field.field.node.blog_detail.field_blog_social_share
     - field.field.node.blog_detail.field_blog_tags
     - field.field.node.blog_detail.field_body
     - field.field.node.blog_detail.field_breadcrumb_color
     - field.field.node.blog_detail.field_components
+    - field.field.node.blog_detail.field_contact_footer_form
     - field.field.node.blog_detail.field_display_breadcrumbs
     - field.field.node.blog_detail.field_display_contact_footer
     - field.field.node.blog_detail.field_display_contact_sidebar
+    - field.field.node.blog_detail.field_meta_tags
     - field.field.node.blog_detail.field_summary
     - node.type.blog_detail
   module:
+    - datetime
     - svg_image
     - user
 id: node.blog_detail.teaser
@@ -31,6 +35,23 @@ targetEntityType: node
 bundle: blog_detail
 mode: teaser
 content:
+  field_blog_author:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_blog_date:
+    type: datetime_custom
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'F j, Y'
+    third_party_settings: {  }
   field_blog_detail_image:
     type: image
     weight: 0
@@ -44,33 +65,41 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_blog_tags:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
   field_summary:
     type: string
-    weight: 1
+    weight: 4
     region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
   links:
-    weight: 2
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_blog_author: true
-  field_blog_date: true
   field_blog_detail_heading: true
   field_blog_detail_image_parallax: true
   field_blog_detail_plate_color: true
   field_blog_detail_vimeo: true
   field_blog_realted_view: true
+  field_blog_refer_weight: true
   field_blog_related_heading: true
   field_blog_social_share: true
-  field_blog_tags: true
   field_body: true
   field_breadcrumb_color: true
   field_components: true
+  field_contact_footer_form: true
   field_display_breadcrumbs: true
   field_display_contact_footer: true
   field_display_contact_sidebar: true
+  field_meta_tags: true

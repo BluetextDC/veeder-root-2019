@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.browse_files_modal
     - field.field.node.generic_landing.field_breadcrumb_color
+    - field.field.node.generic_landing.field_color_variation
     - field.field.node.generic_landing.field_components
     - field.field.node.generic_landing.field_contact_footer_form
     - field.field.node.generic_landing.field_display_breadcrumbs
@@ -30,7 +31,8 @@ dependencies:
     - color_field
     - entity_browser
     - field_group
-    - link
+    - link_attributes
+    - markup
     - metatag
     - paragraphs
     - path
@@ -44,6 +46,7 @@ third_party_settings:
         - group_components
         - group_misc
         - group_taxonomy
+        - group_color_reference
       parent_name: ''
       weight: 0
       format_type: tabs
@@ -133,6 +136,19 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Taxonomy
+    group_color_reference:
+      children:
+        - field_color_variation
+      parent_name: group_tabs
+      weight: 25
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Color Reference'
 id: node.generic_landing.default
 targetEntityType: node
 bundle: generic_landing
@@ -151,6 +167,12 @@ content:
       placeholder_opacity: ''
     third_party_settings: {  }
     type: color_field_widget_default
+    region: content
+  field_color_variation:
+    weight: 136
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_components:
     weight: 11
@@ -196,8 +218,16 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_generic_hero_description:
     weight: 124

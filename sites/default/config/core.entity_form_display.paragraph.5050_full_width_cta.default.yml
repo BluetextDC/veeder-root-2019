@@ -18,7 +18,7 @@ dependencies:
   module:
     - entity_browser
     - field_group
-    - link
+    - link_attributes
     - text
 third_party_settings:
   field_group:
@@ -86,8 +86,16 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_5050_fullwd_cta_descrption:
     weight: 3

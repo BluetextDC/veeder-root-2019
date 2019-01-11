@@ -1,15 +1,15 @@
-uuid: a4ab477a-ac95-4b57-a9a5-9ef6b4ca822f
+uuid: 1f06d548-22d4-4db9-81fc-d9cad2c48c49
 langcode: en
 status: true
 dependencies:
   module:
     - search
   theme:
-    - veender
+    - veeder
 id: searchform
-theme: veender
+theme: veeder
 region: primary_menu
-weight: -6
+weight: -5
 provider: null
 plugin: search_form_block
 settings:

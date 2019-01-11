@@ -10,14 +10,16 @@ label: 'Product Category'
 type: 'canonical_entities:taxonomy_term'
 pattern: '[term:vocabulary:name]/[term:name]'
 selection_criteria:
-  d402b5ef-482a-4c14-a89d-adaff4ef8040:
+  84b88013-07e9-4a2f-a150-dc53dfd8245f:
     id: 'entity_bundle:taxonomy_term'
     bundles:
+      float_number: float_number
+      probe_number: probe_number
       product: product
     negate: false
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: d402b5ef-482a-4c14-a89d-adaff4ef8040
+    uuid: 84b88013-07e9-4a2f-a150-dc53dfd8245f
 selection_logic: and
 weight: 0
 relationships: {  }

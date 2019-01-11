@@ -6,6 +6,7 @@ dependencies:
     - entity_browser.browser.browse_files_modal
     - field.field.node.article.field_blog_listing_cta_cta
     - field.field.node.article.field_blog_listing_description
+    - field.field.node.article.field_blog_listing_filter_tags
     - field.field.node.article.field_blog_listing_heading
     - field.field.node.article.field_blog_listing_image
     - field.field.node.article.field_blog_listing_image_paralla
@@ -15,6 +16,7 @@ dependencies:
     - field.field.node.article.field_blog_listing_trending_view
     - field.field.node.article.field_blog_listing_vimeo
     - field.field.node.article.field_breadcrumb_color
+    - field.field.node.article.field_color_variation
     - field.field.node.article.field_components
     - field.field.node.article.field_contact_footer_form
     - field.field.node.article.field_display_breadcrumbs
@@ -28,7 +30,8 @@ dependencies:
     - color_field
     - entity_browser
     - field_group
-    - link
+    - link_attributes
+    - markup
     - metatag
     - paragraphs
     - path
@@ -39,10 +42,11 @@ third_party_settings:
       children:
         - group_information_tabs
         - group_he
-        - group_listing
         - group_trending_posts
+        - group_listing
         - group_components
         - group_misc
+        - group_color_reference
       parent_name: ''
       weight: 0
       format_type: tabs
@@ -86,10 +90,10 @@ third_party_settings:
       label: 'Hero Banner'
     group_listing:
       children:
-        - field_featured_blog_post
+        - field_blog_listing_filter_tags
         - field_blog_listing_listing
       parent_name: group_tabs
-      weight: 22
+      weight: 23
       format_type: tab
       format_settings:
         id: ''
@@ -100,10 +104,11 @@ third_party_settings:
       label: Listing
     group_trending_posts:
       children:
+        - field_featured_blog_post
         - field_blog_listing_trending_head
         - field_blog_listing_trending_view
       parent_name: group_tabs
-      weight: 23
+      weight: 22
       format_type: tab
       format_settings:
         id: ''
@@ -142,6 +147,19 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Misc
+    group_color_reference:
+      children:
+        - field_color_variation
+      parent_name: group_tabs
+      weight: 26
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Color Reference'
 _core:
   default_config_hash: vPb_yvhA-xuNoV_yOmOwYxGuHNRIH1CoMK2qi7BSga0
 id: node.article.default
@@ -160,8 +178,16 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_blog_listing_description:
     weight: 123
@@ -170,6 +196,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_blog_listing_filter_tags:
+    weight: 131
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
     region: content
   field_blog_listing_heading:
     weight: 122
@@ -201,7 +233,7 @@ content:
     type: boolean_checkbox
     region: content
   field_blog_listing_listing:
-    weight: 131
+    weight: 132
     settings: {  }
     third_party_settings: {  }
     type: viewfield_select
@@ -243,6 +275,12 @@ content:
       placeholder_opacity: ''
     third_party_settings: {  }
     type: color_field_widget_default
+    region: content
+  field_color_variation:
+    weight: 136
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_components:
     weight: 133

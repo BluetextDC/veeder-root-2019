@@ -1,0 +1,23 @@
+uuid: 2f34d565-7756-46b7-bf8d-ead109782248
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_cta_inline_video
+    - paragraphs.paragraphs_type.feature_cta
+id: paragraph.feature_cta.field_feature_cta_inline_video
+field_name: field_feature_cta_inline_video
+entity_type: paragraph
+bundle: feature_cta
+label: 'Inline Video Player'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

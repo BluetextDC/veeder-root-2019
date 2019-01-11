@@ -6,6 +6,7 @@ dependencies:
     - entity_browser.browser.browse_files_modal
     - field.field.node.homepage.field_add_column_cta
     - field.field.node.homepage.field_add_starting_point
+    - field.field.node.homepage.field_color_variation
     - field.field.node.homepage.field_components
     - field.field.node.homepage.field_contact_footer_form
     - field.field.node.homepage.field_display_contact_footer
@@ -17,6 +18,7 @@ dependencies:
     - field.field.node.homepage.field_homepage_hero_plate_color
     - field.field.node.homepage.field_homepage_hero_subheading
     - field.field.node.homepage.field_homepage_hero_text_color
+    - field.field.node.homepage.field_homepage_hero_vimeo
     - field.field.node.homepage.field_meta_tags
     - field.field.node.homepage.field_summary
     - node.type.homepage
@@ -24,7 +26,8 @@ dependencies:
     - color_field
     - entity_browser
     - field_group
-    - link
+    - link_attributes
+    - markup
     - metatag
     - paragraphs
     - path
@@ -38,6 +41,7 @@ third_party_settings:
         - group_hero_cta_block
         - group_components
         - group_misc
+        - group_color_reference
       parent_name: ''
       weight: 0
       format_type: tabs
@@ -68,6 +72,7 @@ third_party_settings:
         - field_homepage_hero_subheading
         - field_homepage_hero_image
         - field_homepage_hero_image_parall
+        - field_homepage_hero_vimeo
         - field_homepage_hero_cta_cta
         - field_homepage_hero_text_color
         - field_homepage_hero_plate_color
@@ -140,6 +145,19 @@ third_party_settings:
         id: ''
         classes: ''
       label: Misc
+    group_color_reference:
+      children:
+        - field_color_variation
+      parent_name: group_tabs
+      weight: 26
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Color Reference'
 id: node.homepage.default
 targetEntityType: node
 bundle: homepage
@@ -175,6 +193,12 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
+  field_color_variation:
+    weight: 138
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_components:
     type: entity_reference_paragraphs
     weight: 130
@@ -208,12 +232,20 @@ content:
     type: boolean_checkbox
     region: content
   field_homepage_hero_cta_cta:
-    weight: 126
+    weight: 127
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_homepage_hero_heading:
     weight: 122
@@ -245,7 +277,7 @@ content:
     type: boolean_checkbox
     region: content
   field_homepage_hero_plate_color:
-    weight: 128
+    weight: 129
     settings:
       placeholder_color: ''
       placeholder_opacity: ''
@@ -261,12 +293,20 @@ content:
     type: string_textfield
     region: content
   field_homepage_hero_text_color:
-    weight: 127
+    weight: 128
     settings:
       placeholder_color: ''
       placeholder_opacity: ''
     third_party_settings: {  }
     type: color_field_widget_default
+    region: content
+  field_homepage_hero_vimeo:
+    weight: 126
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_meta_tags:
     weight: 137

@@ -1,4 +1,4 @@
-uuid: 78cbf943-4e0d-46ec-84a5-3c86e43daa5b
+uuid: 5f5066cb-a739-4101-a5b1-289f230a9cd9
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - veender
+    - veeder
 id: headertopmenu
-theme: veender
+theme: veeder
 region: secondary_menu
-weight: -7
+weight: 0
 provider: null
 plugin: 'system_menu_block:header-top-menu'
 settings:

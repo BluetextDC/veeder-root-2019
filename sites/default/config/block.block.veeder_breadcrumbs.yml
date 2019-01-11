@@ -1,17 +1,17 @@
-uuid: 7bc991ec-e793-4b30-b603-21a1400bbe30
+uuid: 31385058-aac4-4efe-b44c-08a65b7662b9
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - veender
+    - veeder
 _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
-id: veender_breadcrumbs
-theme: veender
+id: veeder_breadcrumbs
+theme: veeder
 region: content
-weight: -6
+weight: -5
 provider: null
 plugin: system_breadcrumb_block
 settings:
@@ -22,6 +22,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/user\r\n/user/*\r\n/search\r\n/search/*\r\n/admin\r\n/admin/*"
+    pages: "<front>\r\n/user\r\n/user/*\r\n/search\r\n/search/*\r\n/admin\r\n/admin/*\r\n/blog/*"
     negate: true
     context_mapping: {  }

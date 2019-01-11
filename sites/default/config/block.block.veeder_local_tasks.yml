@@ -1,11 +1,13 @@
-uuid: 1aff34f1-2d66-4f26-a68b-30b36b0ea26e
+uuid: 229a0952-41a1-4895-87db-ed94338d3fb4
 langcode: en
 status: true
 dependencies:
   theme:
-    - veender
-id: tabs
-theme: veender
+    - veeder
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: veeder_local_tasks
+theme: veeder
 region: content
 weight: -8
 provider: null

@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.blog_detail.field_blog_tags
     - field.field.node.blog_detail.field_body
     - field.field.node.blog_detail.field_breadcrumb_color
+    - field.field.node.blog_detail.field_color_variation
     - field.field.node.blog_detail.field_components
     - field.field.node.blog_detail.field_contact_footer_form
     - field.field.node.blog_detail.field_display_breadcrumbs
@@ -31,6 +32,7 @@ dependencies:
     - datetime
     - entity_browser
     - field_group
+    - markup
     - metatag
     - paragraphs
     - path
@@ -47,6 +49,7 @@ third_party_settings:
         - group_components
         - group_misc
         - group_taxonomy
+        - group_color_reference
       parent_name: ''
       weight: 0
       format_type: tabs
@@ -148,6 +151,19 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Taxonomy
+    group_color_reference:
+      children:
+        - field_color_variation
+      parent_name: group_tabs
+      weight: 26
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Color Reference'
 id: node.blog_detail.default
 targetEntityType: node
 bundle: blog_detail
@@ -270,6 +286,12 @@ content:
       placeholder_opacity: ''
     third_party_settings: {  }
     type: color_field_widget_default
+    region: content
+  field_color_variation:
+    weight: 141
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_components:
     weight: 131

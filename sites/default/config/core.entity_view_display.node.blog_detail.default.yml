@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.blog_detail.field_blog_tags
     - field.field.node.blog_detail.field_body
     - field.field.node.blog_detail.field_breadcrumb_color
+    - field.field.node.blog_detail.field_color_variation
     - field.field.node.blog_detail.field_components
     - field.field.node.blog_detail.field_contact_footer_form
     - field.field.node.blog_detail.field_display_breadcrumbs
@@ -29,6 +30,7 @@ dependencies:
     - color_field
     - datetime
     - entity_reference_revisions
+    - markup
     - metatag
     - options
     - social_media
@@ -164,6 +166,13 @@ content:
     third_party_settings: {  }
     type: color_field_formatter_text
     region: content
+  field_color_variation:
+    weight: 21
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_components:
     weight: 16
     label: hidden
@@ -211,8 +220,8 @@ content:
     type: boolean
     region: content
   field_meta_tags:
-    weight: 21
-    label: above
+    weight: 20
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
@@ -226,7 +235,7 @@ content:
     type: string
     region: content
   links:
-    weight: 20
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,4 +1,4 @@
-uuid: 3fe9f9cc-03df-4910-b3d6-f87d7a6f820e
+uuid: 2b836051-e479-4436-a1ba-10c1c0adcc85
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - veender
+    - veeder
 id: footermenu
-theme: veender
+theme: veeder
 region: footer_third
-weight: -8
+weight: -9
 provider: null
 plugin: 'system_menu_block:footer-menu'
 settings:
@@ -20,5 +20,5 @@ settings:
   provider: system
   label_display: '0'
   level: 1
-  depth: 0
+  depth: 1
 visibility: {  }

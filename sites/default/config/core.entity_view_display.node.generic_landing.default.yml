@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.generic_landing.field_breadcrumb_color
+    - field.field.node.generic_landing.field_color_variation
     - field.field.node.generic_landing.field_components
     - field.field.node.generic_landing.field_contact_footer_form
     - field.field.node.generic_landing.field_display_breadcrumbs
@@ -28,6 +29,7 @@ dependencies:
     - color_field
     - entity_reference_revisions
     - link
+    - markup
     - metatag
     - options
     - svg_image
@@ -45,6 +47,13 @@ content:
       opacity: '1'
     third_party_settings: {  }
     type: color_field_formatter_text
+    region: content
+  field_color_variation:
+    weight: 20
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_components:
     weight: 14
@@ -223,7 +232,7 @@ content:
     type: image
     region: content
   links:
-    weight: 20
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }

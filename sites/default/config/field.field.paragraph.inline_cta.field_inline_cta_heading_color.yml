@@ -1,0 +1,25 @@
+uuid: f54ed0af-75e4-42dd-8473-968e1ca72893
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_inline_cta_heading_color
+    - paragraphs.paragraphs_type.inline_cta
+  module:
+    - color_field
+id: paragraph.inline_cta.field_inline_cta_heading_color
+field_name: field_inline_cta_heading_color
+entity_type: paragraph
+bundle: inline_cta
+label: 'Heading and Body Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    color: '#fff'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

@@ -1,0 +1,19 @@
+uuid: 05aa64dc-cf77-4b86-99e3-eff1a7765ce4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_selection_heading
+    - paragraphs.paragraphs_type.selection_module
+id: paragraph.selection_module.field_selection_heading
+field_name: field_selection_heading
+entity_type: paragraph
+bundle: selection_module
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -4,17 +4,19 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.browse_files_modal
+    - field.field.paragraph.inline_cta.field_inline_cta_background_colo
     - field.field.paragraph.inline_cta.field_inline_cta_cta
     - field.field.paragraph.inline_cta.field_inline_cta_description
     - field.field.paragraph.inline_cta.field_inline_cta_heading
+    - field.field.paragraph.inline_cta.field_inline_cta_heading_color
     - field.field.paragraph.inline_cta.field_inline_cta_id
     - field.field.paragraph.inline_cta.field_inline_cta_image
-    - field.field.paragraph.inline_cta.field_inline_cta_image_parallax
     - paragraphs.paragraphs_type.inline_cta
   module:
+    - color_field
     - entity_browser
     - field_group
-    - link
+    - link_attributes
     - text
 third_party_settings:
   field_group:
@@ -34,7 +36,9 @@ third_party_settings:
       children:
         - field_inline_cta_heading
         - field_inline_cta_description
+        - field_inline_cta_heading_color
         - field_inline_cta_cta
+        - field_inline_cta_background_colo
         - field_inline_cta_id
       parent_name: group_information_tabs
       weight: 20
@@ -49,7 +53,6 @@ third_party_settings:
     group_media:
       children:
         - field_inline_cta_image
-        - field_inline_cta_image_parallax
       parent_name: group_information_tabs
       weight: 21
       format_type: tab
@@ -65,13 +68,29 @@ targetEntityType: paragraph
 bundle: inline_cta
 mode: default
 content:
+  field_inline_cta_background_colo:
+    weight: 4
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
   field_inline_cta_cta:
-    weight: 2
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_inline_cta_description:
     weight: 1
@@ -89,8 +108,16 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_inline_cta_heading_color:
+    weight: 2
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
   field_inline_cta_id:
-    weight: 3
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -110,13 +137,6 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_browser_file
-    region: content
-  field_inline_cta_image_parallax:
-    weight: 5
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
 hidden:
   created: true

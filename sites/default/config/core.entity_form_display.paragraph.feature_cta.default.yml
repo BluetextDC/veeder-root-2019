@@ -8,23 +8,78 @@ dependencies:
     - field.field.paragraph.feature_cta.field_feature_cta_description
     - field.field.paragraph.feature_cta.field_feature_cta_heading
     - field.field.paragraph.feature_cta.field_feature_cta_image
+    - field.field.paragraph.feature_cta.field_feature_cta_inline_video
+    - field.field.paragraph.feature_cta.field_feature_cta_vimeo_url
     - paragraphs.paragraphs_type.feature_cta
   module:
     - entity_browser
-    - link
+    - field_group
+    - link_attributes
     - text
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_text
+        - group_media
+      parent_name: ''
+      weight: 20
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Tabs
+    group_text:
+      children:
+        - field_feature_cta_heading
+        - field_feature_cta_description
+        - field_feature_cta_cta
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Text
+    group_media:
+      children:
+        - field_feature_cta_image
+        - field_feature_cta_vimeo_url
+        - field_feature_cta_inline_video
+      parent_name: group_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Media
 id: paragraph.feature_cta.default
 targetEntityType: paragraph
 bundle: feature_cta
 mode: default
 content:
   field_feature_cta_cta:
-    weight: 3
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_feature_cta_description:
     weight: 1
@@ -55,6 +110,21 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_browser_file
+    region: content
+  field_feature_cta_inline_video:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_feature_cta_vimeo_url:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   created: true

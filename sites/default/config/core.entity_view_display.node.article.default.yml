@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.article.field_blog_listing_cta_cta
     - field.field.node.article.field_blog_listing_description
+    - field.field.node.article.field_blog_listing_filter_tags
     - field.field.node.article.field_blog_listing_heading
     - field.field.node.article.field_blog_listing_image
     - field.field.node.article.field_blog_listing_image_paralla
@@ -14,6 +15,7 @@ dependencies:
     - field.field.node.article.field_blog_listing_trending_view
     - field.field.node.article.field_blog_listing_vimeo
     - field.field.node.article.field_breadcrumb_color
+    - field.field.node.article.field_color_variation
     - field.field.node.article.field_components
     - field.field.node.article.field_contact_footer_form
     - field.field.node.article.field_display_breadcrumbs
@@ -27,6 +29,7 @@ dependencies:
     - color_field
     - entity_reference_revisions
     - link
+    - markup
     - metatag
     - options
     - svg_image
@@ -58,6 +61,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_blog_listing_filter_tags:
+    weight: 12
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
+    third_party_settings: {  }
+    type: viewfield_default
     region: content
   field_blog_listing_heading:
     weight: 1
@@ -91,7 +104,7 @@ content:
     type: boolean
     region: content
   field_blog_listing_listing:
-    weight: 8
+    weight: 11
     label: hidden
     settings:
       view_title: hidden
@@ -110,7 +123,7 @@ content:
     type: color_field_formatter_text
     region: content
   field_blog_listing_trending_head:
-    weight: 10
+    weight: 9
     label: hidden
     settings:
       link_to_entity: false
@@ -118,7 +131,7 @@ content:
     type: string
     region: content
   field_blog_listing_trending_view:
-    weight: 11
+    weight: 10
     label: hidden
     settings:
       view_title: hidden
@@ -136,7 +149,7 @@ content:
     type: string
     region: content
   field_breadcrumb_color:
-    weight: 14
+    weight: 15
     label: hidden
     settings:
       format: hex
@@ -144,8 +157,15 @@ content:
     third_party_settings: {  }
     type: color_field_formatter_text
     region: content
+  field_color_variation:
+    weight: 20
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_components:
-    weight: 12
+    weight: 13
     label: hidden
     settings:
       view_mode: default
@@ -154,14 +174,14 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_contact_footer_form:
-    weight: 17
+    weight: 18
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_display_breadcrumbs:
-    weight: 13
+    weight: 14
     label: hidden
     settings:
       format: default
@@ -171,7 +191,7 @@ content:
     type: boolean
     region: content
   field_display_contact_footer:
-    weight: 16
+    weight: 17
     label: hidden
     settings:
       format: default
@@ -181,7 +201,7 @@ content:
     type: boolean
     region: content
   field_display_contact_sidebar:
-    weight: 15
+    weight: 16
     label: hidden
     settings:
       format: default
@@ -191,17 +211,17 @@ content:
     type: boolean
     region: content
   field_featured_blog_post:
-    weight: 9
+    weight: 8
     label: hidden
     settings:
-      view_mode: teaser
+      view_mode: featured_view
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
   field_meta_tags:
     weight: 19
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
@@ -215,7 +235,7 @@ content:
     type: string
     region: content
   links:
-    weight: 18
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -4,12 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.product_showcase.field_breadcrumb_color
+    - field.field.node.product_showcase.field_color_variation
     - field.field.node.product_showcase.field_components
     - field.field.node.product_showcase.field_contact_footer_form
     - field.field.node.product_showcase.field_display_breadcrumbs
     - field.field.node.product_showcase.field_display_contact_footer
     - field.field.node.product_showcase.field_display_contact_sidebar
+    - field.field.node.product_showcase.field_float_number_tags
     - field.field.node.product_showcase.field_meta_tags
+    - field.field.node.product_showcase.field_probe_number_tags
     - field.field.node.product_showcase.field_product_refer_weight
     - field.field.node.product_showcase.field_product_show_hero_bg_image
     - field.field.node.product_showcase.field_product_show_hero_bg_img_p
@@ -26,6 +29,7 @@ dependencies:
   module:
     - color_field
     - entity_reference_revisions
+    - markup
     - metatag
     - options
     - svg_image
@@ -43,6 +47,13 @@ content:
       opacity: '1'
     third_party_settings: {  }
     type: color_field_formatter_text
+    region: content
+  field_color_variation:
+    weight: 19
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_components:
     weight: 13
@@ -90,12 +101,28 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_float_number_tags:
+    weight: 21
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_meta_tags:
     weight: 18
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
+    region: content
+  field_probe_number_tags:
+    weight: 20
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_product_refer_weight:
     weight: 15
@@ -214,7 +241,7 @@ content:
     type: image
     region: content
   links:
-    weight: 19
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }

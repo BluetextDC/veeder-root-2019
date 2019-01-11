@@ -280,6 +280,7 @@ display:
           relationship: none
           view_mode: rss
       display_extenders: {  }
+      enabled: true
     cache_metadata:
       contexts:
         - 'languages:language_interface'

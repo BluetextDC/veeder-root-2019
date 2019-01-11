@@ -90,14 +90,14 @@ content:
     type: image
     weight: 5
     region: content
-    label: above
+    label: hidden
     settings:
+      image_style: ''
+      image_link: ''
       svg_attributes:
         width: ''
         height: ''
-      svg_render_as_image: true
-      image_style: ''
-      image_link: ''
+      svg_render_as_image: 0
     third_party_settings: {  }
   field_5050_image_parallax:
     weight: 8

@@ -1,0 +1,36 @@
+uuid: ad64204a-669b-4d92-8a2a-66751984b6f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.selection_module.field_selection_body
+    - field.field.paragraph.selection_module.field_selection_heading
+    - paragraphs.paragraphs_type.selection_module
+  module:
+    - text
+id: paragraph.selection_module.default
+targetEntityType: paragraph
+bundle: selection_module
+mode: default
+content:
+  field_selection_body:
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_selection_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,20 @@
+uuid: d01f9e43-ba88-44d1-9831-8e7c9b667ac6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_probe_number_tags
+field_name: field_probe_number_tags
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

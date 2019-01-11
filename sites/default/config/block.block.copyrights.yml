@@ -1,4 +1,4 @@
-uuid: fa1fc052-4512-480e-b7bf-4437943a385f
+uuid: e47dd23d-f7d2-4753-9100-45ab630950ff
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - block_content
   theme:
-    - veender
+    - veeder
 id: copyrights
-theme: veender
+theme: veeder
 region: footer_first
-weight: -8
+weight: -7
 provider: null
 plugin: 'block_content:5121b5d9-89fa-4d43-9318-4c5dc67e9f05'
 settings:

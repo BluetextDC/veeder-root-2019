@@ -8,11 +8,13 @@ dependencies:
     - field.field.paragraph.column_cta.field_column_cta_description
     - field.field.paragraph.column_cta.field_column_cta_heading
     - field.field.paragraph.column_cta.field_column_cta_image
+    - field.field.paragraph.column_cta.field_column_cta_inline_video
+    - field.field.paragraph.column_cta.field_column_cta_vimeo_url
     - paragraphs.paragraphs_type.column_cta
   module:
     - entity_browser
     - field_group
-    - link
+    - link_attributes
     - text
 third_party_settings:
   field_group:
@@ -21,7 +23,7 @@ third_party_settings:
         - group_text
         - group_media
       parent_name: ''
-      weight: 20
+      weight: 0
       format_type: tabs
       format_settings:
         id: ''
@@ -46,6 +48,8 @@ third_party_settings:
     group_media:
       children:
         - field_column_cta_image
+        - field_column_cta_vimeo_url
+        - field_column_cta_inline_video
       parent_name: group_tabs
       weight: 21
       format_type: tab
@@ -66,8 +70,16 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
   field_column_cta_description:
     weight: 1
@@ -98,6 +110,21 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_browser_file
+    region: content
+  field_column_cta_inline_video:
+    weight: 24
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_column_cta_vimeo_url:
+    weight: 23
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   created: true

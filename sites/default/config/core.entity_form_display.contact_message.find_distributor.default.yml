@@ -1,0 +1,31 @@
+uuid: 1cceeff9-33c4-4449-81ad-d78303cee4b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.find_distributor
+    - field.field.contact_message.find_distributor.field_zip_code
+id: contact_message.find_distributor.default
+targetEntityType: contact_message
+bundle: find_distributor
+mode: default
+content:
+  field_zip_code:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  preview:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  copy: true
+  mail: true
+  message: true
+  name: true
+  subject: true

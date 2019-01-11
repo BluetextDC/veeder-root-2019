@@ -5,15 +5,19 @@ dependencies:
   config:
     - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta
     - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_descripti
+    - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_head_colo
     - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_heading
     - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_id
     - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_image
+    - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_image_alg
     - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_layer
     - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_subheadin
     - field.field.paragraph.5050_layered_heading_cta.field_5050_layered_cta_text_firs
     - paragraphs.paragraphs_type.5050_layered_heading_cta
   module:
+    - color_field
     - link
+    - options
     - svg_image
     - text
 id: paragraph.5050_layered_heading_cta.default
@@ -22,7 +26,7 @@ bundle: 5050_layered_heading_cta
 mode: default
 content:
   field_5050_layered_cta:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       trim_length: 80
@@ -34,11 +38,20 @@ content:
     type: link
     region: content
   field_5050_layered_cta_descripti:
-    weight: 3
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_5050_layered_cta_head_colo:
+    weight: 1
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
     region: content
   field_5050_layered_cta_heading:
     weight: 0
@@ -57,7 +70,7 @@ content:
     type: string
     region: content
   field_5050_layered_cta_image:
-    weight: 6
+    weight: 8
     label: hidden
     settings:
       image_style: ''
@@ -65,12 +78,19 @@ content:
       svg_attributes:
         width: ''
         height: ''
-      svg_render_as_image: true
+      svg_render_as_image: 0
     third_party_settings: {  }
     type: image
     region: content
+  field_5050_layered_cta_image_alg:
+    weight: 9
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_5050_layered_cta_layer:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       format: default
@@ -80,7 +100,7 @@ content:
     type: boolean
     region: content
   field_5050_layered_cta_subheadin:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       link_to_entity: false
@@ -88,7 +108,7 @@ content:
     type: string
     region: content
   field_5050_layered_cta_text_firs:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       format: default

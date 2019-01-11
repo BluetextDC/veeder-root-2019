@@ -1,13 +1,15 @@
-uuid: 3c4291cd-276d-4d53-af0e-c3003506009e
+uuid: 38745e3d-4e2e-4d5e-94a3-791c6496fc11
 langcode: en
 status: true
 dependencies:
   theme:
-    - veender
-id: primaryadminactions
-theme: veender
+    - veeder
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: veeder_local_actions
+theme: veeder
 region: content
-weight: -7
+weight: -6
 provider: null
 plugin: local_actions_block
 settings:

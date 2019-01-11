@@ -1,4 +1,4 @@
-uuid: ce886be1-7ee7-47c4-80fd-e5c393de786e
+uuid: 03e2087a-602b-4d8f-a609-1cf093524232
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - veender
+    - veeder
 id: sidebarmenu
-theme: veender
+theme: veeder
 region: sidebar_menu
-weight: -8
+weight: 0
 provider: null
 plugin: 'system_menu_block:sidebar-menu'
 settings:

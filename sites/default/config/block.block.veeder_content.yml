@@ -1,17 +1,17 @@
-uuid: 49480a88-3b84-47c7-a6f1-de815ebd2a80
+uuid: 9f7ea962-2f7c-4d85-8901-8450b7808dac
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - veender
+    - veeder
 _core:
   default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
-id: veender_content
-theme: veender
+id: veeder_content
+theme: veeder
 region: content
-weight: -5
+weight: -4
 provider: null
 plugin: system_main_block
 settings:
