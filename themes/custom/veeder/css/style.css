@@ -864,3 +864,8 @@ nav.pager ul.pager__items li {list-style: none;display: inline-block;margin: 0 1
 /* fancybox */
 body .fancybox-slide--image .fancybox-content{background-color: #fff;}
 .fancybox-slide--image .fancybox-image{padding: 15px;}
+.product-selection-form{max-width: 394px;margin: auto;}
+.product-selection-form select{padding: 0 20px;}
+.product-selection-form input[type="text"]{padding-left: 20px;padding-right: 20px;}
+.product-selection-form .form-item{padding-bottom: 20px;}
+.product-selection-form .button{margin: auto;display: block;}
