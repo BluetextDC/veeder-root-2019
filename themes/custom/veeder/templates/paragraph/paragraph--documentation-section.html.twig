@@ -66,7 +66,7 @@ set classes = [
             {% if document_item.document_file is not empty %}
               <a href="{{ document_item.document_file }}" class="ic-download download" target="_blank"></a>
             {% endif %}
-            {{ document_item.document_heading }}
+            <a href="{{ document_item.document_file }}" target="_blank">{{ document_item.document_heading }}</a>
           </li>
         {% endfor %}
       </ul>
