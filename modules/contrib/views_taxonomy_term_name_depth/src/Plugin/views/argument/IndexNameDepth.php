@@ -197,19 +197,19 @@ class IndexNameDepth extends ArgumentPluginBase implements ContainerFactoryPlugi
     $last = "tn";
 
     if ($this->options['depth'] > 0) {
-      $subquery->leftJoin('taxonomy_term_hierarchy', 'th', "th.tid = tn.tid");
-      $last = "th";
+      $subquery->leftJoin('taxonomy_term__parent', 'tp', "tp.entity_id = tn.tid");
+      $last = "tp";
       foreach (range(1, abs($this->options['depth'])) as $count) {
-        $subquery->leftJoin('taxonomy_term_hierarchy', "th$count", "$last.parent = th$count.tid");
-        $where->condition("th$count.tid", $tids, $operator);
-        $last = "th$count";
+        $subquery->leftJoin('taxonomy_term__parent', "tp$count", "$last.parent_target_id = tp$count.entity_id");
+        $where->condition("tp$count.entity_id", $tids, $operator);
+        $last = "tp$count";
       }
     }
     elseif ($this->options['depth'] < 0) {
       foreach (range(1, abs($this->options['depth'])) as $count) {
-        $subquery->leftJoin('taxonomy_term_hierarchy', "th$count", "$last.tid = th$count.parent");
-        $where->condition("th$count.tid", $tids, $operator);
-        $last = "th$count";
+        $subquery->leftJoin('taxonomy_term__parent', "tp$count", "$last.tid = tp$count.parent_target_id");
+        $where->condition("tp$count.entity_id", $tids, $operator);
+        $last = "tp$count";
       }
     }
 
@@ -222,11 +222,36 @@ class IndexNameDepth extends ArgumentPluginBase implements ContainerFactoryPlugi
    */
   function title() {
     $term = $this->termStorage->load($this->argument);
+    // Check the use of pathauto module
+    if (\Drupal::service('module_handler')->moduleExists('pathauto')) {
+      $query = $this->database->select('taxonomy_term_field_data', 't')
+      ->fields('t', array('tid', 'name'));
+
+      // Filter by vocabulary ID if one or more are provided.
+      if (!empty($this->options['vocabularies'])) {
+      $query->condition('t.vid', $this->options['vocabularies'], 'IN');
+      }
+
+      $results = $query->execute()->fetchAll(\PDO::FETCH_OBJ);
+
+      // Iterate results.
+      foreach ($results as $row) {
+      // Service container for alias cleaner.
+      $alias = \Drupal::service('pathauto.alias_cleaner');
+      if ($alias->cleanString($row->name) == $alias->cleanString($this->argument)) {
+        $tid = $row->tid;
+        $term = current($this->termStorage->loadByProperties(['tid' => $tid]));
+        break;
+      }
+      }
+    }
+    // If no term was loaded in the pathauto verification, try one more time before 'no name'
+    if (empty($term)) {
+      $term = current($this->termStorage->loadByProperties(['name' => str_replace('-', ' ', $this->argument)]));
+    }
     if (!empty($term)) {
       return $term->getName();
     }
-    // TODO review text
-    return $this->t('No name');
   }
 
 }
