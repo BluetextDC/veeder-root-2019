@@ -25,4 +25,22 @@
       var inputVal = $('#__htmlfltPartNumber').text();
       $('#__htmlfltPartNumber').val(inputVal);
   });
+  $('.js-form-type-select').each(function(index, el) {
+    if ($(this).children('select').is(':disabled')) {
+      $(this).addClass('disable-fields');
+    }
+  });
+  $('.js-form-type-select').change(function(event) {
+    $(this).each(function(index, el) {
+      if ($(this).children('select').is(':disabled') && $(this).children('select').children("option").is(':disabled')) {
+        $(this).removeClass('disable-fields')
+      }
+      else {
+        $(this).removeClass('disable-fields');
+      }
+    });
+    if ($(this).next().hasClass('disable-fields')) {
+      $(this).next().removeClass('disable-fields');
+    }
+  });
 })(jQuery, window, Drupal);

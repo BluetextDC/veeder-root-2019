@@ -387,7 +387,20 @@ class SelectionForm extends FormBase {
         }
       }
 
+      $current_node = \Drupal::routeMatch()->getParameter('node');
+      $paragraph = $current_node->field_components->getValue();
+      // Loop through the result set.
+      $lighbox_title = '';
+      foreach ( $paragraph as $element ) {
+        $paragraph_details = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
+        $paragraph_name = $paragraph_details->getType();
+        if ($paragraph_name == 'selection_module') {
+          $lighbox_title = $paragraph_details->field_selection_lightbox_title->value;
+        }
+      }
+
       $match_output = '<div class="product-list fancy-popup-form-submit">';
+        $match_output .= '<h3>' . $lighbox_title . '</h3>';
         $match_output .= '<div class="row">';
           foreach ($content_types as $ids => $node_detail) {
             $node_load = Node::load($ids);
