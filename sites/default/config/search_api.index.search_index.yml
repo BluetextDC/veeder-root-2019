@@ -3,50 +3,50 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.body
+    - field.storage.paragraph.field_4060_cta_callout
+    - field.storage.paragraph.field_4060_cta_description
+    - field.storage.paragraph.field_4060_cta_heading
     - field.storage.node.field_add_column_cta
     - field.storage.paragraph.field_4_column_add_cta
+    - field.storage.paragraph.field_4_column_taxonomy_head_col
+    - field.storage.paragraph.field_4_column_taxonomy_heading
+    - field.storage.paragraph.field_5050_cta_callout
+    - field.storage.paragraph.field_5050_cta_heading
+    - field.storage.paragraph.field_5050_fullwd_cta_callout
+    - field.storage.paragraph.field_5050_fullwd_cta_heading
+    - field.storage.paragraph.field_5050_layered_cta_descripti
+    - field.storage.paragraph.field_5050_layered_cta_heading
+    - field.storage.paragraph.field_add_documentation_doc_file
     - field.storage.node.field_add_starting_point
-    - field.storage.node.body
-    - field.storage.node.field_body
-    - field.storage.node.field_homepage_hero_subheading
-    - field.storage.node.field_generic_hero_description
-    - field.storage.node.field_blog_listing_description
     - field.storage.node.field_blog_detail_heading
+    - field.storage.node.field_blog_listing_description
     - field.storage.node.field_blog_listing_heading
+    - field.storage.node.field_body
+    - field.storage.paragraph.field_column_cta_description
+    - field.storage.paragraph.field_column_cta_heading
+    - field.storage.paragraph.field_documentation_heading
+    - field.storage.paragraph.field_documentation_sec_heading
+    - field.storage.paragraph.field_feature_cta_description
+    - field.storage.paragraph.field_features_cta_block_heading
+    - field.storage.paragraph.field_full_width_cta_description
+    - field.storage.paragraph.field_full_width_cta_heading
+    - field.storage.paragraph.field_fullwd_media_cta_descrptin
+    - field.storage.paragraph.field_fullwd_media_cta_heading
+    - field.storage.node.field_generic_hero_description
     - field.storage.node.field_generic_hero_heading
     - field.storage.node.field_homepage_hero_heading
-    - field.storage.node.field_product_show_hero_heading
-    - field.storage.node.field_summary
-    - field.storage.paragraph.field_selection_body
-    - field.storage.paragraph.field_5050_cta_callout
-    - field.storage.paragraph.field_5050_fullwd_cta_callout
-    - field.storage.paragraph.field_4060_cta_callout
-    - field.storage.paragraph.field_full_width_cta_description
-    - field.storage.paragraph.field_fullwd_media_cta_descrptin
-    - field.storage.paragraph.field_feature_cta_description
-    - field.storage.paragraph.field_5050_layered_cta_descripti
-    - field.storage.paragraph.field_column_cta_description
-    - field.storage.paragraph.field_4060_cta_description
-    - field.storage.paragraph.field_add_documentation_doc_file
-    - field.storage.paragraph.field_features_cta_block_heading
+    - field.storage.node.field_homepage_hero_subheading
     - field.storage.paragraph.field_inline_cta_heading
+    - field.storage.node.field_product_show_hero_heading
+    - field.storage.paragraph.field_selection_body
     - field.storage.paragraph.field_selection_heading
-    - field.storage.paragraph.field_full_width_cta_heading
-    - field.storage.paragraph.field_fullwd_media_cta_heading
-    - field.storage.paragraph.field_4_column_taxonomy_heading
-    - field.storage.paragraph.field_documentation_sec_heading
-    - field.storage.paragraph.field_documentation_heading
-    - field.storage.paragraph.field_column_cta_heading
-    - field.storage.paragraph.field_5050_layered_cta_heading
-    - field.storage.paragraph.field_5050_fullwd_cta_heading
-    - field.storage.paragraph.field_5050_cta_heading
-    - field.storage.paragraph.field_4060_cta_heading
-    - field.storage.paragraph.field_4_column_taxonomy_head_col
+    - field.storage.node.field_summary
     - search_api.server.search_server
   module:
+    - taxonomy
     - paragraphs
     - node
-    - taxonomy
     - search_api
 id: search_index
 name: 'Search Index'
@@ -432,11 +432,38 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_summary
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  status:
+    label: null
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
   title:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
     type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: null
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
     dependencies:
       module:
         - node
@@ -465,7 +492,171 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  entity_status: {  }
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  html_filter:
+    all_fields: false
+    fields:
+      - body
+      - field_4060_cta_callout
+      - field_4060_cta_description
+      - field_4060_cta_heading
+      - field_4_column_taxonomy_head_col
+      - field_4_column_taxonomy_heading
+      - field_5050_cta_callout
+      - field_5050_cta_callout_1
+      - field_5050_cta_heading
+      - field_5050_fullwd_cta_callout
+      - field_5050_fullwd_cta_heading
+      - field_5050_layered_cta_descripti
+      - field_5050_layered_cta_descripti_1
+      - field_5050_layered_cta_heading
+      - field_add_documentation_doc_file
+      - field_blog_detail_heading
+      - field_blog_listing_description
+      - field_blog_listing_heading
+      - field_body
+      - field_column_cta_description
+      - field_column_cta_heading
+      - field_documentation_heading
+      - field_documentation_sec_heading
+      - field_feature_cta_description
+      - field_features_cta_block_heading
+      - field_full_width_cta_description
+      - field_full_width_cta_description_1
+      - field_full_width_cta_heading
+      - field_fullwd_media_cta_descrptin
+      - field_fullwd_media_cta_descrptin_1
+      - field_fullwd_media_cta_heading
+      - field_generic_hero_description
+      - field_generic_hero_heading
+      - field_homepage_hero_heading
+      - field_homepage_hero_subheading
+      - field_homepage_hero_subheading_1
+      - field_inline_cta_heading
+      - field_inline_cta_heading_1
+      - field_product_show_hero_heading
+      - field_selection_body
+      - field_selection_heading
+      - field_summary
+      - title
+    title: true
+    alt: true
+    tags:
+      b: 2
+      em: 1
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      u: 1
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+  ignorecase:
+    all_fields: false
+    fields:
+      - body
+      - field_4060_cta_callout
+      - field_4060_cta_description
+      - field_4060_cta_heading
+      - field_4_column_taxonomy_head_col
+      - field_4_column_taxonomy_heading
+      - field_5050_cta_callout
+      - field_5050_cta_callout_1
+      - field_5050_cta_heading
+      - field_5050_fullwd_cta_callout
+      - field_5050_fullwd_cta_heading
+      - field_5050_layered_cta_descripti
+      - field_5050_layered_cta_descripti_1
+      - field_5050_layered_cta_heading
+      - field_add_documentation_doc_file
+      - field_blog_detail_heading
+      - field_blog_listing_description
+      - field_blog_listing_heading
+      - field_body
+      - field_column_cta_description
+      - field_column_cta_heading
+      - field_documentation_heading
+      - field_documentation_sec_heading
+      - field_feature_cta_description
+      - field_features_cta_block_heading
+      - field_full_width_cta_description
+      - field_full_width_cta_description_1
+      - field_full_width_cta_heading
+      - field_fullwd_media_cta_descrptin
+      - field_fullwd_media_cta_descrptin_1
+      - field_fullwd_media_cta_heading
+      - field_generic_hero_description
+      - field_generic_hero_heading
+      - field_homepage_hero_heading
+      - field_homepage_hero_subheading
+      - field_homepage_hero_subheading_1
+      - field_inline_cta_heading
+      - field_inline_cta_heading_1
+      - field_product_show_hero_heading
+      - field_selection_body
+      - field_selection_heading
+      - field_summary
+      - title
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
   rendered_item: {  }
+  stemmer:
+    all_fields: false
+    fields:
+      - body
+      - field_4060_cta_description
+      - field_5050_layered_cta_descripti
+      - field_5050_layered_cta_descripti_1
+      - field_body
+      - field_column_cta_description
+      - field_feature_cta_description
+      - field_full_width_cta_description
+      - field_full_width_cta_description_1
+      - field_fullwd_media_cta_descrptin
+      - field_fullwd_media_cta_descrptin_1
+      - field_selection_body
+    exceptions:
+      mexican: mexic
+      texan: texa
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+  tokenizer:
+    all_fields: false
+    fields:
+      - body
+      - field_4060_cta_description
+      - field_5050_layered_cta_descripti
+      - field_5050_layered_cta_descripti_1
+      - field_body
+      - field_column_cta_description
+      - field_feature_cta_description
+      - field_full_width_cta_description
+      - field_full_width_cta_description_1
+      - field_fullwd_media_cta_descrptin
+      - field_fullwd_media_cta_descrptin_1
+      - field_selection_body
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
 tracker_settings:
   default:
     indexing_order: fifo
