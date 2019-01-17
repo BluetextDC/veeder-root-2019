@@ -1,0 +1,63 @@
+uuid: 1497a8b6-492d-462d-8723-f714af2459b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.search_index
+id: default_search_api_page
+label: 'Default Search API Page'
+path: search-api-page
+clean_url: true
+show_all_when_no_keys: false
+index: search_index
+limit: 10
+searched_fields:
+  body: body
+  field_4060_cta_description: field_4060_cta_description
+  field_5050_layered_cta_descripti: field_5050_layered_cta_descripti
+  field_5050_layered_cta_descripti_1: field_5050_layered_cta_descripti_1
+  field_body: field_body
+  field_column_cta_description: field_column_cta_description
+  field_feature_cta_description: field_feature_cta_description
+  field_full_width_cta_description: field_full_width_cta_description
+  field_full_width_cta_description_1: field_full_width_cta_description_1
+  field_fullwd_media_cta_descrptin: field_fullwd_media_cta_descrptin
+  field_fullwd_media_cta_descrptin_1: field_fullwd_media_cta_descrptin_1
+  field_selection_body: field_selection_body
+style: view_modes
+view_mode_configuration:
+  'entity:node_article': default
+  'entity:node_blog_detail': default
+  'entity:node_generic_landing': default
+  'entity:node_homepage': default
+  'entity:node_page': default
+  'entity:node_product_detail': default
+  'entity:node_product_listing': default
+  'entity:node_product_showcase': default
+  'entity:paragraph_3_column_taxonomy_listing': default
+  'entity:paragraph_4060_cta': default
+  'entity:paragraph_4_column_taxonomy_listing': default
+  'entity:paragraph_5050_cta': default
+  'entity:paragraph_5050_full_width_cta': default
+  'entity:paragraph_5050_layered_heading_cta': default
+  'entity:paragraph_column_cta': default
+  'entity:paragraph_documentation': default
+  'entity:paragraph_documentation_document': default
+  'entity:paragraph_documentation_section': default
+  'entity:paragraph_features_cta_block': default
+  'entity:paragraph_feature_cta': default
+  'entity:paragraph_four_column_cta_block': default
+  'entity:paragraph_full_width_cta': default
+  'entity:paragraph_full_width_media_cta': default
+  'entity:paragraph_html_embed': default
+  'entity:paragraph_inline_cta': default
+  'entity:paragraph_selection_module': default
+  'entity:paragraph_starting_point': default
+  'entity:paragraph_wysiwyg_text': default
+  'entity:taxonomy_term_blog': default
+  'entity:taxonomy_term_float_number': default
+  'entity:taxonomy_term_probe_number': default
+  'entity:taxonomy_term_product': default
+  'entity:taxonomy_term_solution': default
+  'entity:taxonomy_term_tags': default
+show_search_form: true
