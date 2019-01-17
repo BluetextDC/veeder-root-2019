@@ -77,12 +77,12 @@ set classes = [
           <div class="col-md-6 {% if (content.field_5050_image|render is not empty) and (content.field_5050_vimeo_url|render is empty) %}img-part{% else %}video-part{% endif %}">
             <div class="inner-wrap">
               {% if (content.field_5050_cta_vimeo_player.0["#markup"] == 0) and (content.field_5050_vimeo_url|render is not empty) %}
-                <a href="{{ content.field_5050_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
+                <a href="{{ paragraph.field_5050_vimeo_url.0.value }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_5050_vimeo_url|render is not empty) and (content.field_5050_cta_vimeo_player.0["#markup"] == 1) and (content.field_5050_image|render is empty) %}
                 <a href="javascript:;" class="c-video">
-                  <iframe src="{{ content.field_5050_vimeo_url.0 }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                  <iframe src="{{ paragraph.field_5050_vimeo_url.0.value }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_5050_image|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 0) %}
@@ -102,12 +102,12 @@ set classes = [
           <div class="col-md-6 {% if (content.field_5050_image|render is not empty) and (content.field_5050_vimeo_url|render is empty) %}img-part{% else %}video-part{% endif %}">
             <div class="inner-wrap">
               {% if (content.field_5050_cta_vimeo_player.0["#markup"] == 0) and (content.field_5050_vimeo_url|render is not empty) %}
-                <a href="{{ content.field_5050_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
+                <a href="{{ paragraph.field_5050_vimeo_url.0.value }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_5050_vimeo_url|render is not empty) and (content.field_5050_cta_vimeo_player.0["#markup"] == 1) and (content.field_5050_image|render is empty) %}
                 <a href="javascript:;" class="c-video">
-                  <iframe src="{{ content.field_5050_vimeo_url.0 }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                  <iframe src="{{ paragraph.field_5050_vimeo_url.0.value }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                   <span class="play-icon ic-play-icon"></span>
                 </a>
               {% elseif (content.field_5050_image|render is not empty) and (content.field_5050_image_parallax.0["#markup"] == 0) %}
