@@ -3,13 +3,20 @@ langcode: en
 status: true
 dependencies:
   module:
-    - link
+    - link_attributes
     - menu_link_content
 id: menu_link_content.language-switcher.default
 targetEntityType: menu_link_content
 bundle: language-switcher
 mode: default
 content:
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0

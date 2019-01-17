@@ -5,10 +5,16 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.product_showcase.field_breadcrumb_color
+    - field.field.node.product_showcase.field_color_variation
     - field.field.node.product_showcase.field_components
+    - field.field.node.product_showcase.field_contact_footer_form
     - field.field.node.product_showcase.field_display_breadcrumbs
     - field.field.node.product_showcase.field_display_contact_footer
     - field.field.node.product_showcase.field_display_contact_sidebar
+    - field.field.node.product_showcase.field_float_number_tags
+    - field.field.node.product_showcase.field_meta_tags
+    - field.field.node.product_showcase.field_probe_number_tags
+    - field.field.node.product_showcase.field_product_refer_weight
     - field.field.node.product_showcase.field_product_show_hero_bg_image
     - field.field.node.product_showcase.field_product_show_hero_bg_img_p
     - field.field.node.product_showcase.field_product_show_hero_heading
@@ -16,6 +22,7 @@ dependencies:
     - field.field.node.product_showcase.field_product_show_hero_plte_cor
     - field.field.node.product_showcase.field_product_show_hero_vimeo
     - field.field.node.product_showcase.field_product_tags
+    - field.field.node.product_showcase.field_solution_refer_weight
     - field.field.node.product_showcase.field_solution_tags
     - field.field.node.product_showcase.field_summary
     - field.field.node.product_showcase.field_taxonomy_image
@@ -34,10 +41,16 @@ content:
     region: content
 hidden:
   field_breadcrumb_color: true
+  field_color_variation: true
   field_components: true
+  field_contact_footer_form: true
   field_display_breadcrumbs: true
   field_display_contact_footer: true
   field_display_contact_sidebar: true
+  field_float_number_tags: true
+  field_meta_tags: true
+  field_probe_number_tags: true
+  field_product_refer_weight: true
   field_product_show_hero_bg_image: true
   field_product_show_hero_bg_img_p: true
   field_product_show_hero_heading: true
@@ -45,6 +58,8 @@ hidden:
   field_product_show_hero_plte_cor: true
   field_product_show_hero_vimeo: true
   field_product_tags: true
+  field_solution_refer_weight: true
   field_solution_tags: true
   field_summary: true
   field_taxonomy_image: true
+  langcode: true

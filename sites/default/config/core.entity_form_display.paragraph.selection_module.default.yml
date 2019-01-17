@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.paragraph.selection_module.field_selection_body
     - field.field.paragraph.selection_module.field_selection_heading
+    - field.field.paragraph.selection_module.field_selection_id
+    - field.field.paragraph.selection_module.field_selection_lightbox_title
     - paragraphs.paragraphs_type.selection_module
   module:
     - text
@@ -24,6 +26,22 @@ content:
     region: content
   field_selection_heading:
     weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_selection_id:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_selection_lightbox_title:
+    weight: 2
     settings:
       size: 60
       placeholder: ''

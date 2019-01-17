@@ -1,0 +1,23 @@
+uuid: e8265912-2866-4612-a167-a0230d0d565f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_generic_hero_video_autopla
+    - node.type.generic_landing
+id: node.generic_landing.field_generic_hero_video_autopla
+field_name: field_generic_hero_video_autopla
+entity_type: node
+bundle: generic_landing
+label: 'Hero Video Autoplay'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

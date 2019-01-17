@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.generic_landing.field_generic_hero_image
     - field.field.node.generic_landing.field_generic_hero_image_paralla
     - field.field.node.generic_landing.field_generic_hero_plate_color
+    - field.field.node.generic_landing.field_generic_hero_video_autopla
     - field.field.node.generic_landing.field_generic_hero_vimeo
     - field.field.node.generic_landing.field_landing_product
     - field.field.node.generic_landing.field_landing_solution
@@ -161,6 +162,16 @@ content:
     third_party_settings: {  }
     type: color_field_formatter_text
     region: content
+  field_generic_hero_video_autopla:
+    weight: 21
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_generic_hero_vimeo:
     weight: 6
     label: hidden
@@ -232,8 +243,9 @@ content:
     type: image
     region: content
   links:
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true

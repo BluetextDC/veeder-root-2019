@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.blog_detail.field_blog_tags
     - field.field.node.blog_detail.field_body
     - field.field.node.blog_detail.field_breadcrumb_color
+    - field.field.node.blog_detail.field_color_variation
     - field.field.node.blog_detail.field_components
     - field.field.node.blog_detail.field_contact_footer_form
     - field.field.node.blog_detail.field_display_breadcrumbs
@@ -97,9 +98,11 @@ hidden:
   field_blog_social_share: true
   field_body: true
   field_breadcrumb_color: true
+  field_color_variation: true
   field_components: true
   field_contact_footer_form: true
   field_display_breadcrumbs: true
   field_display_contact_footer: true
   field_display_contact_sidebar: true
   field_meta_tags: true
+  langcode: true

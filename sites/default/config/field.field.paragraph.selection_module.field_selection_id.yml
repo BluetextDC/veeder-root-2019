@@ -1,0 +1,19 @@
+uuid: 6b440068-0312-4af5-a1d2-607a78554762
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_selection_id
+    - paragraphs.paragraphs_type.selection_module
+id: paragraph.selection_module.field_selection_id
+field_name: field_selection_id
+entity_type: paragraph
+bundle: selection_module
+label: ID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

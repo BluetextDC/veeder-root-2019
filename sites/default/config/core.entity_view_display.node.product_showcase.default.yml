@@ -10,10 +10,12 @@ dependencies:
     - field.field.node.product_showcase.field_display_breadcrumbs
     - field.field.node.product_showcase.field_display_contact_footer
     - field.field.node.product_showcase.field_display_contact_sidebar
+    - field.field.node.product_showcase.field_enable_jump_nav
     - field.field.node.product_showcase.field_float_number_tags
     - field.field.node.product_showcase.field_meta_tags
     - field.field.node.product_showcase.field_probe_number_tags
     - field.field.node.product_showcase.field_product_refer_weight
+    - field.field.node.product_showcase.field_product_show_hero_autopla
     - field.field.node.product_showcase.field_product_show_hero_bg_image
     - field.field.node.product_showcase.field_product_show_hero_bg_img_p
     - field.field.node.product_showcase.field_product_show_hero_heading
@@ -40,7 +42,7 @@ bundle: product_showcase
 mode: default
 content:
   field_breadcrumb_color:
-    weight: 9
+    weight: 10
     label: hidden
     settings:
       format: hex
@@ -49,14 +51,14 @@ content:
     type: color_field_formatter_text
     region: content
   field_color_variation:
-    weight: 19
+    weight: 20
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_components:
-    weight: 13
+    weight: 14
     label: hidden
     settings:
       view_mode: default
@@ -65,14 +67,14 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_contact_footer_form:
-    weight: 12
+    weight: 13
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_display_breadcrumbs:
-    weight: 8
+    weight: 9
     label: hidden
     settings:
       format: default
@@ -82,7 +84,7 @@ content:
     type: boolean
     region: content
   field_display_contact_footer:
-    weight: 11
+    weight: 12
     label: hidden
     settings:
       format: default
@@ -92,7 +94,17 @@ content:
     type: boolean
     region: content
   field_display_contact_sidebar:
-    weight: 10
+    weight: 11
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_enable_jump_nav:
+    weight: 8
     label: hidden
     settings:
       format: default
@@ -102,7 +114,7 @@ content:
     type: boolean
     region: content
   field_float_number_tags:
-    weight: 21
+    weight: 22
     label: hidden
     settings:
       link: true
@@ -110,14 +122,14 @@ content:
     type: entity_reference_label
     region: content
   field_meta_tags:
-    weight: 18
+    weight: 19
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
     region: content
   field_probe_number_tags:
-    weight: 20
+    weight: 21
     label: hidden
     settings:
       link: true
@@ -125,13 +137,23 @@ content:
     type: entity_reference_label
     region: content
   field_product_refer_weight:
-    weight: 15
+    weight: 16
     label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
+  field_product_show_hero_autopla:
+    weight: 23
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_product_show_hero_bg_image:
     weight: 4
@@ -195,7 +217,7 @@ content:
     type: string
     region: content
   field_product_tags:
-    weight: 14
+    weight: 15
     label: hidden
     settings:
       link: true
@@ -203,7 +225,7 @@ content:
     type: entity_reference_label
     region: content
   field_solution_refer_weight:
-    weight: 17
+    weight: 18
     label: hidden
     settings:
       thousand_separator: ''
@@ -212,7 +234,7 @@ content:
     type: number_integer
     region: content
   field_solution_tags:
-    weight: 16
+    weight: 17
     label: hidden
     settings:
       link: true
@@ -241,8 +263,9 @@ content:
     type: image
     region: content
   links:
-    weight: 22
+    weight: 24
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true

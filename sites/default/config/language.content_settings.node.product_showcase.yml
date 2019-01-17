@@ -1,0 +1,11 @@
+uuid: 3acbe3c2-f265-4919-bf51-31c25ab4675c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.product_showcase
+id: node.product_showcase
+target_entity_type_id: node
+target_bundle: product_showcase
+default_langcode: site_default
+language_alterable: false

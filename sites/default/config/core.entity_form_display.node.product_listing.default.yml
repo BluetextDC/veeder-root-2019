@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.product_listing.field_generic_hero_image
     - field.field.node.product_listing.field_generic_hero_image_paralla
     - field.field.node.product_listing.field_generic_hero_plate_color
+    - field.field.node.product_listing.field_generic_hero_video_autopla
     - field.field.node.product_listing.field_generic_hero_vimeo
     - field.field.node.product_listing.field_meta_tags
     - field.field.node.product_listing.field_probe_number_tags
@@ -56,6 +57,7 @@ third_party_settings:
         classes: ''
         direction: horizontal
       label: Tabs
+      region: hidden
     group_i:
       children:
         - title
@@ -71,6 +73,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Information Tabs'
+      region: hidden
     group_hero_banner:
       children:
         - field_generic_hero_heading
@@ -78,6 +81,7 @@ third_party_settings:
         - field_generic_hero_image
         - field_generic_hero_image_paralla
         - field_generic_hero_vimeo
+        - field_generic_hero_video_autopla
         - field_generic_hero_plate_color
         - field_generic_hero_cta_display
         - field_generic_hero_cta
@@ -91,6 +95,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Hero Banner'
+      region: hidden
     group_components:
       children:
         - field_components
@@ -104,6 +109,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Components
+      region: hidden
     group_misc:
       children:
         - field_display_breadcrumbs
@@ -121,6 +127,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Misc
+      region: hidden
     group_taxonomy:
       children:
         - field_product_tags
@@ -139,6 +146,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Taxonomy
+      region: hidden
     group_color_reference:
       children:
         - field_color_variation
@@ -152,6 +160,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Color Reference'
+      region: hidden
 id: node.product_listing.default
 targetEntityType: node
 bundle: product_listing
@@ -159,12 +168,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_breadcrumb_color:
-    weight: 133
+    weight: 0
     settings:
       placeholder_color: ''
       placeholder_opacity: ''
@@ -172,13 +181,13 @@ content:
     type: color_field_widget_default
     region: content
   field_color_variation:
-    weight: 143
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_components:
-    weight: 131
+    weight: 5
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -190,40 +199,43 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_contact_footer_form:
-    weight: 139
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_display_breadcrumbs:
-    weight: 132
+    weight: -1
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_display_contact_footer:
-    weight: 135
+    weight: 2
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_display_contact_sidebar:
-    weight: 134
+    weight: 1
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_float_number_tags:
-    weight: 143
-    settings: {  }
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_buttons
+    type: entity_reference_autocomplete_tags
     region: content
   field_generic_hero_cta:
-    weight: 130
+    weight: 20
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -239,14 +251,14 @@ content:
     type: link_attributes
     region: content
   field_generic_hero_cta_display:
-    weight: 129
+    weight: 19
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_generic_hero_description:
-    weight: 124
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -254,7 +266,7 @@ content:
     type: string_textfield
     region: content
   field_generic_hero_heading:
-    weight: 123
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -262,7 +274,7 @@ content:
     type: string_textfield
     region: content
   field_generic_hero_image:
-    weight: 125
+    weight: 14
     settings:
       entity_browser: browse_files_modal
       field_widget_remove: true
@@ -276,22 +288,29 @@ content:
     type: entity_browser_file
     region: content
   field_generic_hero_image_paralla:
-    weight: 126
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_generic_hero_plate_color:
-    weight: 128
+    weight: 18
     settings:
       placeholder_color: ''
       placeholder_opacity: ''
     third_party_settings: {  }
     type: color_field_widget_default
     region: content
+  field_generic_hero_video_autopla:
+    weight: 17
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_generic_hero_vimeo:
-    weight: 127
+    weight: 16
     settings:
       size: 60
       placeholder: ''
@@ -299,26 +318,29 @@ content:
     type: string_textfield
     region: content
   field_meta_tags:
-    weight: 142
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_probe_number_tags:
-    weight: 142
-    settings: {  }
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_buttons
+    type: entity_reference_autocomplete_tags
     region: content
   field_product_refer_weight:
-    weight: 139
+    weight: 7
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_product_tags:
-    weight: 138
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -327,14 +349,14 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_solution_refer_weight:
-    weight: 141
+    weight: 9
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_solution_tags:
-    weight: 140
+    weight: 8
     settings:
       match_operator: CONTAINS
       size: 60
@@ -364,9 +386,16 @@ content:
     third_party_settings: {  }
     type: entity_browser_file
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -374,21 +403,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 4
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 7
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 5
     region: content
     third_party_settings: {  }
   title:
@@ -409,7 +438,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

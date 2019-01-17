@@ -11,10 +11,12 @@ dependencies:
     - field.field.node.product_showcase.field_display_breadcrumbs
     - field.field.node.product_showcase.field_display_contact_footer
     - field.field.node.product_showcase.field_display_contact_sidebar
+    - field.field.node.product_showcase.field_enable_jump_nav
     - field.field.node.product_showcase.field_float_number_tags
     - field.field.node.product_showcase.field_meta_tags
     - field.field.node.product_showcase.field_probe_number_tags
     - field.field.node.product_showcase.field_product_refer_weight
+    - field.field.node.product_showcase.field_product_show_hero_autopla
     - field.field.node.product_showcase.field_product_show_hero_bg_image
     - field.field.node.product_showcase.field_product_show_hero_bg_img_p
     - field.field.node.product_showcase.field_product_show_hero_heading
@@ -54,6 +56,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Tabs
+      region: content
     group_basic_information:
       children:
         - title
@@ -69,6 +72,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Basic Information'
+      region: content
     group_hero_banner:
       children:
         - field_product_show_hero_heading
@@ -76,6 +80,7 @@ third_party_settings:
         - field_product_show_hero_bg_image
         - field_product_show_hero_bg_img_p
         - field_product_show_hero_vimeo
+        - field_product_show_hero_autopla
         - field_product_show_hero_plte_cor
       parent_name: group_tabs
       weight: 21
@@ -87,6 +92,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Hero Banner'
+      region: content
     group_components:
       children:
         - field_components
@@ -100,8 +106,10 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Components
+      region: content
     group_misc:
       children:
+        - field_enable_jump_nav
         - field_display_breadcrumbs
         - field_breadcrumb_color
         - field_display_contact_sidebar
@@ -111,12 +119,14 @@ third_party_settings:
       weight: 23
       format_type: tab
       format_settings:
-        id: ''
-        classes: ''
+        label: Misc
         formatter: closed
         description: ''
         required_fields: true
+        id: ''
+        classes: ''
       label: Misc
+      region: content
     group_taxonomy:
       children:
         - field_product_tags
@@ -135,6 +145,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Taxonomy
+      region: content
     group_color_reference:
       children:
         - field_color_variation
@@ -148,6 +159,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Color Reference'
+      region: content
 id: node.product_showcase.default
 targetEntityType: node
 bundle: product_showcase
@@ -155,12 +167,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_breadcrumb_color:
-    weight: 131
+    weight: 3
     settings:
       placeholder_color: ''
       placeholder_opacity: ''
@@ -168,13 +180,13 @@ content:
     type: color_field_widget_default
     region: content
   field_color_variation:
-    weight: 143
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_components:
-    weight: 129
+    weight: 5
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -186,59 +198,79 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_contact_footer_form:
-    weight: 139
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_display_breadcrumbs:
-    weight: 130
+    weight: 2
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_display_contact_footer:
-    weight: 133
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_display_contact_sidebar:
-    weight: 132
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_enable_jump_nav:
+    weight: 1
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_float_number_tags:
-    weight: 143
-    settings: {  }
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_buttons
+    type: entity_reference_autocomplete_tags
     region: content
   field_meta_tags:
-    weight: 142
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_probe_number_tags:
-    weight: 142
-    settings: {  }
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_buttons
+    type: entity_reference_autocomplete_tags
     region: content
   field_product_refer_weight:
-    weight: 139
+    weight: 7
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
+  field_product_show_hero_autopla:
+    weight: 17
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_product_show_hero_bg_image:
-    weight: 125
+    weight: 14
     settings:
       entity_browser: browse_files_modal
       field_widget_remove: true
@@ -252,14 +284,14 @@ content:
     type: entity_browser_file
     region: content
   field_product_show_hero_bg_img_p:
-    weight: 126
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_product_show_hero_heading:
-    weight: 123
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -267,7 +299,7 @@ content:
     type: string_textfield
     region: content
   field_product_show_hero_image:
-    weight: 124
+    weight: 13
     settings:
       entity_browser: browse_files_modal
       field_widget_remove: true
@@ -281,7 +313,7 @@ content:
     type: entity_browser_file
     region: content
   field_product_show_hero_plte_cor:
-    weight: 128
+    weight: 18
     settings:
       placeholder_color: ''
       placeholder_opacity: ''
@@ -289,7 +321,7 @@ content:
     type: color_field_widget_default
     region: content
   field_product_show_hero_vimeo:
-    weight: 127
+    weight: 16
     settings:
       size: 60
       placeholder: ''
@@ -297,7 +329,7 @@ content:
     type: string_textfield
     region: content
   field_product_tags:
-    weight: 138
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -306,14 +338,14 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_solution_refer_weight:
-    weight: 141
+    weight: 9
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_solution_tags:
-    weight: 140
+    weight: 8
     settings:
       match_operator: CONTAINS
       size: 60
@@ -343,9 +375,16 @@ content:
     third_party_settings: {  }
     type: entity_browser_file
     region: content
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -353,21 +392,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 5
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 8
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
@@ -380,7 +419,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -388,7 +427,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

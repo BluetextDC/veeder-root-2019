@@ -5,11 +5,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.product_detail.field_breadcrumb_color
+    - field.field.node.product_detail.field_color_variation
     - field.field.node.product_detail.field_components
+    - field.field.node.product_detail.field_contact_footer_form
     - field.field.node.product_detail.field_display_breadcrumbs
     - field.field.node.product_detail.field_display_contact_footer
     - field.field.node.product_detail.field_display_contact_sidebar
     - field.field.node.product_detail.field_enable_jump_nav
+    - field.field.node.product_detail.field_float_number_tags
     - field.field.node.product_detail.field_generic_hero_cta
     - field.field.node.product_detail.field_generic_hero_cta_display
     - field.field.node.product_detail.field_generic_hero_description
@@ -18,7 +21,11 @@ dependencies:
     - field.field.node.product_detail.field_generic_hero_image_paralla
     - field.field.node.product_detail.field_generic_hero_plate_color
     - field.field.node.product_detail.field_generic_hero_vimeo
+    - field.field.node.product_detail.field_meta_tags
+    - field.field.node.product_detail.field_probe_number_tags
+    - field.field.node.product_detail.field_product_refer_weight
     - field.field.node.product_detail.field_product_tags
+    - field.field.node.product_detail.field_solution_refer_weight
     - field.field.node.product_detail.field_solution_tags
     - field.field.node.product_detail.field_summary
     - field.field.node.product_detail.field_taxonomy_image
@@ -37,11 +44,14 @@ content:
     region: content
 hidden:
   field_breadcrumb_color: true
+  field_color_variation: true
   field_components: true
+  field_contact_footer_form: true
   field_display_breadcrumbs: true
   field_display_contact_footer: true
   field_display_contact_sidebar: true
   field_enable_jump_nav: true
+  field_float_number_tags: true
   field_generic_hero_cta: true
   field_generic_hero_cta_display: true
   field_generic_hero_description: true
@@ -50,7 +60,12 @@ hidden:
   field_generic_hero_image_paralla: true
   field_generic_hero_plate_color: true
   field_generic_hero_vimeo: true
+  field_meta_tags: true
+  field_probe_number_tags: true
+  field_product_refer_weight: true
   field_product_tags: true
+  field_solution_refer_weight: true
   field_solution_tags: true
   field_summary: true
   field_taxonomy_image: true
+  langcode: true

@@ -2,8 +2,8 @@ uuid: 9f8293fe-9ad0-43cb-86ff-7fb30b946a34
 langcode: en
 status: true
 dependencies:
-  config:
-    - system.menu.language-switcher
+  module:
+    - menu_link_content
 id: menu_link_content.language-switcher.default
 targetEntityType: menu_link_content
 bundle: language-switcher
@@ -14,4 +14,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
