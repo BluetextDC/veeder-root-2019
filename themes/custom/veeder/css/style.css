@@ -868,6 +868,12 @@ body .fancybox-slide--image .fancybox-content{background-color: #fff;}
 .product-selection-form select{padding: 0 20px;}
 .product-selection-form input[type="text"]{padding-left: 20px;padding-right: 20px;}
 .product-selection-form .form-item{padding-bottom: 20px;}
+.product-selection-form .form-item.disable-fields{opacity: 0.5;}
 .product-selection-form .button{margin: auto;display: block;}
 .fancy-popup-form-submit {width: 70% !important;}
 .datafilteredvalues{display: none !important;}
+
+.play-icon, 
+.inner-banner .bg-img span,
+.video-part .c-video .play-icon{color: #000;border-radius: 100%;box-shadow: 0px 0px 16px 4px #fff}
+.selection-module--default .heading:not(.no-separator){color: #000;}

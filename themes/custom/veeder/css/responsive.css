@@ -378,6 +378,8 @@
     .language-dropdown {display: none;}
     .search-block-form.search-part {display: none;}
     .hbspt-form .hs-form-field {width: 100%;}
+    
+    #parallax {background-attachment: initial !important; }
 
 }
 /* ----- 5. X-Small devices ≤480 ----- */
