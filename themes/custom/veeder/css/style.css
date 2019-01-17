@@ -875,5 +875,5 @@ body .fancybox-slide--image .fancybox-content{background-color: #fff;}
 
 .play-icon, 
 .inner-banner .bg-img span,
-.video-part .c-video .play-icon{color: #000;border-radius: 100%;box-shadow: 0px 0px 16px 4px #fff}
+.video-part .c-video .play-icon{color: #fff; border-radius: 100%; filter: drop-shadow(3px 3px 3px #494949)}
 .selection-module--default .heading:not(.no-separator){color: #000;}
