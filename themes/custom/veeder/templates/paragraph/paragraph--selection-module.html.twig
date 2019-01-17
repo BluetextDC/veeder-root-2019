@@ -48,7 +48,7 @@
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} id="{{ content.field_wysiwyg_text_id.0 }}">
+  <section{{ attributes.addClass(classes) }} id="{{ paragraph.field_selection_id.0.value|trim|replace(' ', '-') }}">
     {% block content %}
       <div class="container">
         <div class="heading text-center">
@@ -57,7 +57,7 @@
         </div>
         <div id="__htmlBaseLink">
         </div>
-        
+
         {# Load ajax response here #}
         <div class="filter-form-data-container">
         </div>

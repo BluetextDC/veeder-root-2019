@@ -53,7 +53,7 @@
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} style="background-color: {{ paragraph.field_4_column_taxonomy_bg_color.0.color }};" id="{{ content.field_4_column_taxonomy_cta_id.0 }}">
+  <section{{ attributes.addClass(classes) }} style="background-color: {{ paragraph.field_4_column_taxonomy_bg_color.0.color }};" id="{{ paragraph.field_4_column_taxonomy_cta_id.0.value|trim|replace(' ', '-') }}">
     <div class="container" style="color: {{ paragraph.field_4_column_taxonomy_head_col.0.color }}">
       {% block content %}
         {% if content.field_4_column_taxonomy_heading|render %}
@@ -62,7 +62,7 @@
               {{ content.field_4_column_taxonomy_heading.0 }}
             </h2>
           </div>
-        {% endif %} 
+        {% endif %}
         {{ content.field_4_column_taxonomy_view }}
       {% endblock %}
     </div>

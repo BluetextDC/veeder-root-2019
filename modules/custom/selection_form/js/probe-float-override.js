@@ -12,6 +12,10 @@
   $('.datafilteredvalues').each(function(index, el) {
     $(this).hide();
   });
+  $('#__htmlprbProductGroup').prepend('<option selected>--empty list--</option>');
+  $('#__htmlprbProduct').attr('disabled', 'disabled');
+  $('#__htmlprbProduct').find('option').remove().end().append('<option>--empty list--</option>');
+  $('.disable-fields').css('background', 'red');
   $('#product-selection-form .form-submit').hide();
   $('#__htmlprbMeasurement').change(function(event) {
       $('.datafilteredvalues').each(function(index, el) {
@@ -31,16 +35,15 @@
     }
   });
   $('.js-form-type-select').change(function(event) {
-    $(this).each(function(index, el) {
-      if ($(this).children('select').is(':disabled') && $(this).children('select').children("option").is(':disabled')) {
-        $(this).removeClass('disable-fields')
-      }
-      else {
-        $(this).removeClass('disable-fields');
+    // if ($(this).next().hasClass('disable-fields')) {
+    //   $(this).next().removeClass('disable-fields');
+    // }
+    $('.js-form-type-select').each(function(index, el) {
+      if ($(this).find('select').find('option').val() != '--empty list--') {
+         $(this).removeClass('disable-fields');
       }
     });
-    if ($(this).next().hasClass('disable-fields')) {
-      $(this).next().removeClass('disable-fields');
-    }
+
+    
   });
 })(jQuery, window, Drupal);

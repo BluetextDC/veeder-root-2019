@@ -48,7 +48,7 @@ set classes = [
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} id="{{ content.field_documentation_id.0 }}">
+  <section{{ attributes.addClass(classes) }} id="{{ paragraph.field_documentation_id.0.value|trim|replace(' ', '-') }}">
     <div class="container">
       {% block content %}
         <div class="doc-part">

@@ -56,20 +56,17 @@ set classes = [
   {% set classes = classes|merge(['side-sec-wrap']) %}
 {% endif %}
 #}
+
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} id="{{ content.field_wysiwyg_text_id.0 }}">
+  <section{{ attributes.addClass(classes) }} id="{{ paragraph.field_wysiwyg_text_id.0.value|trim|replace(' ', '-') }}">
   {% block content %}
-    <div class="container"> 
+    <div class="container">
       <div class="inner-wrap d-flex flex-wrap">
-        {# {% if paragraph.id() == 11 %} #}
-          <div class="left-side-part">
-        {# {% endif %} #}
+        <div class="left-side-part">
           <div class="e-desc">
             {{ content.field_wysiwyg_text.0|raw }}
           </div>
-        {# {% if paragraph.id() == 11 %} #}
-          </div>
-        {# {% endif %} #}
+        </div>
       </div>
     </div>
   {% endblock %}

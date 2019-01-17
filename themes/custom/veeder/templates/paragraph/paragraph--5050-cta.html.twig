@@ -54,7 +54,7 @@ set classes = [
 {% endif %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} id="{{ content.field_5050_cta_id.0 }}">
+  <section{{ attributes.addClass(classes) }} id="{{ paragraph.field_5050_cta_id.0.value|trim|replace(' ', '-') }}">
   {% block content %}
     <div class="container">
       <div class="row align-items-center">
@@ -76,12 +76,12 @@ set classes = [
           </div>
           <div class="col-md-6 {% if (content.field_5050_image|render is not empty) and (content.field_5050_vimeo_url|render is empty) %}img-part{% else %}video-part{% endif %}">
             <div class="inner-wrap">
-              {% if (content.field_5050_cta_vimeo_player.0["#markup"] == 1) and (content.field_5050_vimeo_url|render is not empty) %}
+              {% if (content.field_5050_cta_vimeo_player.0["#markup"] == 0) and (content.field_5050_vimeo_url|render is not empty) %}
                 <a href="{{ content.field_5050_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
                   <span class="play-icon ic-play-icon"></span>
                 </a>
-              {% elseif (content.field_5050_vimeo_url|render is not empty) and (content.field_5050_cta_vimeo_player.0["#markup"] == 0) and (content.field_5050_image|render is empty) %}
-                <a href="javascript:;" class="c-video">                                            
+              {% elseif (content.field_5050_vimeo_url|render is not empty) and (content.field_5050_cta_vimeo_player.0["#markup"] == 1) and (content.field_5050_image|render is empty) %}
+                <a href="javascript:;" class="c-video">
                   <iframe src="{{ content.field_5050_vimeo_url.0 }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                   <span class="play-icon ic-play-icon"></span>
                 </a>
@@ -101,12 +101,12 @@ set classes = [
         {% else %}
           <div class="col-md-6 {% if (content.field_5050_image|render is not empty) and (content.field_5050_vimeo_url|render is empty) %}img-part{% else %}video-part{% endif %}">
             <div class="inner-wrap">
-              {% if (content.field_5050_cta_vimeo_player.0["#markup"] == 1) and (content.field_5050_vimeo_url|render is not empty) %}
+              {% if (content.field_5050_cta_vimeo_player.0["#markup"] == 0) and (content.field_5050_vimeo_url|render is not empty) %}
                 <a href="{{ content.field_5050_vimeo_url.0 }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb }}) no-repeat center / cover">
                   <span class="play-icon ic-play-icon"></span>
                 </a>
-              {% elseif (content.field_5050_vimeo_url|render is not empty) and (content.field_5050_cta_vimeo_player.0["#markup"] == 0) and (content.field_5050_image|render is empty) %}
-                <a href="javascript:;" class="c-video">                                            
+              {% elseif (content.field_5050_vimeo_url|render is not empty) and (content.field_5050_cta_vimeo_player.0["#markup"] == 1) and (content.field_5050_image|render is empty) %}
+                <a href="javascript:;" class="c-video">
                   <iframe src="{{ content.field_5050_vimeo_url.0 }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                   <span class="play-icon ic-play-icon"></span>
                 </a>
@@ -120,7 +120,7 @@ set classes = [
                     {{ content.field_5050_image.0 }}
                   </div>
                 </div>
-              {%endif%}
+              {% endif %}
             </div>
           </div>
           <div class="col-md-6 text-part">

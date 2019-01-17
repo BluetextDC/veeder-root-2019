@@ -48,7 +48,7 @@ set classes = [
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} id="{{ content.field_5050_layered_cta_id.0 }}">
+  <section{{ attributes.addClass(classes) }}{% if content.field_5050_layered_cta_id|render is not empty %}  id="{{ paragraph.field_5050_layered_cta_id.0.value|trim|replace(' ', '-') }}"{% endif %}>
   {% block content %}
     <div class="container">
       <div class="text-img-sec sec40-60">

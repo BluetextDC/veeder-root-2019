@@ -68,7 +68,7 @@
 {% endfor %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} id="{{ content.field_features_cta_block_id.0 }}" style="background-color: {{ content.field_features_cta_block_color.0 }};">
+  <section{{ attributes.addClass(classes) }} id="{{ paragraph.field_features_cta_block_id.0.value|trim|replace(' ', '-') }}" style="background-color: {{ content.field_features_cta_block_color.0 }};">
     <div class="container">
       {% block content %}
         {% if content.field_features_cta_block_heading|render is not empty %}
@@ -80,15 +80,15 @@
           {% for j, feature_item in feature_items %}
             <div class="col-md-4 item">
               <div class="item-wrap bg-white">
-                {% if (feature_item.inline_play == '1') and (feature_item.vimeo_url is not empty) and (feature_item.image_uri is empty) %}
+                {% if (feature_item.inline_play == '0') and (feature_item.vimeo_url is not empty) and (feature_item.image_uri is empty) %}
                   <figure>
                     <a href="{{ feature_item.vimeo_url }}" data-fancybox class="c-video" style="background: url({{ para_vimeo_thumb[j] }}) no-repeat center / cover">
                       <span class="play-icon ic-play-icon"></span>
                     </a>
                   </figure>
-                {% elseif (feature_item.vimeo_url is not empty) and (feature_item.inline_play == '0') and (feature_item.image_uri is empty) %}
+                {% elseif (feature_item.vimeo_url is not empty) and (feature_item.inline_play == '1') and (feature_item.image_uri is empty) %}
                   <figure>
-                    <a href="javascript:;" class="c-video">                                            
+                    <a href="javascript:;" class="c-video">
                       <iframe src="{{ feature_item.vimeo_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                     </a>
                   </figure>

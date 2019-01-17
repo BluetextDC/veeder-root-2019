@@ -69,7 +69,7 @@
           <div class="container">
             <ul>
               {% for i, menus in jump_menu %}
-                <li><a href="#{{ menus }}">{{ menus|upper|replace('-', ' ') }}</a></li>
+                <li><a href="#{{ menus|trim|replace(' ', '-') }}">{{ menus|trim|upper|replace('-', ' ') }}</a></li>
               {% endfor %}
             </ul>
           </div>

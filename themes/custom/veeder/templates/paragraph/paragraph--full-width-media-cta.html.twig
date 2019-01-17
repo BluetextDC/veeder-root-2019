@@ -47,7 +47,7 @@ set classes = [
 %}
 
 {% block paragraph %}
-  <section{{ attributes.addClass(classes) }} id="{{ content.field_fullwd_media_cta_id.0 }}">
+  <section{{ attributes.addClass(classes) }} id="{{ paragraph.field_fullwd_media_cta_id.0.value|trim|replace(' ', '-') }}">
   {% block content %}
     <div class="container">
       <div class="video-wrap">

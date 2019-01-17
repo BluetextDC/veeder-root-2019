@@ -22,7 +22,7 @@ function veeder_preprocess_page(&$variables) {
     // Return node type on page.
     $variables['node_type'] = $node_data->getType();
     // Retrun Jump Menu.
-    if ($node_data->getType() == 'product_detail') {
+    if ($node_data->getType() == 'product_detail' || $node_data->getType() == 'product_showcase') {
       $paragraph = $node_data->field_components->getValue();
       // Loop through the result set.
       $jump_menu = [];
@@ -125,7 +125,9 @@ function veeder_preprocess_node(&$variables) {
   if ($node_type == 'article') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_listing_vimeo->value)) {
-      $vimeo_thumbnail = veeder_vimeo_thumbnail($node_data->field_blog_listing_vimeo->value);
+      $vimeo_id = veeder_vimeo_urlpattern_match($node_data->field_blog_listing_vimeo->value);
+      $node_data->field_blog_listing_vimeo->value = '//player.vimeo.com/video/' . $vimeo_id;
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -133,7 +135,9 @@ function veeder_preprocess_node(&$variables) {
   if ($node_data->getType() == 'generic_landing' || $node_data->gettype() == 'product_detail' || $node_data->gettype() == 'product_listing') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_generic_hero_vimeo->value)) {
-      $vimeo_thumbnail = veeder_vimeo_thumbnail($node_data->field_generic_hero_vimeo->value);
+      $vimeo_id = veeder_vimeo_urlpattern_match($node_data->field_generic_hero_vimeo->value);
+      $node_data->field_generic_hero_vimeo->value = '//player.vimeo.com/video/' . $vimeo_id;
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -141,7 +145,9 @@ function veeder_preprocess_node(&$variables) {
   if ($node_data->getType() == 'blog_detail') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_blog_detail_vimeo->value)) {
-      $vimeo_thumbnail = veeder_vimeo_thumbnail($node_data->field_blog_detail_vimeo->value);
+      $vimeo_id = veeder_vimeo_urlpattern_match($node_data->field_blog_detail_vimeo->value);
+      $node_data->field_blog_detail_vimeo->value = '//player.vimeo.com/video/' . $vimeo_id;
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -149,7 +155,9 @@ function veeder_preprocess_node(&$variables) {
   if ($node_data->getType() == 'product_showcase') {
     // Hero vimeo thumbnail from vimeo url.
     if (!empty($node_data->field_product_show_hero_vimeo->value)) {
-      $vimeo_thumbnail = veeder_vimeo_thumbnail($node_data->field_product_show_hero_vimeo->value);
+      $vimeo_id = veeder_vimeo_urlpattern_match($node_data->field_product_show_hero_vimeo->value);
+      $node_data->field_product_show_hero_vimeo->value = '//player.vimeo.com/video/' . $vimeo_id;
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
       $variables['vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -224,28 +232,36 @@ function veeder_preprocess_paragraph(&$variables) {
   if ($paragraph_name == '5050_cta') {
     // CTA vimeo thumbnail from vimeo url.
     if (!empty($paragraph->field_5050_vimeo_url->value)) {
-      $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph->field_5050_vimeo_url->value);
+      $vimeo_id = veeder_vimeo_urlpattern_match($paragraph->field_5050_vimeo_url->value);
+      $paragraph->field_5050_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
   elseif ($paragraph_name == '4060_cta') { // 40 60 CTA
     // CTA vimeo thumbnail from vimeo url.
     if (!empty($paragraph->field_4060_cta_vimeo_url->value)) {
-      $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph->field_4060_cta_vimeo_url->value);
+      $vimeo_id = veeder_vimeo_urlpattern_match($paragraph->field_4060_cta_vimeo_url->value);
+      $paragraph->field_4060_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
   elseif ($paragraph_name == '5050_full_width_cta') { // 50 50 Full Width
     // CTA vimeo thumbnail from vimeo url.
     if (!empty($paragraph->field_5050_fullwd_cta_vimeo_url->value)) {
-      $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph->field_5050_fullwd_cta_vimeo_url->value);
+      $vimeo_id = veeder_vimeo_urlpattern_match($paragraph->field_5050_fullwd_cta_vimeo_url->value);
+      $paragraph->field_5050_fullwd_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
   elseif ($paragraph_name == 'full_width_media_cta') { // Full Width Media CTA
     // CTA vimeo thumbnail from vimeo url.
     if (!empty($paragraph->field_fullwd_media_cta_vimeo_url->value)) {
-      $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph->field_fullwd_media_cta_vimeo_url->value);
+      $vimeo_id = veeder_vimeo_urlpattern_match($paragraph->field_fullwd_media_cta_vimeo_url->value);
+      $paragraph->field_fullwd_media_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+      $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
       $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
     }
   }
@@ -255,8 +271,13 @@ function veeder_preprocess_paragraph(&$variables) {
     foreach ($paragraph->field_4_column_add_cta as $key => $child_paragraph) {
       $paragraph_child = Paragraph::load($child_paragraph->target_id);
       if (!empty($paragraph_child->field_column_cta_vimeo_url->value)) {
-        $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph_child->field_column_cta_vimeo_url->value);
+        $vimeo_id = veeder_vimeo_urlpattern_match($paragraph_child->field_column_cta_vimeo_url->value);
+        $paragraph_child->field_column_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
         $four_column_vimeo_url[] = $vimeo_thumbnail;
+      }
+      else {
+        $four_column_vimeo_url[] = '';
       }
     }
     $variables['para_vimeo_thumb'] = $four_column_vimeo_url;
@@ -267,8 +288,13 @@ function veeder_preprocess_paragraph(&$variables) {
     foreach ($paragraph->field_features_cta_add_cta as $key => $child_paragraph) {
       $paragraph_child = Paragraph::load($child_paragraph->target_id);
       if (!empty($paragraph_child->field_feature_cta_vimeo_url->value)) {
-        $vimeo_thumbnail = veeder_vimeo_thumbnail($paragraph_child->field_feature_cta_vimeo_url->value);
+        $vimeo_id = veeder_vimeo_urlpattern_match($paragraph_child->field_feature_cta_vimeo_url->value);
+        $paragraph_child->field_feature_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
         $features_cta_vimeo_url[] = $vimeo_thumbnail;
+      }
+      else {
+        $features_cta_vimeo_url[] = '';
       }
     }
     $variables['para_vimeo_thumb'] = $features_cta_vimeo_url;
@@ -492,25 +518,33 @@ function veeder_find_distributor_form_redirect(&$form, FormStateInterface $form_
   );
 }
 
-/**
- * Get the hero banner large thmbnail using vimeo API v2.
+/*
+ * Match vimeo url patterns.
+ * @return vimeo id after matching patterns of video url.
  */
-function veeder_vimeo_thumbnail($vimeo_url){
+function veeder_vimeo_urlpattern_match($vimeo_url) {
   if (!$vimeo_url) {
     return false;
   }
+  preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/', $vimeo_url, $matches);
+  return $matches[5];
+}
 
-  Parser::preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/', $vimeo_url, $matches);
-  $vimeo_id = $matches[5];
+/**
+ * Get the hero banner large thmbnail using vimeo API v2.
+ */
+function veeder_vimeo_thumbnail($vimeo_id){
   if (!$vimeo_id) {
     return false;
   }
-  $vimeo_data = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vimeo_id.php"));
 
+  $vimeo_data = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vimeo_id.php"));
   if (!$vimeo_data) {
     return false;
   }
-  $video_thumnail = (explode("_640", $vimeo_data[0]['thumbnail_large']));
-  $video_thumnail_url = $video_thumnail[0] . $video_thumnail[1];
-  return $video_thumnail_url;
+
+  $video_thumbnail = (explode("_640", $vimeo_data[0]['thumbnail_large']));
+  $video_thumbnail_url = $video_thumbnail[0] . $video_thumbnail[1];
+
+  return $video_thumbnail_url;
 }

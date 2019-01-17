@@ -400,7 +400,7 @@ class SelectionForm extends FormBase {
       }
 
       $match_output = '<div class="product-list fancy-popup-form-submit">';
-        $match_output .= '<h3>' . $lighbox_title . '</h3>';
+        $match_output .= '<h2 class="text-center">' . $lighbox_title . '</h2>';
         $match_output .= '<div class="row">';
           foreach ($content_types as $ids => $node_detail) {
             $node_load = Node::load($ids);
@@ -414,6 +414,8 @@ class SelectionForm extends FormBase {
             $node_url = Url::fromRoute('entity.node.canonical', ['node' => $ids], ['absolute' => TRUE])->toString();
 
             $match_output .= '<div class="item col-md-6 col-sm-12 ajax-response">
+                                <div class="h4">Number</div>
+                                <div class="h4"><a href="' . $node_url . '" class="learn-more-link" hreflang="en">Learn More</a></div>
                                 <figure style="height: 150px;">
                                   <a href="' . $node_url . '" class="clickable-image">
                                     <img src="' . $taxonomy_image . '" alt="' . $node_detail . '">
@@ -422,7 +424,6 @@ class SelectionForm extends FormBase {
                                 <div class="p-data">
                                     <span class="hr-line"></span>
                                     <h4 class="h6">' . $node_detail . '</h4>
-                                    <a href="' . $node_url . '" class="btn-link" hreflang="en">Learn More</a>
                                 </div>
                               </div>';
           }

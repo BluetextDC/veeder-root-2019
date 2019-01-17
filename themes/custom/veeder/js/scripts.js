@@ -57,10 +57,12 @@
             element.siblings('li').find('li').removeClass('is-open');
             element.siblings('li').find('ul').slideUp(200);
         }
-    });    
+    });
+    // Top level menu link replace with javascript.
+    $('.main-nav ul.menu-top-level > li > a').attr('href', 'javascript:;');
 
     /* location click */ 
- /*   $('.language-dropdown .dropdown-button').on('click', function(){      
+    /* $('.language-dropdown .dropdown-button').on('click', function(){      
         $('.main-header').find('.search-part').removeClass('open');
         $('.main-header').find('.search-bar').slideUp().removeClass('open');
         $(this).parents('.language-dropdown').toggleClass('open');
@@ -259,23 +261,7 @@
         $(this).find('.slick-dots-wrap').prepend($(this).find('.slick-prev.slick-arrow'));
         $(this).find('.slick-dots-wrap').append($(this).find('.slick-next.slick-arrow'));
     });
-    // Convert normal vimeo url to embed url.
-    function parseUrl(url){
-        var vimeoRegex = /(?:vimeo)\.com.*(?:videos|video|channels|)\/([\d]+)/i;
-        var parsed = url.match(vimeoRegex);
-        return "https://player.vimeo.com/video/" + parsed[1];
-    };
-    // Replace ifram URL.
-    $('figure iframe').each(function(index, el) {
-        var vimeo_url = $(this).attr('src');
-        var re = /\/\/(?:www\.)?vimeo.com\/([0-9a-z\-_]+)/i;
-        var matches = vimeo_url.match(re);
-        if (matches != null) {
-            console.log(vimeo_url);
-            var embed_url = parseUrl(vimeo_url);
-            $(this).attr('src', embed_url);
-        }
-    });
+
     // Responsive table.
     $('.responsive-table').basictable();
 })(jQuery, Drupal);
