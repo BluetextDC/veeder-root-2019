@@ -1,0 +1,475 @@
+uuid: 06d1eb91-fe2e-4d5f-bd93-511b096d525d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_add_column_cta
+    - field.storage.paragraph.field_4_column_add_cta
+    - field.storage.node.field_add_starting_point
+    - field.storage.node.body
+    - field.storage.node.field_body
+    - field.storage.node.field_homepage_hero_subheading
+    - field.storage.node.field_generic_hero_description
+    - field.storage.node.field_blog_listing_description
+    - field.storage.node.field_blog_detail_heading
+    - field.storage.node.field_blog_listing_heading
+    - field.storage.node.field_generic_hero_heading
+    - field.storage.node.field_homepage_hero_heading
+    - field.storage.node.field_product_show_hero_heading
+    - field.storage.node.field_summary
+    - field.storage.paragraph.field_selection_body
+    - field.storage.paragraph.field_5050_cta_callout
+    - field.storage.paragraph.field_5050_fullwd_cta_callout
+    - field.storage.paragraph.field_4060_cta_callout
+    - field.storage.paragraph.field_full_width_cta_description
+    - field.storage.paragraph.field_fullwd_media_cta_descrptin
+    - field.storage.paragraph.field_feature_cta_description
+    - field.storage.paragraph.field_5050_layered_cta_descripti
+    - field.storage.paragraph.field_column_cta_description
+    - field.storage.paragraph.field_4060_cta_description
+    - field.storage.paragraph.field_add_documentation_doc_file
+    - field.storage.paragraph.field_features_cta_block_heading
+    - field.storage.paragraph.field_inline_cta_heading
+    - field.storage.paragraph.field_selection_heading
+    - field.storage.paragraph.field_full_width_cta_heading
+    - field.storage.paragraph.field_fullwd_media_cta_heading
+    - field.storage.paragraph.field_4_column_taxonomy_heading
+    - field.storage.paragraph.field_documentation_sec_heading
+    - field.storage.paragraph.field_documentation_heading
+    - field.storage.paragraph.field_column_cta_heading
+    - field.storage.paragraph.field_5050_layered_cta_heading
+    - field.storage.paragraph.field_5050_fullwd_cta_heading
+    - field.storage.paragraph.field_5050_cta_heading
+    - field.storage.paragraph.field_4060_cta_heading
+    - field.storage.paragraph.field_4_column_taxonomy_head_col
+    - search_api.server.search_server
+  module:
+    - paragraphs
+    - node
+    - taxonomy
+    - search_api
+id: search_index
+name: 'Search Index'
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  default_langcode:
+    label: 'Default translation'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: default_langcode
+    type: boolean
+    dependencies:
+      module:
+        - taxonomy
+  field_4060_cta_callout:
+    label: Callout
+    datasource_id: 'entity:paragraph'
+    property_path: field_4060_cta_callout
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_4060_cta_callout
+  field_4060_cta_description:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_4060_cta_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_4060_cta_description
+  field_4060_cta_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_4060_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_4060_cta_heading
+  field_4_column_add_cta:
+    label: 'Add CTA » Paragraph » Add CTA'
+    datasource_id: 'entity:node'
+    property_path: 'field_add_column_cta:entity:field_4_column_add_cta'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_add_column_cta
+        - field.storage.paragraph.field_4_column_add_cta
+      module:
+        - paragraphs
+  field_4_column_taxonomy_head_col:
+    label: 'Heading and Body Color'
+    datasource_id: 'entity:paragraph'
+    property_path: field_4_column_taxonomy_head_col
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_4_column_taxonomy_head_col
+  field_4_column_taxonomy_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_4_column_taxonomy_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_4_column_taxonomy_heading
+  field_5050_cta_callout:
+    label: Callout
+    datasource_id: 'entity:paragraph'
+    property_path: field_5050_cta_callout
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_5050_cta_callout
+  field_5050_cta_callout_1:
+    label: Callout
+    datasource_id: 'entity:paragraph'
+    property_path: field_5050_cta_callout
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_5050_cta_callout
+  field_5050_cta_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_5050_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_5050_cta_heading
+  field_5050_fullwd_cta_callout:
+    label: Callout
+    datasource_id: 'entity:paragraph'
+    property_path: field_5050_fullwd_cta_callout
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_5050_fullwd_cta_callout
+  field_5050_fullwd_cta_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_5050_fullwd_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_5050_fullwd_cta_heading
+  field_5050_layered_cta_descripti:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_5050_layered_cta_descripti
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_5050_layered_cta_descripti
+  field_5050_layered_cta_descripti_1:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_5050_layered_cta_descripti
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_5050_layered_cta_descripti
+  field_5050_layered_cta_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_5050_layered_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_5050_layered_cta_heading
+  field_add_column_cta:
+    label: 'Add CTA'
+    datasource_id: 'entity:node'
+    property_path: field_add_column_cta
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_add_column_cta
+  field_add_column_cta_1:
+    label: 'Add CTA'
+    datasource_id: 'entity:node'
+    property_path: field_add_column_cta
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_add_column_cta
+  field_add_documentation_doc_file:
+    label: 'Document File'
+    datasource_id: 'entity:paragraph'
+    property_path: field_add_documentation_doc_file
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_add_documentation_doc_file
+  field_add_starting_point:
+    label: 'Add Starting Point'
+    datasource_id: 'entity:node'
+    property_path: field_add_starting_point
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_add_starting_point
+  field_blog_detail_heading:
+    label: Heading
+    datasource_id: 'entity:node'
+    property_path: field_blog_detail_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_blog_detail_heading
+  field_blog_listing_description:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: field_blog_listing_description
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_blog_listing_description
+  field_blog_listing_heading:
+    label: Heading
+    datasource_id: 'entity:node'
+    property_path: field_blog_listing_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_blog_listing_heading
+  field_body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: field_body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_body
+  field_column_cta_description:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_column_cta_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_column_cta_description
+  field_column_cta_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_column_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_column_cta_heading
+  field_documentation_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_documentation_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_documentation_heading
+  field_documentation_sec_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_documentation_sec_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_documentation_sec_heading
+  field_feature_cta_description:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_feature_cta_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_feature_cta_description
+  field_features_cta_block_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_features_cta_block_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_features_cta_block_heading
+  field_full_width_cta_description:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_full_width_cta_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_full_width_cta_description
+  field_full_width_cta_description_1:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_full_width_cta_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_full_width_cta_description
+  field_full_width_cta_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_full_width_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_full_width_cta_heading
+  field_fullwd_media_cta_descrptin:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_fullwd_media_cta_descrptin
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_fullwd_media_cta_descrptin
+  field_fullwd_media_cta_descrptin_1:
+    label: Description
+    datasource_id: 'entity:paragraph'
+    property_path: field_fullwd_media_cta_descrptin
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_fullwd_media_cta_descrptin
+  field_fullwd_media_cta_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_fullwd_media_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_fullwd_media_cta_heading
+  field_generic_hero_description:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: field_generic_hero_description
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_generic_hero_description
+  field_generic_hero_heading:
+    label: Heading
+    datasource_id: 'entity:node'
+    property_path: field_generic_hero_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_generic_hero_heading
+  field_homepage_hero_heading:
+    label: Heading
+    datasource_id: 'entity:node'
+    property_path: field_homepage_hero_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_homepage_hero_heading
+  field_homepage_hero_subheading:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: field_homepage_hero_subheading
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_homepage_hero_subheading
+  field_homepage_hero_subheading_1:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: field_homepage_hero_subheading
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_homepage_hero_subheading
+  field_inline_cta_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_inline_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_inline_cta_heading
+  field_inline_cta_heading_1:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_inline_cta_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_inline_cta_heading
+  field_product_show_hero_heading:
+    label: Heading
+    datasource_id: 'entity:node'
+    property_path: field_product_show_hero_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_product_show_hero_heading
+  field_selection_body:
+    label: Body
+    datasource_id: 'entity:paragraph'
+    property_path: field_selection_body
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_selection_body
+  field_selection_heading:
+    label: Heading
+    datasource_id: 'entity:paragraph'
+    property_path: field_selection_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_selection_heading
+  field_summary:
+    label: Summary
+    datasource_id: 'entity:node'
+    property_path: field_summary
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_summary
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:paragraph':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:taxonomy_term':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: search_server
