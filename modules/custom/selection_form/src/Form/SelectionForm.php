@@ -428,11 +428,11 @@ class SelectionForm extends FormBase {
               }
               if ($keys == 0) {
                 $probe_term_detail = Term::load($node_load->get('field_probe_number_tags')->getValue()[0]['target_id']);
-                $numbers = $this->t('Probe Part Number: ') . $probe_term_detail->getName();
+                $numbers = $this->t('Probe Part Number: ') . $form_state->getValue('probe_part_number');
               }
               else {
                 $float_term_detail = Term::load($node_load->get('field_float_number_tags')->getValue()[0]['target_id']);
-                $numbers = $this->t('Float Part Number: ') . $float_term_detail->getName();
+                $numbers = $this->t('Float Part Number: ') . $form_state->getValue('float_part_number');
               }
 
               $node_url = Url::fromRoute('entity.node.canonical', ['node' => $node_id], ['absolute' => TRUE])->toString();
@@ -457,7 +457,9 @@ class SelectionForm extends FormBase {
       }
       else {
         $match_output = '<div class="product-list fancy-popup-form-submit">';
-          $match_output .= '<h3>' . $this->t('Match Not found'). '</h3>';
+          $match_output .= '<div class="ajax-response">';
+            $match_output .= '<h3>' . $this->t('Match Not found'). '</h3>';
+          $match_output .= '</div>';
         $match_output .= '</div>';
       }
       $response->addCommand( new HtmlCommand('.filter-form-data-container', $match_output));

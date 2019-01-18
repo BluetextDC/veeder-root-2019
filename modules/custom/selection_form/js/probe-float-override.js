@@ -8,7 +8,7 @@
       }
     }
   }
-  $('#__htmlprbProductGroup').prepend('<option selected>--empty list--</option>');
+  $('#__htmlprbProductGroup').prepend('<option selected>--Please Select--</option>');
   $('#__htmlprbProduct').attr('disabled', 'disabled');
   $('#__htmlprbProduct').find('option').remove().end().append('<option>--empty list--</option>');
   $('.disable-fields').css('background', 'red');
