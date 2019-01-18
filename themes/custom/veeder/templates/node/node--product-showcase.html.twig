@@ -95,7 +95,7 @@
         </div>
         <div class="bg-img mobile-banner-img"{% if content.field_product_show_hero_bg_image_paralla.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_product_show_hero_bg_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
         </div>
-      {% elseif (content.field_product_show_hero_bg_image|render is not empty) and (content.field_product_show_hero_bg_image|render is empty) %}
+      {% elseif (content.field_product_show_hero_bg_image|render is not empty) and (content.field_product_show_hero_vimeo|render is empty) %}
         <div class="bg-img"{% if content.field_product_show_hero_bg_img_p.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_product_show_hero_bg_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
         </div>
       {% endif %}
