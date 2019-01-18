@@ -10,7 +10,7 @@ field_name: field_generic_hero_video_autopla
 entity_type: node
 bundle: product_detail
 label: 'Hero Video Autoplay'
-description: ''
+description: 'If you check this checkbox you must need to add hero banner image(For the responsive/mobile image).'
 required: false
 translatable: true
 default_value:

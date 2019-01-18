@@ -8,13 +8,14 @@ dependencies:
     - field.storage.node.field_body
     - field.storage.node.field_components
     - field.storage.paragraph.field_selection_body
+    - field.storage.paragraph.field_5050_cta_description
     - field.storage.node.field_generic_hero_description
     - field.storage.node.field_homepage_hero_subheading
     - field.storage.node.field_blog_listing_description
     - field.storage.node.field_float_number_tags
-    - field.storage.node.field_blog_listing_heading
     - field.storage.node.field_generic_hero_heading
     - field.storage.node.field_homepage_hero_heading
+    - field.storage.node.field_blog_listing_heading
     - field.storage.node.field_blog_detail_heading
     - field.storage.node.field_product_show_hero_heading
     - field.storage.node.field_probe_number_tags
@@ -41,6 +42,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.body
+  field_5050_cta_description:
+    label: 'Components » Paragraph » Description'
+    datasource_id: 'entity:node'
+    property_path: 'field_components:entity:field_5050_cta_description'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_components
+        - field.storage.paragraph.field_5050_cta_description
+      module:
+        - paragraphs
   field_blog_author:
     label: Author
     datasource_id: 'entity:node'

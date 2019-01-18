@@ -40,6 +40,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - workbench_moderation
 third_party_settings:
   field_group:
     group_tabs:
@@ -241,7 +242,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     region: content
   field_generic_hero_cta:
     weight: 21
@@ -338,7 +339,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     region: content
   field_product_refer_weight:
     weight: 8
@@ -394,13 +395,6 @@ content:
     third_party_settings: {  }
     type: entity_browser_file
     region: content
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
   path:
     type: path
     weight: 5
