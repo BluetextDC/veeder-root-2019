@@ -411,6 +411,7 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .hero-section .home-banner .banner-caption .heading *{color: #fff;}
 .hero-section .home-banner .banner-heading{max-width: 730px; margin: 0 auto; padding: 40px 90px;}
 .hero-section .home-banner .banner-heading p{font-size: 18px; color: #fff;margin-bottom: 1.5em;}
+.hero-section .home-banner .banner-heading .heading:after{margin-left: auto; margin-right: auto;}
 .hero-section .home-banner .banner-caption .verticle-line{width: 1px; height: 206px; background-color: #fff; display: block; margin: 25px auto;flex: 1 0 auto;}
 .heading{display: block;}
 .heading:not(.no-separator){position: relative; margin-bottom: 30px;color: #fff}
@@ -436,6 +437,9 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .inner-banner .bg-img{padding-top: calc(29 / 60 * 100%); position: relative;display: block; width: 100%;}
 .inner-banner .bg-img span{color: #fff;}
 .inner-banner .bg-img:before{content: ""; width: 100%; height: 100%; position: absolute; top: 0; left: 0; /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 100%, transparent); */ pointer-events: none;}
+.inner-banner .vimeo-bg-video{display: block;position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; padding-top: 57%;}
+.inner-banner .vimeo-bg-video iframe{min-width: 100%; /*width: 265vh;*/ width: 225vw; height: 100%; position: absolute; left: 50%; top: 50%; margin: 0 auto; display: block; -webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);max-width: none;}
+.inner-banner .bg-img.mobile-banner-img{display: none;}
 #block-veeder-breadcrumbs .breadcrumb-nohero {position: relative; top: 0px; min-height: 40px;}
 .inner-banner .banner-caption{position: absolute; z-index: 1; top: 50%; left: 0;width: auto; /*max-width: 43.5vw;*/ max-width: 590px; padding: 50px 50px; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);transform: translateY(-50%); /*padding-left: calc((100% - 1290px) / 2);*/}
 .inner-banner .bg-dark-blue h1{color: #fff;}
@@ -443,7 +447,6 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .banner-caption h1{color: #000; text-transform: uppercase; /*font-size: 3.15vw;*/}
 .banner-caption .heading:not(.no-separator){margin-bottom: 20px;}
 .banner-caption .heading:after{margin-left: 0;}
-.hero-section .home-banner .banner-heading .heading:after{margin-left: auto; margin-right: auto;}
 .banner-caption h1:last-child{margin-bottom: 0;}
 .banner-caption .caption-wrap{/*max-width: 470px;*/}
 .inner-banner .banner-caption .btn{margin-top: 20px;}

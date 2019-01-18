@@ -89,7 +89,7 @@
     <div class="home-banner">
       <div id="home-video-loader"><img src="{{ base_path ~ directory }}/images/video-loader.gif" alt="image-loader"></div>
       <div class="vimeo-bg-video">
-        <iframe src="{{ content.field_homepage_hero_vimeo.0 }}?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="{{ node.field_homepage_hero_vimeo.0.value }}?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
       <div class="bg-img mobile-banner-img"{% if content.field_homepage_hero_image_parall.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ file_url(content.field_homepage_hero_image['#items'].entity.uri.value) }}) no-repeat center / cover;">
       </div>

@@ -342,6 +342,8 @@
     .full-img-text-sec .text-part + .video-part{padding-right: 0;margin-bottom: 0;}
     .hero-section .home-banner .vimeo-bg-video{display: none;}
     .hero-section .home-banner .bg-img.mobile-banner-img{display: block;}
+    .inner-banner .vimeo-bg-video{display: none;}
+    .inner-banner .bg-img.mobile-banner-img{display: block;}
     .features-list .item .item-wrap figure{display: none;}
     #home-video-loader{display: none;}
     .hbspt-form .hs-form-field {width: 100%;}
