@@ -16,6 +16,7 @@ use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Url;
+use Drupal\Component\Utility\Unicode;
 
 class SelectionForm extends FormBase {
 
@@ -349,8 +350,9 @@ class SelectionForm extends FormBase {
   public function setMessage(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
     if (!empty($form_state->getValue('probe_part_number')) && !empty($form_state->getValue('float_part_number'))) {
-      $form_probe_part = substr($form_state->getValue('probe_part_number'), 0, strrpos($form_state->getValue('probe_part_number'), '-'));
-      $form_float_part = substr($form_state->getValue('float_part_number'), 0, strrpos($form_state->getValue('float_part_number'), '-'));
+      $form_probe_part = Unicode::substr($form_state->getValue('probe_part_number'), 0, -2);
+      $form_float_part = Unicode::substr($form_state->getValue('float_part_number'), 0, -2);
+
       $content_types = ['product_detail', 'product_listing', 'product_showcase'];
       $nids = [];
       foreach ($content_types as $bundle) {
@@ -361,32 +363,45 @@ class SelectionForm extends FormBase {
       foreach ($nids as $nid) {
         $node_objects[] =  \Drupal\node\Entity\Node::loadMultiple($nid);
       }
-      $content_types = [];
+      $probe_content = [];
+      $float_content = [];
       foreach($node_objects as $node_object) {
+        $node_collection = [];
         foreach ($node_object as $node) {
           $probe_number_ids = $node->get('field_probe_number_tags')->getValue();
           if (!empty($probe_number_ids)) {
             foreach ($probe_number_ids as $pid => $probe_number_id) {
               $probe_term = Term::load($probe_number_ids[$pid]['target_id']);
               $probe_number_name = $probe_term->getName();
-              if ($form_probe_part == $probe_number_name) {
-                $content_types[$node->id()] = $node->label();
+              if (preg_match('/^' . $form_probe_part . '/', $probe_number_name)) {
+                $probe_content[$node->label()] = $node->id();
               }
-            } 
+            }
           }
           $float_number_ids = $node->get('field_float_number_tags')->getValue();
           if (!empty($float_number_ids)) {
             foreach ($float_number_ids as $fid => $float_number_id) {
               $float_term = Term::load($float_number_ids[$fid]['target_id']);
               $float_number_name = $float_term->getName();
-              if ($form_float_part == $float_number_name) {
-                $content_types[$node->id()] = $node->label();
+              if (preg_match('/^' . $form_float_part . '/', $float_number_name)) {
+                $float_content[$node->label()] = $node->id();
               }
             }
           }
         }
       }
-
+      // Sorting array.
+      ksort($probe_content);
+      ksort($float_content);
+      // Merge both array.
+      $node_content = [];
+      if (!empty($probe_content)) {
+        $node_content[] = reset($probe_content);
+      }
+      if (!empty($float_content)) {
+        $node_content[] = reset($float_content);
+      }
+     
       $current_node = \Drupal::routeMatch()->getParameter('node');
       $paragraph = $current_node->field_components->getValue();
       // Loop through the result set.
@@ -398,37 +413,53 @@ class SelectionForm extends FormBase {
           $lighbox_title = $paragraph_details->field_selection_lightbox_title->value;
         }
       }
+      if (!empty($node_content)) {
+        $match_output = '<div class="product-list fancy-popup-form-submit">';
+          $match_output .= '<h3 class="text-center">' . $lighbox_title . '</h3>';
+          $match_output .= '<div class="row">';
+            foreach ($node_content as $keys => $node_id) {
+              $node_load = Node::load($node_id);
+              $node_title = $node_load->label();
+              if (!empty($node_load->field_taxonomy_image->entity->uri->value)) {
+                $taxonomy_image = file_create_url($node_load->field_taxonomy_image->entity->uri->value);
+              }
+              else {
+                $taxonomy_image = '/sites/default/files/default_images/default-image-product_0.png';
+              }
+              if ($keys == 0) {
+                $probe_term_detail = Term::load($node_load->get('field_probe_number_tags')->getValue()[0]['target_id']);
+                $numbers = $this->t('Probe Part Number: ') . $probe_term_detail->getName();
+              }
+              else {
+                $float_term_detail = Term::load($node_load->get('field_float_number_tags')->getValue()[0]['target_id']);
+                $numbers = $this->t('Float Part Number: ') . $float_term_detail->getName();
+              }
 
-      $match_output = '<div class="product-list fancy-popup-form-submit">';
-        $match_output .= '<h2 class="text-center">' . $lighbox_title . '</h2>';
-        $match_output .= '<div class="row">';
-          foreach ($content_types as $ids => $node_detail) {
-            $node_load = Node::load($ids);
-            if (!empty($node_load->field_taxonomy_image->entity->uri->value)) {
-              $taxonomy_image = file_create_url($node_load->field_taxonomy_image->entity->uri->value);
-            }
-            else {
-              $taxonomy_image = '/sites/default/files/default_images/default-image-product_0.png';
-            }
+              $node_url = Url::fromRoute('entity.node.canonical', ['node' => $node_id], ['absolute' => TRUE])->toString();
 
-            $node_url = Url::fromRoute('entity.node.canonical', ['node' => $ids], ['absolute' => TRUE])->toString();
-
-            $match_output .= '<div class="item col-md-6 col-sm-12 ajax-response">
-                                <div class="h4">Number</div>
-                                <div class="h4"><a href="' . $node_url . '" class="learn-more-link" hreflang="en">Learn More</a></div>
-                                <figure style="height: 150px;">
-                                  <a href="' . $node_url . '" class="clickable-image">
-                                    <img src="' . $taxonomy_image . '" alt="' . $node_detail . '">
-                                  </a>
-                                </figure>
-                                <div class="p-data">
+              $match_output .= '<div class="item col-md-6 col-sm-12 ajax-response">
+                                  <div class="h4 text-center">' . $numbers . '</div>
+                                  <div class="h5 text-center"><a href="' . $node_url . '" class="learn-more-link" hreflang="en">Learn More</a></div>
+                                  <figure style="height: 150px;">
+                                    <a href="' . $node_url . '" class="clickable-image">
+                                      <img src="' . $taxonomy_image . '" alt="' . $node_title . '">
+                                    </a>
+                                  </figure>
+                                  <div class="p-data">
                                     <span class="hr-line"></span>
-                                    <h4 class="h6">' . $node_detail . '</h4>
-                                </div>
-                              </div>';
-          }
+                                    <h4 class="h6">' . $node_title . '</h4>
+                                    <a href="' . $node_url . '" class="btn-link" hreflang="en">Learn More</a>
+                                  </div>
+                                </div>';
+            }
+          $match_output .= '</div>';
         $match_output .= '</div>';
-      $match_output .= '</div>';
+      }
+      else {
+        $match_output = '<div class="product-list fancy-popup-form-submit">';
+          $match_output .= '<h3>' . $this->t('Match Not found'). '</h3>';
+        $match_output .= '</div>';
+      }
       $response->addCommand( new HtmlCommand('.filter-form-data-container', $match_output));
     }
     else {
