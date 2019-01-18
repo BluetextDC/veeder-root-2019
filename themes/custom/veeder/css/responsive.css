@@ -349,6 +349,12 @@
     .hbspt-form .hs-form-field {width: 100%;}
 }
 
+@media screen and (max-width: 812px) {
+    div.search-api-page-block-form *, .ic-search, #block-searchapipagesearchblockform--2 {
+        display: none !important;
+    }
+}
+
 /* ----- 4. Small devices ≤640 ----- */
 @media (max-width:640px) {
     .large-heading h2{font-size: 60px;}
@@ -384,6 +390,11 @@
     #parallax {background-attachment: initial !important; }
 
 }
+
+@media screen and (max-width: 812px) {
+    #search-api-page-block-form input.form-submit { width: 100px; padding: 5px; }
+}
+
 /* ----- 5. X-Small devices ≤480 ----- */
 @media (max-width:480px) {
     .btn{font-size: 12px;}
