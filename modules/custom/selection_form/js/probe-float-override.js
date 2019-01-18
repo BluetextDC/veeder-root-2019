@@ -10,7 +10,7 @@
   }
   $('#__htmlprbProductGroup').prepend('<option selected>--Please Select--</option>');
   $('#__htmlprbProduct').attr('disabled', 'disabled');
-  $('#__htmlprbProduct').find('option').remove().end().append('<option>--empty list--</option>');
+  $('#__htmlprbProduct').find('option').remove().end().append('<option>--Please Select--</option>');
   $('.disable-fields').css('background', 'red');
   $('#product-selection-form .form-submit').hide();
   $('#__htmlprbMeasurement').change(function(event) {
@@ -31,7 +31,7 @@
   });
   $('.js-form-type-select').change(function(event) {
     $('.js-form-type-select').each(function(index, el) {
-      if ($(this).find('select').find('option').val() != '--empty list--') {
+      if ($(this).find('select').find('option').val() != '--Please Select--') {
          $(this).removeClass('disable-fields');
       }
     });

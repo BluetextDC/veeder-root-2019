@@ -92,7 +92,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Product Group'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldProductGroup',
@@ -109,7 +109,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Product'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldProduct',
@@ -125,7 +125,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Tank Type'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldTankType',
@@ -141,7 +141,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Leak Detection'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldLeakDetection',
@@ -157,7 +157,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Probe Material'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldProbeMaterial',
@@ -173,7 +173,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Canister Cover'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldCanister',
@@ -189,7 +189,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Approval'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldApproval',
@@ -205,7 +205,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Density'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldDensity',
@@ -221,7 +221,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Water Detection'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldWaterDetection',
@@ -237,7 +237,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Console Connection'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldConnection',
@@ -253,7 +253,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Measurement'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldMeasurement',
@@ -269,7 +269,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Float Type'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldFloatType',
@@ -285,7 +285,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Float Size'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldFloatSize',
@@ -301,7 +301,7 @@ class SelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Cable Length'),
       '#options' => [
-        'none' => '--empty list--',
+        'none' => '--Please Select--',
       ],
       '#label_attributes' => [
         'id' => '__htmlfldCableLength',
@@ -439,7 +439,6 @@ class SelectionForm extends FormBase {
 
               $match_output .= '<div class="item col-md-6 col-sm-12 ajax-response">
                                   <div class="h4 text-center">' . $numbers . '</div>
-                                  <div class="h5 text-center"><a href="' . $node_url . '" class="learn-more-link" hreflang="en">Learn More</a></div>
                                   <figure style="height: 150px;">
                                     <a href="' . $node_url . '" class="clickable-image">
                                       <img src="' . $taxonomy_image . '" alt="' . $node_title . '">

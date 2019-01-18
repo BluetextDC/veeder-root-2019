@@ -454,18 +454,18 @@ var probeData = `[{"probeId":"1","partNumBase":846396,"active":false,"partItemDe
       }
     }
 
-  // Set a passed Dropdown list to have one entry "--empty list--".  
+  // Set a passed Dropdown list to have one entry "--Please Select--".  
   function emptySelectList(selectListString) {
     var selectList = document.getElementById(selectListString);
     var option = document.createElement("option");
-    option.text = "--empty list--";
+    option.text = "--Please Select--";
     selectList.add(option);
     selectList.disabled = true;
   }
 
   // The dropdown selection lists appear in order on a page.
   // emptyAllSublists takes an HTML dropdown list name and sets it and
-  // all following lists on the page to "--empty list--".
+  // all following lists on the page to "--Please Select--".
   // The first two dropdown lists are never cleared.
   function emptyAllSublists(startList) {
     // Find records that support the default settings and display the count.
