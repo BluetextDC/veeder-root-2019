@@ -826,9 +826,9 @@ table.bt tbody td:before{width: 5em;}
 .search-form input[type="search"] { font-size: 16px; height: 35px; margin-top: 10px; }
 
 
-/* input[type="search"] */
-#search-api-page-block-form { margin-top: 3vw; margin-bottom: 3vw; }
-#search-api-page-block-form div.js-form-type-search { width: 85%; float: left; }
+#search-api-page-block-form { margin-top: 4vw; margin-bottom: 4vw; }
+#search-api-page-block-form div.js-form-type-search { width: 50%; float: left; }
+#search-api-page-block-form input.form-search { font-size: 16px; height: 42px; }
 #search-api-page-block-form input.form-submit { width: 10%; margin-left: 20px; }
 
 /* Error Message */
