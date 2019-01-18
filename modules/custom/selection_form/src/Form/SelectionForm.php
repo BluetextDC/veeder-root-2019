@@ -416,7 +416,7 @@ class SelectionForm extends FormBase {
       if (!empty($node_content)) {
         $match_output = '<div class="product-list fancy-popup-form-submit">';
           $match_output .= '<h3 class="text-center">' . $lighbox_title . '</h3>';
-          $match_output .= '<div class="row">';
+          $match_output .= '<div class="row fancy-product-group">';
             foreach ($node_content as $keys => $node_id) {
               $node_load = Node::load($node_id);
               $node_title = $node_load->label();
