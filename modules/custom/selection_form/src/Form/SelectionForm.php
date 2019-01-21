@@ -32,6 +32,7 @@ class SelectionForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#attached']['library'][] = 'selection_form/selection_module_js';
+    $form['#attributes']['class'][] = 'row';
     $form['probe_part_number'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Probe Part Number:'),
@@ -88,7 +89,17 @@ class SelectionForm extends FormBase {
       '#suffix' => '</div>',
     ];
 
-    $form['product_group'] = [
+    $form['left_container'] = array(
+      '#type' => 'container',
+      '#attributes' => array('class' => array('col-md-6 col-12')),
+    );
+
+    $form['right_container'] = array(
+      '#type' => 'container',
+      '#attributes' => array('class' => array('col-md-6 col-12')),
+    );
+
+    $form['left_container']['product_group'] = [
       '#type' => 'select',
       '#title' => $this->t('Product Group'),
       '#options' => [
@@ -105,7 +116,7 @@ class SelectionForm extends FormBase {
 
     ];
 
-    $form['product'] = [
+    $form['right_container']['product'] = [
       '#type' => 'select',
       '#title' => $this->t('Product'),
       '#options' => [
@@ -121,7 +132,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['tank_type'] = [
+    $form['left_container']['tank_type'] = [
       '#type' => 'select',
       '#title' => $this->t('Tank Type'),
       '#options' => [
@@ -137,7 +148,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['leak_detection'] = [
+    $form['right_container']['leak_detection'] = [
       '#type' => 'select',
       '#title' => $this->t('Leak Detection'),
       '#options' => [
@@ -153,7 +164,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['probe_material'] = [
+    $form['left_container']['probe_material'] = [
       '#type' => 'select',
       '#title' => $this->t('Probe Material'),
       '#options' => [
@@ -169,7 +180,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['canister_cover'] = [
+    $form['right_container']['canister_cover'] = [
       '#type' => 'select',
       '#title' => $this->t('Canister Cover'),
       '#options' => [
@@ -185,7 +196,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['approval'] = [
+    $form['left_container']['approval'] = [
       '#type' => 'select',
       '#title' => $this->t('Approval'),
       '#options' => [
@@ -201,7 +212,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['density'] = [
+    $form['right_container']['density'] = [
       '#type' => 'select',
       '#title' => $this->t('Density'),
       '#options' => [
@@ -217,7 +228,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['water_detection'] = [
+    $form['left_container']['water_detection'] = [
       '#type' => 'select',
       '#title' => $this->t('Water Detection'),
       '#options' => [
@@ -233,7 +244,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['console_connection'] = [
+    $form['right_container']['console_connection'] = [
       '#type' => 'select',
       '#title' => $this->t('Console Connection'),
       '#options' => [
@@ -249,7 +260,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['measurement'] = [
+    $form['left_container']['measurement'] = [
       '#type' => 'select',
       '#title' => $this->t('Measurement'),
       '#options' => [
@@ -265,7 +276,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['float_type'] = [
+    $form['right_container']['float_type'] = [
       '#type' => 'select',
       '#title' => $this->t('Float Type'),
       '#options' => [
@@ -281,7 +292,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['float_size'] = [
+    $form['left_container']['float_size'] = [
       '#type' => 'select',
       '#title' => $this->t('Float Size'),
       '#options' => [
@@ -297,7 +308,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['cable_length'] = [
+    $form['right_container']['cable_length'] = [
       '#type' => 'select',
       '#title' => $this->t('Cable Length'),
       '#options' => [
@@ -327,21 +338,14 @@ class SelectionForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
-    if ($form_state->getValue('probe_part_number') == '') {
-      $form_state->setErrorByName('probe_part_number', $this->t('Please enter Probe Part Number.'));
-    }
-    if ($form_state->getValue('float_part_number') == '') {
-      $form_state->setErrorByName('float_part_number', $this->t('Please enter Float Part Number.'));
-    }
+    return parent::validateForm($form, $form_state);
   }
 
   /**
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    parent::submitForm($form, $form_state);
-    return; 
+    return parent::submitForm($form, $form_state);; 
   }
 
   /**
@@ -419,6 +423,7 @@ class SelectionForm extends FormBase {
           $match_output .= '<div class="row fancy-product-group">';
             foreach ($node_content as $keys => $node_id) {
               $node_load = Node::load($node_id);
+              // Node Title.
               $node_title = $node_load->label();
               if (!empty($node_load->field_taxonomy_image->entity->uri->value)) {
                 $taxonomy_image = file_create_url($node_load->field_taxonomy_image->entity->uri->value);
@@ -426,6 +431,7 @@ class SelectionForm extends FormBase {
               else {
                 $taxonomy_image = '/sites/default/files/default_images/default-image-product_0.png';
               }
+              // Checking that Probe number is coming or Float number.
               if ($keys == 0) {
                 $probe_term_detail = Term::load($node_load->get('field_probe_number_tags')->getValue()[0]['target_id']);
                 $numbers = $this->t('Probe Part Number: ') . $form_state->getValue('probe_part_number');
@@ -436,8 +442,15 @@ class SelectionForm extends FormBase {
               }
 
               $node_url = Url::fromRoute('entity.node.canonical', ['node' => $node_id], ['absolute' => TRUE])->toString();
+              // Class condition.
+              if (count($node_content) == 1) {
+                $repeating_class = 'col-md-12 col-sm-12';
+              }
+              else {
+                $repeating_class = 'col-md-6 col-sm-12';
+              } 
 
-              $match_output .= '<div class="item col-md-6 col-sm-12 ajax-response">
+              $match_output .= '<div class="item ' . $repeating_class . ' ajax-response">
                                   <div class="h4 text-center">' . $numbers . '</div>
                                   <figure style="height: 150px;">
                                     <a href="' . $node_url . '" class="clickable-image">

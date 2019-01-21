@@ -485,8 +485,8 @@ table tr:nth-child(odd){background-color: #f7f7f7;}
 .banner-caption .social-block a:hover{color: #BA0C2F; text-decoration: none;}
 .banner-caption .social-block span{color: #fff;font-size: 24px;font-weight: 700;font-family: 'Raleway', sans-serif; display: inline-flex; vertical-align: middle;margin-right: 15px;}
 .NoHero-sec .inner-banner .simple-banner{padding-bottom: 10px;}
-.hero-section .inner-banner.video-banner{padding-top: calc(29 / 60 * 100%);overflow: hidden;}
-.hero-section.product-showcase .inner-banner.video-banner { padding-top: 0px; }
+.hero-section .inner-banner.inline-video-banner{padding-top: calc(29 / 60 * 100%);overflow: hidden;}
+/* .hero-section.product-showcase .inner-banner.video-banner { padding-top: 0px; } */
 /* no hero sec */
 .NoHero-sec .inner-banner .banner-caption{position: relative; top: auto; max-width: 70vw; max-width: 1010px; left: 0; -webkit-transform: translate(0,0);-ms-transform: translate(0,0);-o-transform: translate(0,0);transform: translate(0,0);margin: 0 0 0 0;}
 .NoHero-sec .video-banner .banner-caption{ /*max-width: 64vw;*/ max-width: 920px;}
@@ -874,7 +874,7 @@ nav.pager ul.pager__items li {list-style: none;display: inline-block;margin: 0 1
 /* fancybox */
 body .fancybox-slide--image .fancybox-content{background-color: #fff;}
 .fancybox-slide--image .fancybox-image{padding: 15px;}
-.product-selection-form{max-width: 394px;margin: auto;}
+/* .product-selection-form{max-width: 394px;margin: auto;} */
 .product-selection-form select{padding: 0 20px;}
 .product-selection-form input[type="text"]{padding-left: 20px;padding-right: 20px;}
 .product-selection-form .form-item{padding-bottom: 20px;}
@@ -883,6 +883,7 @@ body .fancybox-slide--image .fancybox-content{background-color: #fff;}
 /*.fancy-popup-form-submit {width: 70% !important;}*/
 .fancy-popup-form-submit {max-width: 850px;}
 .datafilteredvalues{display: none !important;}
+.product-selection-form .ajax-progress.ajax-progress-throbber {text-align: center; margin: 0 auto; width: 100%;}
 
 .play-icon, 
 .inner-banner .bg-img span,

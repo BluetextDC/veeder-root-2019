@@ -84,7 +84,7 @@
 
   {# Hero banner slider #}
   <section class="product-detail hero-section{% if (content.field_generic_hero_image|render is empty) and (content.field_generic_hero_vimeo|render is empty) %} NoHero-sec{% endif %}">
-    <div class="inner-banner{% if content.field_generic_hero_vimeo|render is not empty %} video-banner{% endif %}">
+    <div class="inner-banner{% if (content.field_generic_hero_vimeo|render is not empty) and (content.field_generic_hero_video_autopla.0["#markup"] == 0) %} video-banner{% endif %}{% if (content.field_generic_hero_vimeo|render is not empty) and (content.field_generic_hero_video_autopla.0["#markup"] == 1) %} inline-video-banner{% endif %}">
       {% if (content.field_generic_hero_vimeo|render is not empty) and (content.field_generic_hero_video_autopla.0["#markup"] == 0) %}
         <a href="{{ node.field_generic_hero_vimeo.0.value }}" data-fancybox class="c-video bg-img"{% if content.field_generic_hero_image_paralla.0["#markup"] == 1 %} id="parallax"{% endif %} style="background: url({{ vimeo_thumb }}) no-repeat center / cover;">
           <span class="play-icon ic-play-icon"></span>
