@@ -509,7 +509,6 @@ function veeder_theme_suggestions_form_alter(array &$suggestions, array $variabl
 function veeder_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   unset($form['langcode']);
   if (in_array($form_id, ['search_block_form', 'search_form', 'search_api_page_block_form'])) {
-    // $form['form']['class'][] = 'your-class';
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
     if (!isset($form[$key]['submit']['#attributes'])) {
       $form[$key]['submit']['#attributes'] = new Attribute();

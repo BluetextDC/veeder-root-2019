@@ -30,11 +30,7 @@
 <div{{ attributes }}>
   {{ title_prefix }}
   {% if label %}
-    {% if plugin_id == 'views_block:trending_blogs-block_2' %}
-      <h6{{ title_attributes }}>{{ label }}</h6>
-    {% else %}
-      <h2{{ title_attributes }}>{{ label }}</h2>
-    {% endif %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
