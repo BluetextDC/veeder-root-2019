@@ -45,7 +45,7 @@ class DistributorForm extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $zip_code = $form_state->getValue('zip_code');
-    if ((!empty($zip_code)) && (!preg_match("/^[1-9][0-9]*$/", $zip_code))) {
+    if ((!empty($zip_code)) && (!preg_match("/^\d{5}([\-]?\d{4})?$/", $zip_code))) {
       $form_state->setErrorByName('zip_code', $this->t('Enter in a valid ZIP Code'));
     }
   }
