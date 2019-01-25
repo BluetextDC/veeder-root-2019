@@ -400,6 +400,7 @@ function veeder_preprocess_breadcrumb(&$variables) {
       $variables['breadcrumb'][] = [
         'text' => $node->getTitle(),
       ];
+      $variables['#cache']['contexts'][] = 'url';
     }
 
     if ($node->gettype() != 'page' || $node->gettype() != 'homepage') {
@@ -494,6 +495,7 @@ function veeder_preprocess_breadcrumb(&$variables) {
     unset($variables['breadcrumb']);
   }
 }
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
  */
