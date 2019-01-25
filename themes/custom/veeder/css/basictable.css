@@ -1,35 +1,35 @@
 /*
- * jQuery Basic Table
- * Author: Jerry Low
- */
+* jQuery Basic Table
+* Author: Jerry Low
+*/
 
 table.bt thead {
-  display: none;
+    display: none;
 }
 
 table.bt tbody td {
-  border: none;
-  display: block;
-  vertical-align: top;
+    border: none;
+    display: block;
+    vertical-align: top;
 }
 
 table.bt tbody td:before {
-  content: attr(data-th) ": ";
-  font-weight: bold;
-  width: 6.5em;
-  display: inline-block;
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 6.5em;
+    display: inline-block;    
 }
 
 table.bt tbody td.bt-hide {
-  display: none;
+    display: none;
 }
 
 table.bt tbody td .bt-content {
-  vertical-align: top;
+    vertical-align: top;
 }
 
 .bt-wrapper.active {
-  max-height: 310px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
+    max-height: 310px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
