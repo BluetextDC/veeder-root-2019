@@ -26,8 +26,8 @@ class DistributorForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['zip_code'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('ZIP Code'),
-      '#description' => $this->t('Enter zip code to find a distributor'),
+      '#title' => $this->t('Location'),
+      '#description' => $this->t('Enter your city, state, or postal code'),
       '#required' => TRUE,
     ];
 
@@ -44,10 +44,7 @@ class DistributorForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $zip_code = $form_state->getValue('zip_code');
-    if ((!empty($zip_code)) && (!preg_match("/^\d{5}([\-]?\d{4})?$/", $zip_code))) {
-      $form_state->setErrorByName('zip_code', $this->t('Enter in a valid ZIP Code'));
-    }
+    // If you want to validate your fields please add here.
   }
 
   /**
@@ -62,11 +59,12 @@ class DistributorForm extends FormBase {
     $redirect_page_id = $distributor_block->get('settings')['page_id'];
     // Redirect form into distributor form.
     $zip_code = $form_state->getValue('zip_code');
+    $zip_with_alphanumeric = preg_replace('/[^a-zA-Z0-9]/', '', $zip_code);
     $form_state->setRedirect('entity.node.canonical', [
         'node' => $redirect_page_id
       ], [
         'query' => [
-          'locate' => $zip_code
+          'locate' => $zip_with_alphanumeric
         ]
       ]
     );

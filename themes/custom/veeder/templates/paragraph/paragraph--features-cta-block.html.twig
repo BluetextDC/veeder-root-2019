@@ -94,9 +94,13 @@
                   </figure>
                 {% elseif feature_item.image_uri is not empty %}
                   <figure>
-                    <a href="{{ feature_item.link_url }}" class="clickable-image">
+                    {% if feature_item.link_title|render is not empty %}
+                      <a href="{{ feature_item.link_url }}" class="clickable-image">
+                        <img src="{{ feature_item.image_uri }}" alt="{{ feature_item.title }}">
+                      </a>
+                    {% else %}
                       <img src="{{ feature_item.image_uri }}" alt="{{ feature_item.title }}">
-                    </a>
+                    {% endif %}
                   </figure>
                 {% endif %}
                 <div class="desc line-top">

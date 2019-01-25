@@ -22,7 +22,7 @@ function veeder_preprocess_page(&$variables) {
     // Return node type on page.
     $variables['node_type'] = $node_data->getType();
     // Retrun Jump Menu.
-    if ($node_data->getType() == 'product_detail' || $node_data->getType() == 'product_showcase') {
+    if ($node_data->getType() != 'homepage') {
       $paragraph = $node_data->field_components->getValue();
       // Loop through the result set.
       $jump_menu = [];
@@ -489,9 +489,9 @@ function veeder_preprocess_breadcrumb(&$variables) {
         unset($variables['breadcrumb']);
       }
     }
-  } else {
-    $variables['breadcrumb_class'] = 'breadcrumb-nohero';
-    $variables['breadcrumb_color'] = '#000';
+  }
+  else {
+    unset($variables['breadcrumb']);
   }
 }
 /**

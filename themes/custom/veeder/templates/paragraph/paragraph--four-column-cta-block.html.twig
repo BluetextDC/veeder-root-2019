@@ -101,9 +101,13 @@
                     </figure>
                   {% elseif column_item.image_uri is not empty %}
                     <figure>
-                      <a href="{{ column_item.link_url }}" class="clickable-image">
+                      {% if column_item.link_title|render is not empty %}
+                        <a href="{{ column_item.link_url }}" class="clickable-image">
+                          <img src="{{ column_item.image_uri }}" alt="{{ column_item.title }}">
+                        </a>
+                      {% else %}
                         <img src="{{ column_item.image_uri }}" alt="{{ column_item.title }}">
-                      </a>
+                      {% endif %}
                     </figure>
                   {% endif %}
                   <h6>{{ column_item.title }}</h6>
