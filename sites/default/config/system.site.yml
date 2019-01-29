@@ -4,7 +4,7 @@ mail: peter@bluetext.com
 slogan: ''
 page:
   403: ''
-  404: ''
+  404: /node/187
   front: /node/1
 admin_compact_mode: false
 weight_select_max: 100

@@ -1,0 +1,27 @@
+uuid: 91660254-fc7f-4218-afe7-bfc330354783
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_selection_js_library
+    - paragraphs.paragraphs_type.selection_module
+  module:
+    - file
+id: paragraph.selection_module.field_selection_js_library
+field_name: field_selection_js_library
+entity_type: paragraph
+bundle: selection_module
+label: 'JS library'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: external-js
+  file_extensions: 'txt js'
+  max_filesize: '2 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
