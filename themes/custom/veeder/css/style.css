@@ -467,7 +467,7 @@ table.bt tbody td{display: flex !important;}
 .inner-banner .banner-caption.img-title-cap .cap-img img{max-height: 250px;} 
 .inner-banner .banner-caption.img-title-cap .cap-img,
 .inner-banner .banner-caption.img-title-cap .desc{/*padding-left: calc((99vw - 1290px) / 2);*/}
-.inner-banner .banner-caption h2{color: #fff;text-transform: uppercase;margin-bottom: 0;}
+.inner-banner .banner-caption h1{color: #fff;text-transform: uppercase;margin-bottom: 0;}
 .bg-dark-blue h1,
 .bg-dark-blue h2{color: #fff;}
 .small-inner-banner{display: flex; flex-wrap: wrap;}
