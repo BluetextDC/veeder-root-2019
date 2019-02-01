@@ -59,7 +59,7 @@ class DistributorForm extends FormBase {
     $redirect_page_id = $distributor_block->get('settings')['page_id'];
     // Redirect form into distributor form.
     $zip_code = $form_state->getValue('zip_code');
-    $zip_with_alphanumeric = preg_replace('/[^a-zA-Z0-9]/', '', $zip_code);
+    $zip_with_alphanumeric = preg_replace('/[^a-zA-Z0-9 ]/', '', $zip_code);
     $form_state->setRedirect('entity.node.canonical', [
         'node' => $redirect_page_id
       ], [

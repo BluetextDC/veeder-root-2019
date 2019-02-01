@@ -22,7 +22,7 @@ function veeder_preprocess_page(&$variables) {
     // Return node type on page.
     $variables['node_type'] = $node_data->getType();
     // Retrun Jump Menu.
-    if ($node_data->getType() != 'homepage') {
+    if ($node_data->field_enable_jump_nav[0]->value == '1') {
       $paragraph = $node_data->field_components->getValue();
       // Loop through the result set.
       $jump_menu = [];
