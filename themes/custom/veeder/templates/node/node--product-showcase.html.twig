@@ -89,7 +89,7 @@
           <span class="play-icon ic-play-icon"></span>
         </a>
       {% elseif (content.field_product_show_hero_vimeo|render is not empty) and (content.field_product_show_hero_autopla.0["#markup"] == 1) and (content.field_product_show_hero_bg_image|render is not empty) %}
-        <div id="home-video-loader"><img src="{{ base_path ~ directory }}/images/video-loader.gif" alt="image-loader"></div>
+        <div id="home-video-loader"><img src="/{{ base_path ~ directory }}/images/video-loader.gif" alt="image-loader"></div>
         <div class="vimeo-bg-video">
           <iframe src="{{ node.field_product_show_hero_vimeo.0.value }}?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
