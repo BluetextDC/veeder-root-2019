@@ -495,3 +495,8 @@
     .hero-section .home-banner .banner-caption .verticle-line{height: 100px;}
     .hero-section .home-banner .banner-heading{padding: 30px 90px;}    
 }
+
+@media (min-width:768px) {	
+    .text-img-sec .img-part:first-child .slick-dots-wrap{padding-right:calc(50% - 50px);}
+    .text-img-sec .img-part:last-child .slick-dots-wrap{padding-left: calc(50% - 30px);}
+}

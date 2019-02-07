@@ -215,8 +215,7 @@ table.bt tbody td{display: flex !important;}
 .scroll-hidden{overflow: hidden;}
 
 /* header */
-.main-header { width:100%; height:auto;padding: 0 0;position: fixed;z-index: 999;background-color: #fff;}
-.main-header .border-bottom{ border-bottom: 1px solid #000;}
+.main-header { width:100%; height:auto;padding: 0 0;position: fixed;z-index: 999;background-color: #fff; border-bottom: 1px solid #000;}
 .main-header .brand {width: 264px;display: inline-block;}
 .header-space{height: 90px;width: 100%;}
 .search-bar{width: 600px;position: absolute; right: 0; top: 100%; padding: 29px 14px 29px 20px;}
@@ -304,7 +303,7 @@ table.bt tbody td{display: flex !important;}
     nav .single-column-menu .drop-down{width: 280px;left: auto;right: 0;}
     nav .single-column-menu .drop-down ul{flex-wrap: wrap;padding: 35px 40px;}
     nav .single-column-menu .drop-down li{display: block; list-style: none;}
-    
+
     /* mix menu */
     nav .two-column-menu.single-column-menu .drop-down .list-wrapper{padding: 0;width: 100%;} 
     nav .two-column-menu.single-column-menu .drop-down .list-wrapper ul{padding: 0;padding-bottom: 15px;}
@@ -560,11 +559,11 @@ table.bt tbody td{display: flex !important;}
 .hbspt-form .hs-error-msgs li label{color: #BA0C2F !important;font-weight: normal}
 .hbspt-form .hs-error-msgs label, .hbspt-form label {padding-left: 0;}
 .hbspt-form .hs-form-field.hs-fieldtype-checkbox{width: 100%;}
-.hbspt-form .hs-form-field .inputs-list{display: flex;flex-wrap: wrap;justify-content: space-between;align-items: flex-start;align-content: flex-start;width: 100%;margin: 0;}
+.hbspt-form .hs-form-field .inputs-list{display: flex;flex-wrap: wrap;justify-content: space-between;align-items: flex-start;align-content: flex-start;width: 100%;margin: 0;padding-top: 10px;}
 .hbspt-form .hs-form-field .inputs-list li{list-style: none}
 .hbspt-form .hs-form-field.hs-fieldtype-checkbox li{width: calc(50% - 14px);list-style: none;margin-bottom: 5px;}
 .hbspt-form .hs-form-field .inputs-list label{padding: 0;font-weight: 400;display: flex}
-.hbspt-form .hs-form-field .inputs-list .hs-input{padding: 0;margin: 0;width: 18px;height: 18px;margin-right: 5px;}
+.hbspt-form .hs-form-field .inputs-list .hs-input{padding: 0;margin: 0;width: 18px;height: 18px;margin-right: 5px;min-width: 18px;}
 .hbspt-form .hs_submit{text-align: right;width: 100%;}
 
 /* about-sec */
