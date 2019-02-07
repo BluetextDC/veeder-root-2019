@@ -59,7 +59,9 @@ set classes = [
 {% block paragraph %}
   {% block content %}
     <div class="doc-list">
-      <label>{{ content.field_documentation_sec_heading }}</label>
+      {% if content.field_documentation_sec_heading|render is not empty %}
+        <label>{{ content.field_documentation_sec_heading }}</label>
+      {% endif %}
       <ul>
         {% for document_item in document_items %}
           <li>

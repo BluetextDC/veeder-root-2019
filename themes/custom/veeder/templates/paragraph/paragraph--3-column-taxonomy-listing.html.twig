@@ -56,11 +56,13 @@
   <section{{ attributes.addClass(classes) }} style="background-color: {{ paragraph.field_3_column_taxonomy_bg_color.0.color }};" id="{{ paragraph.field_3_column_taxonomy_cta_id.0.value|trim|replace(' ', '-') }}">
     <div class="container" style="color: {{ paragraph.field_3_column_taxonomy_head_col.0.color }}">
       {% block content %}
-        <div class="heading text-center inherit-color">
-          <h2>
-            {{ content.field_3_column_taxonomy_heading.0 }}
-          </h2>
-        </div>
+        {% if content.field_3_column_taxonomy_heading|render is not empty %}
+          <div class="heading text-center inherit-color">
+            <h2>
+              {{ content.field_3_column_taxonomy_heading.0 }}
+            </h2>
+          </div>
+        {% endif %}
         {{ content.field_3_column_taxonomy_view }}
       {% endblock %}
     </div>

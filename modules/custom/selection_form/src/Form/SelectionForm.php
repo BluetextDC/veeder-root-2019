@@ -442,6 +442,7 @@ class SelectionForm extends FormBase {
               }
 
               $node_url = Url::fromRoute('entity.node.canonical', ['node' => $node_id], ['absolute' => TRUE])->toString();
+              $link_text = $this->t('Learn More');
               // Class condition.
               if (count($node_content) == 1) {
                 $repeating_class = 'col-md-12 col-sm-12';
@@ -460,7 +461,7 @@ class SelectionForm extends FormBase {
                                   <div class="p-data">
                                     <span class="hr-line"></span>
                                     <h4 class="h6">' . $node_title . '</h4>
-                                    <a href="' . $node_url . '" class="btn-link" hreflang="en">Learn More</a>
+                                    <a href="' . $node_url . '" class="btn-link" hreflang="en" target="_blank">' . $link_text . '</a>
                                   </div>
                                 </div>';
             }

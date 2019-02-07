@@ -114,7 +114,7 @@
                   {{ column_item.description|raw }}
                 </div>
                 {% if column_item.link_title|render is not empty %}
-                  <a href="{{ column_item.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn four-column-cta-btn"{% else %} class="btn-link four-column-cta-btn"{% endif %} {% if column_item.link_target is not empty %}target="{{ column_item.link_target }}"{% endif %}>{{ column_item.link_title }}</a>
+                  <a href="{{ column_item.link_url }}"{% if content.field_4_column_cta_button_stylin.0["#markup"] == 1 %} class="btn four-column-cta-btn {% if (paragraph.field_4_column_cta_block_color.0.color == '#FFF') or (paragraph.field_4_column_cta_block_color.0.color == '#FFFFFF') %}btn-black{% endif %}"{% else %} class="btn-link four-column-cta-btn"{% endif %} {% if column_item.link_target is not empty %}target="{{ column_item.link_target }}"{% endif %}>{{ column_item.link_title }}</a>
                 {% endif %}
               </div>
             {% endfor %}
