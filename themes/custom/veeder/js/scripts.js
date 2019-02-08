@@ -160,7 +160,9 @@
         }
         $('.text-img-sec .img-part .images-slider.slick-dotted').each(function(){            
             $(this).parents('.text-img-sec').addClass('slider-dots-space');
-        });        
+        });   
+        
+        $('header').addClass('loaded')
     });
 
     /* Script on scroll

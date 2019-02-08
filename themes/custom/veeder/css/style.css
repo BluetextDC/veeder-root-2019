@@ -308,6 +308,8 @@ table.bt tbody td{display: flex !important;}
     nav .two-column-menu.single-column-menu .drop-down .list-wrapper{padding: 0;width: 100%;} 
     nav .two-column-menu.single-column-menu .drop-down .list-wrapper ul{padding: 0;padding-bottom: 15px;}
     nav .two-column-menu.single-column-menu .drop-down  li{width: 100%;}
+    
+    header:not(.loaded) nav .drop-down{display: none;}
 }
 
 /* language dropdown */
