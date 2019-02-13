@@ -14,13 +14,22 @@
   $('#__htmlprbProduct').attr('disabled', 'disabled');
   // Adding default option for the Product field.
   $('#__htmlprbProduct').find('option').remove().end().append('<option>--Please Select--</option>');
-  // Onchange event for the CableLength field.
+  // Onchange event for the ProductGroup field.
   $('#__htmlprbProductGroup').change(function(event) {
-    $('#__htmlprbProduct').prepend('<option disabled selected>--Please Select--</option>');
+    $('#__htmlprbProductGroup').find('option:first').val($(this).val());
+    if ($(this).val() != '--Please Select--') {
+      $('#__htmlprbProduct').prepend('<option disabled value="avAviation">--Please Select--</option>');
+    }
+  });
+
+  // Onchange event for the Product field.
+  $('#__htmlprbProduct').change(function(event) {
+    $('#__htmlprbProduct').find('option:disabled').removeAttr('selected');
+    $('#__htmlprbProduct').find('option:disabled').val($(this).val());
   });
 
   // Hide submit button till last option will not select.
-  $('#product-selection-form .form-submit').hide();
+  $('#product-selection-form .form-submit').attr('disabled', 'disabled');
 
   // Onchange event for the Measurement field.
   $('#__htmlprbMeasurement').change(function(event) {
@@ -31,7 +40,7 @@
   });
   // Onchange event for the CableLength field.
   $('#__htmlfltCableLength').change(function(event) {
-      $('#product-selection-form .form-submit').show();
+      $('#product-selection-form .form-submit').removeAttr('disabled');
       var inputVal = $('#__htmlfltPartNumber').text();
       $('#__htmlfltPartNumber').val(inputVal);
   });
@@ -45,11 +54,22 @@
   // Removing disabled class where we won't get --Please Select--.
   $('.js-form-type-select').change(function(event) {
     $('.js-form-type-select').each(function(index, el) {
-      if (($(this).find('select').find('option').val() != '--Please Select--') || ($(this).find('select').find('option').is(':disabled'))) {
+      console.log();
+      if (($(this).find('select').find('option:first').val() != '') && ($(this).find('select').find('option:first').prop('disabled'))) {
          $(this).removeClass('disable-fields');
       }
       else if($(this).find('select').is(':disabled')) {
         $(this).addClass('disable-fields');
+      }
+
+      if ($(this).hasClass('select-indicator')) {
+        $(this).removeClass('select-indicator');
+      }
+
+      if (($(this).find('select').find('option').length > 2) && ($(this).find('select').find('option:disabled').val() != '') && ($(this).find('select').find('option:selected').text() == '--Please Select--')) {
+        $(this).addClass('select-indicator');
+      } else {
+        $(this).removeClass('select-indicator');
       }
     });
   });

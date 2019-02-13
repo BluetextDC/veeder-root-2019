@@ -94,11 +94,6 @@ class SelectionForm extends FormBase {
       '#attributes' => array('class' => array('col-md-6 col-12')),
     );
 
-    $form['right_container'] = array(
-      '#type' => 'container',
-      '#attributes' => array('class' => array('col-md-6 col-12')),
-    );
-
     $form['left_container']['product_group'] = [
       '#type' => 'select',
       '#title' => $this->t('Product Group'),
@@ -116,7 +111,7 @@ class SelectionForm extends FormBase {
 
     ];
 
-    $form['right_container']['product'] = [
+    $form['left_container']['product'] = [
       '#type' => 'select',
       '#title' => $this->t('Product'),
       '#options' => [
@@ -148,7 +143,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['right_container']['leak_detection'] = [
+    $form['left_container']['leak_detection'] = [
       '#type' => 'select',
       '#title' => $this->t('Leak Detection'),
       '#options' => [
@@ -180,7 +175,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['right_container']['canister_cover'] = [
+    $form['left_container']['canister_cover'] = [
       '#type' => 'select',
       '#title' => $this->t('Canister Cover'),
       '#options' => [
@@ -212,6 +207,11 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
+    $form['right_container'] = array(
+      '#type' => 'container',
+      '#attributes' => array('class' => array('col-md-6 col-12')),
+    );
+
     $form['right_container']['density'] = [
       '#type' => 'select',
       '#title' => $this->t('Density'),
@@ -228,7 +228,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['left_container']['water_detection'] = [
+    $form['right_container']['water_detection'] = [
       '#type' => 'select',
       '#title' => $this->t('Water Detection'),
       '#options' => [
@@ -260,7 +260,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['left_container']['measurement'] = [
+    $form['right_container']['measurement'] = [
       '#type' => 'select',
       '#title' => $this->t('Measurement'),
       '#options' => [
@@ -292,7 +292,7 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['left_container']['float_size'] = [
+    $form['right_container']['float_size'] = [
       '#type' => 'select',
       '#title' => $this->t('Float Size'),
       '#options' => [
@@ -454,7 +454,7 @@ class SelectionForm extends FormBase {
               $match_output .= '<div class="item ' . $repeating_class . ' ajax-response">
                                   <div class="h4 text-center">' . $numbers . '</div>
                                   <figure style="height: 150px;">
-                                    <a href="' . $node_url . '" class="clickable-image">
+                                    <a href="' . $node_url . '" class="clickable-image" target="_blank">
                                       <img src="' . $taxonomy_image . '" alt="' . $node_title . '">
                                     </a>
                                   </figure>

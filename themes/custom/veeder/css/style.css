@@ -889,7 +889,9 @@ body .fancybox-slide--image .fancybox-content{background-color: #fff;}
 .product-selection-form .form-item{padding-bottom: 20px;}
 .product-selection-form .form-item.disable-fields{opacity: 0.5;}
 .product-selection-form .button{margin: auto;display: block;}
+.product-selection-form button:disabled, .product-selection-form input[type=submit]:disabled{border: 2px solid; background-color: transparent; color: #5f6771;}
 /*.fancy-popup-form-submit {width: 70% !important;}*/
+.product-selection-form .select-indicator {background-color: #e5b323; color: #000000;}
 .fancy-popup-form-submit {max-width: 850px;}
 .datafilteredvalues{display: none !important;}
 .product-selection-form .ajax-progress.ajax-progress-throbber {text-align: center; margin: 0 auto; width: 100%;}
