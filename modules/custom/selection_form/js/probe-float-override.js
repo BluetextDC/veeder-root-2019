@@ -18,7 +18,7 @@
   $('#__htmlprbProductGroup').change(function(event) {
     $('#__htmlprbProductGroup').find('option:first').val($(this).val());
     if ($(this).val() != '--Please Select--') {
-      $('#__htmlprbProduct').prepend('<option disabled value="avAviation">--Please Select--</option>');
+      $('#__htmlprbProduct').prepend('<option disabled selected>--Please Select--</option>');
     }
   });
 
