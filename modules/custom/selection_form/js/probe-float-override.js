@@ -54,7 +54,6 @@
   // Removing disabled class where we won't get --Please Select--.
   $('.js-form-type-select').change(function(event) {
     $('.js-form-type-select').each(function(index, el) {
-      console.log();
       if (($(this).find('select').find('option:first').val() != '') && ($(this).find('select').find('option:first').prop('disabled'))) {
          $(this).removeClass('disable-fields');
       }
@@ -70,6 +69,10 @@
         $(this).addClass('select-indicator');
       } else {
         $(this).removeClass('select-indicator');
+      }
+      var is_disabled = $('#product-selection-form .form-submit').prop('disabled');
+      if ((is_disabled == false) && ($(this).find('#__htmlfltCableLength').find('option:first').val() == '--Please Select--')) {
+        $('#product-selection-form .form-submit').attr('disabled', 'disabled');
       }
     });
   });
