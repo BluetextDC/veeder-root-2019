@@ -89,6 +89,90 @@ class SelectionForm extends FormBase {
       '#suffix' => '</div>',
     ];
 
+    $form['float_chem_note'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Float Chem Note:'),
+      '#label_attributes' => [
+        'id' => '__htmlfldChemNote',
+      ],
+      '#attributes' => [
+        'id' => '__htmlprbChemNote',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['select_probes'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Selected Probes:'),
+      '#label_attributes' => [
+        'id' => '__htmlLabelprbCount',
+      ],
+      '#attributes' => [
+        'id' => '__htmlprbCount',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['select_floats'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Selected Floats:'),
+      '#label_attributes' => [
+        'id' => '__htmlLabelCount',
+      ],
+      '#attributes' => [
+        'id' => '__htmlfltCount',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
+    // $form['probes_data'] = [
+    //   '#type' => 'textfield',
+    //   '#title' => $this->t('Probes Data:'),
+    //   '#label_attributes' => [
+    //     'id' => '__htmlLabelData',
+    //   ],
+    //   '#attributes' => [
+    //     'id' => '__htmlprbData',
+    //     'readonly' => 'readonly',
+    //   ],
+    //   '#prefix' => '<div class="datafilteredvalues">',
+    //   '#suffix' => '</div>',
+    // ];
+
+    $form['probes_list'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Probe List:'),
+      '#label_attributes' => [
+        'id' => '__htmlLabelprbCountList',
+      ],
+      '#attributes' => [
+        'id' => '__htmlprbCountList',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['float_list'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Float List:'),
+      '#label_attributes' => [
+        'id' => '__htmlLabelfltCountList',
+      ],
+      '#attributes' => [
+        'id' => '__htmlfltCountList',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
     $form['left_container'] = array(
       '#type' => 'container',
       '#attributes' => array('class' => array('col-md-6 col-12')),
@@ -276,22 +360,6 @@ class SelectionForm extends FormBase {
       '#validated' => TRUE,
     ];
 
-    $form['right_container']['float_type'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Float Type'),
-      '#options' => [
-        'none' => '--Please Select--',
-      ],
-      '#label_attributes' => [
-        'id' => '__htmlfldFloatType',
-      ],
-      '#attributes' => [
-        'id' => '__htmlfltFloatType',
-        'onchange' => 'clickFloatType(this.value)',
-      ],
-      '#validated' => TRUE,
-    ];
-
     $form['right_container']['float_size'] = [
       '#type' => 'select',
       '#title' => $this->t('Float Size'),
@@ -304,6 +372,22 @@ class SelectionForm extends FormBase {
       '#attributes' => [
         'id' => '__htmlfltFloatSize',
         'onchange' => 'clickFloatSize(this.value)',
+      ],
+      '#validated' => TRUE,
+    ];
+
+    $form['right_container']['float_type'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Float Type'),
+      '#options' => [
+        'none' => '--Please Select--',
+      ],
+      '#label_attributes' => [
+        'id' => '__htmlfldFloatType',
+      ],
+      '#attributes' => [
+        'id' => '__htmlfltFloatType',
+        'onchange' => 'clickFloatType(this.value)',
       ],
       '#validated' => TRUE,
     ];

@@ -323,7 +323,7 @@ table.bt tbody td{display: flex !important;}
 .language-dropdown h6{position: relative;}
 .language-dropdown h6:after{content: ""; width: 100%; height: 1px; background-color: #fff; display: block; top: 100%;position: relative;margin-top: 10px; }
 .language-dropdown select { display: none;} 
-.language-dropdown ul.select-list {width: auto; display: none; position: absolute;top: 100%; right: 0; z-index: 1;padding: 0;background-color: #fff; margin: 0 0 0 0;} 
+.language-dropdown ul.select-list {width: auto; display: none; position: absolute;top: 100%; right: 0; z-index: 2;padding: 0;background-color: #fff; margin: 0 0 0 0;} 
 .language-dropdown:hover ul.select-list{display: block;}
 .language-dropdown .select-list li{ /*display: none;*/ width: 100%;margin-bottom: 0; /*cursor: pointer;*/ list-style: none; display: flex; align-items: center;font-size: 15px; /*padding: 14px 30px;*/ white-space: nowrap;}
 .language-dropdown .select-list li{background-color: #ebebeb;}

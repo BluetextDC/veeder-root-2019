@@ -50,7 +50,6 @@
 {% block paragraph %}
   <section{{ attributes.addClass(classes) }} id="{{ paragraph.field_selection_id.0.value|trim|replace(' ', '-') }}">
     {% block content %}
-    <script src="{{ content.field_selection_js_library.0 }}" type="text/javascript"></script>
       <div class="container">
         <div class="heading text-center">
           <h3>{{ content.field_selection_heading.0 }}</h3>
@@ -66,6 +65,7 @@
           {{ selection_form }}
         {% endif %}
       </div>
+      <script src="{{ paragraph.field_selection_js_library.0.value }}" type="text/javascript"></script>
     {% endblock %}
   </select>
 {% endblock paragraph %}

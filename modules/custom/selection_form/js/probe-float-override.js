@@ -17,9 +17,6 @@
   // Onchange event for the ProductGroup field.
   $('#__htmlprbProductGroup').change(function(event) {
     $('#__htmlprbProductGroup').find('option:first').val($(this).val());
-    if ($(this).val() != '--Please Select--') {
-      $('#__htmlprbProduct').prepend('<option disabled selected>--Please Select--</option>');
-    }
   });
 
   // Onchange event for the Product field.

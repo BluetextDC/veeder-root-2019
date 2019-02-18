@@ -1,6 +1,5 @@
 selection_module_js:
   js:
-    js/probe-float.js: {}
     js/probe-float-override.js: {}
   dependencies:
     - core/jquery
