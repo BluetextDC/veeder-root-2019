@@ -438,8 +438,10 @@ class SelectionForm extends FormBase {
   public function setMessage(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
     if (!empty($form_state->getValue('probe_part_number')) && !empty($form_state->getValue('float_part_number'))) {
-      $form_probe_part = Unicode::substr($form_state->getValue('probe_part_number'), 0, -2);
-      $form_float_part = Unicode::substr($form_state->getValue('float_part_number'), 0, -2);
+      // $form_probe_part = Unicode::substr($form_state->getValue('probe_part_number'), 0, -2);
+      // $form_float_part = Unicode::substr($form_state->getValue('float_part_number'), 0, -2);
+      $form_probe_part = $form_state->getValue('probe_part_number');
+      $form_float_part = $form_state->getValue('float_part_number');
 
       $content_types = ['product_detail', 'product_listing', 'product_showcase'];
       $nids = [];
