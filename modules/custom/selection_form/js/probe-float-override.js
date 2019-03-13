@@ -29,7 +29,7 @@
   $('#product-selection-form .form-submit').attr('disabled', 'disabled');
 
   // Onchange event for the Measurement field.
-  $('#__htmlprbMeasurement').change(function(event) {
+  $('#__htmlfltCableLength').change(function(event) {
       $('.datafilteredvalues').each(function(index, el) {
           var inputVal = $(this).find('input').text();
           $(this).find('input').val(inputVal);
@@ -71,6 +71,11 @@
       if ((is_disabled == false) && ($(this).find('#__htmlfltCableLength').find('option:first').val() == '--Please Select--')) {
         $('#product-selection-form .form-submit').attr('disabled', 'disabled');
       }
+      // console.log($('#__htmlprbChemNote font em strong').text());
+      // if ($('#__htmlprbChemNote font em strong').text() != '') {
+      //   var warningText = $('#__htmlprbChemNote font em strong').text();
+      //   $('#__htmlfldMeasurement').append(warningText);
+      // }
     });
   });
 })(jQuery, window, Drupal);

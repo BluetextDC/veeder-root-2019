@@ -40,7 +40,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlfldPartNumber',
       ],
       '#attributes' => [
-        'id' => '__htmlprbPartNumber',
+        'id' => '__htmlTaxonomy1PartNumber',
         'readonly' => 'readonly',
       ],
       '#prefix' => '<div class="datafilteredvalues">',
@@ -82,7 +82,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlfldFloatPartNumber',
       ],
       '#attributes' => [
-        'id' => '__htmlfltPartNumber',
+        'id' => '__htmlTaxonomy2PartNumber',
         'readonly' => 'readonly',
       ],
       '#prefix' => '<div class="datafilteredvalues">',
