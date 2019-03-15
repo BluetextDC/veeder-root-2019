@@ -50,11 +50,17 @@
   });
   // Removing disabled class where we won't get --Please Select--.
   $('.js-form-type-select').change(function(event) {
-    console.log($('#__htmlprbChemNote font em strong').text());
+    // Append Warning into the measurement label.
     if ($('#__htmlprbChemNote font em strong').text() != '') {
       var warningText = $('#__htmlprbChemNote font em strong').text();
-      $('#__htmlfldMeasurement').after('<font color="red"><em><strong>' + warningText + '</strong></em></font>');
+      if (warningText != '' && $('.form-item-measurement').find('font em strong').text() == '') {
+        $('#__htmlfldMeasurement').after('<font color="red"><em><strong>' + warningText + '</strong></em></font>');
+      }
     }
+    else {
+      $('.form-item-measurement').find('font em strong').remove();
+    }
+    // Enable and disable with fields on change.
     $('.js-form-type-select').each(function(index, el) {
       if (($(this).find('select').find('option:first').val() != '') && ($(this).find('select').find('option:first').prop('disabled'))) {
          $(this).removeClass('disable-fields');
