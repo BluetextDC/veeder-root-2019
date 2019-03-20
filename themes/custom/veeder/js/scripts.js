@@ -60,6 +60,7 @@
     });
     // Top level menu link replace with javascript.
     $('.main-nav ul.menu-top-level > li > a').attr('href', 'javascript:;');
+    $('div.sidebar-wrap ul.sidebar-links > li > a').attr('href', 'javascript:;');
 
     /* location click */ 
     /* $('.language-dropdown .dropdown-button').on('click', function(){      
