@@ -127,6 +127,12 @@
             offsetTop: $('header').height()   
         });
     }
+
+    // Add search bar offset for subnav
+    if($('.page-sub-nav').length > 0){
+        $('div.search-bar').css('top', '140%');
+    }
+
     /* slider */
     $('.text-img-sec .img-part .images-slider.slick-dotted').each(function(){            
         $(this).parents('.text-img-sec').addClass('slider-dots-space');
