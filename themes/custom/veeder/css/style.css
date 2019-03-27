@@ -652,7 +652,7 @@ form.contact-form .form-autocomplete{background-image: none !important}
 .page-sub-nav ul li a{color: inherit; padding: 0 10px; line-height: 2.1;}
 
 /* tri-color */
-.tri-color{position: absolute; left: 0; bottom: 0; width: 100%; height: 5px; background-color: #236192; }
+.tri-color{position: absolute; left: 0; bottom: 0; width: 100%; height: 5px; background-color: #236192; z-index: 0;}
 .tri-color.large{height: 10px;}
 .tri-color:before,
 .tri-color:after{content: ""; width: 100%; height: 100%; position: absolute; top: 0;width: 33.33%; pointer-events: none;z-index: 1;}
