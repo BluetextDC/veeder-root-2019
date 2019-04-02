@@ -1,0 +1,6 @@
+sensor_module_js:
+  js:
+    js/sensor.js: {}
+    js/sensor-override.js: {}
+  dependencies:
+    - core/jquery

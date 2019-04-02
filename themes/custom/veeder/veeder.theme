@@ -327,6 +327,14 @@ function veeder_preprocess_paragraph(&$variables) {
       $variables['selection_form'] = $selection_form;
     }
   }
+  elseif ($paragraph_name == 'sensor_module') { // Features CTA
+    $module_handler = \Drupal::service('module_handler');
+    if ($module_handler->moduleExists('sensor_form')){
+      $form_object = new Drupal\sensor_form\Form\SensorForm();
+      $sensor_form = \Drupal::formBuilder()->getForm($form_object);
+      $variables['sensor_form'] = $sensor_form;
+    }
+  }
 }
 
 /**

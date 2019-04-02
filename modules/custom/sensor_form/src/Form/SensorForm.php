@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Contains \Drupal\selection_form\Form\SelectionForm;
+ * Contains \Drupal\sensor_form\Form\SensorForm;
  */
 
-namespace Drupal\selection_form\Form;
+namespace Drupal\sensor_form\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -18,24 +18,25 @@ use Drupal\node\Entity\Node;
 use Drupal\Core\Url;
 use Drupal\Component\Utility\Unicode;
 
-class SelectionForm extends FormBase {
+class SensorForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'product_selection_form';
+    return 'product_sensor_form';
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#attached']['library'][] = 'selection_form/selection_module_js';
+    $form['#attached']['library'][] = 'sensor_form/sensor_module_js';
     $form['#attributes']['class'][] = 'row';
-    $form['probe_part_number'] = [
+
+    $form['sensor_part_number'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Probe Part Number:'),
+      '#title' => $this->t('Sensor Part Number:'),
       '#label_attributes' => [
         'id' => '__htmlfldPartNumber',
       ],
@@ -47,14 +48,70 @@ class SelectionForm extends FormBase {
       '#suffix' => '</div>',
     ];
 
-    $form['probe_description'] = [
+    $form['sensor_accessory'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Probe Description:'),
+      '#title' => $this->t('Accessories:'),
+      '#label_attributes' => [
+        'id' => '__htmlfldAccessory',
+      ],
+      '#attributes' => [
+        'id' => '__htmlsnsrAccessory1',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['sensor_accessory_desc'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Accessories Description:'),
+      '#label_attributes' => [
+        'id' => '__htmlfldAccessoryDesc1',
+      ],
+      '#attributes' => [
+        'id' => '__htmlsnsrAccessoryDesc1',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['sensor_description'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Sensor Description:'),
       '#label_attributes' => [
         'id' => '__htmlfldDescription',
       ],
       '#attributes' => [
-        'id' => '__htmlprbDescription',
+        'id' => '__htmlsnsrDescription',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['sensor_accessory2'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Accessories 2:'),
+      '#label_attributes' => [
+        'id' => '__htmlfldsnsrAccessory2',
+      ],
+      '#attributes' => [
+        'id' => '__htmlsnsrAccessory2',
+        'readonly' => 'readonly',
+      ],
+      '#prefix' => '<div class="datafilteredvalues">',
+      '#suffix' => '</div>',
+    ];
+
+    $form['sensor_accessory_desc2'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Accessories Description 2:'),
+      '#label_attributes' => [
+        'id' => '__htmlfldsnsrAccessoryDesc2',
+      ],
+      '#attributes' => [
+        'id' => '__htmlsnsrAccessoryDesc2',
         'readonly' => 'readonly',
       ],
       '#prefix' => '<div class="datafilteredvalues">',
@@ -74,105 +131,97 @@ class SelectionForm extends FormBase {
       '#prefix' => '<div class="datafilteredvalues">',
       '#suffix' => '</div>',
     ];
+    // Gauge repeater fields.
+    for ($i = 1; $i <= 6; $i++) {
+      $form['gauge_'.$i] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Gauge '.$i),
+        '#label_attributes' => [
+          'id' => '__htmlfldsnsrGauge'.$i,
+        ],
+        '#attributes' => [
+          'id' => '__htmlsnsrGauge'.$i,
+          'readonly' => 'readonly',
+        ],
+        '#prefix' => '<div class="datafilteredvalues gauge-' . $i . '">',
+        '#suffix' => '</div>',
+      ];
+      
+      // Software repeater fields.
+      $form['software_'.$i] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Software '.$i),
+        '#label_attributes' => [
+          'id' => '__htmlfldsnsrSoftware'.$i,
+        ],
+        '#attributes' => [
+          'id' => '__htmlsnsrSoftware'.$i,
+          'readonly' => 'readonly',
+        ],
+        '#prefix' => '<div class="datafilteredvalues software-' . $i . '">',
+        '#suffix' => '</div>',
+      ];
+      
+      // Interface repeater fields.
+      $form['interface_'.$i] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Interface '.$i),
+        '#label_attributes' => [
+          'id' => '__htmlfldsnsrInterface'.$i,
+        ],
+        '#attributes' => [
+          'id' => '__htmlsnsrInterface'.$i,
+          'readonly' => 'readonly',
+        ],
+        '#prefix' => '<div class="datafilteredvalues interface-' . $i . '">',
+        '#suffix' => '</div>',
+      ];
+      
+      // Connect repeater fields.
+      $form['connect_'.$i] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Connect '.$i),
+        '#label_attributes' => [
+          'id' => '__htmlfldsnsrConnect'.$i,
+        ],
+        '#attributes' => [
+          'id' => '__htmlsnsrConnect'.$i,
+          'readonly' => 'readonly',
+        ],
+        '#prefix' => '<div class="datafilteredvalues connect-' . $i . '">',
+        '#suffix' => '</div>',
+      ];
+    }
 
-    $form['float_part_number'] = [
+    $form['selected_sensors'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Float Part Number:'),
-      '#label_attributes' => [
-        'id' => '__htmlfldFloatPartNumber',
-      ],
-      '#attributes' => [
-        'id' => '__htmlTaxonomy2PartNumber',
-        'readonly' => 'readonly',
-      ],
-      '#prefix' => '<div class="datafilteredvalues">',
-      '#suffix' => '</div>',
-    ];
-
-    $form['float_chem_note'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Float Chem Note:'),
-      '#label_attributes' => [
-        'id' => '__htmlfldChemNote',
-      ],
-      '#attributes' => [
-        'id' => '__htmlprbChemNote',
-        'readonly' => 'readonly',
-      ],
-      '#prefix' => '<div class="datafilteredvalues">',
-      '#suffix' => '</div>',
-    ];
-
-    $form['select_probes'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Selected Probes:'),
-      '#label_attributes' => [
-        'id' => '__htmlLabelprbCount',
-      ],
-      '#attributes' => [
-        'id' => '__htmlprbCount',
-        'readonly' => 'readonly',
-      ],
-      '#prefix' => '<div class="datafilteredvalues">',
-      '#suffix' => '</div>',
-    ];
-
-    $form['select_floats'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Selected Floats:'),
-      '#label_attributes' => [
-        'id' => '__htmlLabelCount',
-      ],
-      '#attributes' => [
-        'id' => '__htmlfltCount',
-        'readonly' => 'readonly',
-      ],
-      '#prefix' => '<div class="datafilteredvalues">',
-      '#suffix' => '</div>',
-    ];
-
-    // $form['probes_data'] = [
-    //   '#type' => 'textfield',
-    //   '#title' => $this->t('Probes Data:'),
-    //   '#label_attributes' => [
-    //     'id' => '__htmlLabelData',
-    //   ],
-    //   '#attributes' => [
-    //     'id' => '__htmlprbData',
-    //     'readonly' => 'readonly',
-    //   ],
-    //   '#prefix' => '<div class="datafilteredvalues">',
-    //   '#suffix' => '</div>',
-    // ];
-
-    $form['probes_list'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Probe List:'),
+      '#title' => $this->t('Selected Sensors'),
       '#label_attributes' => [
         'id' => '__htmlLabelprbCountList',
       ],
       '#attributes' => [
-        'id' => '__htmlprbCountList',
+        'id' => '__htmlsnsrCount',
         'readonly' => 'readonly',
       ],
       '#prefix' => '<div class="datafilteredvalues">',
       '#suffix' => '</div>',
     ];
 
-    $form['float_list'] = [
+    $form['sensor_list'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Float List:'),
+      '#title' => $this->t('Sensor List'),
       '#label_attributes' => [
         'id' => '__htmlLabelfltCountList',
       ],
       '#attributes' => [
-        'id' => '__htmlfltCountList',
+        'id' => '__htmlsnsrCountList',
         'readonly' => 'readonly',
       ],
       '#prefix' => '<div class="datafilteredvalues">',
       '#suffix' => '</div>',
     ];
 
+    // Form fields.
     $form['left_container'] = array(
       '#type' => 'container',
       '#attributes' => array('class' => array('col-md-6 col-12')),
@@ -188,7 +237,7 @@ class SelectionForm extends FormBase {
         'id' => '__htmlfldProductGroup',
       ],
       '#attributes' => [
-        'id' => '__htmlprbProductGroup',
+        'id' => '__htmlsnsrProductGroup',
         'onchange' => 'clickProductGroup(this.value)',
       ],
       '#validated' => TRUE,
@@ -205,88 +254,120 @@ class SelectionForm extends FormBase {
         'id' => '__htmlfldProduct',
       ],
       '#attributes' => [
-        'id' => '__htmlprbProduct',
+        'id' => '__htmlsnsrProduct',
         'onchange' => 'clickProduct(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['left_container']['tank_type'] = [
+    $form['left_container']['usage'] = [
       '#type' => 'select',
-      '#title' => $this->t('Tank Type'),
+      '#title' => $this->t('Usage'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldTankType',
+        'id' => '__htmlfldUsage',
       ],
       '#attributes' => [
-        'id' => '__htmlprbTankType',
-        'onchange' => 'clickTankType(this.value)',
+        'id' => '__htmlsnsrUsage',
+        'onchange' => 'clickUsage(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['left_container']['leak_detection'] = [
+    $form['left_container']['vacuum'] = [
       '#type' => 'select',
-      '#title' => $this->t('Leak Detection'),
+      '#title' => $this->t('Vacuum'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldLeakDetection',
+        'id' => '__htmlfldVacuum',
       ],
       '#attributes' => [
-        'id' => '__htmlprbLeakDetection',
-        'onchange' => 'clickLeakDetection(this.value)',
+        'id' => '__htmlsnsrVacuum',
+        'onchange' => 'clickVacuum(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['left_container']['probe_material'] = [
+    $form['left_container']['discriminating'] = [
       '#type' => 'select',
-      '#title' => $this->t('Probe Material'),
+      '#title' => $this->t('Discriminating'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldProbeMaterial',
+        'id' => '__htmlfldDiscriminating',
       ],
       '#attributes' => [
-        'id' => '__htmlprbProbeMaterial',
-        'onchange' => 'clickProbeMaterial(this.value)',
+        'id' => '__htmlsnsrDiscriminating',
+        'onchange' => 'clickDiscriminating(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['left_container']['canister_cover'] = [
+    $form['left_container']['position_sensitive'] = [
       '#type' => 'select',
-      '#title' => $this->t('Canister Cover'),
+      '#title' => $this->t('Position Sensitive'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldCanister',
+        'id' => '__htmlfldPositionSensitive',
       ],
       '#attributes' => [
-        'id' => '__htmlprbCanister',
-        'onchange' => 'clickCanister(this.value)',
+        'id' => '__htmlsnsrPositionSensitive',
+        'onchange' => 'clickPositionSensitive(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['left_container']['approval'] = [
+    $form['left_container']['level_sensing'] = [
       '#type' => 'select',
-      '#title' => $this->t('Approval'),
+      '#title' => $this->t('Level Sensing'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldApproval',
+        'id' => '__htmlfldLevelSensing',
       ],
       '#attributes' => [
-        'id' => '__htmlprbApproval',
-        'onchange' => 'clickApproval(this.value)',
+        'id' => '__htmlsnsrLevelSensing',
+        'onchange' => 'clickLevelSensing(this.value)',
+      ],
+      '#validated' => TRUE,
+    ];
+
+    $form['left_container']['static_testing'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Static Testing'),
+      '#options' => [
+        'none' => '--Please Select--',
+      ],
+      '#label_attributes' => [
+        'id' => '__htmlfldStaticTesting',
+      ],
+      '#attributes' => [
+        'id' => '__htmlsnsrStaticTesting',
+        'onchange' => 'clickStaticTesting(this.value)',
+      ],
+      '#validated' => TRUE,
+    ];
+
+    $form['left_container']['hydro_static'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Hydro Static'),
+      '#options' => [
+        'none' => '--Please Select--',
+      ],
+      '#label_attributes' => [
+        'id' => '__htmlfldHydrostatic',
+      ],
+      '#attributes' => [
+        'id' => '__htmlsnsrHydrostatic',
+        'onchange' => 'clickHydroStatic(this.value)',
       ],
       '#validated' => TRUE,
     ];
@@ -296,98 +377,82 @@ class SelectionForm extends FormBase {
       '#attributes' => array('class' => array('col-md-6 col-12')),
     );
 
-    $form['right_container']['density'] = [
+    $form['right_container']['solid_state'] = [
       '#type' => 'select',
-      '#title' => $this->t('Density'),
+      '#title' => $this->t('Solid State'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldDensity',
+        'id' => '__htmlfldSolidState',
       ],
       '#attributes' => [
-        'id' => '__htmlprbDensity',
-        'onchange' => 'clickDensity(this.value)',
+        'id' => '__htmlsnsrSolidState',
+        'onchange' => 'clickSolidState(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['right_container']['water_detection'] = [
+    $form['right_container']['leak_detection'] = [
       '#type' => 'select',
-      '#title' => $this->t('Water Detection'),
+      '#title' => $this->t('Leak Detection'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldWaterDetection',
+        'id' => '__htmlfldLeakDetection',
       ],
       '#attributes' => [
-        'id' => '__htmlprbWaterDetection',
-        'onchange' => 'clickWaterDetection(this.value)',
+        'id' => '__htmlsnsrLeakDetection',
+        'onchange' => 'clickLeakDetection(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['right_container']['console_connection'] = [
+    $form['right_container']['tank_type'] = [
       '#type' => 'select',
-      '#title' => $this->t('Console Connection'),
+      '#title' => $this->t('Tank Type'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldConnection',
+        'id' => '__htmlfldTankType',
       ],
       '#attributes' => [
-        'id' => '__htmlprbConnection',
-        'onchange' => 'clickConnection(this.value)',
+        'id' => '__htmlsnsrTankType',
+        'onchange' => 'clickTankType(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['right_container']['measurement'] = [
+    $form['right_container']['points'] = [
       '#type' => 'select',
-      '#title' => $this->t('Measurement'),
+      '#title' => $this->t('Points'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldMeasurement',
+        'id' => '__htmlfldPoints',
       ],
       '#attributes' => [
-        'id' => '__htmlprbMeasurement',
-        'onchange' => 'clickMeasurement(this.value)',
+        'id' => '__htmlsnsrPoints',
+        'onchange' => 'clickPoints(this.value)',
       ],
       '#validated' => TRUE,
     ];
 
-    $form['right_container']['float_size'] = [
+    $form['right_container']['sensor_length'] = [
       '#type' => 'select',
-      '#title' => $this->t('Float Size'),
+      '#title' => $this->t('Sensor Length'),
       '#options' => [
         'none' => '--Please Select--',
       ],
       '#label_attributes' => [
-        'id' => '__htmlfldFloatSize',
+        'id' => '__htmlfldSensorLength',
       ],
       '#attributes' => [
-        'id' => '__htmlfltFloatSize',
-        'onchange' => 'clickFloatSize(this.value)',
-      ],
-      '#validated' => TRUE,
-    ];
-
-    $form['right_container']['float_type'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Float Type'),
-      '#options' => [
-        'none' => '--Please Select--',
-      ],
-      '#label_attributes' => [
-        'id' => '__htmlfldFloatType',
-      ],
-      '#attributes' => [
-        'id' => '__htmlfltFloatType',
-        'onchange' => 'clickFloatType(this.value)',
+        'id' => '__htmlsnsrSensorLength',
+        'onchange' => 'clickSensorLength(this.value)',
       ],
       '#validated' => TRUE,
     ];
@@ -402,8 +467,40 @@ class SelectionForm extends FormBase {
         'id' => '__htmlfldCableLength',
       ],
       '#attributes' => [
-        'id' => '__htmlfltCableLength',
+        'id' => '__htmlsnsrCableLength',
         'onchange' => 'clickCableLength(this.value)',
+      ],
+      '#validated' => TRUE,
+    ];
+
+    $form['right_container']['tanks'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Tanks'),
+      '#options' => [
+        'none' => '--Please Select--',
+      ],
+      '#label_attributes' => [
+        'id' => '__htmlfldTanks',
+      ],
+      '#attributes' => [
+        'id' => '__htmlsnsrTanks',
+        'onchange' => 'clickTanks(this.value)',
+      ],
+      '#validated' => TRUE,
+    ];
+
+    $form['right_container']['pipes'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Pipes'),
+      '#options' => [
+        'none' => '--Please Select--',
+      ],
+      '#label_attributes' => [
+        'id' => '__htmlfldPipes',
+      ],
+      '#attributes' => [
+        'id' => '__htmlsnsrPipes',
+        'onchange' => 'clickPipes(this.value)',
       ],
       '#validated' => TRUE,
     ];
@@ -412,7 +509,7 @@ class SelectionForm extends FormBase {
       '#type' => 'button',
       '#value' => $this->t('Submit'),
       '#ajax' => [
-        'callback' => '::setMessage',
+        'callback' => '::sensorSetMessage',
       ],
     ];
     return $form;
@@ -435,12 +532,12 @@ class SelectionForm extends FormBase {
   /**
    *
    */
-  public function setMessage(array $form, FormStateInterface $form_state) {
+  public function sensorSetMessage(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
     // Checking the form probe and float number are empty or not.
-    if (!empty($form_state->getValue('probe_part_number')) || !empty($form_state->getValue('float_part_number'))) {
-      $form_probe_part = $form_state->getValue('probe_part_number');
-      $form_float_part = $form_state->getValue('float_part_number');
+    if (!empty($form_state->getValue('sensor_part_number')) || !empty($form_state->getValue('sensor_accessory'))) {
+      $form_probe_part = $form_state->getValue('sensor_part_number');
+      $form_float_part = $form_state->getValue('sensor_accessory');
       // Load all 3 content type (Those are having selection module).
       $content_types = ['product_detail', 'product_listing', 'product_showcase'];
       // Here getting node ids.
@@ -500,7 +597,7 @@ class SelectionForm extends FormBase {
       foreach ( $paragraph as $element ) {
         $paragraph_details = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
         $paragraph_name = $paragraph_details->getType();
-        if ($paragraph_name == 'selection_module') {
+        if ($paragraph_name == 'sensor_module') {
           $lighbox_title = $paragraph_details->field_selection_lightbox_title->value;
         }
       }
@@ -522,11 +619,11 @@ class SelectionForm extends FormBase {
               // Checking that Probe number is coming or Float number.
               if ($keys == 0) {
                 $probe_term_detail = Term::load($node_load->get('field_probe_number_tags')->getValue()[0]['target_id']);
-                $numbers = $this->t('Probe Part Number: ') . $form_state->getValue('probe_part_number');
+                $numbers = $this->t('Sensor Part Number: ') . $form_state->getValue('probe_part_number');
               }
               else {
                 $float_term_detail = Term::load($node_load->get('field_float_number_tags')->getValue()[0]['target_id']);
-                $numbers = $this->t('Float Part Number: ') . $form_state->getValue('float_part_number');
+                $numbers = $this->t('Sensor Float Number: ') . $form_state->getValue('float_part_number');
               }
 
               $node_url = Url::fromRoute('entity.node.canonical', ['node' => $node_id], ['absolute' => TRUE])->toString();
