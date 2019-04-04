@@ -12,7 +12,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 function sensor_form_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     // Main module help for the block module.
-    case 'help.page.selection_form':
-      return '<p>' . t('Sensor Form') . '</p>';
+    case 'help.page.sensor_form':
+      return '<p>' . t('Sensor form helps to filter products by using their proble number and float number.') . '</p>';
   }
 }

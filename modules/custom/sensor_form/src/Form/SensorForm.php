@@ -535,7 +535,7 @@ class SensorForm extends FormBase {
   public function sensorSetMessage(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
     // Checking the form probe and float number are empty or not.
-    if (!empty($form_state->getValue('sensor_part_number')) || !empty($form_state->getValue('sensor_accessory'))) {
+    if ((Unicode::strlen($form_state->getValue('sensor_part_number')) > 1) || (Unicode::strlen($form_state->getValue('sensor_accessory')) > 1)) {
       $form_probe_part = $form_state->getValue('sensor_part_number');
       $form_float_part = $form_state->getValue('sensor_accessory');
       // Load all 3 content type (Those are having selection module).

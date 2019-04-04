@@ -26,22 +26,19 @@
   });
 
   // Hide submit button till last option will not select.
-  //$('#product-sensor-form .form-submit').attr('disabled', 'disabled');
+  $('#product-sensor-form .form-submit').attr('disabled', 'disabled');
 
-  // Onchange event for the Measurement field.
+  // Onchange event for the Measurement, CableLength, and Pipes field.
   $('#__htmlsnsrSensorLength, #__htmlsnsrCableLength, #__htmlsnsrPipes').change(function(event) {
-      //$('#product-sensor-form .form-submit').removeAttr('disabled');
-      $('.datafilteredvalues').each(function(index, el) {
-          var inputVal = $(this).find('input').text();
-          $(this).find('input').val(inputVal);
-      });
+    $('.datafilteredvalues').each(function(index, el) {
+      var inputVal = $(this).find('input').text();
+      $(this).find('input').val(inputVal);
+    });
   });
-  // Onchange event for the CableLength field.
-  // $('#__htmlsnsrSensorLength, #__htmlsnsrCableLength').change(function(event) {
-  //     $('#product-sensor-form .form-submit').removeAttr('disabled');
-  //     var inputVal = $('#__htmlfltPartNumber').text();
-  //     $('#__htmlfltPartNumber').val(inputVal);
-  // });
+  // Onchange event for the Sensor Usage field.
+  $('#__htmlsnsrUsage').change(function(event) {
+    $('#product-sensor-form .form-submit').removeAttr('disabled');
+  });
 
   // Adding disabled class where we will get select disabled.
   $('.js-form-type-select').each(function(index, el) {
@@ -52,10 +49,10 @@
   // Removing disabled class where we won't get --Please Select--.
   $('.js-form-type-select').change(function(event) {
     $('.datafilteredvalues').each(function(index, el) {
-        var inputVal = $(this).find('input').text();
-        if (inputVal.length > 0) {
-          $(this).find('input').val(inputVal);
-        }
+      var inputVal = $(this).find('input').text();
+      if (inputVal.length > 0) {
+        $(this).find('input').val(inputVal);
+      }
     });
     // Append Warning into the measurement label.
     // if ($('#__htmlprbChemNote font em strong').text() != '') {
@@ -86,9 +83,9 @@
         $(this).removeClass('select-indicator');
       }
       var is_disabled = $('#product-sensor-form .form-submit').prop('disabled');
-      // if ((is_disabled == false) && ($(this).find('#__htmlsnsrSensorLength, #__htmlsnsrCableLength, #__htmlsnsrPipes').find('option:first').val() == '--empty list--')) {
-      //   $('#product-sensor-form .form-submit').attr('disabled', 'disabled');
-      // }
+      if ((is_disabled == false) && ($(this).find('#__htmlsnsrUsage').find('option:first').val() == '--empty list--')) {
+        $('#product-sensor-form .form-submit').attr('disabled', 'disabled');
+      }
     });
   });
 })(jQuery, window, Drupal);
