@@ -108,7 +108,7 @@ function veeder_preprocess_maintenance_page(&$variables) {
     $variables['site_name'] = '';
   }
   // Bartik has custom styling for the maintenance page.
-  $variables['#attached']['library'][] = 'bartik/maintenance_page';
+  $variables['#attached']['library'][] = 'veeder/maintenance_page';
 }
 
 /**
@@ -497,15 +497,6 @@ function veeder_preprocess_breadcrumb(&$variables) {
   }
   else {
     unset($variables['breadcrumb']);
-  }
-}
-
-/**
- * Implements hook_theme_suggestions_HOOK_alter() for form templates.
- */
-function veeder_theme_suggestions_form_alter(array &$suggestions, array $variables) {
-  if ($variables['element']['#form_id'] == 'search_block_form') {
-    $suggestions[] = 'form__search_block_form';
   }
 }
 

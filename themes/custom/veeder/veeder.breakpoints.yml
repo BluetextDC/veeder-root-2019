@@ -1,0 +1,36 @@
+veeder.xsdevice:
+  label: xsdevice
+  mediaQuery: 'all and (max-width:480px)'
+  weight: 0
+  multipliers:
+    - 1x
+veeder.sdevices:
+  label: sdevices
+  mediaQuery: 'all and (max-width:640px)'
+  weight: 1
+  multipliers:
+    - 1x
+veeder.mdevices:
+  label: mdevices
+  mediaQuery: 'all and (max-width:767px) and (max-width:812px) and (max-height: 896px)'
+  weight: 2
+  multipliers:
+    - 1x
+veeder.tablet:
+  label: tablet
+  mediaQuery: 'all and (min-width:768px) and (max-width:1023px) and (min-height:400px)'
+  weight: 3
+  multipliers:
+    - 1x
+veeder.desktop:
+  label: desktop
+  mediaQuery: 'all and (min-width:1024px) and (max-width:1199px)'
+  weight: 4
+  multipliers:
+    - 1x
+veeder.mdesktop:
+  label: mdesktop
+  mediaQuery: 'all and (max-width:1399px)'
+  weight: 5
+  multipliers:
+    - 1x

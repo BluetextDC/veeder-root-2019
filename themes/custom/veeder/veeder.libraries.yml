@@ -43,3 +43,8 @@ fancybox:
   dependencies:
     - core/jquery
     - core/jquery
+
+maintenance_page:
+  css:
+    theme:
+      css/maintenance-page.css: {}
