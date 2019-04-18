@@ -52,21 +52,7 @@ class SensorForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Accessories:'),
       '#label_attributes' => [
-        'id' => '__htmlfldAccessory',
-      ],
-      '#attributes' => [
         'id' => '__htmlsnsrAccessory1',
-        'readonly' => 'readonly',
-      ],
-      '#prefix' => '<div class="datafilteredvalues">',
-      '#suffix' => '</div>',
-    ];
-
-    $form['sensor_accessory_desc'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Accessories Description:'),
-      '#label_attributes' => [
-        'id' => '__htmlfldAccessoryDesc1',
       ],
       '#attributes' => [
         'id' => '__htmlsnsrAccessoryDesc1',
@@ -75,6 +61,20 @@ class SensorForm extends FormBase {
       '#prefix' => '<div class="datafilteredvalues">',
       '#suffix' => '</div>',
     ];
+
+    // $form['sensor_accessory_desc'] = [
+    //   '#type' => 'textfield',
+    //   '#title' => $this->t('Accessories Description:'),
+    //   '#label_attributes' => [
+    //     'id' => '__htmlfldAccessoryDesc1',
+    //   ],
+    //   '#attributes' => [
+    //     'id' => '__htmlsnsrAccessoryDesc1',
+    //     'readonly' => 'readonly',
+    //   ],
+    //   '#prefix' => '<div class="datafilteredvalues">',
+    //   '#suffix' => '</div>',
+    // ];
 
     $form['sensor_description'] = [
       '#type' => 'textfield',
@@ -535,9 +535,8 @@ class SensorForm extends FormBase {
   public function sensorSetMessage(array $form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
     // Checking the form probe and float number are empty or not.
-    if ((Unicode::strlen($form_state->getValue('sensor_part_number')) > 1) || (Unicode::strlen($form_state->getValue('sensor_accessory')) > 1)) {
+    if (!empty(Unicode::strlen($form_state->getValue('sensor_part_number')))) {
       $form_probe_part = $form_state->getValue('sensor_part_number');
-      $form_float_part = $form_state->getValue('sensor_accessory');
       // Load all 3 content type (Those are having selection module).
       $content_types = ['product_detail', 'product_listing', 'product_showcase'];
       // Here getting node ids.
@@ -566,28 +565,14 @@ class SensorForm extends FormBase {
               }
             }
           }
-          $float_number_ids = $node->get('field_float_number_tags')->getValue();
-          if (!empty($float_number_ids)) {
-            foreach ($float_number_ids as $fid => $float_number_id) {
-              $float_term = Term::load($float_number_ids[$fid]['target_id']);
-              $float_number_name = $float_term->getName();
-              if ($form_float_part == $float_number_name) {
-                $float_content[$node->label()] = $node->id();
-              }
-            }
-          }
         }
       }
       // Sorting array.
       ksort($probe_content);
-      ksort($float_content);
       // Merge both array.
       $node_content = [];
       if (!empty($probe_content)) {
         $node_content[] = reset($probe_content);
-      }
-      if (!empty($float_content)) {
-        $node_content[] = reset($float_content);
       }
      
       $current_node = \Drupal::routeMatch()->getParameter('node');
@@ -616,15 +601,8 @@ class SensorForm extends FormBase {
               else {
                 $taxonomy_image = '/sites/default/files/default_images/default-image-product_0.png';
               }
-              // Checking that Probe number is coming or Float number.
-              if ($keys == 0) {
-                $probe_term_detail = Term::load($node_load->get('field_probe_number_tags')->getValue()[0]['target_id']);
-                $numbers = $this->t('Sensor Part Number: ') . $form_state->getValue('probe_part_number');
-              }
-              else {
-                $float_term_detail = Term::load($node_load->get('field_float_number_tags')->getValue()[0]['target_id']);
-                $numbers = $this->t('Sensor Float Number: ') . $form_state->getValue('float_part_number');
-              }
+              // Sensor Part Number.
+              $numbers = $this->t('Sensor Part Number: ') . $form_state->getValue('sensor_part_number');
 
               $node_url = Url::fromRoute('entity.node.canonical', ['node' => $node_id], ['absolute' => TRUE])->toString();
               $link_text = $this->t('Learn More');

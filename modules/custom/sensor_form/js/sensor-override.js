@@ -66,8 +66,8 @@
     // }
     // Enable and disable with fields on change.
     $('.js-form-type-select').each(function(index, el) {
-      if (($(this).find('select').find('option:first').val() != '') && ($(this).find('select').find('option:first').prop('disabled'))) {
-         $(this).removeClass('disable-fields');
+      if (($(this).find('select').find('option:first').val() != '') && ($(this).find('select').find('option:first').prop('disabled')) && ($(this).find('select').find('option:selected').text() != '-- Ignored --')) {
+        $(this).removeClass('disable-fields');
       }
       else if($(this).find('select').is(':disabled')) {
         $(this).addClass('disable-fields');
