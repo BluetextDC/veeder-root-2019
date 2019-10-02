@@ -1,0 +1,23 @@
+uuid: 1187204e-eb6e-4f98-b88c-bb06109c8cea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_width_cta_color_foote
+    - paragraphs.paragraphs_type.full_width_cta
+id: paragraph.full_width_cta.field_full_width_cta_color_foote
+field_name: field_full_width_cta_color_foote
+entity_type: paragraph
+bundle: full_width_cta
+label: 'Display Colored Footer'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

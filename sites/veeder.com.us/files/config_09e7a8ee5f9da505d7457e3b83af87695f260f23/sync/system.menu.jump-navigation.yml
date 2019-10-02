@@ -1,0 +1,8 @@
+uuid: fec24487-4802-4aeb-958d-7eeefb1f4af6
+langcode: en
+status: true
+dependencies: {  }
+id: jump-navigation
+label: 'Jump Navigation'
+description: 'Product jump navigation'
+locked: false

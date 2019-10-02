@@ -1,0 +1,23 @@
+uuid: c5160f04-85d3-4baa-97ee-9f11f5dac798
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_hero_image_parall
+    - node.type.homepage
+id: node.homepage.field_homepage_hero_image_parall
+field_name: field_homepage_hero_image_parall
+entity_type: node
+bundle: homepage
+label: 'Parallax Image'
+description: 'Choose whether the hero banner image will parallax on scroll.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

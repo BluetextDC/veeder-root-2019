@@ -1,0 +1,21 @@
+uuid: 577b94fe-05b2-407d-b8bb-ff0acfed729f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4060_cta_description
+    - paragraphs.paragraphs_type.4060_cta
+  module:
+    - text
+id: paragraph.4060_cta.field_4060_cta_description
+field_name: field_4060_cta_description
+entity_type: paragraph
+bundle: 4060_cta
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

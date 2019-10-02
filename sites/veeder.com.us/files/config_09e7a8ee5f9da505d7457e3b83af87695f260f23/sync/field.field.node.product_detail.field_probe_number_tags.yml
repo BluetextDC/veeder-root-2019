@@ -1,0 +1,29 @@
+uuid: 92fe75ad-5882-46df-b151-aa28406eacc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_probe_number_tags
+    - node.type.product_detail
+    - taxonomy.vocabulary.probe_number
+id: node.product_detail.field_probe_number_tags
+field_name: field_probe_number_tags
+entity_type: node
+bundle: product_detail
+label: 'Probe Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      probe_number: probe_number
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,5 @@
+name: Find Distributor Form
+description: This module helps to search location using zip code.
+package: Custom
+core: 8.x
+type: module

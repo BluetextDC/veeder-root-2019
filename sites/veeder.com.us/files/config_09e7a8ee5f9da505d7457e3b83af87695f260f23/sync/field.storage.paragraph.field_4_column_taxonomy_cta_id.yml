@@ -1,0 +1,21 @@
+uuid: abcb4944-56fb-4eb5-9e22-575eec1672fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_4_column_taxonomy_cta_id
+field_name: field_4_column_taxonomy_cta_id
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,53 @@
+uuid: 7b23ddff-a92a-4dea-9a3e-3e3425cec561
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4_column_taxonomy_view
+    - paragraphs.paragraphs_type.4_column_taxonomy_listing
+  module:
+    - viewfield
+id: paragraph.4_column_taxonomy_listing.field_4_column_taxonomy_view
+field_name: field_4_column_taxonomy_view
+entity_type: paragraph
+bundle: 4_column_taxonomy_listing
+label: View
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  force_default: 0
+  allowed_views:
+    blog_author_listing: blog_author_listing
+    blog_listing: blog_listing
+    product_list: product_list
+    related_blogs: related_blogs
+    related_products: related_products
+    related_solutions: related_solutions
+    trending_blogs: trending_blogs
+    comment: 0
+    contact_messages: 0
+    content: 0
+    block_content: 0
+    file_entity_browser: 0
+    files: 0
+    frontpage: 0
+    media: 0
+    user_admin_people: 0
+    comments_recent: 0
+    content_recent: 0
+    taxonomy_term: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+  allowed_display_types:
+    block: block
+    default: default
+    page: page
+    entity_browser: 0
+    feed: 0
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

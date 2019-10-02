@@ -1,0 +1,21 @@
+uuid: abb6a850-949e-448a-a0d6-ed18976041d4
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_4060_cta_vimeo_url
+field_name: field_4060_cta_vimeo_url
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

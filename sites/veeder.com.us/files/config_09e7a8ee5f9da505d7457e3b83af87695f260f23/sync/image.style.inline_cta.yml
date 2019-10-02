@@ -1,0 +1,15 @@
+uuid: d54ed2c9-103c-4e41-bdf5-80b92f040f85
+langcode: en
+status: true
+dependencies: {  }
+name: inline_cta
+label: 'Inline CTA'
+effects:
+  78fcd22e-cf38-437c-922a-f4ef49f663ca:
+    uuid: 78fcd22e-cf38-437c-922a-f4ef49f663ca
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 260
+      height: 212
+      anchor: center-center

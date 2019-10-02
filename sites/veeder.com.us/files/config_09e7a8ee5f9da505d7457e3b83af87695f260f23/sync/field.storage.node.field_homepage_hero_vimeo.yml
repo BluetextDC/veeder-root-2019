@@ -1,0 +1,21 @@
+uuid: dc3ab414-f316-4d95-89cc-d0836a8ab085
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_homepage_hero_vimeo
+field_name: field_homepage_hero_vimeo
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

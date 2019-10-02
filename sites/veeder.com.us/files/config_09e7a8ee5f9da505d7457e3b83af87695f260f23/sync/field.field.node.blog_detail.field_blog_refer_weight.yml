@@ -1,0 +1,23 @@
+uuid: 94cd4844-a59d-4f2e-a8fd-f7b0ebb8ab36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_refer_weight
+    - node.type.blog_detail
+id: node.blog_detail.field_blog_refer_weight
+field_name: field_blog_refer_weight
+entity_type: node
+bundle: blog_detail
+label: 'Blog Refer Weight'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

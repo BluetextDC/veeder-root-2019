@@ -1,0 +1,25 @@
+uuid: e47dd23d-f7d2-4753-9100-45ab630950ff
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:5121b5d9-89fa-4d43-9318-4c5dc67e9f05'
+  module:
+    - block_content
+  theme:
+    - veeder
+id: copyrights
+theme: veeder
+region: footer_first
+weight: -7
+provider: null
+plugin: 'block_content:5121b5d9-89fa-4d43-9318-4c5dc67e9f05'
+settings:
+  id: 'block_content:5121b5d9-89fa-4d43-9318-4c5dc67e9f05'
+  label: Copyrights
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

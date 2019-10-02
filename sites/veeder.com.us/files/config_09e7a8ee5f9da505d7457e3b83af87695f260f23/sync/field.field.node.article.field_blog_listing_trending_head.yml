@@ -1,0 +1,19 @@
+uuid: 41c38e5f-29a9-45fe-a3c0-be241b9ffcdf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_listing_trending_head
+    - node.type.article
+id: node.article.field_blog_listing_trending_head
+field_name: field_blog_listing_trending_head
+entity_type: node
+bundle: article
+label: 'Trending Blogs Heading'
+description: 'Enter trending blogs heading for the blog page.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

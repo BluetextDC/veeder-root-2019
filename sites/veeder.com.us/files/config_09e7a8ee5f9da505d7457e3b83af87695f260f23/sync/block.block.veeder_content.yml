@@ -1,0 +1,22 @@
+uuid: 9f7ea962-2f7c-4d85-8901-8450b7808dac
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - veeder
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: veeder_content
+theme: veeder
+region: content
+weight: -4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

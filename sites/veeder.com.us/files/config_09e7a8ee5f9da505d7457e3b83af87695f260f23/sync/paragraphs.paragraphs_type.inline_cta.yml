@@ -1,0 +1,9 @@
+uuid: dbdb2b57-1ce8-4a0b-9c02-568f731c15b8
+langcode: en
+status: true
+dependencies: {  }
+id: inline_cta
+label: 'Inline CTA'
+icon_uuid: null
+description: 'Use Inline CTA for the inline section of the page with the heading, description, image, and CTA.'
+behavior_plugins: {  }

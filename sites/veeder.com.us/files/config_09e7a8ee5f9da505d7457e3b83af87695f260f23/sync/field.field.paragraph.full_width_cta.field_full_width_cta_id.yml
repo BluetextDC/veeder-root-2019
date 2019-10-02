@@ -1,0 +1,19 @@
+uuid: fcb3c20d-fe94-4655-958f-92fe82aa7d47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_width_cta_id
+    - paragraphs.paragraphs_type.full_width_cta
+id: paragraph.full_width_cta.field_full_width_cta_id
+field_name: field_full_width_cta_id
+entity_type: paragraph
+bundle: full_width_cta
+label: ID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

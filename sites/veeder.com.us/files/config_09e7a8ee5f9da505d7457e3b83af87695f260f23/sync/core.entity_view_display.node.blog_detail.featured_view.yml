@@ -1,0 +1,85 @@
+uuid: ca77ba72-8739-4e34-a03b-110a32a08bde
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.featured_view
+    - field.field.node.blog_detail.field_blog_author
+    - field.field.node.blog_detail.field_blog_date
+    - field.field.node.blog_detail.field_blog_detail_heading
+    - field.field.node.blog_detail.field_blog_detail_image
+    - field.field.node.blog_detail.field_blog_detail_image_parallax
+    - field.field.node.blog_detail.field_blog_detail_plate_color
+    - field.field.node.blog_detail.field_blog_detail_vimeo
+    - field.field.node.blog_detail.field_blog_realted_view
+    - field.field.node.blog_detail.field_blog_refer_weight
+    - field.field.node.blog_detail.field_blog_related_heading
+    - field.field.node.blog_detail.field_blog_social_share
+    - field.field.node.blog_detail.field_blog_tags
+    - field.field.node.blog_detail.field_body
+    - field.field.node.blog_detail.field_breadcrumb_color
+    - field.field.node.blog_detail.field_color_variation
+    - field.field.node.blog_detail.field_components
+    - field.field.node.blog_detail.field_contact_footer_form
+    - field.field.node.blog_detail.field_display_breadcrumbs
+    - field.field.node.blog_detail.field_display_contact_footer
+    - field.field.node.blog_detail.field_display_contact_sidebar
+    - field.field.node.blog_detail.field_meta_tags
+    - field.field.node.blog_detail.field_summary
+    - node.type.blog_detail
+  module:
+    - svg_image
+    - user
+id: node.blog_detail.featured_view
+targetEntityType: node
+bundle: blog_detail
+mode: featured_view
+content:
+  field_blog_detail_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_summary:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_blog_author: true
+  field_blog_date: true
+  field_blog_detail_heading: true
+  field_blog_detail_image_parallax: true
+  field_blog_detail_plate_color: true
+  field_blog_detail_vimeo: true
+  field_blog_realted_view: true
+  field_blog_refer_weight: true
+  field_blog_related_heading: true
+  field_blog_social_share: true
+  field_blog_tags: true
+  field_body: true
+  field_breadcrumb_color: true
+  field_color_variation: true
+  field_components: true
+  field_contact_footer_form: true
+  field_display_breadcrumbs: true
+  field_display_contact_footer: true
+  field_display_contact_sidebar: true
+  field_meta_tags: true
+  langcode: true

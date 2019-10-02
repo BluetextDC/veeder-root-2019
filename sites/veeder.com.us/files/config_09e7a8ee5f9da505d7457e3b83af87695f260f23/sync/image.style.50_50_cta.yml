@@ -1,0 +1,15 @@
+uuid: cae89682-6439-4bc6-b6a9-6decae6a2868
+langcode: en
+status: true
+dependencies: {  }
+name: 50_50_cta
+label: '50-50 CTA'
+effects:
+  2bc3256b-39b1-4dd1-b246-596b787f22c7:
+    uuid: 2bc3256b-39b1-4dd1-b246-596b787f22c7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 338
+      anchor: center-center

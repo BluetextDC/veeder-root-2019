@@ -1,0 +1,22 @@
+uuid: e7f3bad6-6c1b-43e7-bc75-c6f402d41507
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_width_cta_color
+    - paragraphs.paragraphs_type.full_width_cta
+  module:
+    - color_field
+id: paragraph.full_width_cta.field_full_width_cta_color
+field_name: field_full_width_cta_color
+entity_type: paragraph
+bundle: full_width_cta
+label: 'Heading and Body Color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

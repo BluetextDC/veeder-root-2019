@@ -1,0 +1,21 @@
+uuid: 0b6a56a5-5865-4ab8-b8d7-ca8f35ff1908
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - viewfield
+    - views
+id: paragraph.field_4_column_taxonomy_view
+field_name: field_4_column_taxonomy_view
+entity_type: paragraph
+type: viewfield
+settings:
+  target_type: view
+module: viewfield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

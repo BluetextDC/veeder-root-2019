@@ -1,0 +1,21 @@
+uuid: 7f0bb8b1-4cc8-4205-a345-fd05169e4d8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+    - field.storage.contact_message.field_country
+  module:
+    - options
+id: contact_message.feedback.field_country
+field_name: field_country
+entity_type: contact_message
+bundle: feedback
+label: Country
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

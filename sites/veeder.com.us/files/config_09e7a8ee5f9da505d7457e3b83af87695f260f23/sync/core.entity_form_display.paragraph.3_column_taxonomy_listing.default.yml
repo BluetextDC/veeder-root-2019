@@ -1,0 +1,61 @@
+uuid: 0eb8ed7e-001f-4504-88a5-d7996eb61777
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_bg_color
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_cta_id
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_head_col
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_heading
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_view
+    - paragraphs.paragraphs_type.3_column_taxonomy_listing
+  module:
+    - color_field
+    - viewfield
+id: paragraph.3_column_taxonomy_listing.default
+targetEntityType: paragraph
+bundle: 3_column_taxonomy_listing
+mode: default
+content:
+  field_3_column_taxonomy_bg_color:
+    weight: 2
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_3_column_taxonomy_cta_id:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_3_column_taxonomy_head_col:
+    weight: 1
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_3_column_taxonomy_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_3_column_taxonomy_view:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

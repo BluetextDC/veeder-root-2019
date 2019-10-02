@@ -1,0 +1,19 @@
+uuid: df304c84-a350-41e2-92d4-82d6fc0219a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.product_showcase
+id: node.product_showcase.field_summary
+field_name: field_summary
+entity_type: node
+bundle: product_showcase
+label: Summary
+description: 'Enter a summary for this page.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

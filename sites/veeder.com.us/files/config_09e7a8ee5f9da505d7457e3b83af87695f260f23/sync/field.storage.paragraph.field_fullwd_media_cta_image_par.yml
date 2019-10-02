@@ -1,0 +1,18 @@
+uuid: 1eb15a4a-7118-4fba-9b01-a34dbafb204a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_fullwd_media_cta_image_par
+field_name: field_fullwd_media_cta_image_par
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

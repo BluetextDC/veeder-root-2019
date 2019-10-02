@@ -1,0 +1,50 @@
+fonts:
+  version: VERSION
+  css:
+    theme:
+      fonts/styles.css: {}
+      '//file.myfontastic.com/B598Yje7or3gRUzgQsxhxQ/icons.css': {type: external} #external font
+      '//fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900|Roboto:300,400,500,700,900': {type: external} #external fonts
+
+
+global_style:
+  version: VERSION
+  css:
+    theme:
+      css/common.css: {}
+      css/style.css: {}
+      css/responsive.css: {}
+      css/basictable.css: {}
+
+slick_component:
+  css:
+    theme:
+      css/slick.css: {}
+  js:
+      js/slick.min.js: {}
+
+theme_js:
+  js:
+    js/jquery.matchHeight.js: {}
+    js/parallax.min.js: {}
+    js/jquery.nav.js: {}
+    js/jquery.basictable.min.js: {}
+    js/scripts.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+fancybox:
+  css:
+    theme:
+      css/jquery.fancybox.min.css: {}
+  js:
+    js/jquery.fancybox.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery
+
+maintenance_page:
+  css:
+    theme:
+      css/maintenance-page.css: {}

@@ -1,0 +1,15 @@
+uuid: 37331649-5488-4887-ba3d-add2fd465907
+langcode: en
+status: true
+dependencies: {  }
+name: 4_column_cta
+label: '4 Column CTA'
+effects:
+  c763c983-2450-49a4-b226-cfca85f8577c:
+    uuid: c763c983-2450-49a4-b226-cfca85f8577c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 266
+      height: 214
+      anchor: center-center

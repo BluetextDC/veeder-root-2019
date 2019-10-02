@@ -1,0 +1,279 @@
+uuid: a04ff9fb-a99e-410d-8b17-bde668767e36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.product_listing.field_breadcrumb_color
+    - field.field.node.product_listing.field_color_variation
+    - field.field.node.product_listing.field_components
+    - field.field.node.product_listing.field_contact_footer_form
+    - field.field.node.product_listing.field_display_breadcrumbs
+    - field.field.node.product_listing.field_display_contact_footer
+    - field.field.node.product_listing.field_display_contact_sidebar
+    - field.field.node.product_listing.field_float_number_tags
+    - field.field.node.product_listing.field_generic_hero_cta
+    - field.field.node.product_listing.field_generic_hero_cta_display
+    - field.field.node.product_listing.field_generic_hero_description
+    - field.field.node.product_listing.field_generic_hero_heading
+    - field.field.node.product_listing.field_generic_hero_image
+    - field.field.node.product_listing.field_generic_hero_image_paralla
+    - field.field.node.product_listing.field_generic_hero_plate_color
+    - field.field.node.product_listing.field_generic_hero_video_autopla
+    - field.field.node.product_listing.field_generic_hero_vimeo
+    - field.field.node.product_listing.field_meta_tags
+    - field.field.node.product_listing.field_probe_number_tags
+    - field.field.node.product_listing.field_product_refer_weight
+    - field.field.node.product_listing.field_product_tags
+    - field.field.node.product_listing.field_solution_refer_weight
+    - field.field.node.product_listing.field_solution_tags
+    - field.field.node.product_listing.field_summary
+    - field.field.node.product_listing.field_taxonomy_image
+    - node.type.product_listing
+  module:
+    - color_field
+    - entity_reference_revisions
+    - link
+    - markup
+    - metatag
+    - options
+    - svg_image
+    - user
+id: node.product_listing.default
+targetEntityType: node
+bundle: product_listing
+mode: default
+content:
+  field_breadcrumb_color:
+    weight: 11
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_color_variation:
+    weight: 21
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_components:
+    weight: 15
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_contact_footer_form:
+    weight: 14
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_display_breadcrumbs:
+    weight: 10
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_display_contact_footer:
+    weight: 13
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_display_contact_sidebar:
+    weight: 12
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_float_number_tags:
+    weight: 23
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_generic_hero_cta:
+    weight: 9
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_generic_hero_cta_display:
+    weight: 8
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_generic_hero_description:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_generic_hero_heading:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_generic_hero_image:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_generic_hero_image_paralla:
+    weight: 5
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_generic_hero_plate_color:
+    weight: 7
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_generic_hero_video_autopla:
+    weight: 25
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_generic_hero_vimeo:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_meta_tags:
+    weight: 20
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_probe_number_tags:
+    weight: 22
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_product_refer_weight:
+    weight: 17
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_product_tags:
+    weight: 16
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_solution_refer_weight:
+    weight: 19
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_solution_tags:
+    weight: 18
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_summary:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_taxonomy_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

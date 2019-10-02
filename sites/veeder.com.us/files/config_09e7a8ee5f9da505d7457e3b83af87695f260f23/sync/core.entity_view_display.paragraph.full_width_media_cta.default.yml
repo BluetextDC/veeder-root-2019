@@ -1,0 +1,110 @@
+uuid: f0508772-7eb8-4a74-818b-65a6512eea54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_bar_color
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_color
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_cta
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_descrptin
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_heading
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_id
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_image
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_image_par
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_vimeo_url
+    - paragraphs.paragraphs_type.full_width_media_cta
+  module:
+    - color_field
+    - link
+    - svg_image
+    - text
+id: paragraph.full_width_media_cta.default
+targetEntityType: paragraph
+bundle: full_width_media_cta
+mode: default
+content:
+  field_fullwd_media_cta_bar_color:
+    weight: 3
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_fullwd_media_cta_color:
+    weight: 2
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_fullwd_media_cta_cta:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_fullwd_media_cta_descrptin:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_fullwd_media_cta_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_fullwd_media_cta_id:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_fullwd_media_cta_image:
+    weight: 6
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_fullwd_media_cta_image_par:
+    weight: 8
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_fullwd_media_cta_vimeo_url:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

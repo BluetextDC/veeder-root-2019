@@ -1,0 +1,19 @@
+uuid: 9a958f4b-7c27-4a2a-94bb-7aa59f4035d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4060_cta_vimeo_url
+    - paragraphs.paragraphs_type.4060_cta
+id: paragraph.4060_cta.field_4060_cta_vimeo_url
+field_name: field_4060_cta_vimeo_url
+entity_type: paragraph
+bundle: 4060_cta
+label: 'Vimeo URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

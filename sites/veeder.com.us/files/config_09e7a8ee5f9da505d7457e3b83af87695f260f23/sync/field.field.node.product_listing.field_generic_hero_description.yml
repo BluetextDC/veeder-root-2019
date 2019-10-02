@@ -1,0 +1,19 @@
+uuid: 9db58580-0ae6-4cdb-973a-d8c1809affd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_generic_hero_description
+    - node.type.product_listing
+id: node.product_listing.field_generic_hero_description
+field_name: field_generic_hero_description
+entity_type: node
+bundle: product_listing
+label: Description
+description: 'Enter a description for the hero.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

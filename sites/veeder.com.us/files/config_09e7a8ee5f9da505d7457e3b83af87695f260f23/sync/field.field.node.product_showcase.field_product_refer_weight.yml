@@ -1,0 +1,23 @@
+uuid: 486e4e67-bcf4-49a6-abab-bbf1127181f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_refer_weight
+    - node.type.product_showcase
+id: node.product_showcase.field_product_refer_weight
+field_name: field_product_refer_weight
+entity_type: node
+bundle: product_showcase
+label: 'Product Refer Weight'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

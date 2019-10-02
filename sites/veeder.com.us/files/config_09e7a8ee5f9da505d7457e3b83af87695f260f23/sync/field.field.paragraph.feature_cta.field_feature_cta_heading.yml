@@ -1,0 +1,19 @@
+uuid: cb082611-3601-4cc5-b6a7-e76b5cdb199c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feature_cta_heading
+    - paragraphs.paragraphs_type.feature_cta
+id: paragraph.feature_cta.field_feature_cta_heading
+field_name: field_feature_cta_heading
+entity_type: paragraph
+bundle: feature_cta
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

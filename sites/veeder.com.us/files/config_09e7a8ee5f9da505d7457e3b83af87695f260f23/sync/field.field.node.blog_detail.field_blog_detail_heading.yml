@@ -1,0 +1,19 @@
+uuid: 1a159eb6-5d5b-40f9-b037-3cf008b3aae6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_detail_heading
+    - node.type.blog_detail
+id: node.blog_detail.field_blog_detail_heading
+field_name: field_blog_detail_heading
+entity_type: node
+bundle: blog_detail
+label: Heading
+description: 'Enter a heading for the hero.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

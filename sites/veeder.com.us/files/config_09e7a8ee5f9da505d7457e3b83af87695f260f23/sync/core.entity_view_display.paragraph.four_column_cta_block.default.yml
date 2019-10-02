@@ -1,0 +1,74 @@
+uuid: d6a50701-04fc-400f-afce-2d83a1e975f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.four_column_cta_block.field_4_column_add_cta
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_block_color
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_block_head_co
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_block_heading
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_block_id
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_button_stylin
+    - paragraphs.paragraphs_type.four_column_cta_block
+  module:
+    - color_field
+    - entity_reference_revisions
+id: paragraph.four_column_cta_block.default
+targetEntityType: paragraph
+bundle: four_column_cta_block
+mode: default
+content:
+  field_4_column_add_cta:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_4_column_cta_block_color:
+    weight: 2
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_4_column_cta_block_head_co:
+    weight: 1
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_4_column_cta_block_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_4_column_cta_block_id:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_4_column_cta_button_stylin:
+    weight: 4
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }

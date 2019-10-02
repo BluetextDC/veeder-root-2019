@@ -1,0 +1,25 @@
+uuid: 1d4b597d-7e6d-49e7-9d99-619f1378f70c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:17e798f4-725b-4bbb-ad7d-b17723fafa6a'
+  module:
+    - block_content
+  theme:
+    - veeder
+id: formfirstheading
+theme: veeder
+region: form_sidebar_first
+weight: 0
+provider: null
+plugin: 'block_content:17e798f4-725b-4bbb-ad7d-b17723fafa6a'
+settings:
+  id: 'block_content:17e798f4-725b-4bbb-ad7d-b17723fafa6a'
+  label: 'Form First Heading'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

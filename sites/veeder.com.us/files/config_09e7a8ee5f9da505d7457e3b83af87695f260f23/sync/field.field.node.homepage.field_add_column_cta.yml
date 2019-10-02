@@ -1,0 +1,85 @@
+uuid: 56c8f0e9-ca18-464f-831b-0386ebb5d4dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_add_column_cta
+    - node.type.homepage
+    - paragraphs.paragraphs_type.four_column_cta_block
+  module:
+    - entity_reference_revisions
+id: node.homepage.field_add_column_cta
+field_name: field_add_column_cta
+entity_type: node
+bundle: homepage
+label: 'Add CTA'
+description: 'Add a column CTA to the hero banner.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      four_column_cta_block: four_column_cta_block
+    target_bundles_drag_drop:
+      3_column_taxonomy_listing:
+        weight: 18
+        enabled: false
+      4060_cta:
+        weight: 19
+        enabled: false
+      4_column_taxonomy_listing:
+        weight: 20
+        enabled: false
+      5050_cta:
+        weight: 21
+        enabled: false
+      5050_full_width_cta:
+        weight: 22
+        enabled: false
+      5050_layered_heading_cta:
+        weight: 23
+        enabled: false
+      column_cta:
+        weight: 24
+        enabled: false
+      documentation:
+        weight: 25
+        enabled: false
+      documentation_document:
+        weight: 26
+        enabled: false
+      documentation_section:
+        weight: 27
+        enabled: false
+      features_cta_block:
+        weight: 28
+        enabled: false
+      feature_cta:
+        weight: 29
+        enabled: false
+      four_column_cta_block:
+        enabled: true
+        weight: 30
+      full_width_media_cta:
+        weight: 31
+        enabled: false
+      inline_cta:
+        weight: 32
+        enabled: false
+      full_width_cta:
+        weight: 33
+        enabled: false
+      starting_point:
+        weight: 33
+        enabled: false
+      wysiwyg_text:
+        weight: 34
+        enabled: false
+      html_embed:
+        weight: 35
+        enabled: false
+field_type: entity_reference_revisions

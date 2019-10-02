@@ -1,0 +1,23 @@
+uuid: 024fb62f-7c0b-4d2b-a9a5-fcd8690721e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_contact_sidebar
+    - node.type.generic_landing
+id: node.generic_landing.field_display_contact_sidebar
+field_name: field_display_contact_sidebar
+entity_type: node
+bundle: generic_landing
+label: 'Display Contact Sidebar'
+description: 'Choose whether the contact sidebar will display on this page.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

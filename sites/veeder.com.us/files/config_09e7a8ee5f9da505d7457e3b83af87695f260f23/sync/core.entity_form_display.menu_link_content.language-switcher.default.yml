@@ -1,0 +1,36 @@
+uuid: ebe795ff-4a05-4686-b771-9c05180e71a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - link_attributes
+    - menu_link_content
+id: menu_link_content.language-switcher.default
+targetEntityType: menu_link_content
+bundle: language-switcher
+mode: default
+content:
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  view_mode:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden: {  }

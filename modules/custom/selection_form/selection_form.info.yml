@@ -1,0 +1,7 @@
+name: Probe & Float Selection Form
+description: This module helps to filter product by using probe & float numbers.
+package: Custom
+core: 8.x
+type: module
+dependencies:
+ - paragraphs

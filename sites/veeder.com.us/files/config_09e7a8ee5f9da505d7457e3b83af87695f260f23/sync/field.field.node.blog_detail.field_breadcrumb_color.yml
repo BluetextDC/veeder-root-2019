@@ -1,0 +1,25 @@
+uuid: 2a9fe5ec-ccc3-48e9-ae89-cca16550a254
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_breadcrumb_color
+    - node.type.blog_detail
+  module:
+    - color_field
+id: node.blog_detail.field_breadcrumb_color
+field_name: field_breadcrumb_color
+entity_type: node
+bundle: blog_detail
+label: 'Breadcrumb Color'
+description: 'Choose what color the breadcrumbs will be.'
+required: false
+translatable: true
+default_value:
+  -
+    color: '#FFFFFF'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

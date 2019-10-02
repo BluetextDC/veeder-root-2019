@@ -1,0 +1,39 @@
+uuid: ef89d465-03c6-4ab1-be55-520de284716c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_contact_footer_form
+field_name: field_contact_footer_form
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: contact-us
+      label: 'Contact Us'
+    -
+      value: request-for-quote
+      label: 'Request For Quote'
+    -
+      value: epa-ebook-download
+      label: 'EPA Ebook Download'
+    -
+      value: tls-ib-software-download
+      label: 'TLS IB Software Download'
+    -
+      value: technical-support
+      label: 'Technical Support'
+    -
+      value: tls4-series-software-download
+      label: 'TLS4 Series Software Download'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

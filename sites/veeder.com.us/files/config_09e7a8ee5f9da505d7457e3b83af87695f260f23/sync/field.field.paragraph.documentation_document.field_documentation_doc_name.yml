@@ -1,0 +1,19 @@
+uuid: 386adf90-4424-42f0-9f38-061203a9a46d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_documentation_doc_name
+    - paragraphs.paragraphs_type.documentation_document
+id: paragraph.documentation_document.field_documentation_doc_name
+field_name: field_documentation_doc_name
+entity_type: paragraph
+bundle: documentation_document
+label: 'Document Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

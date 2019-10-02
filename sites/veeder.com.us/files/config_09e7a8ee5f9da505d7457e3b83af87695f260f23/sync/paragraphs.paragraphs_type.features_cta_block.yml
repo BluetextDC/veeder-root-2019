@@ -1,0 +1,9 @@
+uuid: ff5b08a4-4460-49b6-90fc-69d62e2d0019
+langcode: en
+status: true
+dependencies: {  }
+id: features_cta_block
+label: 'Features CTA Block'
+icon_uuid: null
+description: 'Use features CTA block for the specific column with the heading, Background Color, and CTA.'
+behavior_plugins: {  }

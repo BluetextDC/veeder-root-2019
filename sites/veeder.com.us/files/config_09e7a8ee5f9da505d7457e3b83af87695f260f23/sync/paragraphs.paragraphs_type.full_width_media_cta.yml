@@ -1,0 +1,9 @@
+uuid: 423dd02d-d053-4a29-b22d-a07308b60763
+langcode: en
+status: true
+dependencies: {  }
+id: full_width_media_cta
+label: 'Full Width Media CTA'
+icon_uuid: null
+description: 'Use full-width media CTA for the media section on the page.'
+behavior_plugins: {  }

@@ -1,0 +1,63 @@
+uuid: d2860341-9b18-447d-bbe1-47b3aefd054e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.rss
+    - field.field.node.article.field_blog_listing_cta_cta
+    - field.field.node.article.field_blog_listing_description
+    - field.field.node.article.field_blog_listing_filter_tags
+    - field.field.node.article.field_blog_listing_heading
+    - field.field.node.article.field_blog_listing_image
+    - field.field.node.article.field_blog_listing_image_paralla
+    - field.field.node.article.field_blog_listing_listing
+    - field.field.node.article.field_blog_listing_plate_color
+    - field.field.node.article.field_blog_listing_trending_head
+    - field.field.node.article.field_blog_listing_trending_view
+    - field.field.node.article.field_blog_listing_vimeo
+    - field.field.node.article.field_breadcrumb_color
+    - field.field.node.article.field_color_variation
+    - field.field.node.article.field_components
+    - field.field.node.article.field_contact_footer_form
+    - field.field.node.article.field_display_breadcrumbs
+    - field.field.node.article.field_display_contact_footer
+    - field.field.node.article.field_display_contact_sidebar
+    - field.field.node.article.field_featured_blog_post
+    - field.field.node.article.field_meta_tags
+    - field.field.node.article.field_summary
+    - node.type.article
+  module:
+    - user
+_core:
+  default_config_hash: 2rIr6K5Q0UQ9khg0zE_CK-PtJH76UL-BDDZcZnZzwCc
+id: node.article.rss
+targetEntityType: node
+bundle: article
+mode: rss
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_blog_listing_cta_cta: true
+  field_blog_listing_description: true
+  field_blog_listing_filter_tags: true
+  field_blog_listing_heading: true
+  field_blog_listing_image: true
+  field_blog_listing_image_paralla: true
+  field_blog_listing_listing: true
+  field_blog_listing_plate_color: true
+  field_blog_listing_trending_head: true
+  field_blog_listing_trending_view: true
+  field_blog_listing_vimeo: true
+  field_breadcrumb_color: true
+  field_color_variation: true
+  field_components: true
+  field_contact_footer_form: true
+  field_display_breadcrumbs: true
+  field_display_contact_footer: true
+  field_display_contact_sidebar: true
+  field_featured_blog_post: true
+  field_meta_tags: true
+  field_summary: true
+  langcode: true

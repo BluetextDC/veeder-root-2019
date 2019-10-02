@@ -1,0 +1,21 @@
+uuid: ac41b0c7-77e3-4603-b204-63089ee611b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    submit_text: 'Send message'
+    show_preview: true
+    disabled_form_message: 'This contact form has been disabled.'
+    maximum_submissions_user: 0
+    page_autoreply_format: plain_text
+id: contact_sidebar_ctas
+label: 'Contact Sidebar CTAs'
+recipients:
+  - peter@bluetext.com
+reply: '<non@autoreply.com>'
+weight: 0
+message: 'Thanks for submitting contact sidebar.'
+redirect: ''

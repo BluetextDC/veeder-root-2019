@@ -1,0 +1,23 @@
+uuid: a2bf9052-86e6-42a4-86af-f2e88c20c8de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4_column_cta_button_stylin
+    - paragraphs.paragraphs_type.four_column_cta_block
+id: paragraph.four_column_cta_block.field_4_column_cta_button_stylin
+field_name: field_4_column_cta_button_stylin
+entity_type: paragraph
+bundle: four_column_cta_block
+label: 'Use Button CTA styling'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

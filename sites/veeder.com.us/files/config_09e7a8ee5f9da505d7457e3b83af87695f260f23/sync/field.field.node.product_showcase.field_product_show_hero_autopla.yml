@@ -1,0 +1,23 @@
+uuid: 7636b06c-eba7-4319-8919-f6d110eb42e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_show_hero_autopla
+    - node.type.product_showcase
+id: node.product_showcase.field_product_show_hero_autopla
+field_name: field_product_show_hero_autopla
+entity_type: node
+bundle: product_showcase
+label: 'Hero Video Autoplay'
+description: 'If you check this checkbox you must need to add hero banner image(For the responsive/mobile image).'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

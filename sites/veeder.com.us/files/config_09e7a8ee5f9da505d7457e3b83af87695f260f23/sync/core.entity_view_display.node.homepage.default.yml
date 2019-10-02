@@ -1,0 +1,196 @@
+uuid: b62b717b-4326-4da7-8152-a0e019951919
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage.field_add_column_cta
+    - field.field.node.homepage.field_add_starting_point
+    - field.field.node.homepage.field_color_variation
+    - field.field.node.homepage.field_components
+    - field.field.node.homepage.field_contact_footer_form
+    - field.field.node.homepage.field_display_contact_footer
+    - field.field.node.homepage.field_display_contact_sidebar
+    - field.field.node.homepage.field_homepage_hero_cta_cta
+    - field.field.node.homepage.field_homepage_hero_heading
+    - field.field.node.homepage.field_homepage_hero_image
+    - field.field.node.homepage.field_homepage_hero_image_parall
+    - field.field.node.homepage.field_homepage_hero_plate_color
+    - field.field.node.homepage.field_homepage_hero_subheading
+    - field.field.node.homepage.field_homepage_hero_text_color
+    - field.field.node.homepage.field_homepage_hero_vimeo
+    - field.field.node.homepage.field_meta_tags
+    - field.field.node.homepage.field_summary
+    - node.type.homepage
+  module:
+    - color_field
+    - entity_reference_revisions
+    - link
+    - markup
+    - metatag
+    - options
+    - svg_image
+    - user
+id: node.homepage.default
+targetEntityType: node
+bundle: homepage
+mode: default
+content:
+  field_add_column_cta:
+    type: entity_reference_revisions_entity_view
+    weight: 10
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_add_starting_point:
+    type: entity_reference_revisions_entity_view
+    weight: 9
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_color_variation:
+    weight: 16
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_contact_footer_form:
+    weight: 14
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_display_contact_footer:
+    weight: 13
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_display_contact_sidebar:
+    weight: 12
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_homepage_hero_cta_cta:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_homepage_hero_heading:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_homepage_hero_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_homepage_hero_image_parall:
+    weight: 4
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_homepage_hero_plate_color:
+    weight: 8
+    label: hidden
+    settings:
+      format: rgb
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_homepage_hero_subheading:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_homepage_hero_text_color:
+    weight: 7
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_homepage_hero_vimeo:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_meta_tags:
+    weight: 15
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_summary:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

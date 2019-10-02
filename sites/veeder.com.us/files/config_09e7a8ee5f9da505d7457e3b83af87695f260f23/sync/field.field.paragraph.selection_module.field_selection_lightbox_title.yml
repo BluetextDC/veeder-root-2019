@@ -1,0 +1,19 @@
+uuid: 0e393694-9566-48dc-b7fd-d9e6e6978def
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_selection_lightbox_title
+    - paragraphs.paragraphs_type.selection_module
+id: paragraph.selection_module.field_selection_lightbox_title
+field_name: field_selection_lightbox_title
+entity_type: paragraph
+bundle: selection_module
+label: 'Lightbox Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

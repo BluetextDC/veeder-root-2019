@@ -1,0 +1,31 @@
+name: Veeder Root
+type: theme
+description: Veeder-Root is the number-one supplier of automated tank gauges in the world, backed by an unmatched service network.
+package: Custom
+version: VERSION
+core: 8.x
+
+libraries:
+  - veeder/fonts
+  - veeder/global_style
+  - veeder/fancybox
+  - veeder/slick_component
+  - veeder/theme_js
+
+regions:
+  header_logo: 'Header Logo'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  sidebar_menu: 'Sidebar Menu'
+  form_sidebar_first: 'Form Sidebar first'
+  form_sidebar_second: 'Form Sidebar second'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer: Footer

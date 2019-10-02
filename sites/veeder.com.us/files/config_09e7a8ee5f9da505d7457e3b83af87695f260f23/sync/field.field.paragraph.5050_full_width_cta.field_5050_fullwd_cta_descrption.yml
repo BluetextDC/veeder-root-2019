@@ -1,0 +1,21 @@
+uuid: 4b532832-501a-4095-94bd-fc486981e657
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_fullwd_cta_descrption
+    - paragraphs.paragraphs_type.5050_full_width_cta
+  module:
+    - text
+id: paragraph.5050_full_width_cta.field_5050_fullwd_cta_descrption
+field_name: field_5050_fullwd_cta_descrption
+entity_type: paragraph
+bundle: 5050_full_width_cta
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

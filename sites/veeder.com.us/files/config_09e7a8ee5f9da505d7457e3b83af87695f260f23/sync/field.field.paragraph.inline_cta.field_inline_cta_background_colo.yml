@@ -1,0 +1,25 @@
+uuid: bb148881-cbe1-41e4-8a08-4ca56ba95c57
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_inline_cta_background_colo
+    - paragraphs.paragraphs_type.inline_cta
+  module:
+    - color_field
+id: paragraph.inline_cta.field_inline_cta_background_colo
+field_name: field_inline_cta_background_colo
+entity_type: paragraph
+bundle: inline_cta
+label: 'Background Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    color: '#236092'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

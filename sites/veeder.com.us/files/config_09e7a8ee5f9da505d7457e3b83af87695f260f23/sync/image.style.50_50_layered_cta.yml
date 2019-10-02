@@ -1,0 +1,15 @@
+uuid: 5a864528-e8ec-43ea-9a49-fbeba7eaf664
+langcode: en
+status: true
+dependencies: {  }
+name: 50_50_layered_cta
+label: '50-50 Layered CTA'
+effects:
+  99c1cb8e-a7fb-4472-a330-fd8ff5c4b30b:
+    uuid: 99c1cb8e-a7fb-4472-a330-fd8ff5c4b30b
+    id: image_crop
+    weight: 1
+    data:
+      width: 250
+      height: 450
+      anchor: center-center

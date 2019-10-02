@@ -1,0 +1,20 @@
+uuid: f1664c8f-8b89-4ef9-9139-32f18b4cd847
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - node
+id: node.field_homepage_hero_plate_color
+field_name: field_homepage_hero_plate_color
+entity_type: node
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,9 @@
+uuid: 2f961c83-de21-49dd-bd73-2d578d7a1bbf
+langcode: en
+status: true
+dependencies: {  }
+id: documentation_section
+label: 'Documentation Section'
+icon_uuid: null
+description: 'Use documentation section for showing documents (PDF, Doc, etc.).'
+behavior_plugins: {  }

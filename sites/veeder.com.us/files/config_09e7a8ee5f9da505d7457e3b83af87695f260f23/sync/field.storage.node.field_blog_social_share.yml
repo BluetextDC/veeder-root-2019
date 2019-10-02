@@ -1,0 +1,19 @@
+uuid: 44c3d03d-edd2-4348-b4b9-52dc9527cb04
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - social_media
+id: node.field_blog_social_share
+field_name: field_blog_social_share
+entity_type: node
+type: social_media
+settings: {  }
+module: social_media
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

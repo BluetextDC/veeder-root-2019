@@ -1,0 +1,25 @@
+uuid: ee3af7b6-c4c1-4368-86fe-ec999fc65c83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_color_variation
+    - node.type.homepage
+  module:
+    - markup
+id: node.homepage.field_color_variation
+field_name: field_color_variation
+entity_type: node
+bundle: homepage
+label: 'Color Variation'
+description: ''
+required: false
+translatable: true
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<ul style=\"list-style-type: decimal;margin: 20px 0px;\">\r\n\t<li>\r\n\t<h5>Primary Colors</h5>\r\n\r\n\t<ul style=\"margin:0;\">\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #BA0C2F;\">&nbsp;</p>\r\n\t\t#BA0C2F</li>\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #719949;\">&nbsp;</p>\r\n\t\t#719949</li>\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #236192;\">&nbsp;</p>\r\n\t\t#236192</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<h5>Coordinating Colors</h5>\r\n\r\n\t<ul style=\"margin:0;\">\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #001e32;\">&nbsp;</p>\r\n\t\t#001e32</li>\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #333a42;\">&nbsp;</p>\r\n\t\t#333a42</li>\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #5f6771;\">&nbsp;</p>\r\n\t\t#5f6771</li>\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #b7b9bc;\">&nbsp;</p>\r\n\t\t#b7b9bc</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>\r\n\t<h5>Accent Colors</h5>\r\n\r\n\t<ul style=\"margin:0;\">\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #d7803c;\">&nbsp;</p>\r\n\t\t#d7803c</li>\r\n\t\t<li>\r\n\t\t<p style=\"display: inline-block;width: 20px;height: 20px;padding: 0;margin: 4px 0;border: 1px solid black;background-color: #e5b323;\">&nbsp;</p>\r\n\t\t#e5b323</li>\r\n\t</ul>\r\n\t</li>\r\n</ul>\r\n"
+    format: full_html
+field_type: markup

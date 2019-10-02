@@ -1,0 +1,21 @@
+uuid: e10d53da-3c9a-48b9-baab-1633a06a1a11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_layered_cta_image_alg
+    - paragraphs.paragraphs_type.5050_layered_heading_cta
+  module:
+    - options
+id: paragraph.5050_layered_heading_cta.field_5050_layered_cta_image_alg
+field_name: field_5050_layered_cta_image_alg
+entity_type: paragraph
+bundle: 5050_layered_heading_cta
+label: 'Image Alignment'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

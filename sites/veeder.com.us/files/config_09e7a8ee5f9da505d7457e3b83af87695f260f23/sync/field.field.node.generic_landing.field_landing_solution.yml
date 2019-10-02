@@ -1,0 +1,29 @@
+uuid: cb220460-4779-4ccf-b8bc-a7df19af42de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_landing_solution
+    - node.type.generic_landing
+    - taxonomy.vocabulary.solution
+id: node.generic_landing.field_landing_solution
+field_name: field_landing_solution
+entity_type: node
+bundle: generic_landing
+label: Solution
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      solution: solution
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

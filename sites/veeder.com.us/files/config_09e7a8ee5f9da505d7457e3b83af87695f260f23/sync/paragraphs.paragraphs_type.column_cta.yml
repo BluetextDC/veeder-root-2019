@@ -1,0 +1,9 @@
+uuid: 6712dc08-a85b-42ab-a5ad-700a10a6df2e
+langcode: en
+status: true
+dependencies: {  }
+id: column_cta
+label: 'Column CTA'
+icon_uuid: null
+description: 'Use Column CTA for the specific column with the heading, description, and CTA.'
+behavior_plugins: {  }

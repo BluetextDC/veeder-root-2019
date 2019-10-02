@@ -1,0 +1,19 @@
+uuid: 162f371d-82a1-4b53-9ab4-901a919bea3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_hero_heading
+    - node.type.homepage
+id: node.homepage.field_homepage_hero_heading
+field_name: field_homepage_hero_heading
+entity_type: node
+bundle: homepage
+label: Heading
+description: 'Enter a heading for the hero banner.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

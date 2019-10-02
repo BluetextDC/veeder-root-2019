@@ -1,0 +1,19 @@
+uuid: fc57ab32-01bc-4e2e-a366-ed0873f68607
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_column_cta_vimeo_url
+    - paragraphs.paragraphs_type.column_cta
+id: paragraph.column_cta.field_column_cta_vimeo_url
+field_name: field_column_cta_vimeo_url
+entity_type: paragraph
+bundle: column_cta
+label: 'Vimeo URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

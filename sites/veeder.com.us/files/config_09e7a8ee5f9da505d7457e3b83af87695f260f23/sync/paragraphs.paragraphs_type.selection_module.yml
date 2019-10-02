@@ -1,0 +1,9 @@
+uuid: 13c28293-017e-4398-a9a3-44c5e2d1ece2
+langcode: en
+status: true
+dependencies: {  }
+id: selection_module
+label: 'Selection Module'
+icon_uuid: null
+description: 'Use Selection Module to show product filter form.'
+behavior_plugins: {  }

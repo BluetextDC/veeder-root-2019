@@ -1,0 +1,567 @@
+<?php
+
+/**
+ * @file
+ * Theming functions to support in the Veeder Root theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\Component\Serialization\Json;
+use Symfony\Component\Yaml\Parser;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function veeder_preprocess_page(&$variables) {
+  // Content type variable for the page.html.twig.
+  if (isset($variables['node'])) {
+    $node_data = $variables['node'];
+    // Return node type on page.
+    $variables['node_type'] = $node_data->getType();
+    // Retrun Jump Menu.
+    if (isset($node_data->field_enable_jump_nav) && !empty($node_data->field_enable_jump_nav[0]) && $node_data->field_enable_jump_nav[0]->value == '1') {
+      $paragraph = $node_data->field_components->getValue();
+      // Loop through the result set.
+      $jump_menu = [];
+      foreach ( $paragraph as $element ) {
+        $paragraph_details = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
+        $paragraph_name = $paragraph_details->getType();
+        // 50 50 CTA
+        if ($paragraph_name == '5050_cta') {
+          if (!empty($paragraph_details->field_5050_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_5050_cta_id->value;
+          }
+        }
+        elseif ($paragraph_name == 'four_column_cta_block') { // 4 Column CTA
+          if (!empty($paragraph_details->field_4_column_cta_block_id->value)) {
+            $jump_menu[] = $paragraph_details->field_4_column_cta_block_id->value;
+          }
+        }
+        elseif ($paragraph_name == '5050_layered_heading_cta') { // 50 50 Layer CTA
+          if (!empty($paragraph_details->field_5050_layered_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_5050_layered_cta_id->value;
+          }
+        }
+        elseif ($paragraph_name == 'wysiwyg_text') { // Wysiwyg Text
+          if (!empty($paragraph_details->field_wysiwyg_text_id->value)) {
+            $jump_menu[] = $paragraph_details->field_wysiwyg_text_id->value;
+          }
+        }
+        elseif ($paragraph_name == 'documentation') { // Documentation
+          if (!empty($paragraph_details->field_documentation_id->value)) {
+            $jump_menu[] = $paragraph_details->field_documentation_id->value;
+          }
+        }
+        elseif ($paragraph_name == '3_column_taxonomy_listing') { // 3 Column Taxonomy Listing
+          if (!empty($paragraph_details->field_3_column_taxonomy_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_3_column_taxonomy_cta_id->value;
+          }
+        }
+        elseif ($paragraph_name == '4060_cta') { // 40 60 CTA
+          if (!empty($paragraph_details->field_4060_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_4060_cta_id->value;
+          }
+        }
+        elseif ($paragraph_name == '5050_full_width_cta') { // 50 50 Full Width
+          if (!empty($paragraph_details->field_5050_fullwd_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_5050_fullwd_cta_id->value;
+          }
+        }
+        elseif ($paragraph_name == '4_column_taxonomy_listing') { // 4 Column Taxonomy Listing
+          if (!empty($paragraph_details->field_4_column_taxonomy_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_4_column_taxonomy_cta_id->value;
+          }
+        }
+        elseif ($paragraph_name == 'features_cta_block') { // Features Cta Block
+          if (!empty($paragraph_details->field_features_cta_block_id->value)) {
+            $jump_menu[] = $paragraph_details->field_features_cta_block_id->value;
+          }
+        }
+        elseif ($paragraph_name == 'full_width_cta') { // Full Width Cta
+          if (!empty($paragraph_details->field_full_width_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_full_width_cta_id->value;
+          }
+        }
+        elseif ($paragraph_name == 'full_width_media_cta') { // Full Width Media CTA
+          if (!empty($paragraph_details->field_fullwd_media_cta_id->value)) {
+            $jump_menu[] = $paragraph_details->field_fullwd_media_cta_id->value;
+          }
+        }
+      }
+      $variables['jump_menu'] = $jump_menu;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
+ */
+function veeder_preprocess_maintenance_page(&$variables) {
+  // By default, site_name is set to Drupal if no db connection is available
+  // or during site installation. Setting site_name to an empty string makes
+  // the site and update pages look cleaner.
+  // @see template_preprocess_maintenance_page
+  if (!$variables['db_is_active']) {
+    $variables['site_name'] = '';
+  }
+  // Veeder has custom styling for the maintenance page.
+  $variables['#attached']['library'][] = 'veeder/maintenance_page';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function veeder_preprocess_node(&$variables) {
+  $node_data = $variables['node'];
+  // Remove the "Add new comment" link on teasers or when the comment form is
+  // displayed on the page.
+  if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
+    unset($variables['content']['links']['comment']['#links']['comment-add']);
+  }
+  $node_type = $node_data->getType();
+  if ($node_type == 'article') {
+    // Hero vimeo thumbnail from vimeo url.
+    if (!empty($node_data->field_blog_listing_vimeo->value)) {
+      $vimeo_id = veeder_vimeo_urlpattern_match($node_data->field_blog_listing_vimeo->value);
+      if (isset($vimeo_id)) {
+        $node_data->field_blog_listing_vimeo->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+        $variables['vimeo_thumb'] = $vimeo_thumbnail;
+      }
+    }
+  }
+
+  if ($node_data->getType() == 'generic_landing' || $node_data->gettype() == 'product_detail' || $node_data->gettype() == 'product_listing') {
+    // Hero vimeo thumbnail from vimeo url.
+    if (!empty($node_data->field_generic_hero_vimeo->value)) {
+      $vimeo_id = veeder_vimeo_urlpattern_match($node_data->field_generic_hero_vimeo->value);
+      if (isset($vimeo_id)) {
+        $node_data->field_generic_hero_vimeo->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+        $variables['vimeo_thumb'] = $vimeo_thumbnail;
+      }
+    }
+  }
+
+  if ($node_data->getType() == 'blog_detail') {
+    // Hero vimeo thumbnail from vimeo url.
+    if (!empty($node_data->field_blog_detail_vimeo->value)) {
+      $vimeo_id = veeder_vimeo_urlpattern_match($node_data->field_blog_detail_vimeo->value);
+      if (isset($vimeo_id)) {
+        $node_data->field_blog_detail_vimeo->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+        $variables['vimeo_thumb'] = $vimeo_thumbnail;
+      }
+    }
+  }
+
+  if ($node_data->getType() == 'product_showcase') {
+    // Hero vimeo thumbnail from vimeo url.
+    if (!empty($node_data->field_product_show_hero_vimeo->value)) {
+      $vimeo_id = veeder_vimeo_urlpattern_match($node_data->field_product_show_hero_vimeo->value);
+      if (isset($vimeo_id)) {
+        $node_data->field_product_show_hero_vimeo->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+        $variables['vimeo_thumb'] = $vimeo_thumbnail;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for region.html.twig.
+ */
+function veeder_preprocess_region(&$variables) {
+  $region = $variables['elements']['#region'];
+  $variables['region'] = $variables['elements']['#region'];
+  // Secondary menu region.
+  if ($region == 'secondary_menu') {
+    $variables['attributes']['class'][] = 'quick-nav';
+  }
+  if ($region == 'primary_menu') {
+    $variables['attributes']['class'][] = 'main-nav';
+  }
+  if ($region == 'search_bar') {
+    $variables['attributes']['class'][] = 'small-container';
+  }
+  if ($region == 'sidebar_menu') {
+    $variables['attributes']['class'][] = 'mobile-side-bar-menu';
+  }
+  if ($region == 'form_sidebar_first') {
+    $variables['attributes']['class'][] = 'get-quote-form';
+  }
+  if ($region == 'form_sidebar_second') {
+    $variables['attributes']['class'][] = 'find-near-u';
+  }
+  if ($region == 'footer_first') {
+    $variables['attributes']['class'][] = 'footer-left';
+  }
+  if ($region == 'footer_second') {
+    $variables['attributes']['class'][] = 'single-link';
+  }
+  if ($region == 'footer_third') {
+    $variables['attributes']['class'][] = 'footer-link';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function veeder_preprocess_block(&$variables) {
+  // Add a clearfix class to system branding blocks.
+  if ($variables['plugin_id'] == 'system_menu_block:language-switcher') {
+    $variables['attributes']['class'][] = 'language-dropdown';
+  }
+
+  if ($variables['plugin_id'] == 'search_api_page_form_block') {
+    $variables['attributes']['class'][] = 'search-part';
+  }
+
+  if ($variables['plugin_id'] == 'system_menu_block:sidebar-menu') {
+    $variables['attributes']['class'][] = 'mobile-side-bar-menu';
+  }
+
+  if ($variables['plugin_id'] == 'local_tasks_block') {
+    $variables['attributes']['class'][] = 'veeder-tab-style';
+  }
+}
+
+
+function veeder_preprocess_paragraph(&$variables) {
+  // Get is_front variable on paragraph.html.twig.
+  $variables['is_front'] = Drupal::service('path.matcher')->isFrontPage();
+  // Get paragraph object.
+  $paragraph = $variables['paragraph'];
+  // Get the paragraph name.
+  $paragraph_name = $paragraph->getType();
+  if ($paragraph_name == '5050_cta') {
+    // CTA vimeo thumbnail from vimeo url.
+    if (!empty($paragraph->field_5050_vimeo_url->value)) {
+      $vimeo_id = veeder_vimeo_urlpattern_match($paragraph->field_5050_vimeo_url->value);
+      if (isset($vimeo_id)) {
+        $paragraph->field_5050_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+        $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
+      }
+    }
+  }
+  elseif ($paragraph_name == '4060_cta') { // 40 60 CTA
+    // CTA vimeo thumbnail from vimeo url.
+    if (!empty($paragraph->field_4060_cta_vimeo_url->value)) {
+      $vimeo_id = veeder_vimeo_urlpattern_match($paragraph->field_4060_cta_vimeo_url->value);
+      if (isset($vimeo_id)) {
+        $paragraph->field_4060_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+        $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
+      }
+    }
+  }
+  elseif ($paragraph_name == '5050_full_width_cta') { // 50 50 Full Width
+    // CTA vimeo thumbnail from vimeo url.
+    if (!empty($paragraph->field_5050_fullwd_cta_vimeo_url->value)) {
+      $vimeo_id = veeder_vimeo_urlpattern_match($paragraph->field_5050_fullwd_cta_vimeo_url->value);
+      if (isset($vimeo_id)) {
+        $paragraph->field_5050_fullwd_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+        $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
+      }
+    }
+  }
+  elseif ($paragraph_name == 'full_width_media_cta') { // Full Width Media CTA
+    // CTA vimeo thumbnail from vimeo url.
+    if (!empty($paragraph->field_fullwd_media_cta_vimeo_url->value)) {
+      $vimeo_id = veeder_vimeo_urlpattern_match($paragraph->field_fullwd_media_cta_vimeo_url->value);
+      if (isset($vimeo_id)) {
+        $paragraph->field_fullwd_media_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+        $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+        $variables['para_vimeo_thumb'] = $vimeo_thumbnail;
+      }
+    }
+  }
+  elseif ($paragraph_name == 'four_column_cta_block') { // 4 Column CTA
+    // CTA vimeo thumbnail from vimeo url.
+    $four_column_vimeo_url = [];
+    foreach ($paragraph->field_4_column_add_cta as $key => $child_paragraph) {
+      $paragraph_child = Paragraph::load($child_paragraph->target_id);
+      if (!empty($paragraph_child->field_column_cta_vimeo_url->value)) {
+        $vimeo_id = veeder_vimeo_urlpattern_match($paragraph_child->field_column_cta_vimeo_url->value);
+        if (isset($vimeo_id)) {
+          $paragraph_child->field_column_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+          $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+          $four_column_vimeo_url[] = $vimeo_thumbnail;
+        }
+      }
+      else {
+        $four_column_vimeo_url[] = '';
+      }
+    }
+    $variables['para_vimeo_thumb'] = $four_column_vimeo_url;
+  }
+  elseif ($paragraph_name == 'features_cta_block') { // Features CTA
+    // CTA vimeo thumbnail from vimeo url.
+    $features_cta_vimeo_url = [];
+    foreach ($paragraph->field_features_cta_add_cta as $key => $child_paragraph) {
+      $paragraph_child = Paragraph::load($child_paragraph->target_id);
+      if (!empty($paragraph_child->field_feature_cta_vimeo_url->value)) {
+        $vimeo_id = veeder_vimeo_urlpattern_match($paragraph_child->field_feature_cta_vimeo_url->value);
+        if (isset($vimeo_id)) {
+          $paragraph_child->field_feature_cta_vimeo_url->value = '//player.vimeo.com/video/' . $vimeo_id;
+          $vimeo_thumbnail = veeder_vimeo_thumbnail($vimeo_id);
+          $features_cta_vimeo_url[] = $vimeo_thumbnail;
+        }
+      }
+      else {
+        $features_cta_vimeo_url[] = '';
+      }
+    }
+    $variables['para_vimeo_thumb'] = $features_cta_vimeo_url;
+  }
+  elseif ($paragraph_name == 'selection_module') { // Features CTA
+    $module_handler = \Drupal::service('module_handler');
+    if ($module_handler->moduleExists('selection_form')){
+      $form_object = new Drupal\selection_form\Form\SelectionForm();
+      $selection_form = \Drupal::formBuilder()->getForm($form_object);
+      $variables['selection_form'] = $selection_form;
+    }
+  }
+  elseif ($paragraph_name == 'sensor_module') { // Features CTA
+    $module_handler = \Drupal::service('module_handler');
+    if ($module_handler->moduleExists('sensor_form')){
+      $form_object = new Drupal\sensor_form\Form\SensorForm();
+      $sensor_form = \Drupal::formBuilder()->getForm($form_object);
+      $variables['sensor_form'] = $sensor_form;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for field.html.twig.
+ */
+function veeder_preprocess_field(&$variables, $hook) {
+  $element = $variables['element'];
+  if (isset($element['#field_name'])) {
+    if ($element['#field_name'] == 'field_add_starting_point') {
+      $variables['attributes']['class'][] = 'banner-point-part d-flex justify-content-center';
+    }
+    if ($element['#field_name'] == 'field_add_starting_point') {
+      $delta = 0;
+      while (!empty($element[$delta])) {
+        $variables['items'][$delta ]['attributes']['class'] = 'item';
+        $delta++;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu.html.twig.
+ */
+function veeder_preprocess_menu(&$variables) {
+  if ($variables['menu_name'] == 'main') {
+    foreach ($variables['items'] as $key => $item) {
+      if ($item['below']) {
+        // Add submenu li class.
+        foreach ($item['below'] as $subitem) {
+          $sub_menu_count = count($item['below']);
+          $subitem['attributes']->addClass('menu-title');
+          if ($subitem['below']) {
+            // Add parent menu li class.
+            if ($sub_menu_count <= 2) {
+              $variables['items'][$key]['attributes']->addClass('one-column-menu');
+            }
+            elseif ($sub_menu_count >= 2) {
+              $variables['items'][$key]['attributes']->addClass('two-column-menu');
+            }
+          }
+          else {
+            $variables['items'][$key]['attributes']->addClass('single-column-menu');
+          }
+        }
+      }
+    }
+  }
+  if ($variables['menu_name'] == 'header-top-menu') {
+    $variables['attributes']['class'][] = 'secondary-menu';
+  }
+  if ($variables['menu_name'] == 'language-switcher') {
+    $variables['attributes']['class'][] = 'select-list';
+  }
+  if ($variables['menu_name'] == 'footer') {
+    $variables['attributes']['class'][] = 'privacy-part';
+  }
+  if ($variables['menu_name'] == 'sidebar-menu') {
+    $variables['attributes']['class'][] = 'sidebar-links';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
+ */
+function veeder_preprocess_breadcrumb(&$variables) {
+  // Image with and without breadcrumbs.
+  if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
+    $variables['#cache']['tags'][] = 'node:' . $node->id();
+    // Get current page title.
+    if (!empty($node)) {
+      $variables['breadcrumb'][] = [
+        'text' => $node->getTitle(),
+      ];
+      $variables['#cache']['contexts'][] = 'url';
+    }
+    if ($node->gettype() != 'page' || $node->gettype() != 'homepage') {
+      if ($node->field_display_breadcrumbs[0]->value == 1) {
+        if ($node->gettype() == 'generic_landing' || $node->gettype() == 'product_detail' || $node->gettype() == 'product_listing') {
+          if (empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_generic_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_class'] = 'breadcrumb-nohero';
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_generic_hero_vimeo->value)) {
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+            $variables['breadcrumb_class'] = 'breadcrumb-nohero';
+          }
+          elseif (!empty($node->field_generic_hero_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          elseif (!empty($node->field_generic_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          else {
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+          }
+        }
+        elseif ($node->gettype() == 'blog_detail') {
+          if (empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_blog_detail_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_class'] = 'breadcrumb-nohero';
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_blog_detail_vimeo->value)) {
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+            $variables['breadcrumb_class'] = 'breadcrumb-nohero';
+          }
+          elseif (!empty($node->field_blog_detail_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          elseif (!empty($node->field_blog_detail_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          else {
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+          }
+        } 
+        elseif ($node->gettype() == 'article'){
+          if (empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_blog_listing_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_class'] = 'breadcrumb-nohero';
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_blog_listing_vimeo->value)) {
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+            $variables['breadcrumb_class'] = 'breadcrumb-nohero';
+          }
+          elseif (!empty($node->field_blog_listing_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          elseif (!empty($node->field_blog_listing_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          else {
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+          }
+        }
+        elseif ($node->gettype() == 'product_showcase') {
+          if (empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_product_show_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_class'] = 'breadcrumb-nohero';
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          elseif (!empty($node->field_breadcrumb_color[0]->color) && empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_product_show_hero_vimeo->value)) {
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+            $variables['breadcrumb_class'] = 'breadcrumb-nohero';
+          }
+          elseif (!empty($node->field_product_show_hero_bg_image[0]->entity->uri->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          elseif (!empty($node->field_product_show_hero_vimeo->value) && empty($node->field_breadcrumb_color[0]->color)) {
+            $variables['breadcrumb_color'] = '#fff';
+          }
+          else {
+            $variables['breadcrumb_color'] = $node->field_breadcrumb_color[0]->color;
+          }
+        }
+      }
+      else {
+        unset($variables['breadcrumb']);
+      }
+    }
+  }
+  else {
+    unset($variables['breadcrumb']);
+  }
+}
+
+/**
+ * Implements hook_form_alter() to add classes to the search form.
+ */
+function veeder_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  unset($form['langcode']);
+  if (in_array($form_id, ['search_block_form', 'search_form', 'search_api_page_block_form'])) {
+    $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
+    if (!isset($form[$key]['submit']['#attributes'])) {
+      $form[$key]['submit']['#attributes'] = new Attribute();
+    }
+    $form[$key]['submit']['#attributes']->addClass('searchButton');
+    $form['keys']['#attributes']['placeholder'][] = t('Search..');
+  }
+  if ($form_id == 'contact_message_find_distributor_form') {
+    // Call custom function on submit form.
+    $form['actions']['submit']['#submit'][] = 'veeder_find_distributor_form_redirect';
+  }
+}
+
+/**
+ * Custom function for the distributor form redirect.
+ */
+function veeder_find_distributor_form_redirect(&$form, FormStateInterface $form_state) {
+  // Get zip code value.
+  $zip_code = $form_state->getValue('field_zip_code')[0]['value'];
+  $form_state->setRedirect('entity.node.canonical', [
+      'node' => 150
+    ], [
+      'query' => [
+        'locate' => $zip_code
+      ]
+    ]
+  );
+}
+
+/*
+ * Match vimeo url patterns.
+ * @return vimeo id after matching patterns of video url.
+ */
+function veeder_vimeo_urlpattern_match($vimeo_url) {
+  if (!$vimeo_url) {
+    return false;
+  }
+  preg_match('/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/', $vimeo_url, $matches);
+  return $matches[5];
+}
+
+/**
+ * Get the hero banner large thmbnail using vimeo API v2.
+ */
+function veeder_vimeo_thumbnail($vimeo_id){
+  if (!$vimeo_id) {
+    return false;
+  }
+
+  $vimeo_data = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vimeo_id.php"));
+  if (!$vimeo_data) {
+    return false;
+  }
+
+  $video_thumbnail = (explode("_640", $vimeo_data[0]['thumbnail_large']));
+  $video_thumbnail_url = $video_thumbnail[0] . $video_thumbnail[1];
+
+  return $video_thumbnail_url;
+}

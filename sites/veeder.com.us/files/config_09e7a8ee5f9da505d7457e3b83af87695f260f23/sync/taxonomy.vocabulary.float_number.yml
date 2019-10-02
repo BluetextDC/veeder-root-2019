@@ -1,0 +1,9 @@
+uuid: bf097c28-d594-4a77-8220-ef19a53986a8
+langcode: en
+status: true
+dependencies: {  }
+name: 'Float Number'
+vid: float_number
+description: 'Product filter number'
+hierarchy: 0
+weight: 0

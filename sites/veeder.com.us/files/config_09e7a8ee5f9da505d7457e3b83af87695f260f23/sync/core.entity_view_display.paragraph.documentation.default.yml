@@ -1,0 +1,42 @@
+uuid: 571e2569-2a4c-41ba-8917-f7c867615281
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documentation.field_add_documentation_section
+    - field.field.paragraph.documentation.field_documentation_heading
+    - field.field.paragraph.documentation.field_documentation_id
+    - paragraphs.paragraphs_type.documentation
+  module:
+    - entity_reference_revisions
+id: paragraph.documentation.default
+targetEntityType: paragraph
+bundle: documentation
+mode: default
+content:
+  field_add_documentation_section:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_documentation_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_documentation_id:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

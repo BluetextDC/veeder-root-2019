@@ -1,0 +1,9 @@
+uuid: 4cfd8a30-d552-4dfb-9400-cbabddcbdca1
+langcode: en
+status: true
+dependencies: {  }
+name: Product
+vid: product
+description: 'Product Category'
+hierarchy: 0
+weight: 0

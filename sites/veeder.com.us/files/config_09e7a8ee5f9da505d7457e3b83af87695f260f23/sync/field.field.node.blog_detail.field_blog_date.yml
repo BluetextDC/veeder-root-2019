@@ -1,0 +1,21 @@
+uuid: 2ea4d89c-552a-440e-bcf0-e2fc12e9ce91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_date
+    - node.type.blog_detail
+  module:
+    - datetime
+id: node.blog_detail.field_blog_date
+field_name: field_blog_date
+entity_type: node
+bundle: blog_detail
+label: 'Display Date'
+description: 'Select the display date for the blog.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

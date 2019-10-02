@@ -1,0 +1,8 @@
+uuid: a88274e1-cb15-4e22-a307-9891e5f6abb9
+langcode: en
+status: true
+dependencies: {  }
+id: header-top-menu
+label: 'Header Top Menu'
+description: 'Header top menu'
+locked: false

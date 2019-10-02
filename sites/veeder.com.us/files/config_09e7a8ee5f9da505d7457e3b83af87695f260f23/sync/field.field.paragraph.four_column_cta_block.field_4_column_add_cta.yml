@@ -1,0 +1,67 @@
+uuid: 361e88be-81f3-4e03-aa44-5da9e8e0b027
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4_column_add_cta
+    - paragraphs.paragraphs_type.column_cta
+    - paragraphs.paragraphs_type.four_column_cta_block
+  module:
+    - entity_reference_revisions
+id: paragraph.four_column_cta_block.field_4_column_add_cta
+field_name: field_4_column_add_cta
+entity_type: paragraph
+bundle: four_column_cta_block
+label: 'Add CTA'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      column_cta: column_cta
+    target_bundles_drag_drop:
+      3_column_taxonomy_listing:
+        weight: 14
+        enabled: false
+      4060_cta:
+        weight: 15
+        enabled: false
+      4_column_taxonomy_listing:
+        weight: 16
+        enabled: false
+      5050_cta:
+        weight: 17
+        enabled: false
+      5050_full_width_cta:
+        weight: 18
+        enabled: false
+      5050_layered_heading_cta:
+        weight: 19
+        enabled: false
+      column_cta:
+        enabled: true
+        weight: 20
+      documentation:
+        weight: 21
+        enabled: false
+      documentation_document:
+        weight: 22
+        enabled: false
+      documentation_section:
+        weight: 23
+        enabled: false
+      feature_cta:
+        weight: 24
+        enabled: false
+      features_cta_block:
+        weight: 25
+        enabled: false
+      four_column_cta_block:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

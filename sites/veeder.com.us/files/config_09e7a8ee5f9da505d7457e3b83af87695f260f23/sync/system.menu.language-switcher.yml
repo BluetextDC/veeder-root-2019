@@ -1,0 +1,8 @@
+uuid: a52e2fbe-a39d-4df7-9f19-da4e94da22df
+langcode: en
+status: true
+dependencies: {  }
+id: language-switcher
+label: 'Language Switcher'
+description: 'Use language switcher for switch the sub-domain setup.'
+locked: false

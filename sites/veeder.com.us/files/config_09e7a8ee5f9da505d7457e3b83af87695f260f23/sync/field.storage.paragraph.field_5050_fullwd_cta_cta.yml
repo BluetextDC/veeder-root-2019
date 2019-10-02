@@ -1,0 +1,19 @@
+uuid: f6c834cf-75bb-47b6-86d1-6ae452091a03
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_5050_fullwd_cta_cta
+field_name: field_5050_fullwd_cta_cta
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
