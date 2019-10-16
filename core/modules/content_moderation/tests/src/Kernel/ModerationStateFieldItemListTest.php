@@ -3,9 +3,11 @@
 namespace Drupal\Tests\content_moderation\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
+use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
 use Drupal\Tests\content_moderation\Traits\ContentModerationTestTrait;
+use Drupal\workflows\Entity\Workflow;
 
 /**
  * @coversDefaultClass \Drupal\content_moderation\Plugin\Field\ModerationStateFieldItemList
@@ -64,6 +66,8 @@ class ModerationStateFieldItemListTest extends KernelTestBase {
     $this->testNode->save();
     \Drupal::entityTypeManager()->getStorage('node')->resetCache();
     $this->testNode = Node::load($this->testNode->id());
+
+    ConfigurableLanguage::createFromLangcode('de')->save();
   }
 
   /**
@@ -330,6 +334,71 @@ class ModerationStateFieldItemListTest extends KernelTestBase {
         'published',
       ],
     ];
+  }
+
+  /**
+   * Test customising the default moderation state.
+   */
+  public function testWorkflowCustomisedInitialState() {
+    $workflow = Workflow::load('editorial');
+    $configuration = $workflow->getTypePlugin()->getConfiguration();
+
+    // Test a node for a workflow that hasn't been updated to include the
+    // 'default_moderation_state' setting. We must be backwards compatible with
+    // configuration that was exported before this change was introduced.
+    $this->assertFalse(isset($configuration['default_moderation_state']));
+    $legacy_configuration_node = Node::create([
+      'title' => 'Test title',
+      'type' => 'example',
+    ]);
+    $this->assertEquals('draft', $legacy_configuration_node->moderation_state->value);
+    $legacy_configuration_node->save();
+    $this->assertEquals('draft', $legacy_configuration_node->moderation_state->value);
+
+    $configuration['default_moderation_state'] = 'published';
+    $workflow->getTypePlugin()->setConfiguration($configuration);
+    $workflow->save();
+
+    $updated_default_node = Node::create([
+      'title' => 'Test title',
+      'type' => 'example',
+    ]);
+    $this->assertEquals('published', $updated_default_node->moderation_state->value);
+    $legacy_configuration_node->save();
+    $this->assertEquals('published', $updated_default_node->moderation_state->value);
+  }
+
+  /**
+   * Test the field item list when used with existing unmoderated content.
+   */
+  public function testWithExistingUnmoderatedContent() {
+    $node = Node::create([
+      'title' => 'Test title',
+      'type' => 'unmoderated',
+    ]);
+    $node->save();
+    $translation = $node->addTranslation('de', $node->toArray());
+    $translation->title = 'Translated';
+    $translation->save();
+
+    $workflow = Workflow::load('editorial');
+    $workflow->getTypePlugin()->addEntityTypeAndBundle('node', 'unmoderated');
+    $workflow->save();
+
+    // After enabling moderation, both the original node and translation should
+    // have a published moderation state.
+    $node = Node::load($node->id());
+    $translation = $node->getTranslation('de');
+    $this->assertEquals('published', $node->moderation_state->value);
+    $this->assertEquals('published', $translation->moderation_state->value);
+
+    // After the node has been updated, both the original node and translation
+    // should still have a value.
+    $node->title = 'Updated title';
+    $node->save();
+    $translation = $node->getTranslation('de');
+    $this->assertEquals('published', $node->moderation_state->value);
+    $this->assertEquals('published', $translation->moderation_state->value);
   }
 
 }

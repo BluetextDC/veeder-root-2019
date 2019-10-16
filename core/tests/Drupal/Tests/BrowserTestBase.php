@@ -238,18 +238,22 @@ abstract class BrowserTestBase extends TestCase {
       'hidden_field_selector' => new HiddenFieldSelector(),
     ]);
     $session = new Session($driver, $selectors_handler);
-    $cookies = $this->extractCookiesFromRequest(\Drupal::request());
-    foreach ($cookies as $cookie_name => $values) {
-      foreach ($values as $value) {
-        $session->setCookie($cookie_name, $value);
-      }
-    }
     $this->mink = new Mink();
     $this->mink->registerSession('default', $session);
     $this->mink->setDefaultSessionName('default');
     $this->registerSessions();
 
     $this->initFrontPage();
+
+    // Copies cookies from the current environment, for example, XDEBUG_SESSION
+    // in order to support Xdebug.
+    // @see BrowserTestBase::initFrontPage()
+    $cookies = $this->extractCookiesFromRequest(\Drupal::request());
+    foreach ($cookies as $cookie_name => $values) {
+      foreach ($values as $value) {
+        $session->setCookie($cookie_name, $value);
+      }
+    }
 
     return $session;
   }
@@ -411,7 +415,7 @@ abstract class BrowserTestBase extends TestCase {
   }
 
   /**
-   * Ensures test files are deletable within file_unmanaged_delete_recursive().
+   * Ensures test files are deletable.
    *
    * Some tests chmod generated files to be read only. During
    * BrowserTestBase::cleanupEnvironment() and other cleanup operations,
@@ -419,6 +423,8 @@ abstract class BrowserTestBase extends TestCase {
    *
    * @param string $path
    *   The file path.
+   *
+   * @see \Drupal\Core\File\FileSystemInterface::deleteRecursive()
    */
   public static function filePreDeleteCallback($path) {
     // When the webserver runs with the same system user as phpunit, we can
@@ -447,7 +453,7 @@ abstract class BrowserTestBase extends TestCase {
     }
 
     // Delete test site directory.
-    file_unmanaged_delete_recursive($this->siteDirectory, [$this, 'filePreDeleteCallback']);
+    \Drupal::service('file_system')->deleteRecursive($this->siteDirectory, [$this, 'filePreDeleteCallback']);
   }
 
   /**
@@ -676,7 +682,7 @@ abstract class BrowserTestBase extends TestCase {
    *   The JSON decoded drupalSettings value from the current page.
    */
   protected function getDrupalSettings() {
-    $html = $this->getSession()->getPage()->getHtml();
+    $html = $this->getSession()->getPage()->getContent();
     if (preg_match('@<script type="application/json" data-drupal-selector="drupal-settings-json">([^<]*)</script>@', $html, $matches)) {
       return Json::decode($matches[1]);
     }
