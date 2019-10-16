@@ -22,7 +22,7 @@ function veeder_preprocess_page(&$variables) {
     // Return node type on page.
     $variables['node_type'] = $node_data->getType();
     // Retrun Jump Menu.
-    if ($node_data->field_enable_jump_nav[0]->value == '1') {
+    if (isset($node_data->field_enable_jump_nav) && !empty($node_data->field_enable_jump_nav[0]) && $node_data->field_enable_jump_nav[0]->value == '1') {
       $paragraph = $node_data->field_components->getValue();
       // Loop through the result set.
       $jump_menu = [];
@@ -107,7 +107,7 @@ function veeder_preprocess_maintenance_page(&$variables) {
   if (!$variables['db_is_active']) {
     $variables['site_name'] = '';
   }
-  // Bartik has custom styling for the maintenance page.
+  // Veeder has custom styling for the maintenance page.
   $variables['#attached']['library'][] = 'veeder/maintenance_page';
 }
 
