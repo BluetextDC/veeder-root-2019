@@ -69,7 +69,7 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    return array(
+    return [
       'placeholder_url' => '',
       'placeholder_title' => '',
       'enabled_attributes' => [
@@ -80,7 +80,7 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
         'class' => TRUE,
         'accesskey' => FALSE,
       ],
-    ) + parent::defaultSettings();
+    ] + parent::defaultSettings();
   }
 
   /**
@@ -110,11 +110,13 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
 
         // Set the default value, in case of a class that is stored as array,
         // convert it back to a string.
-        $default_value = isset($attributes[$attribute]) ? $attributes[$attribute] : '';
+        $default_value = isset($attributes[$attribute]) ? $attributes[$attribute] : NULL;
         if ($attribute === 'class' && is_array($default_value)) {
           $default_value = implode(' ', $default_value);
         }
-        $element['options']['attributes'][$attribute]['#default_value'] = $default_value;
+        if (isset($default_value)) {
+          $element['options']['attributes'][$attribute]['#default_value'] = $default_value;
+        }
       }
     }
     return $element;
@@ -151,9 +153,11 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
     }
 
     return array_map(function (array $value) {
-      $value['options']['attributes'] = array_filter($value['options']['attributes'], function ($attribute) {
-        return $attribute !== "";
-      });
+      if (isset($value['options']['attributes'])) {
+        $value['options']['attributes'] = array_filter($value['options']['attributes'], function ($attribute) {
+          return $attribute !== "";
+        });
+      }
       return $value;
     }, $values);
   }
@@ -165,7 +169,7 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
     $summary = parent::settingsSummary();
     $enabled_attributes = array_filter($this->getSetting('enabled_attributes'));
     if ($enabled_attributes) {
-      $summary[] = $this->t('With attributes: @attributes', array('@attributes' => implode(', ', array_keys($enabled_attributes))));
+      $summary[] = $this->t('With attributes: @attributes', ['@attributes' => implode(', ', array_keys($enabled_attributes))]);
     }
     return $summary;
   }

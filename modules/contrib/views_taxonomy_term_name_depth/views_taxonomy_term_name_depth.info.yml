@@ -4,8 +4,8 @@ description: The module provides the Views plugin for Contextual filter with Tax
 # core: 8.x
 package: Views
 
-# Information added by Drupal.org packaging script on 2018-12-26
+# Information added by Drupal.org packaging script on 2019-07-12
 version: '8.x-6.x-dev'
 core: '8.x'
 project: 'views_taxonomy_term_name_depth'
-datestamp: 1545795183
+datestamp: 1562939291
