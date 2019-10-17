@@ -5,9 +5,9 @@ sites/*/files
 sites/*/private
 files/*
 sites/*/settings.local.php
-#sites/*/services.yml
-#sites/*/development.services.yml
-#sites/default/settings.php
+sites/*/services.yml
+sites/*/development.services.yml
+sites/default/settings.php
 # Avoid accidental modification of pantheon.upstream.yml in sites
 # created from this upstream
 pantheon.upstream.yml
