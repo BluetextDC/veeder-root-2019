@@ -335,7 +335,7 @@
     .hero-section .home-banner .bg-img.mobile-banner-img{display: block;}
     .inner-banner .vimeo-bg-video{display: none;}
     .inner-banner .bg-img.mobile-banner-img{display: block;}
-    .features-list .item .item-wrap figure{display: none;}
+    .features-list .item .item-wrap figure{display: block;}
     #home-video-loader{display: none;}
     .hbspt-form .hs-form-field {width: 100%;}
 }
