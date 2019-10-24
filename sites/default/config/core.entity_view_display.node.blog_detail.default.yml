@@ -1,0 +1,243 @@
+uuid: 2a01a19f-9f7b-4136-bf84-26a197dca516
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.blog_detail.field_blog_author
+    - field.field.node.blog_detail.field_blog_date
+    - field.field.node.blog_detail.field_blog_detail_heading
+    - field.field.node.blog_detail.field_blog_detail_image
+    - field.field.node.blog_detail.field_blog_detail_image_parallax
+    - field.field.node.blog_detail.field_blog_detail_plate_color
+    - field.field.node.blog_detail.field_blog_detail_vimeo
+    - field.field.node.blog_detail.field_blog_realted_view
+    - field.field.node.blog_detail.field_blog_refer_weight
+    - field.field.node.blog_detail.field_blog_related_heading
+    - field.field.node.blog_detail.field_blog_social_share
+    - field.field.node.blog_detail.field_blog_tags
+    - field.field.node.blog_detail.field_body
+    - field.field.node.blog_detail.field_breadcrumb_color
+    - field.field.node.blog_detail.field_color_variation
+    - field.field.node.blog_detail.field_components
+    - field.field.node.blog_detail.field_contact_footer_form
+    - field.field.node.blog_detail.field_display_breadcrumbs
+    - field.field.node.blog_detail.field_display_contact_footer
+    - field.field.node.blog_detail.field_display_contact_sidebar
+    - field.field.node.blog_detail.field_meta_tags
+    - field.field.node.blog_detail.field_summary
+    - node.type.blog_detail
+  module:
+    - color_field
+    - datetime
+    - entity_reference_revisions
+    - markup
+    - metatag
+    - options
+    - social_media
+    - svg_image
+    - text
+    - user
+    - viewfield
+id: node.blog_detail.default
+targetEntityType: node
+bundle: blog_detail
+mode: default
+content:
+  field_blog_author:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_blog_date:
+    weight: 6
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'F j, Y'
+    third_party_settings: {  }
+    type: datetime_custom
+    region: content
+  field_blog_detail_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_blog_detail_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_blog_detail_image_parallax:
+    weight: 3
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_blog_detail_plate_color:
+    weight: 4
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_blog_detail_vimeo:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_blog_realted_view:
+    weight: 11
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
+    third_party_settings: {  }
+    type: viewfield_default
+    region: content
+  field_blog_refer_weight:
+    weight: 18
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_blog_related_heading:
+    weight: 10
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_blog_social_share:
+    weight: 19
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: social_media_default
+    region: content
+  field_blog_tags:
+    weight: 17
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_body:
+    weight: 9
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_breadcrumb_color:
+    weight: 8
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_color_variation:
+    weight: 21
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_components:
+    weight: 16
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_contact_footer_form:
+    weight: 15
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_display_breadcrumbs:
+    weight: 7
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_display_contact_footer:
+    weight: 14
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_display_contact_sidebar:
+    weight: 13
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_meta_tags:
+    weight: 20
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_summary:
+    weight: 12
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

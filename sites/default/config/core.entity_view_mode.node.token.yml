@@ -1,0 +1,10 @@
+uuid: deb78f85-b464-4f3b-a65f-812bb802ff04
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.token
+label: Token
+targetEntityType: node
+cache: true

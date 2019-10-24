@@ -1,0 +1,25 @@
+uuid: b6e5ffac-a384-4c8d-8a47-0ca325b31574
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: product_category
+label: 'Product Category'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary:name]/[term:name]'
+selection_criteria:
+  84b88013-07e9-4a2f-a150-dc53dfd8245f:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      float_number: float_number
+      probe_number: probe_number
+      product: product
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 84b88013-07e9-4a2f-a150-dc53dfd8245f
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,29 @@
+uuid: c11c374b-5e60-4826-8245-5982fa3b338e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_landing_product
+    - node.type.generic_landing
+    - taxonomy.vocabulary.product
+id: node.generic_landing.field_landing_product
+field_name: field_landing_product
+entity_type: node
+bundle: generic_landing
+label: Product
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

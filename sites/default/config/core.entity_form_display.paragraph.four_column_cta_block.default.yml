@@ -1,0 +1,75 @@
+uuid: 98060318-dced-43fd-9f45-4589eaeaf32d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.four_column_cta_block.field_4_column_add_cta
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_block_color
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_block_head_co
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_block_heading
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_block_id
+    - field.field.paragraph.four_column_cta_block.field_4_column_cta_button_stylin
+    - paragraphs.paragraphs_type.four_column_cta_block
+  module:
+    - color_field
+    - paragraphs
+id: paragraph.four_column_cta_block.default
+targetEntityType: paragraph
+bundle: four_column_cta_block
+mode: default
+content:
+  field_4_column_add_cta:
+    type: entity_reference_paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_4_column_cta_block_color:
+    weight: 1
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_4_column_cta_block_head_co:
+    weight: 2
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_4_column_cta_block_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_4_column_cta_block_id:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_4_column_cta_button_stylin:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

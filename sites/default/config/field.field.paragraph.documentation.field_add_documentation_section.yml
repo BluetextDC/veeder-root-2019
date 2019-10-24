@@ -1,0 +1,58 @@
+uuid: ba79c59b-56b8-4122-acb1-97e56daf6ae4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_add_documentation_section
+    - paragraphs.paragraphs_type.documentation
+    - paragraphs.paragraphs_type.documentation_section
+  module:
+    - entity_reference_revisions
+id: paragraph.documentation.field_add_documentation_section
+field_name: field_add_documentation_section
+entity_type: paragraph
+bundle: documentation
+label: 'Add Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      documentation_section: documentation_section
+    target_bundles_drag_drop:
+      3_column_taxonomy_listing:
+        weight: 11
+        enabled: false
+      4060_cta:
+        weight: 12
+        enabled: false
+      4_column_taxonomy_listing:
+        weight: 13
+        enabled: false
+      5050_cta:
+        weight: 14
+        enabled: false
+      5050_full_width_cta:
+        weight: 15
+        enabled: false
+      5050_layered_heading_cta:
+        weight: 16
+        enabled: false
+      column_cta:
+        weight: 17
+        enabled: false
+      documentation:
+        weight: 18
+        enabled: false
+      documentation_document:
+        weight: 19
+        enabled: false
+      documentation_section:
+        enabled: true
+        weight: 20
+field_type: entity_reference_revisions

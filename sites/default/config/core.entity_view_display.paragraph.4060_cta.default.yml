@@ -1,0 +1,120 @@
+uuid: 34e3e5d2-b742-4334-b492-ca3e88b193e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.4060_cta.field_4060_cta
+    - field.field.paragraph.4060_cta.field_4060_cta_callout
+    - field.field.paragraph.4060_cta.field_4060_cta_description
+    - field.field.paragraph.4060_cta.field_4060_cta_heading
+    - field.field.paragraph.4060_cta.field_4060_cta_id
+    - field.field.paragraph.4060_cta.field_4060_cta_image
+    - field.field.paragraph.4060_cta.field_4060_cta_image_parallax
+    - field.field.paragraph.4060_cta.field_4060_cta_text_first
+    - field.field.paragraph.4060_cta.field_4060_cta_vimeo_player
+    - field.field.paragraph.4060_cta.field_4060_cta_vimeo_url
+    - paragraphs.paragraphs_type.4060_cta
+  module:
+    - link
+    - svg_image
+    - text
+id: paragraph.4060_cta.default
+targetEntityType: paragraph
+bundle: 4060_cta
+mode: default
+content:
+  field_4060_cta:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_4060_cta_callout:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_4060_cta_description:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_4060_cta_heading:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_4060_cta_id:
+    weight: 9
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_4060_cta_image:
+    weight: 5
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: 0
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_4060_cta_image_parallax:
+    weight: 8
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_4060_cta_text_first:
+    weight: 0
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_4060_cta_vimeo_player:
+    weight: 7
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_4060_cta_vimeo_url:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

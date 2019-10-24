@@ -1,0 +1,38 @@
+uuid: 543765f3-df92-49f0-9802-031a8bd19391
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_taxonomy_image
+    - node.type.product_detail
+  module:
+    - image
+id: node.product_detail.field_taxonomy_image
+field_name: field_taxonomy_image
+entity_type: node
+bundle: product_detail
+label: 'Taxonomy Image'
+description: 'Choose an image to display when this page is referenced in taxonomy listings.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ee54c2e4-7f58-4715-8009-5a58dc777dc0
+    alt: ''
+    title: ''
+    width: 204
+    height: 148
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

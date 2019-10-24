@@ -1,0 +1,20 @@
+uuid: 35c562c9-6905-4cf9-9eed-004ee4e567b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - paragraphs
+id: paragraph.field_5050_layered_cta_head_colo
+field_name: field_5050_layered_cta_head_colo
+entity_type: paragraph
+type: color_field_type
+settings:
+  format: '#hexhex'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

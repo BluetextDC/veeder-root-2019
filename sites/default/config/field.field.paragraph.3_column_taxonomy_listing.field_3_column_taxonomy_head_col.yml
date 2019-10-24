@@ -1,0 +1,25 @@
+uuid: 69aba2ed-3439-4ad8-9149-f8f6bd426841
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_3_column_taxonomy_head_col
+    - paragraphs.paragraphs_type.3_column_taxonomy_listing
+  module:
+    - color_field
+id: paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_head_col
+field_name: field_3_column_taxonomy_head_col
+entity_type: paragraph
+bundle: 3_column_taxonomy_listing
+label: 'Heading Color'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    color: '#FFFFFF'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

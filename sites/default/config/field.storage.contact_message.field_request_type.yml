@@ -1,0 +1,33 @@
+uuid: 223157b3-430f-40a0-b260-6ed1472a159b
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_request_type
+field_name: field_request_type
+entity_type: contact_message
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Test1
+    -
+      value: '2'
+      label: Test2
+    -
+      value: '3'
+      label: Test3
+    -
+      value: '4'
+      label: Test4
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 06b9a094-329f-4661-a865-cf6ec1866729
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4060_cta_callout
+    - paragraphs.paragraphs_type.4060_cta
+id: paragraph.4060_cta.field_4060_cta_callout
+field_name: field_4060_cta_callout
+entity_type: paragraph
+bundle: 4060_cta
+label: Callout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

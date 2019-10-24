@@ -1,0 +1,19 @@
+uuid: 4b08ae84-af94-4fe1-83e5-6d8c4d8aa6a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_fullwd_cta_callout
+    - paragraphs.paragraphs_type.5050_full_width_cta
+id: paragraph.5050_full_width_cta.field_5050_fullwd_cta_callout
+field_name: field_5050_fullwd_cta_callout
+entity_type: paragraph
+bundle: 5050_full_width_cta
+label: Callout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

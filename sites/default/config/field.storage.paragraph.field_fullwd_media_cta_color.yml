@@ -1,0 +1,20 @@
+uuid: ccc511ad-f46a-4fd2-b296-a2e5ee6e4f7c
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - paragraphs
+id: paragraph.field_fullwd_media_cta_color
+field_name: field_fullwd_media_cta_color
+entity_type: paragraph
+type: color_field_type
+settings:
+  format: '#hexhex'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

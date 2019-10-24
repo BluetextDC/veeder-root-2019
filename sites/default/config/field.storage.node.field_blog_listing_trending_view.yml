@@ -1,0 +1,21 @@
+uuid: 55c8f1bc-af5a-4b6e-b89f-ab8b9d680e11
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - viewfield
+    - views
+id: node.field_blog_listing_trending_view
+field_name: field_blog_listing_trending_view
+entity_type: node
+type: viewfield
+settings:
+  target_type: view
+module: viewfield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

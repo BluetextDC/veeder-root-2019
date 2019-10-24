@@ -1,0 +1,9 @@
+uuid: 432e9826-277c-4684-b16c-02ac276bfb7d
+langcode: en
+status: true
+dependencies: {  }
+id: 5050_layered_heading_cta
+label: '50-50 Layered Heading CTA'
+icon_uuid: null
+description: 'Use 50-50 layered heading CTA for the 2 column of the layer with the title, description, and CTA.'
+behavior_plugins: {  }

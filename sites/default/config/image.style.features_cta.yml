@@ -1,0 +1,15 @@
+uuid: 9f6bc1b1-8891-4104-bb31-c331e06185e5
+langcode: en
+status: true
+dependencies: {  }
+name: features_cta
+label: 'Features CTA'
+effects:
+  fb0e9cfb-30ed-4b50-b520-8ddee9f2aed7:
+    uuid: fb0e9cfb-30ed-4b50-b520-8ddee9f2aed7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 385
+      height: 173
+      anchor: center-center

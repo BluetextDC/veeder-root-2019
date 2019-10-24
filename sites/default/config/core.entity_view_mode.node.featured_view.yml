@@ -1,0 +1,10 @@
+uuid: 1b04350b-f773-4dc5-8e2e-51455db3c039
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.featured_view
+label: 'Featured view'
+targetEntityType: node
+cache: true

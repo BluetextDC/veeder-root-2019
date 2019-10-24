@@ -1,0 +1,24 @@
+uuid: 5f5066cb-a739-4101-a5b1-289f230a9cd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.header-top-menu
+  module:
+    - system
+  theme:
+    - veeder
+id: headertopmenu
+theme: veeder
+region: secondary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:header-top-menu'
+settings:
+  id: 'system_menu_block:header-top-menu'
+  label: 'Header Top Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

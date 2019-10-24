@@ -1,0 +1,19 @@
+uuid: b7513958-cf64-4cbd-a05f-3527cbbb1936
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_cta_callout
+    - paragraphs.paragraphs_type.5050_cta
+id: paragraph.5050_cta.field_5050_cta_callout
+field_name: field_5050_cta_callout
+entity_type: paragraph
+bundle: 5050_cta
+label: Callout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

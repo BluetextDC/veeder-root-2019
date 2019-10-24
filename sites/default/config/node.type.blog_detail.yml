@@ -1,0 +1,18 @@
+uuid: c93d376d-6ab2-4861-8a46-8943059e6cc0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Blog Detail'
+type: blog_detail
+description: 'Use blog detail for blog detail page content or blog post content.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

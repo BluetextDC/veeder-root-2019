@@ -1,0 +1,7 @@
+name: Viewfield Autocomplete
+type: module
+description: Admin autocomplete when select the view and adding the argument
+core: 8.x
+dependencies:
+  - viewfield
+package: Custom

@@ -1,0 +1,21 @@
+uuid: 94b04c1f-3b16-4c51-baba-7663eb7c4b2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_fullwd_media_cta_vimeo_url
+field_name: field_fullwd_media_cta_vimeo_url
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: ef69cc58-1081-40e3-9698-b67cd2cf7bf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_hero_text_color
+    - node.type.homepage
+  module:
+    - color_field
+id: node.homepage.field_homepage_hero_text_color
+field_name: field_homepage_hero_text_color
+entity_type: node
+bundle: homepage
+label: 'Text Color'
+description: 'Choose a color for the hero text and CTA using hex codes.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

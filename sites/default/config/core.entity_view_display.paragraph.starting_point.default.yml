@@ -1,0 +1,46 @@
+uuid: 94623c82-1d6b-4dbd-a5a9-778803e76eb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.starting_point.field_starting_point_icon
+    - field.field.paragraph.starting_point.field_starting_point_text
+    - field.field.paragraph.starting_point.field_starting_point_url
+    - paragraphs.paragraphs_type.starting_point
+  module:
+    - svg_image
+id: paragraph.starting_point.default
+targetEntityType: paragraph
+bundle: starting_point
+mode: default
+content:
+  field_starting_point_icon:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_starting_point_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_starting_point_url:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

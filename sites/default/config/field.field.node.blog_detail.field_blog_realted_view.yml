@@ -1,0 +1,53 @@
+uuid: 4512bda1-7788-4f6e-b466-4e9a35319c65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_realted_view
+    - node.type.blog_detail
+  module:
+    - viewfield
+id: node.blog_detail.field_blog_realted_view
+field_name: field_blog_realted_view
+entity_type: node
+bundle: blog_detail
+label: 'Related Blogs Taxonomy'
+description: 'Select a related blogs taxonomy for this page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  force_default: 0
+  allowed_views:
+    blog_author_listing: blog_author_listing
+    blog_listing: blog_listing
+    product_list: product_list
+    related_blogs: related_blogs
+    related_products: related_products
+    related_solutions: related_solutions
+    trending_blogs: trending_blogs
+    comment: 0
+    contact_messages: 0
+    content: 0
+    block_content: 0
+    file_entity_browser: 0
+    files: 0
+    frontpage: 0
+    media: 0
+    user_admin_people: 0
+    comments_recent: 0
+    content_recent: 0
+    taxonomy_term: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+  allowed_display_types:
+    block: block
+    default: default
+    page: page
+    entity_browser: 0
+    feed: 0
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

@@ -1,0 +1,23 @@
+uuid: 83d98906-4768-4f7d-9acf-902575610052
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_refer_weight
+    - node.type.product_listing
+id: node.product_listing.field_product_refer_weight
+field_name: field_product_refer_weight
+entity_type: node
+bundle: product_listing
+label: 'Product Refer Weight'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

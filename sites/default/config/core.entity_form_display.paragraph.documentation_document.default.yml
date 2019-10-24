@@ -1,0 +1,35 @@
+uuid: 5b8f2175-2103-4b63-a434-116c0eb1c399
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documentation_document.field_add_documentation_doc_file
+    - field.field.paragraph.documentation_document.field_documentation_doc_name
+    - paragraphs.paragraphs_type.documentation_document
+  module:
+    - link
+id: paragraph.documentation_document.default
+targetEntityType: paragraph
+bundle: documentation_document
+mode: default
+content:
+  field_add_documentation_doc_file:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_documentation_doc_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

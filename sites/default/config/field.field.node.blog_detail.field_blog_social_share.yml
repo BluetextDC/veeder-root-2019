@@ -1,0 +1,25 @@
+uuid: 4afd7ef5-2f97-41ea-823d-958d7603ad1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_social_share
+    - node.type.blog_detail
+  module:
+    - social_media
+id: node.blog_detail.field_blog_social_share
+field_name: field_blog_social_share
+entity_type: node
+bundle: blog_detail
+label: Share
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: social_media

@@ -1,0 +1,21 @@
+uuid: 994cadce-6f07-4f60-aea8-6e9b9983636d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_footer_form
+    - node.type.generic_landing
+  module:
+    - options
+id: node.generic_landing.field_contact_footer_form
+field_name: field_contact_footer_form
+entity_type: node
+bundle: generic_landing
+label: 'Footer Contact Form'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

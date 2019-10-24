@@ -1,0 +1,19 @@
+uuid: 5969ec8a-b7b8-483f-9e85-b7e97666ca15
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_5050_layered_cta_descripti
+field_name: field_5050_layered_cta_descripti
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

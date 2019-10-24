@@ -1,0 +1,25 @@
+uuid: 9d168996-2f4d-40f9-b0bb-d836c43523c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_4_column_taxonomy_bg_color
+    - paragraphs.paragraphs_type.4_column_taxonomy_listing
+  module:
+    - color_field
+id: paragraph.4_column_taxonomy_listing.field_4_column_taxonomy_bg_color
+field_name: field_4_column_taxonomy_bg_color
+entity_type: paragraph
+bundle: 4_column_taxonomy_listing
+label: 'Background Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    color: '#FFFFFF'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

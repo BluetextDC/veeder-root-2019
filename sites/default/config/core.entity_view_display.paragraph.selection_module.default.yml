@@ -1,0 +1,59 @@
+uuid: b50c885a-3b59-4ce8-a727-a5152b75586c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.selection_module.field_selection_body
+    - field.field.paragraph.selection_module.field_selection_heading
+    - field.field.paragraph.selection_module.field_selection_id
+    - field.field.paragraph.selection_module.field_selection_js_library
+    - field.field.paragraph.selection_module.field_selection_lightbox_title
+    - paragraphs.paragraphs_type.selection_module
+  module:
+    - file
+    - text
+id: paragraph.selection_module.default
+targetEntityType: paragraph
+bundle: selection_module
+mode: default
+content:
+  field_selection_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_selection_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_selection_id:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_selection_js_library:
+    weight: 4
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_selection_lightbox_title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

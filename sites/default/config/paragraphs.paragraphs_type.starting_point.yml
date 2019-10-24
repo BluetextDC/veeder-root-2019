@@ -1,0 +1,9 @@
+uuid: 39744f99-a0ba-4842-b390-b1b519af4fef
+langcode: en
+status: true
+dependencies: {  }
+id: starting_point
+label: 'Starting Point'
+icon_uuid: null
+description: 'Use starting point for the specific row of items with the title, icon, and URL.'
+behavior_plugins: {  }

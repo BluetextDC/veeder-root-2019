@@ -1,0 +1,25 @@
+uuid: 32df2378-8bbd-43c7-ba04-3d4afc2d5911
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_listing_plate_color
+    - node.type.article
+  module:
+    - color_field
+id: node.article.field_blog_listing_plate_color
+field_name: field_blog_listing_plate_color
+entity_type: node
+bundle: article
+label: 'Hero Plate Color'
+description: 'Choose a color for the hero background using hex codes.'
+required: false
+translatable: false
+default_value:
+  -
+    color: '#008000'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

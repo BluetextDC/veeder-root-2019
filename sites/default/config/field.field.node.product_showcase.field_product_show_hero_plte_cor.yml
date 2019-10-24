@@ -1,0 +1,25 @@
+uuid: 7af25054-e0e9-4ace-8f50-47861375ca26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_show_hero_plte_cor
+    - node.type.product_showcase
+  module:
+    - color_field
+id: node.product_showcase.field_product_show_hero_plte_cor
+field_name: field_product_show_hero_plte_cor
+entity_type: node
+bundle: product_showcase
+label: 'Hero Plate Color'
+description: 'Choose a color for the hero background using hex codes.'
+required: false
+translatable: false
+default_value:
+  -
+    color: '#0000FF'
+    opacity: null
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

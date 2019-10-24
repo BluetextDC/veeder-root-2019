@@ -1,0 +1,9 @@
+uuid: bf84b258-e232-4afa-92d5-365e2299fcb4
+langcode: en
+status: true
+dependencies: {  }
+id: four_column_cta_block
+label: '4 Column CTA Block'
+icon_uuid: null
+description: 'Use 4 column CTA block for the 4 column of the block with the Column CTA paragraph.'
+behavior_plugins: {  }

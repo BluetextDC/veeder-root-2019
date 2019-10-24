@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ * Probe & Float Section form.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function selection_form_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the block module.
+    case 'help.page.selection_form':
+      return '<p>' . t('Selection Form') . '</p>';
+  }
+}

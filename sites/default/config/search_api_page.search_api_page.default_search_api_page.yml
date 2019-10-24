@@ -1,0 +1,39 @@
+uuid: 1497a8b6-492d-462d-8723-f714af2459b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.search_index
+id: default_search_api_page
+label: Search
+path: search
+clean_url: true
+show_all_when_no_keys: false
+index: search_index
+limit: 10
+searched_fields:
+  body: body
+  field_5050_cta_description: field_5050_cta_description
+  field_blog_author: field_blog_author
+  field_blog_detail_heading: field_blog_detail_heading
+  field_blog_listing_description: field_blog_listing_description
+  field_blog_listing_heading: field_blog_listing_heading
+  field_body: field_body
+  field_components: field_components
+  field_generic_hero_description: field_generic_hero_description
+  field_generic_hero_heading: field_generic_hero_heading
+  field_homepage_hero_heading: field_homepage_hero_heading
+  field_homepage_hero_subheading: field_homepage_hero_subheading
+  field_product_show_hero_heading: field_product_show_hero_heading
+  field_selection_body: field_selection_body
+  field_summary: field_summary
+  name: name
+  name_1: name_1
+  name_2: name_2
+  name_3: name_3
+  name_4: name_4
+  rendered_item: rendered_item
+  title: title
+style: search_results
+view_mode_configuration: {  }
+show_search_form: true

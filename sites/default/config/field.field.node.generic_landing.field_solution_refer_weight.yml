@@ -1,0 +1,23 @@
+uuid: 2f9c42c9-2719-4224-969d-7b64dfbaa175
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_solution_refer_weight
+    - node.type.generic_landing
+id: node.generic_landing.field_solution_refer_weight
+field_name: field_solution_refer_weight
+entity_type: node
+bundle: generic_landing
+label: 'Solution Refer Weight'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

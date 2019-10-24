@@ -1,0 +1,23 @@
+uuid: 58d03bf0-cd36-44aa-b254-76ca2ece1b73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_add_documentation_doc_file
+    - paragraphs.paragraphs_type.documentation_document
+  module:
+    - link
+id: paragraph.documentation_document.field_add_documentation_doc_file
+field_name: field_add_documentation_doc_file
+entity_type: paragraph
+bundle: documentation_document
+label: 'Document File'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

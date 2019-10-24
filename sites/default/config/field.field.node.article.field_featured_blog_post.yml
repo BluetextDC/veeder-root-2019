@@ -1,0 +1,28 @@
+uuid: 3bcd99cf-f57c-4ce3-90f5-ae1686e21954
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_blog_post
+    - node.type.article
+    - node.type.blog_detail
+id: node.article.field_featured_blog_post
+field_name: field_featured_blog_post
+entity_type: node
+bundle: article
+label: 'Featured Blog Post'
+description: 'Select featured blog post from blog content type.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      blog_detail: blog_detail
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: blog_detail
+field_type: entity_reference

@@ -1,0 +1,9 @@
+uuid: 5cb11974-5615-42b7-b92f-1100d4cf0511
+langcode: en
+status: true
+dependencies: {  }
+name: Solution
+vid: solution
+description: 'Solution Category'
+hierarchy: 0
+weight: 0

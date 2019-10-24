@@ -1,0 +1,27 @@
+uuid: 227caf66-cee7-4b44-84d5-56d1fb755777
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: general_setting
+label: 'General Setting'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  6ff38ab0-2697-454a-9e0c-a41cf61ff527:
+    id: node_type
+    bundles:
+      blog_detail: blog_detail
+      generic_landing: generic_landing
+      homepage: homepage
+      page: page
+      product_detail: product_detail
+      product_showcase: product_showcase
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 6ff38ab0-2697-454a-9e0c-a41cf61ff527
+selection_logic: and
+weight: -5
+relationships: {  }

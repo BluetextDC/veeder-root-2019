@@ -1,0 +1,55 @@
+uuid: 8d54d80a-5541-4c75-ab38-266a58efdadf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.homepage.field_add_column_cta
+    - field.field.node.homepage.field_add_starting_point
+    - field.field.node.homepage.field_color_variation
+    - field.field.node.homepage.field_components
+    - field.field.node.homepage.field_contact_footer_form
+    - field.field.node.homepage.field_display_contact_footer
+    - field.field.node.homepage.field_display_contact_sidebar
+    - field.field.node.homepage.field_homepage_hero_cta_cta
+    - field.field.node.homepage.field_homepage_hero_heading
+    - field.field.node.homepage.field_homepage_hero_image
+    - field.field.node.homepage.field_homepage_hero_image_parall
+    - field.field.node.homepage.field_homepage_hero_plate_color
+    - field.field.node.homepage.field_homepage_hero_subheading
+    - field.field.node.homepage.field_homepage_hero_text_color
+    - field.field.node.homepage.field_homepage_hero_vimeo
+    - field.field.node.homepage.field_meta_tags
+    - field.field.node.homepage.field_summary
+    - node.type.homepage
+  module:
+    - user
+id: node.homepage.teaser
+targetEntityType: node
+bundle: homepage
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_add_column_cta: true
+  field_add_starting_point: true
+  field_color_variation: true
+  field_components: true
+  field_contact_footer_form: true
+  field_display_contact_footer: true
+  field_display_contact_sidebar: true
+  field_homepage_hero_cta_cta: true
+  field_homepage_hero_heading: true
+  field_homepage_hero_image: true
+  field_homepage_hero_image_parall: true
+  field_homepage_hero_plate_color: true
+  field_homepage_hero_subheading: true
+  field_homepage_hero_text_color: true
+  field_homepage_hero_vimeo: true
+  field_meta_tags: true
+  field_summary: true
+  langcode: true

@@ -1,0 +1,19 @@
+uuid: 06d446bd-b901-49eb-8374-d9a37d007dc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_vimeo_url
+    - paragraphs.paragraphs_type.5050_cta
+id: paragraph.5050_cta.field_5050_vimeo_url
+field_name: field_5050_vimeo_url
+entity_type: paragraph
+bundle: 5050_cta
+label: 'Vimeo URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

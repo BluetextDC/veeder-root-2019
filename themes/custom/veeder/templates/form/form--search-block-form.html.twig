@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ */
+#}
+<i class="ic-search"></i>
+<div class="search-bar bg-gray " style="display: none;">
+  <div class="search-wrap d-flex">
+    <form{{ attributes.addClass('search-form', 'search-block-form') }}>
+      {{ children }}
+    </form>
+  </div>
+</div>

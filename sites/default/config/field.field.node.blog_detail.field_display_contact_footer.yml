@@ -1,0 +1,23 @@
+uuid: 06ac470d-25dc-4760-9bf6-4ff5e7fc7b59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_contact_footer
+    - node.type.blog_detail
+id: node.blog_detail.field_display_contact_footer
+field_name: field_display_contact_footer
+entity_type: node
+bundle: blog_detail
+label: 'Display Footer Contact form'
+description: 'Choose whether the contact footer will display on this page.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

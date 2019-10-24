@@ -1,0 +1,21 @@
+uuid: 94d13799-4889-4f89-86c2-ca2b12cb8a94
+langcode: en
+status: true
+dependencies:
+  module:
+    - distributor_form
+  theme:
+    - veeder
+id: distributorform
+theme: veeder
+region: form_sidebar_second
+weight: 0
+provider: null
+plugin: distributor_form_block
+settings:
+  id: distributor_form_block
+  label: 'Find a distributor near you'
+  provider: distributor_form
+  label_display: visible
+  page_id: '84'
+visibility: {  }

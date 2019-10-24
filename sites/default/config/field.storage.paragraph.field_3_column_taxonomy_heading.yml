@@ -1,0 +1,21 @@
+uuid: c257a6c5-abef-4d2f-b1b4-965829b689be
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_3_column_taxonomy_heading
+field_name: field_3_column_taxonomy_heading
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

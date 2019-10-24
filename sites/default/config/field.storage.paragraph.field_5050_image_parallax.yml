@@ -1,0 +1,18 @@
+uuid: 880f65d4-d125-4757-95c1-17513c8697b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_5050_image_parallax
+field_name: field_5050_image_parallax
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

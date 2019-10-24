@@ -1,0 +1,163 @@
+uuid: 95baba28-7e1f-4687-bd1a-2be652603fa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.browse_files_modal
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_bar_color
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_color
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_cta
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_descrptin
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_heading
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_id
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_image
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_image_par
+    - field.field.paragraph.full_width_media_cta.field_fullwd_media_cta_vimeo_url
+    - paragraphs.paragraphs_type.full_width_media_cta
+  module:
+    - color_field
+    - entity_browser
+    - field_group
+    - link_attributes
+    - text
+third_party_settings:
+  field_group:
+    group_information_tabs:
+      children:
+        - group_text
+        - group_media
+      parent_name: ''
+      weight: 6
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: 'Information Tabs'
+    group_text:
+      children:
+        - field_fullwd_media_cta_heading
+        - field_fullwd_media_cta_descrptin
+        - field_fullwd_media_cta_color
+        - field_fullwd_media_cta_bar_color
+        - field_fullwd_media_cta_cta
+        - field_fullwd_media_cta_id
+      parent_name: group_information_tabs
+      weight: 7
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: 'This tab contains basic informative fields.'
+        required_fields: true
+      label: Text
+    group_media:
+      children:
+        - field_fullwd_media_cta_image
+        - field_fullwd_media_cta_vimeo_url
+        - field_fullwd_media_cta_image_par
+      parent_name: group_information_tabs
+      weight: 8
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: 'This tab contains image and files fields.'
+        required_fields: true
+      label: Media
+id: paragraph.full_width_media_cta.default
+targetEntityType: paragraph
+bundle: full_width_media_cta
+mode: default
+content:
+  field_fullwd_media_cta_bar_color:
+    weight: 3
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_fullwd_media_cta_color:
+    weight: 2
+    settings:
+      placeholder_color: ''
+      placeholder_opacity: ''
+    third_party_settings: {  }
+    type: color_field_widget_default
+    region: content
+  field_fullwd_media_cta_cta:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_fullwd_media_cta_descrptin:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_fullwd_media_cta_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_fullwd_media_cta_id:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_fullwd_media_cta_image:
+    weight: 4
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      preview_image_style: thumbnail
+      field_widget_edit: true
+      field_widget_replace: false
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_fullwd_media_cta_image_par:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_fullwd_media_cta_vimeo_url:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

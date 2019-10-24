@@ -1,0 +1,25 @@
+uuid: 132a0825-75f9-4707-b0ac-8f202437b3a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - veeder
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: veeder_branding
+theme: veeder
+region: header_logo
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

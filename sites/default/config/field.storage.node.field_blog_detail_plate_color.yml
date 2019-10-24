@@ -1,0 +1,20 @@
+uuid: 16e9a9a1-8e04-4148-86fb-01e6b9b5b0eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - node
+id: node.field_blog_detail_plate_color
+field_name: field_blog_detail_plate_color
+entity_type: node
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

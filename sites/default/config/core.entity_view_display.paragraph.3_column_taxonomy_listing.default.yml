@@ -1,0 +1,64 @@
+uuid: 05d0b426-7e89-43e4-9a4a-46fea59149a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_bg_color
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_cta_id
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_head_col
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_heading
+    - field.field.paragraph.3_column_taxonomy_listing.field_3_column_taxonomy_view
+    - paragraphs.paragraphs_type.3_column_taxonomy_listing
+  module:
+    - color_field
+    - viewfield
+id: paragraph.3_column_taxonomy_listing.default
+targetEntityType: paragraph
+bundle: 3_column_taxonomy_listing
+mode: default
+content:
+  field_3_column_taxonomy_bg_color:
+    weight: 2
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_3_column_taxonomy_cta_id:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_3_column_taxonomy_head_col:
+    weight: 1
+    label: hidden
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
+    region: content
+  field_3_column_taxonomy_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_3_column_taxonomy_view:
+    weight: 3
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
+    third_party_settings: {  }
+    type: viewfield_default
+    region: content
+hidden: {  }

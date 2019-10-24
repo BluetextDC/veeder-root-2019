@@ -1,0 +1,22 @@
+uuid: a4858551-4a66-4ad7-9e3f-8621e1f9e82e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_selection_body
+    - paragraphs.paragraphs_type.selection_module
+  module:
+    - text
+id: paragraph.selection_module.field_selection_body
+field_name: field_selection_body
+entity_type: paragraph
+bundle: selection_module
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

@@ -1,0 +1,9 @@
+uuid: ac903686-3b1b-4b8a-a773-c0b0d3f04149
+langcode: en
+status: true
+dependencies: {  }
+id: 5050_cta
+label: '50-50 CTA'
+icon_uuid: null
+description: 'Use 50-50 CTA for the 2 column of the layer with the title, description, and CTA.'
+behavior_plugins: {  }

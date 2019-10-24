@@ -1,0 +1,23 @@
+uuid: 66645415-1d6e-485b-90c4-0cf72f5ddf1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_5050_layered_cta_layer
+    - paragraphs.paragraphs_type.5050_layered_heading_cta
+id: paragraph.5050_layered_heading_cta.field_5050_layered_cta_layer
+field_name: field_5050_layered_cta_layer
+entity_type: paragraph
+bundle: 5050_layered_heading_cta
+label: 'Layer Heading'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

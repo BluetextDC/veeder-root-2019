@@ -1,0 +1,9 @@
+uuid: 7f6d0f7f-7887-4035-aab7-f7eb340be672
+langcode: en
+status: true
+dependencies: {  }
+id: html_embed
+label: 'HTML Embed'
+icon_uuid: null
+description: 'Use HTML Embed for creating HTML content.'
+behavior_plugins: {  }

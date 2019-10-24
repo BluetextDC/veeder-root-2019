@@ -1,8 +1,13 @@
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+sites/*/files
+sites/*/private
 files/*
-
+sites/*/settings.local.php
+sites/*/services.yml
+sites/*/development.services.yml
+sites/default/settings.php
 # Avoid accidental modification of pantheon.upstream.yml in sites
 # created from this upstream
 pantheon.upstream.yml
@@ -10,6 +15,9 @@ pantheon.upstream.yml
 # Pantheon commits a settings.php for environment-specific settings.
 # Place local settings in settings.local.php
 sites/*/settings.local.php
+
+# Local development
+*.dd
 
 # Note that services.local.yml is not loaded by default. If you would like
 # to use this file add the following to your settings.local.php file:
@@ -59,4 +67,3 @@ Thumbs.db
 
 # Things in the core directory that Drupal 8 commits in the repository.
 !core/**/*.gz
-
