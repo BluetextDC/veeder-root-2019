@@ -3,29 +3,28 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_blog_author
     - field.storage.node.body
-    - field.storage.node.field_body
     - field.storage.node.field_components
-    - field.storage.paragraph.field_selection_body
     - field.storage.paragraph.field_5050_cta_description
-    - field.storage.node.field_generic_hero_description
-    - field.storage.node.field_homepage_hero_subheading
+    - field.storage.node.field_blog_author
+    - field.storage.node.field_blog_detail_heading
     - field.storage.node.field_blog_listing_description
-    - field.storage.node.field_float_number_tags
+    - field.storage.node.field_blog_listing_heading
+    - field.storage.node.field_body
+    - field.storage.node.field_generic_hero_description
     - field.storage.node.field_generic_hero_heading
     - field.storage.node.field_homepage_hero_heading
-    - field.storage.node.field_blog_listing_heading
-    - field.storage.node.field_blog_detail_heading
+    - field.storage.node.field_homepage_hero_subheading
     - field.storage.node.field_product_show_hero_heading
-    - field.storage.node.field_probe_number_tags
-    - field.storage.node.field_product_tags
-    - field.storage.node.field_solution_tags
+    - field.storage.paragraph.field_selection_body
     - field.storage.node.field_summary
+    - field.storage.node.field_product_tags
+    - field.storage.node.field_probe_number_tags
+    - field.storage.node.field_solution_tags
+    - field.storage.node.field_float_number_tags
     - search_api.server.search_server
   module:
     - paragraphs
-    - user
     - taxonomy
     - node
     - search_api
@@ -204,19 +203,6 @@ field_settings:
       module:
         - taxonomy
         - taxonomy
-  name_4:
-    label: 'Components » Paragraph » Authored by » User » Name'
-    datasource_id: 'entity:node'
-    property_path: 'field_components:entity:uid:entity:name'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_components
-      module:
-        - paragraphs
-        - paragraphs
-        - user
-        - user
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -345,15 +331,50 @@ processor_settings:
     alt: true
     tags:
       b: 2
-      em: 1
       h1: 5
       h2: 3
       h3: 2
       strong: 2
-      u: 1
     weights:
       preprocess_index: -15
       preprocess_query: -15
+  ignore_character:
+    all_fields: true
+    fields:
+      - body
+      - field_5050_cta_description
+      - field_blog_author
+      - field_blog_detail_heading
+      - field_blog_listing_description
+      - field_blog_listing_heading
+      - field_body
+      - field_components
+      - field_generic_hero_description
+      - field_generic_hero_heading
+      - field_homepage_hero_heading
+      - field_homepage_hero_subheading
+      - field_product_show_hero_heading
+      - field_selection_body
+      - field_summary
+      - name
+      - name_1
+      - name_2
+      - name_3
+      - rendered_item
+      - title
+      - url
+    ignorable: '[''¿¡!?,.-]'
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
   ignorecase:
     all_fields: false
     fields:
@@ -395,6 +416,21 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -6
+  type_boost:
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          article: !!float 1
+          blog_detail: !!float 1
+          generic_landing: !!float 1
+          homepage: !!float 1
+          page: !!float 1
+          product_detail: !!float 3
+          product_listing: !!float 1
+          product_showcase: !!float 3
+    weights:
+      preprocess_index: 0
 tracker_settings:
   default:
     indexing_order: fifo

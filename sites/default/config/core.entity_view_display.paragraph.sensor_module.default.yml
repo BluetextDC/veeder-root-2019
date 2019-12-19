@@ -1,0 +1,49 @@
+uuid: 68ef6162-2cac-43ee-b74c-e24615d6c2d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sensor_module.field_sensor_body
+    - field.field.paragraph.sensor_module.field_sensor_heading
+    - field.field.paragraph.sensor_module.field_sensor_id
+    - field.field.paragraph.sensor_module.field_sensor_lightbox_title
+    - paragraphs.paragraphs_type.sensor_module
+  module:
+    - text
+id: paragraph.sensor_module.default
+targetEntityType: paragraph
+bundle: sensor_module
+mode: default
+content:
+  field_sensor_body:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_sensor_heading:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sensor_id:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sensor_lightbox_title:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

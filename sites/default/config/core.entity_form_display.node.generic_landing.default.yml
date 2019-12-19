@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.generic_landing.field_display_breadcrumbs
     - field.field.node.generic_landing.field_display_contact_footer
     - field.field.node.generic_landing.field_display_contact_sidebar
+    - field.field.node.generic_landing.field_enable_jump_nav
     - field.field.node.generic_landing.field_generic_hero_cta
     - field.field.node.generic_landing.field_generic_hero_description
     - field.field.node.generic_landing.field_generic_hero_heading
@@ -28,8 +29,10 @@ dependencies:
     - field.field.node.generic_landing.field_taxonomy_image
     - image.style.thumbnail
     - node.type.generic_landing
+    - workflows.workflow.editorial
   module:
     - color_field
+    - content_moderation
     - entity_browser
     - field_group
     - link_attributes
@@ -111,6 +114,7 @@ third_party_settings:
       region: content
     group_misc:
       children:
+        - field_enable_jump_nav
         - field_display_breadcrumbs
         - field_breadcrumb_color
         - field_display_contact_sidebar
@@ -170,7 +174,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_breadcrumb_color:
-    weight: 0
+    weight: 138
     settings:
       placeholder_color: ''
       placeholder_opacity: ''
@@ -196,27 +200,34 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_contact_footer_form:
-    weight: 3
+    weight: 141
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_display_breadcrumbs:
-    weight: -1
+    weight: 137
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_display_contact_footer:
-    weight: 2
+    weight: 140
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_display_contact_sidebar:
-    weight: 1
+    weight: 139
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_enable_jump_nav:
+    weight: 136
     settings:
       display_label: true
     third_party_settings: {  }
@@ -352,12 +363,11 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
-  langcode:
-    type: language_select
-    weight: 2
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
     region: content
-    settings:
-      include_locked: true
     third_party_settings: {  }
   path:
     type: path

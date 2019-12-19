@@ -1,0 +1,22 @@
+uuid: 5e2f1d39-b83c-4c68-9fe7-bfe540f004db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sensor_body
+    - paragraphs.paragraphs_type.sensor_module
+  module:
+    - text
+id: paragraph.sensor_module.field_sensor_body
+field_name: field_sensor_body
+entity_type: paragraph
+bundle: sensor_module
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

@@ -34,6 +34,7 @@ third_party_settings:
         classes: ''
         direction: horizontal
       label: 'Information Tabs'
+      region: content
     group_text:
       children:
         - field_5050_fullwd_cta_text_first
@@ -52,6 +53,7 @@ third_party_settings:
         description: 'This tab contains basic informative fields.'
         required_fields: true
       label: Text
+      region: content
     group_media:
       children:
         - field_5050_fullwd_cta_image
@@ -68,6 +70,7 @@ third_party_settings:
         description: 'This tab contains image and files fields.'
         required_fields: true
       label: Media
+      region: content
 id: paragraph.5050_full_width_cta.default
 targetEntityType: paragraph
 bundle: 5050_full_width_cta

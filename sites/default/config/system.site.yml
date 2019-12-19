@@ -1,6 +1,6 @@
 uuid: 4c0f4d0d-78b5-4d9b-ad20-98fa8dac4d5c
 name: Veeder-Root
-mail: peter@bluetext.com
+mail: webmaster@gilbarco.com
 slogan: ''
 page:
   403: ''
@@ -12,3 +12,4 @@ langcode: en
 default_langcode: en
 _core:
   default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+mail_notification: ''

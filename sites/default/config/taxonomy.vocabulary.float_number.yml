@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Float Number'
 vid: float_number
 description: 'Product filter number'
-hierarchy: 0
 weight: 0

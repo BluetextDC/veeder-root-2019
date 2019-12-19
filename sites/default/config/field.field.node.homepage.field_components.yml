@@ -16,6 +16,7 @@ dependencies:
     - paragraphs.paragraphs_type.full_width_cta
     - paragraphs.paragraphs_type.full_width_media_cta
     - paragraphs.paragraphs_type.html_embed
+    - paragraphs.paragraphs_type.sensor_module
     - paragraphs.paragraphs_type.wysiwyg_text
   module:
     - entity_reference_revisions
@@ -46,6 +47,7 @@ settings:
       full_width_cta: full_width_cta
       wysiwyg_text: wysiwyg_text
       html_embed: html_embed
+      sensor_module: sensor_module
     target_bundles_drag_drop:
       3_column_taxonomy_listing:
         enabled: true
@@ -104,4 +106,10 @@ settings:
       html_embed:
         enabled: true
         weight: 35
+      selection_module:
+        weight: 39
+        enabled: false
+      sensor_module:
+        enabled: true
+        weight: 40
 field_type: entity_reference_revisions

@@ -1,0 +1,19 @@
+uuid: 3eea68b5-5584-4bd4-a87e-20917832914e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sensor_id
+    - paragraphs.paragraphs_type.sensor_module
+id: paragraph.sensor_module.field_sensor_id
+field_name: field_sensor_id
+entity_type: paragraph
+bundle: sensor_module
+label: ID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

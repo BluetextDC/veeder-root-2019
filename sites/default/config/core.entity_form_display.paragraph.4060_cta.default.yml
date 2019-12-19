@@ -34,6 +34,7 @@ third_party_settings:
         classes: ''
         direction: horizontal
       label: 'Information Tabs'
+      region: content
     group_text:
       children:
         - field_4060_cta_text_first
@@ -53,6 +54,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Text
+      region: content
     group_media:
       children:
         - field_4060_cta_image
@@ -69,6 +71,7 @@ third_party_settings:
         description: 'This tab contains image and files fields'
         required_fields: true
       label: Media
+      region: content
 id: paragraph.4060_cta.default
 targetEntityType: paragraph
 bundle: 4060_cta

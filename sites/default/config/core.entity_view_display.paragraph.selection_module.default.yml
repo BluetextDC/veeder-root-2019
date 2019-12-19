@@ -6,11 +6,9 @@ dependencies:
     - field.field.paragraph.selection_module.field_selection_body
     - field.field.paragraph.selection_module.field_selection_heading
     - field.field.paragraph.selection_module.field_selection_id
-    - field.field.paragraph.selection_module.field_selection_js_library
     - field.field.paragraph.selection_module.field_selection_lightbox_title
     - paragraphs.paragraphs_type.selection_module
   module:
-    - file
     - text
 id: paragraph.selection_module.default
 targetEntityType: paragraph
@@ -39,14 +37,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_selection_js_library:
-    weight: 4
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    type: file_default
     region: content
   field_selection_lightbox_title:
     weight: 2

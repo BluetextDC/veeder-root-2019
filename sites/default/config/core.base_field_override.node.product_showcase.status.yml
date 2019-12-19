@@ -1,0 +1,22 @@
+uuid: c80be42f-152f-47ac-b441-ff51828075b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.product_showcase
+id: node.product_showcase.status
+field_name: status
+entity_type: node
+bundle: product_showcase
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

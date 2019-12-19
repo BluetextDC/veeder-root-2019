@@ -31,8 +31,10 @@ dependencies:
     - field.field.node.product_detail.field_summary
     - field.field.node.product_detail.field_taxonomy_image
     - node.type.product_detail
+    - workflows.workflow.editorial
   module:
     - color_field
+    - content_moderation
     - entity_browser
     - field_group
     - link_attributes
@@ -40,7 +42,6 @@ dependencies:
     - metatag
     - paragraphs
     - path
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_tabs:
@@ -395,6 +396,12 @@ content:
     third_party_settings: {  }
     type: entity_browser_file
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 5

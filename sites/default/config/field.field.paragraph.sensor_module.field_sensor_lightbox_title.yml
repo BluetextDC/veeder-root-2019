@@ -1,0 +1,19 @@
+uuid: 1a3b310e-a97a-437a-bb1a-a85050e12613
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sensor_lightbox_title
+    - paragraphs.paragraphs_type.sensor_module
+id: paragraph.sensor_module.field_sensor_lightbox_title
+field_name: field_sensor_lightbox_title
+entity_type: paragraph
+bundle: sensor_module
+label: 'Lightbox Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

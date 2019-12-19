@@ -22,8 +22,10 @@ dependencies:
     - field.field.node.homepage.field_meta_tags
     - field.field.node.homepage.field_summary
     - node.type.homepage
+    - workflows.workflow.editorial
   module:
     - color_field
+    - content_moderation
     - entity_browser
     - field_group
     - link_attributes
@@ -51,6 +53,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Tabs
+      region: content
     group_basic_information:
       children:
         - title
@@ -66,6 +69,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Basic Information'
+      region: content
     group_hero_banner:
       children:
         - field_homepage_hero_heading
@@ -87,6 +91,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Hero Banner'
+      region: content
     group_hero_starting_points:
       children:
         - field_add_starting_point
@@ -101,6 +106,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Hero Starting Points'
+      region: content
     group_hero_cta_block:
       children:
         - field_add_column_cta
@@ -115,6 +121,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Hero CTA Block'
+      region: content
     group_components:
       children:
         - field_components
@@ -129,6 +136,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Components
+      region: content
     group_misc:
       children:
         - field_display_contact_sidebar
@@ -145,6 +153,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: Misc
+      region: content
     group_color_reference:
       children:
         - field_color_variation
@@ -158,6 +167,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Color Reference'
+      region: content
 id: node.homepage.default
 targetEntityType: node
 bundle: homepage
@@ -322,12 +332,11 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  langcode:
-    type: language_select
-    weight: 2
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
     region: content
-    settings:
-      include_locked: true
     third_party_settings: {  }
   path:
     type: path

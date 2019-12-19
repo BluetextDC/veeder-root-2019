@@ -30,6 +30,7 @@ third_party_settings:
         classes: ''
         direction: horizontal
       label: Tabs
+      region: content
     group_text:
       children:
         - field_feature_cta_heading
@@ -45,6 +46,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Text
+      region: content
     group_media:
       children:
         - field_feature_cta_image
@@ -60,6 +62,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Media
+      region: content
 id: paragraph.feature_cta.default
 targetEntityType: paragraph
 bundle: feature_cta

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.generic_landing.field_display_breadcrumbs
     - field.field.node.generic_landing.field_display_contact_footer
     - field.field.node.generic_landing.field_display_contact_sidebar
+    - field.field.node.generic_landing.field_enable_jump_nav
     - field.field.node.generic_landing.field_generic_hero_cta
     - field.field.node.generic_landing.field_generic_hero_description
     - field.field.node.generic_landing.field_generic_hero_heading
@@ -40,6 +41,11 @@ targetEntityType: node
 bundle: generic_landing
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_breadcrumb_color:
     weight: 10
     label: hidden
@@ -95,6 +101,16 @@ content:
   field_display_contact_sidebar:
     weight: 11
     label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_enable_jump_nav:
+    weight: 23
+    label: above
     settings:
       format: default
       format_custom_false: ''
@@ -247,5 +263,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  langcode: true
+hidden: {  }

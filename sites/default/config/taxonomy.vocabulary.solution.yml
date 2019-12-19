@@ -5,5 +5,4 @@ dependencies: {  }
 name: Solution
 vid: solution
 description: 'Solution Category'
-hierarchy: 0
 weight: 0

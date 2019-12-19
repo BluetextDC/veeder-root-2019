@@ -1,0 +1,9 @@
+uuid: 9bab2bed-33ce-4dee-a00c-c9d01a4d030a
+langcode: en
+status: true
+dependencies: {  }
+id: sensor_module
+label: 'Sensor Module'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

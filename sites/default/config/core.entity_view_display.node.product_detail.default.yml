@@ -44,6 +44,11 @@ targetEntityType: node
 bundle: product_detail
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_breadcrumb_color:
     weight: 12
     label: hidden
@@ -287,5 +292,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  langcode: true
+hidden: {  }

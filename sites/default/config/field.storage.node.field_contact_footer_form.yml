@@ -18,17 +18,11 @@ settings:
       value: request-for-quote
       label: 'Request For Quote'
     -
-      value: epa-ebook-download
-      label: 'EPA Ebook Download'
-    -
-      value: tls-ib-software-download
-      label: 'TLS IB Software Download'
-    -
-      value: technical-support
+      value: technical-support-request
       label: 'Technical Support'
     -
-      value: tls4-series-software-download
-      label: 'TLS4 Series Software Download'
+      value: customer-support-request
+      label: 'Customer Support Request'
   allowed_values_function: ''
 module: options
 locked: false
